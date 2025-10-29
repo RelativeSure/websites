@@ -13,7 +13,7 @@ export function baseOptions(): BaseLayoutProps {
       },
       {
         text: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/rasmusjrgensen/',
+        url: 'https://www.linkedin.com/in/rasmusbroeggerjoergensen/',
         external: true,
       },
     ],
