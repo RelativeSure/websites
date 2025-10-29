@@ -3,24 +3,29 @@ title: Health & Well-being Resources
 draft: true
 ---
 
-import MyLinkGrid from "@/components/MyLinkGrid";
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
-export const healthLinks = [
-  {
-    title: "You Feel Like Shit",
-    href: "https://youfeellikeshit.com/",
-    description: "An interactive flowchart for people who feel like shit.",
-  },
-  {
-    title: "Suicide Project",
-    href: "https://suicideproject.org/",
-    description: "Resources and support for those considering suicide.",
-  },
-  {
-    title: "Suicide... read this first",
-    href: "https://metanoia.org/suicide/",
-    description: "Important information for individuals in crisis.",
-  },
-];
+# Health & Well-being Resources
 
-<MyLinkGrid links={healthLinks} gridTitle="Mental Health Support Resources" />
+## Mental Health Support Resources
+
+<Cards>
+  <Card
+    title="You Feel Like Shit"
+    description="An interactive flowchart for people who feel like shit."
+    href="https://youfeellikeshit.com/"
+    external
+  />
+  <Card
+    title="Suicide Project"
+    description="Resources and support for those considering suicide."
+    href="https://suicideproject.org/"
+    external
+  />
+  <Card
+    title="Suicide... read this first"
+    description="Important information for individuals in crisis."
+    href="https://metanoia.org/suicide/"
+    external
+  />
+</Cards>

@@ -2,37 +2,47 @@
 title: Miscellaneous & Interesting Links
 ---
 
-import MyLinkGrid from "@/components/MyLinkGrid";
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
-export const miscellaneousLinks = [
-  {
-    title: "Pointer Pointer",
-    href: "https://pointerpointer.com/",
-    description: "Finds a photo of someone pointing exactly at your cursor.",
-  },
-  {
-    title: "TypeLit.io",
-    href: "https://www.typelit.io/",
-    description: "Practice typing by retyping entire classic novels.",
-  },
-  {
-    title: "Library of Babel",
-    href: "https://libraryofbabel.info/",
-    description:
-      "An online re-creation of Borges' Library of Babel, containing every possible page of 3200 characters.",
-  },
-  {
-    title: "Nuke Map",
-    href: "https://nuclearsecrecy.com/nukemap/",
-    description:
-      "Visualize the effects of nuclear detonations in various locations.",
-  },
-  {
-    title: "Updatecli",
-    href: "https://www.updatecli.io",
-    description:
-      "A declarative dependency management tool that helps keep your project dependencies up-to-date.",
-  },
-];
+# Miscellaneous & Interesting Links
 
-<MyLinkGrid links={miscellaneousLinks} gridTitle="Curated & Curious Finds" />
+## Curated & Curious Finds
+
+<Cards>
+  <Card
+    title="Pointer Pointer"
+    description="Finds a photo of someone pointing exactly at your cursor."
+    href="https://pointerpointer.com/"
+    external
+  />
+  <Card
+    title="TypeLit.io"
+    description="Practice typing by retyping entire classic novels."
+    href="https://www.typelit.io/"
+    external
+  />
+  <Card
+    title="Library of Babel"
+    description="An online re-creation of Borges' Library of Babel, containing every possible page of 3200 characters."
+    href="https://libraryofbabel.info/"
+    external
+  />
+  <Card
+    title="Nuke Map"
+    description="Visualize the effects of nuclear detonations in various locations."
+    href="https://nuclearsecrecy.com/nukemap/"
+    external
+  />
+  <Card
+    title="Updatecli"
+    description="A declarative dependency management tool that helps keep your project dependencies up-to-date."
+    href="https://www.updatecli.io"
+    external
+  />
+  <Card
+    title="Wat"
+    description="Famous lightning talk about programming language quirks and oddities"
+    href="https://www.destroyallsoftware.com/talks/wat"
+    external
+  />
+</Cards>

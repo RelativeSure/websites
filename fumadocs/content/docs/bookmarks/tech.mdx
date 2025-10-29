@@ -2,117 +2,143 @@
 title: General Tech Tools & Resources
 ---
 
-import MyLinkGrid from "@/components/MyLinkGrid";
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
-export const techLinks = [
-  {
-    title: "Filterlists",
-    href: "https://filterlists.com/",
-    description:
-      "A comprehensive directory of filter lists for ad blockers and other privacy tools.",
-  },
-  {
-    title: "Alternative To",
-    href: "https://alternativeto.net/",
-    description: "Find alternatives to software, websites, and apps.",
-  },
-  {
-    title: "VyOS - Open-Source Router & Firewall",
-    href: "https://vyos.io/",
-    description:
-      "A Linux-based network operating system that provides software-based network routing, firewall, and VPN functionality.",
-  },
-  {
-    title: "Safing Portmaster - Open-Source Application Firewall",
-    href: "https://safing.io/",
-    description:
-      "Monitor and block network connections on a per-application basis.",
-  },
-  {
-    title: "Umami Analytics",
-    href: "https://umami.is/",
-    description:
-      "A simple, fast, privacy-focused open-source alternative to Google Analytics.",
-  },
-  {
-    title: "Mastodon Instance Emoji List (Emojos)",
-    href: "https://emojos.in/",
-    description:
-      "Discover custom emojis available on various Mastodon instances.",
-  },
-  {
-    title: "MIT OpenCourseWare",
-    href: "https://ocw.mit.edu/",
-    description: "Access free course materials from MIT.",
-  },
-  {
-    title: "Google .new Shortcuts",
-    href: "https://whats.new/shortcuts/",
-    description:
-      "A list of .new domain shortcuts for quickly creating new Google documents, sheets, etc.",
-  },
-  {
-    title: "TuneMyMusic - Transfer Playlists",
-    href: "https://www.tunemymusic.com/",
-    description:
-      "Transfer your music playlists between various streaming services.",
-  },
-  {
-    title: "Activepieces - Open-Source No-Code Automation",
-    href: "https://www.activepieces.com/",
-    description:
-      "Automate business workflows without coding, open-source alternative to Zapier.",
-  },
-  {
-    title: "RAID is not Backup",
-    href: "https://www.raidisnotabackup.com/",
-    description:
-      "A clear explanation of why RAID systems do not replace proper backup strategies.",
-  },
-  {
-    title: "Talk About Backups",
-    href: "https://talk-about-it.ca/backups/",
-    description: "Resources and advice on the importance of data backups.",
-  },
-  {
-    title: "Technical SEO robots.txt Guide",
-    href: "https://technicalseo.com/tools/docs/robots-txt/",
-    description:
-      "Documentation and tools related to the robots.txt file for SEO.",
-  },
-  {
-    title: "GPSJam.org - GPS Jamming Map",
-    href: "https://gpsjam.org/",
-    description: "Tracks and maps GPS interference and jamming incidents.",
-  },
-  {
-    title: "crt.sh - Certificate Search",
-    href: "https://crt.sh/",
-    description:
-      "Search for SSL/TLS certificates issued by public certificate authorities.",
-  },
-  {
-    title: "Gopeed Download Manager",
-    href: "https://gopeed.com/",
-    description: "A high-speed downloader with a modern interface.",
-  },
-  {
-    title: "Ludus - Infra deployments",
-    href: "https://ludus.cloud/",
-    description:
-      "Platform for creating and managing on-demand, disposable infrastructure environments.",
-  },
-  {
-    title: "Selfh.st Blog",
-    href: "https://selfh.st/",
-    description: "A blog focusing on self-hosting software and services.",
-  },
-  {
-    title: "Parsec - Remote Desktop",
-    href: "https://parsec.app/",
-    description:
-      "Low-latency remote desktop application, popular for gaming and creative work.",
-  },
-];
+# General Tech Tools & Resources
 
-<MyLinkGrid links={techLinks} gridTitle="Useful Tech Utilities & Information" />
+## Useful Tech Utilities & Information
+
+<Cards>
+  <Card
+    title="Filterlists"
+    description="A comprehensive directory of filter lists for ad blockers and other privacy tools."
+    href="https://filterlists.com/"
+    external
+  />
+  <Card
+    title="Alternative To"
+    description="Find alternatives to software, websites, and apps."
+    href="https://alternativeto.net/"
+    external
+  />
+  <Card
+    title="VyOS - Open-Source Router & Firewall"
+    description="A Linux-based network operating system that provides software-based network routing, firewall, and VPN functionality."
+    href="https://vyos.io/"
+    external
+  />
+  <Card
+    title="Safing Portmaster - Open-Source Application Firewall"
+    description="Monitor and block network connections on a per-application basis."
+    href="https://safing.io/"
+    external
+  />
+  <Card
+    title="Umami Analytics"
+    description="A simple, fast, privacy-focused open-source alternative to Google Analytics."
+    href="https://umami.is/"
+    external
+  />
+  <Card
+    title="Mastodon Instance Emoji List (Emojos)"
+    description="Discover custom emojis available on various Mastodon instances."
+    href="https://emojos.in/"
+    external
+  />
+  <Card
+    title="MIT OpenCourseWare"
+    description="Access free course materials from MIT."
+    href="https://ocw.mit.edu/"
+    external
+  />
+  <Card
+    title="Google .new Shortcuts"
+    description="A list of .new domain shortcuts for quickly creating new Google documents, sheets, etc."
+    href="https://whats.new/shortcuts/"
+    external
+  />
+  <Card
+    title="TuneMyMusic - Transfer Playlists"
+    description="Transfer your music playlists between various streaming services."
+    href="https://www.tunemymusic.com/"
+    external
+  />
+  <Card
+    title="Activepieces - Open-Source No-Code Automation"
+    description="Automate business workflows without coding, open-source alternative to Zapier."
+    href="https://www.activepieces.com/"
+    external
+  />
+  <Card
+    title="RAID is not Backup"
+    description="A clear explanation of why RAID systems do not replace proper backup strategies."
+    href="https://www.raidisnotabackup.com/"
+    external
+  />
+  <Card
+    title="Talk About Backups"
+    description="Resources and advice on the importance of data backups."
+    href="https://talk-about-it.ca/backups/"
+    external
+  />
+  <Card
+    title="Technical SEO robots.txt Guide"
+    description="Documentation and tools related to the robots.txt file for SEO."
+    href="https://technicalseo.com/tools/docs/robots-txt/"
+    external
+  />
+  <Card
+    title="GPSJam.org - GPS Jamming Map"
+    description="Tracks and maps GPS interference and jamming incidents."
+    href="https://gpsjam.org/"
+    external
+  />
+  <Card
+    title="crt.sh - Certificate Search"
+    description="Search for SSL/TLS certificates issued by public certificate authorities."
+    href="https://crt.sh/"
+    external
+  />
+  <Card
+    title="Gopeed Download Manager"
+    description="A high-speed downloader with a modern interface."
+    href="https://gopeed.com/"
+    external
+  />
+  <Card
+    title="Ludus - Infra deployments"
+    description="Platform for creating and managing on-demand, disposable infrastructure environments."
+    href="https://ludus.cloud/"
+    external
+  />
+  <Card
+    title="Selfh.st Blog"
+    description="A blog focusing on self-hosting software and services."
+    href="https://selfh.st/"
+    external
+  />
+  <Card
+    title="Parsec - Remote Desktop"
+    description="Low-latency remote desktop application, popular for gaming and creative work."
+    href="https://parsec.app/"
+    external
+  />
+  <Card
+    title="Portainer"
+    description="Enterprise-grade container management platform for Docker and Kubernetes"
+    href="https://www.portainer.io/"
+    external
+  />
+  <Card
+    title="Speedtest"
+    description="Test your internet connection speed and performance"
+    href="https://www.speedtest.net/"
+    external
+  />
+  <Card
+    title="LinuxServer.io"
+    description="Largest collection of Docker images with standardized builds and first-class documentation"
+    href="https://www.linuxserver.io/"
+    external
+  />
+</Cards>

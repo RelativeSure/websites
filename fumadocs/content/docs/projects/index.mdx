@@ -1,13 +1,50 @@
 ---
 title: Projects
-description: Personal projects and work in progress
+description: Personal projects and repositories
 ---
+
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
 # Projects
 
-Collection of personal projects, experiments, and work in progress.
+A collection of my personal projects and open-source repositories.
 
-## Current Projects
+## Featured Repositories
 
-- **AutoCOPR** - Automation tools for COPR (Cool Other Package Repo)
-- **Work in Progress** - Various projects under development
+<Cards>
+  <Card
+    title="Personal Fumadocs Site"
+    description="Personal documentation and portfolio site built with Fumadocs and Next.js"
+    href="./personal-fumadocs-site"
+  />
+  <Card
+    title="Personal Starlight Site"
+    description="Documentation site built with Starlight and Astro"
+    href="./personal-starlight-site"
+  />
+</Cards>
+
+## Active Projects
+
+<Cards>
+  <Card
+    title="AutoCOPR"
+    description="Automation tools for COPR (Cool Other Package Repo). Tools and utilities for automating package building and repository management workflows."
+    href="./autocopr"
+  />
+</Cards>
+
+## Work in Progress
+
+<Cards>
+  <Card
+    title="Build GitHub Actions Images"
+    description="Centralized Docker images for GitHub Actions workflows"
+    href="./build-gh-actions-image"
+  />
+  <Card
+    title="CircleCI Megalinter Orb"
+    description="CircleCI public orb for Megalinter integration in workflows"
+    href="./circleci-megalinter-orb"
+  />
+</Cards>

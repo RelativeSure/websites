@@ -2,20 +2,17 @@
 title: Windows Tools & Resources
 ---
 
-import MyLinkGrid from "@/components/MyLinkGrid";
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
-export const windowsLinks = [
-  // {
-  //   title: "Activator",
-  //   href: "https://massgrave.dev/",
-  //   description: "Tools for Windows and Office activation (use with caution and ensure legality)."
-  // },
-  {
-    title: "WSLDL",
-    href: "https://wsldl-pg.github.io/docs/",
-    description:
-      "Unofficial documentation and resources for WSL Distro Launcher.",
-  },
-];
+# Windows Tools & Resources
 
-<MyLinkGrid links={windowsLinks} gridTitle="Windows Specific Utilities" />
+## Windows Specific Utilities
+
+<Cards>
+  <Card
+    title="WSLDL"
+    description="Unofficial documentation and resources for WSL Distro Launcher."
+    href="https://wsldl-pg.github.io/docs/"
+    external
+  />
+</Cards>

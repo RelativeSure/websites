@@ -1,0 +1,46 @@
+---
+title: CircleCI Megalinter Orb
+description: CircleCI public orb for Megalinter integration in workflows
+---
+
+# CircleCI Megalinter Orb
+
+CircleCI public orb for Megalinter integration in workflows.
+
+## Repository
+
+- **GitHub**: https://github.com/KubeArchitect/circleci-megalinter-orb
+- **Status**: Work in Progress
+
+## Tech Stack
+
+- CircleCI Orbs
+- Megalinter
+- YAML
+
+## Overview
+
+This orb provides an easy way to integrate Megalinter (a comprehensive code quality checker) into CircleCI pipelines.
+
+## Getting Started
+
+```bash
+git clone https://github.com/KubeArchitect/circleci-megalinter-orb
+cd circleci-megalinter-orb
+```
+
+## Usage
+
+Add the orb to your CircleCI config:
+
+```yaml
+version: 2.1
+
+orbs:
+  megalinter: kubearchitect/megalinter@x.y.z
+
+workflows:
+  main:
+    jobs:
+      - megalinter/scan
+```

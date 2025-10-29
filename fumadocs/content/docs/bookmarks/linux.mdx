@@ -2,94 +2,119 @@
 title: Linux Tools & Resources
 ---
 
-import MyLinkGrid from "@/components/MyLinkGrid";
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
-export const linuxLinks = [
-  {
-    title: "CachyOS",
-    href: "https://cachyos.org/",
-    description:
-      "An Arch-based Linux distribution focused on performance and ease of use.",
-  },
-  {
-    title: "LazyVim",
-    href: "https://www.lazyvim.org/",
-    description:
-      "A Neovim setup powered by lazy.nvim to make it easy to customize and extend your config.",
-  },
-  {
-    title: "DevEnv",
-    href: "https://devenv.sh/",
-    description:
-      "Create development environments quickly and reproducibly with Nix.",
-  },
-  {
-    title: "Exa",
-    href: "https://github.com/ogham/exa",
-    description: "A modern replacement for ls.",
-  },
-  {
-    title: "GitHub Profile Summary Cards",
-    href: "https://github-profile-summary-cards.vercel.app/demo.html",
-    description: "Generate dynamic summary cards for your GitHub profile.",
-  },
-  {
-    title: "lsd (Next-Gen ls command)",
-    href: "https://github.com/lsd-rs/lsd",
-    description:
-      "The next gen ls command with lots of pretty colors and awesome icons.",
-  },
-  {
-    title: "Explain Shell Commands",
-    href: "https://explainshell.com/",
-    description:
-      "Write down a command-line to see the help text that matches each argument.",
-  },
-  {
-    title: "Btop",
-    href: "https://github.com/aristocratos/btop",
-    description:
-      "A resource monitor that shows usage and stats for processor, memory, disks, network and processes.",
-  },
-  {
-    title: "Commandlinefu sort-by-votes",
-    href: "https://www.commandlinefu.com/commands/browse/sort-by-votes",
-    description: "Find the most popular and useful command-line snippets.",
-  },
-  {
-    title: "Vim Adept",
-    href: "https://thevaluable.dev/vim-adept/",
-    description: "Resources for learning and mastering Vim.",
-  },
-  {
-    title: "AI-Powered shell",
-    href: "https://www.riveducha.com/openai-powered-linux-shell.html",
-    description: "Concept for an AI-enhanced Linux shell experience.",
-  },
-  {
-    title: "Timewarrior",
-    href: "https://timewarrior.net/",
-    description: "A command-line time tracking application.",
-  },
-  {
-    title: "ipcalc",
-    href: "https://linux.die.net/man/1/ipcalc",
-    description: "Man page for ipcalc, a utility to perform IP calculations.",
-  },
-  {
-    title: "Ping.pe",
-    href: "https://ping.pe/",
-    description:
-      "Ping, mtr, dig, and TCP port check from multiple global locations.",
-  },
-  {
-    title: "Termbin",
-    href: "https://termbin.com/",
-    description: "A simple way to share terminal output over the web.",
-  },
-];
+# Linux Tools & Resources
 
-<MyLinkGrid
-  links={linuxLinks}
-  gridTitle="Essential Linux Utilities & Learning"
-/>
+## Essential Linux Utilities & Learning
+
+<Cards>
+  <Card
+    title="CachyOS"
+    description="An Arch-based Linux distribution focused on performance and ease of use."
+    href="https://cachyos.org/"
+    external
+  />
+  <Card
+    title="LazyVim"
+    description="A Neovim setup powered by lazy.nvim to make it easy to customize and extend your config."
+    href="https://www.lazyvim.org/"
+    external
+  />
+  <Card
+    title="DevEnv"
+    description="Create development environments quickly and reproducibly with Nix."
+    href="https://devenv.sh/"
+    external
+  />
+  <Card
+    title="Exa"
+    description="A modern replacement for ls."
+    href="https://github.com/ogham/exa"
+    external
+  />
+  <Card
+    title="GitHub Profile Summary Cards"
+    description="Generate dynamic summary cards for your GitHub profile."
+    href="https://github-profile-summary-cards.vercel.app/demo.html"
+    external
+  />
+  <Card
+    title="lsd (Next-Gen ls command)"
+    description="The next gen ls command with lots of pretty colors and awesome icons."
+    href="https://github.com/lsd-rs/lsd"
+    external
+  />
+  <Card
+    title="Explain Shell Commands"
+    description="Write down a command-line to see the help text that matches each argument."
+    href="https://explainshell.com/"
+    external
+  />
+  <Card
+    title="Btop"
+    description="A resource monitor that shows usage and stats for processor, memory, disks, network and processes."
+    href="https://github.com/aristocratos/btop"
+    external
+  />
+  <Card
+    title="Commandlinefu sort-by-votes"
+    description="Find the most popular and useful command-line snippets."
+    href="https://www.commandlinefu.com/commands/browse/sort-by-votes"
+    external
+  />
+  <Card
+    title="Vim Adept"
+    description="Resources for learning and mastering Vim."
+    href="https://thevaluable.dev/vim-adept/"
+    external
+  />
+  <Card
+    title="AI-Powered shell"
+    description="Concept for an AI-enhanced Linux shell experience."
+    href="https://www.riveducha.com/openai-powered-linux-shell.html"
+    external
+  />
+  <Card
+    title="Timewarrior"
+    description="A command-line time tracking application."
+    href="https://timewarrior.net/"
+    external
+  />
+  <Card
+    title="ipcalc"
+    description="Man page for ipcalc, a utility to perform IP calculations."
+    href="https://linux.die.net/man/1/ipcalc"
+    external
+  />
+  <Card
+    title="Ping.pe"
+    description="Ping, mtr, dig, and TCP port check from multiple global locations."
+    href="https://ping.pe/"
+    external
+  />
+  <Card
+    title="Termbin"
+    description="A simple way to share terminal output over the web."
+    href="https://termbin.com/"
+    external
+  />
+  <Card
+    title="tldr pages"
+    description="Simplified, community-driven man pages with practical examples"
+    href="https://tldr.sh/"
+    external
+  />
+  <Card
+    title="ShellCheck"
+    description="Online shell script analyzer that finds bugs in your scripts"
+    href="https://www.shellcheck.net/"
+    external
+  />
+  <Card
+    title="asciinema"
+    description="Record and share your terminal sessions"
+    href="https://asciinema.org/"
+    external
+  />
+</Cards>

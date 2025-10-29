@@ -2,19 +2,35 @@
 title: HTTP Tools & References
 ---
 
-import MyLinkGrid from "@/components/MyLinkGrid";
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
-export const httpLinks = [
-  {
-    title: "Mozilla SSL Configuration Generator",
-    href: "https://ssl-config.mozilla.org/",
-    description: "Generate secure SSL/TLS configurations for various servers.",
-  },
-  {
-    title: "HTTPie APIs",
-    href: "https://httpie.io/",
-    description: "A user-friendly CLI HTTP client and API testing platform.",
-  },
-];
+# HTTP Tools & References
 
-<MyLinkGrid links={httpLinks} gridTitle="Essential HTTP Utilities" />
+## Essential HTTP Utilities
+
+<Cards>
+  <Card
+    title="Mozilla SSL Configuration Generator"
+    description="Generate secure SSL/TLS configurations for various servers."
+    href="https://ssl-config.mozilla.org/"
+    external
+  />
+  <Card
+    title="HTTPie APIs"
+    description="A user-friendly CLI HTTP client and API testing platform."
+    href="https://httpie.io/"
+    external
+  />
+  <Card
+    title="httpbin"
+    description="HTTP Request & Response Service for testing"
+    href="https://httpbin.org/"
+    external
+  />
+  <Card
+    title="Webhook.site"
+    description="Instantly inspect and debug webhooks and HTTP requests"
+    href="https://webhook.site/"
+    external
+  />
+</Cards>

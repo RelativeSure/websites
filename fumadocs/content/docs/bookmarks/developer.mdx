@@ -2,26 +2,116 @@
 title: Developer Resources
 ---
 
-import MyLinkGrid from "@/components/MyLinkGrid";
+import { Card, Cards } from 'fumadocs-ui/components/card';
 
-export const developerLinks = [
-  { title: "DevDocs", href: "https://devdocs.io/" },
-  {
-    title: "Awesome Selfhosted",
-    href: "https://github.com/awesome-selfhosted/awesome-selfhosted",
-  },
-  { title: "Developer Roadmaps", href: "https://roadmap.sh/" },
-  { title: "Developer Documentation", href: "https://devdocs.io/" }, // Note: Duplicate of DevDocs, intentional?
-  { title: "Geany - IDE", href: "https://www.geany.org/" },
-  { title: "Shadcn - UI Components", href: "https://ui.shadcn.com/" },
-  { title: "Supermaven - AI Copilot", href: "https://supermaven.com/" },
-  { title: "Killercoda - DevOps", href: "https://killercoda.com/" },
-  { title: "The Valley of Code", href: "https://thevalleyofcode.com/" },
-  { title: "JSON Viewer", href: "https://www.jsonviewer.tools/" },
-  { title: "Learn Git Branching", href: "https://learngitbranching.js.org/" },
-  { title: "Open-Source Wiki", href: "https://js.wiki/" },
-  { title: "Oh Shit, Git?!", href: "https://ohshitgit.com/" },
-  { title: "Git Delta tool", href: "https://github.com/dandavison/delta" },
-];
+# Developer Resources
 
-<MyLinkGrid links={developerLinks} />
+<Cards>
+  <Card
+    title="DevDocs"
+    href="https://devdocs.io/"
+    external
+  />
+  <Card
+    title="Awesome Selfhosted"
+    href="https://github.com/awesome-selfhosted/awesome-selfhosted"
+    external
+  />
+  <Card
+    title="Developer Roadmaps"
+    href="https://roadmap.sh/"
+    external
+  />
+  <Card
+    title="Geany - IDE"
+    href="https://www.geany.org/"
+    external
+  />
+  <Card
+    title="Shadcn - UI Components"
+    href="https://ui.shadcn.com/"
+    external
+  />
+  <Card
+    title="Supermaven - AI Copilot"
+    href="https://supermaven.com/"
+    external
+  />
+  <Card
+    title="Killercoda - DevOps"
+    href="https://killercoda.com/"
+    external
+  />
+  <Card
+    title="The Valley of Code"
+    href="https://thevalleyofcode.com/"
+    external
+  />
+  <Card
+    title="JSON Viewer"
+    href="https://www.jsonviewer.tools/"
+    external
+  />
+  <Card
+    title="Learn Git Branching"
+    href="https://learngitbranching.js.org/"
+    external
+  />
+  <Card
+    title="Open-Source Wiki"
+    href="https://js.wiki/"
+    external
+  />
+  <Card
+    title="Oh Shit, Git?!"
+    href="https://ohshitgit.com/"
+    external
+  />
+  <Card
+    title="Git Delta tool"
+    href="https://github.com/dandavison/delta"
+    external
+  />
+  <Card
+    title="regex101"
+    description="Interactive regex tester with explanations for multiple languages"
+    href="https://regex101.com/"
+    external
+  />
+  <Card
+    title="Can I use"
+    description="Browser compatibility tables for web technologies"
+    href="https://caniuse.com/"
+    external
+  />
+  <Card
+    title="Crontab Guru"
+    description="Quick and simple cron schedule expression editor"
+    href="https://crontab.guru/"
+    external
+  />
+  <Card
+    title="Bundlephobia"
+    description="Find the cost of adding an npm package to your bundle"
+    href="https://bundlephobia.com/"
+    external
+  />
+  <Card
+    title="Carbon"
+    description="Create and share beautiful images of your source code"
+    href="https://carbon.now.sh/"
+    external
+  />
+  <Card
+    title="gitignore.io"
+    description="Create useful .gitignore files for your project"
+    href="https://www.gitignore.io/"
+    external
+  />
+  <Card
+    title="JSONLint"
+    description="JSON validator and formatter"
+    href="https://jsonlint.com/"
+    external
+  />
+</Cards>
