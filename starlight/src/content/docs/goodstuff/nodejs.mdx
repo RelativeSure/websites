@@ -1,0 +1,12 @@
+---
+title: NodeJS
+---
+
+import { Code } from '@astrojs/starlight/components';
+import { PackageManagers } from 'starlight-package-managers'
+
+## Check unused dependencies
+
+<PackageManagers type="install" pkg="depcheck -g" comment="Install depcheck globally" />
+
+<Code code="depcheck" lang="sh" title="Run depcheck" />

@@ -1,0 +1,32 @@
+---
+title: Helm
+description: Good Stuff for Helm
+---
+
+## Plugins
+
+<Cards>
+  <Card title="Helm Secrets" href="https://github.com/jkroepke/helm-secrets" description="Plugin to manage secrets" />
+  <Card title="Helm Git" href="https://github.com/aslafy-z/helm-git" description="Plugin for git-based charts" />
+  <Card title="Helm Diff" href="https://github.com/databus23/helm-diff" description="Preview helm upgrades" />
+</Cards>
+
+## Examples
+
+### Get values for helm chart
+
+```shell
+helm get values <helm name> --namespace <namespace>
+```
+
+### Lint helm files
+
+```shell
+helm lint --strict
+```
+
+### Dry run of an install of helm chart
+
+```shell
+helm install --dry-run --debug
+```

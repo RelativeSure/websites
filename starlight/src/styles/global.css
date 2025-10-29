@@ -1,0 +1,123 @@
+@layer base, starlight, theme, components, utilities;
+
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Default fallback (no theme set) - use light mode */
+:root {
+  /* font */
+  --font-family-sans: 'Fira Mono', monospace;
+  --font-family-mono: 'Fira Code', monospace;
+
+  /* Light theme colors as default fallback */
+  --sl-color-accent-low: #d1e5f0;
+  --sl-color-accent: #0071ab;
+  --sl-color-accent-high: #0e3650;
+
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #f3f7f7;
+  --sl-color-gray-2: #e7f0ef;
+  --sl-color-gray-3: #bac5c4;
+  --sl-color-gray-4: #7b9090;
+  --sl-color-gray-5: #495d5c;
+  --sl-color-gray-6: #2a3c3c;
+  --sl-color-black: #121a1a;
+}
+
+/* Dark mode colors */
+:root[data-theme='dark'] {
+  /* Dark theme colors - much darker backgrounds */
+  --sl-color-accent-low: #1e3a5f;
+  --sl-color-accent: #5fb3f3;
+  --sl-color-accent-high: #cce7ff;
+
+  --sl-color-white: #e8f4ff;
+  --sl-color-gray-1: #f0f8ff;
+  --sl-color-gray-2: #d0dde8;
+  --sl-color-gray-3: #9bb0c1;
+  --sl-color-gray-4: #6b7f8f;
+  --sl-color-gray-5: #3d4f5a;
+  --sl-color-gray-6: #1f2937;
+  --sl-color-black: #0a0f14;
+}
+
+/* Light mode colors */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #d1e5f0;
+  --sl-color-accent: #0071ab;
+  --sl-color-accent-high: #0e3650;
+
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #f3f7f7;
+  --sl-color-gray-2: #e7f0ef;
+  --sl-color-gray-3: #bac5c4;
+  --sl-color-gray-4: #7b9090;
+  --sl-color-gray-5: #495d5c;
+  --sl-color-gray-6: #2a3c3c;
+  --sl-color-black: #121a1a;
+}
+
+/* Blue Ocean Theme */
+:root[data-theme='blue'] {
+  --sl-color-accent-low: #dbeafe;
+  --sl-color-accent: #1d4ed8;
+  --sl-color-accent-high: #1e3a8a;
+
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #f1f5f9;
+  --sl-color-gray-2: #e2e8f0;
+  --sl-color-gray-3: #94a3b8;
+  --sl-color-gray-4: #64748b;
+  --sl-color-gray-5: #475569;
+  --sl-color-gray-6: #334155;
+  --sl-color-black: #0f172a;
+}
+
+/* Forest Green Theme */
+:root[data-theme='forest'] {
+  --sl-color-accent-low: #dcfce7;
+  --sl-color-accent: #16a34a;
+  --sl-color-accent-high: #14532d;
+
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #f7f7f7;
+  --sl-color-gray-2: #e5e7eb;
+  --sl-color-gray-3: #9ca3af;
+  --sl-color-gray-4: #6b7280;
+  --sl-color-gray-5: #4b5563;
+  --sl-color-gray-6: #374151;
+  --sl-color-black: #1f2937;
+}
+
+/* Sunset Orange Theme */
+:root[data-theme='sunset'] {
+  --sl-color-accent-low: #fed7aa;
+  --sl-color-accent: #ea580c;
+  --sl-color-accent-high: #9a3412;
+
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #fef7f0;
+  --sl-color-gray-2: #fde8d0;
+  --sl-color-gray-3: #fdba74;
+  --sl-color-gray-4: #f97316;
+  --sl-color-gray-5: #ea580c;
+  --sl-color-gray-6: #c2410c;
+  --sl-color-black: #431407;
+}
+
+/* Purple Night Theme */
+:root[data-theme='purple'] {
+  --sl-color-accent-low: #e9d5ff;
+  --sl-color-accent: #7c3aed;
+  --sl-color-accent-high: #3730a3;
+
+  --sl-color-white: #faf9ff;
+  --sl-color-gray-1: #f3f0ff;
+  --sl-color-gray-2: #e5dbff;
+  --sl-color-gray-3: #c4b5fd;
+  --sl-color-gray-4: #8b5cf6;
+  --sl-color-gray-5: #7c3aed;
+  --sl-color-gray-6: #5b21b6;
+  --sl-color-black: #2e1065;
+}

@@ -1,0 +1,33 @@
+---
+title: WSL
+---
+
+## WSL Subnet
+
+To setup a new network in your NAT'ed interface in WSL you have to edit in the registry.
+The keys can be found under this path: "Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss".
+There can be two keys there have to be changed. They can be changed to the following:
+    - NatGatewayIpAddress   = `192.168.0.1`
+    - NatNetwork            = `192.168.0.0/24`
+
+Afterwards you have to restart your PC. When thats done open a WSL window and check the network interfaces if they have been changed to the new network.
+
+## Windows Terminal
+
+Gist to personal VSCode settings file
+
+- [Personal VSCode Settings](https://gist.github.com/RelativeSure/60b590d1795521ef9d213c83afd16066)
+
+GitHub repo to personal dotfiles
+
+:::caution
+Dotfile repo still work in progress
+:::
+
+[WSL Configuration dotfiles](https://github.com/RelativeSure/wsl-configuration)
+
+## Linux Tools
+
+- [lsd](https://github.com/lsd-rs/lsd)
+- [lunarvim](https://www.lunarvim.org)
+- [git-delta](https://github.com/dandavison/delta)

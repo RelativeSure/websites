@@ -1,0 +1,61 @@
+---
+// src/components/MyLinkGrid.astro
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
+
+// Define the expected shape for each link item
+export interface LinkItem {
+  title: string;
+  href: string;
+  description?: string; // Optional description
+  target?: string; // Optional target attribute for the link (e.g., "_blank")
+}
+
+// Define the props for this component
+
+interface Props {
+  links: LinkItem[]; // 'links' is now a required prop
+  gridTitle?: string; // Optional title for the grid
+}
+
+// Destructure the props. 'links' must be provided by the parent.
+const { links, gridTitle } = Astro.props;
+
+// Basic validation: Ensure links prop is provided and is an array
+// Astro will usually throw an error during build if a required prop is missing,
+// but an explicit check can be useful for runtime or more complex scenarios.
+if (!links || !Array.isArray(links)) {
+  // In a real app, you might throw an error or render a message.
+  // For Starlight, a build error for missing props is often sufficient.
+  console.warn(
+    "MyLinkGrid component requires a 'links' prop (array of LinkItem)."
+  );
+  // Optionally, render nothing or an error message if links are not provided
+  // return null; // Or <p>Error: Links data not provided.</p>
+}
+---
+
+{
+  /* Only render the grid if links are available and it's a non-empty array */
+}
+{
+  links && links.length > 0 ? (
+    <>
+
+      {gridTitle && <h2>{gridTitle}</h2>}
+      <CardGrid>
+        {links.map((link) => (
+          <LinkCard
+            title={link.title}
+            href={link.href}
+            description={link.description}
+            target={link.target ?? "_blank"}
+            rel="noopener noreferrer"
+          />
+        ))}
+      </CardGrid>
+    </>
+  ) : (
+    <p>No links to display.</p>
+  )
+}
+

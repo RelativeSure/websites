@@ -1,0 +1,36 @@
+---
+title: Basic
+description: Basic commands in linux
+---
+
+import { Code } from '@astrojs/starlight/components'
+
+All the commands listed here can be used in each linux distro.
+
+## Check manual for each command
+
+**OBS:** Not every command has a manual page.
+
+Run `man <command>` in CLI
+
+## List items in directory
+
+To see what files are in your current directory: `ls`
+
+## See content of file
+
+Print out the content of a file into terminal: `cat`
+
+Open the file in a window and open it at the bottom: `less`.
+
+Open the file in a window and open it at the top: `head`.
+
+## Change shell
+
+```shell
+# Check available shells
+cat /etc/shells
+
+# Change shell
+sudo chsh -s <path to shell>
+```

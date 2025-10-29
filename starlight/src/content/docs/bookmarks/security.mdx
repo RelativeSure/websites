@@ -1,0 +1,61 @@
+---
+title: Security Resources & Tools
+---
+
+import MyLinkGrid from "../../../components/MyLinkGrid.astro";
+
+export const challengeLinks = [
+  {
+    title: "Hackmud",
+    href: "https://www.hackmud.com/",
+    description: "A massively multiplayer online text-based hacking simulator.",
+  },
+];
+
+export const honeypotLinks = [
+  {
+    title: "Riotpot",
+    href: "https://github.com/honeynet/riotpot",
+    description: "An interactive honeypot for IoT and OT devices.",
+  },
+  {
+    title: "Honeypot ToGo AAU (HosTaGe)",
+    href: "https://aau-network-security.github.io/HosTaGe/",
+    description: "A low-interaction honeypot for mobile devices.",
+  },
+];
+
+export const otherSecurityLinks = [
+  {
+    title: "Collection of Cyber Bookmarks",
+    href: "https://github.com/x0rb3l/Cyber-Bookmarks",
+    description: "A curated list of cybersecurity-related bookmarks.",
+  },
+  {
+    title: "The Hacker's Choice (THC)",
+    href: "https://www.thc.org/",
+    description: "One of the oldest and most renowned hacking groups.",
+  },
+  {
+    title: "Ransom Database",
+    href: "https://www.ransom-db.com/",
+    description: "A database tracking ransomware attacks and information.",
+  },
+  {
+    title: "AppTotal - Analyze your app",
+    href: "https://apptotal.io/",
+    description: "Mobile application security analysis platform.",
+  },
+];
+
+## Challenges
+
+<MyLinkGrid links={challengeLinks} />
+
+## Honeypots
+
+<MyLinkGrid links={honeypotLinks} />
+
+## Other Security Resources
+
+<MyLinkGrid links={otherSecurityLinks} />

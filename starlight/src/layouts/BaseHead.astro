@@ -1,0 +1,10 @@
+---
+const { siteTitle, description } = Astro.props;
+---
+<html lang="en">
+    <head>
+        <title>{siteTitle}</title>
+        <meta name="title" content={siteTitle} />
+        <meta name="description" content={description} />
+    </head>
+</html>

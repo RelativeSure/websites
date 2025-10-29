@@ -1,0 +1,26 @@
+---
+title: Health & Well-being Resources
+draft: true
+---
+
+import MyLinkGrid from "../../../components/MyLinkGrid.astro";
+
+export const healthLinks = [
+  {
+    title: "You Feel Like Shit",
+    href: "https://youfeellikeshit.com/",
+    description: "An interactive flowchart for people who feel like shit.",
+  },
+  {
+    title: "Suicide Project",
+    href: "https://suicideproject.org/",
+    description: "Resources and support for those considering suicide.",
+  },
+  {
+    title: "Suicide... read this first",
+    href: "https://metanoia.org/suicide/",
+    description: "Important information for individuals in crisis.",
+  },
+];
+
+<MyLinkGrid links={healthLinks} gridTitle="Mental Health Support Resources" />

@@ -1,0 +1,9 @@
+name = "personal-starlight-site-workers"
+compatibility_date = "2025-08-07"
+
+[assets]
+directory = "./dist"
+
+[vars]
+NODE_VERSION = "v24"
+PNPM_VERSION = "10"
