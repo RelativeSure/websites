@@ -7,8 +7,7 @@
     "websites/*"
   ],
   "scripts": {
-    "clean": "rm -rf node_modules websites/*/node_modules",
-    "install:all": "npm install"
+    "clean": "rm -rf node_modules websites/*/node_modules"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -45,7 +45,9 @@ npm create astro@latest -- --template starlight
 
 ```bash
 cd websites/fumadocs
-npx create-next-app@latest -e https://github.com/fuma-nama/fumadocs
+# Follow the official Fumadocs installation guide at:
+# https://fumadocs.vercel.app/docs/getting-started
+npx create-fumadocs-app@latest
 ```
 
 ## Working with Individual Projects
