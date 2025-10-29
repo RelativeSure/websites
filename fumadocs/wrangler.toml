@@ -1,0 +1,9 @@
+name = "websites-fumadocs"
+compatibility_date = "2025-10-25"
+
+[assets]
+directory = "./out"
+
+[vars]
+NODE_VERSION = "v24"
+PNPM_VERSION = "10"
