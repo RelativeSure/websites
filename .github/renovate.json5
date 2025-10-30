@@ -139,8 +139,7 @@
     commitMessagePrefix: 'chore(deps):',
     commitMessageAction: 'update',
     commitMessageTopic: '{{depName}}',
-    commitMessageExtra: 'to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}',
-    prTitle: '{{commitMessagePrefix}} {{commitMessageAction}} {{commitMessageTopic}} {{commitMessageExtra}}',
+    commitMessageExtra: ' to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}',
     prBodyDefinitions: {
         Package: '{{#if packageUrl}}[{{depName}}]({{packageUrl}}){{else}}`{{depName}}`{{/if}}',
         Change: '`{{updateType}}`',
