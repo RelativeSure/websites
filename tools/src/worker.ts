@@ -998,12 +998,12 @@ const landingPage = `<!DOCTYPE html>
       timestampChip.textContent = 'analysis pending…';
 
       try {
-        const response = await fetch(`/api/analyze?url=${encodeURIComponent(url)}`, {
+        const response = await fetch('/api/analyze?url=' + encodeURIComponent(url), {
           headers: { Accept: 'application/json' }
         });
 
         if (!response.ok) {
-          throw new Error(`Analysis failed (${response.status})`);
+          throw new Error('Analysis failed (' + response.status + ')');
         }
 
         const data = await response.json();
@@ -1018,14 +1018,14 @@ const landingPage = `<!DOCTYPE html>
         }
 
         if (typeof data.statusCode === 'number') {
-          statusChip.textContent = `HTTP ${data.statusCode}`;
+          statusChip.textContent = 'HTTP ' + data.statusCode;
           statusChip.hidden = false;
         } else {
           statusChip.hidden = true;
         }
 
         if (data.finalUrl && data.finalUrl !== url) {
-          finalChip.textContent = `Redirected → ${data.finalUrl}`;
+          finalChip.textContent = 'Redirected → ' + data.finalUrl;
           finalChip.hidden = false;
         } else {
           finalChip.hidden = true;
@@ -1033,7 +1033,9 @@ const landingPage = `<!DOCTYPE html>
 
         if (data.rating) {
           resultRating.dataset.level = data.rating.level ?? 'warning';
-          resultRating.textContent = `${data.rating.label ?? 'Unknown'} · Score ${data.rating.score ?? 0}`;
+          const ratingLabel = data.rating.label ?? 'Unknown';
+          const ratingScore = data.rating.score ?? 0;
+          resultRating.textContent = ratingLabel + ' · Score ' + ratingScore;
         } else {
           resultRating.dataset.level = 'warning';
           resultRating.textContent = 'Rating unavailable';
@@ -1061,7 +1063,7 @@ const landingPage = `<!DOCTYPE html>
 
         screenshotContainer.hidden = false;
         screenshotImg.src = buildScreenshotUrl(finalUrl);
-        screenshotImg.alt = `Screenshot preview of ${finalUrl}`;
+        screenshotImg.alt = 'Screenshot preview of ' + finalUrl;
 
         setStatus('Sandbox analysis complete. Review the findings.', 'success');
       } catch (error) {
@@ -1074,7 +1076,7 @@ const landingPage = `<!DOCTYPE html>
 
     function buildScreenshotUrl(targetUrl) {
       const encoded = encodeURIComponent(targetUrl);
-      return `https://image.thum.io/get/width/900/crop/768/${encoded}`;
+      return 'https://image.thum.io/get/width/900/crop/768/' + encoded;
     }
 
     function handleDecoded(payload, source) {
@@ -1089,7 +1091,7 @@ const landingPage = `<!DOCTYPE html>
       } else {
         analysisBlock.hidden = true;
         nonUrlNote.hidden = false;
-        setStatus(`Decoded plain text${source === 'file' ? ' from upload' : ''}.`, 'success');
+        setStatus('Decoded plain text' + (source === 'file' ? ' from upload' : '') + '.', 'success');
       }
     }
 
