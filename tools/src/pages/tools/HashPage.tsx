@@ -12,57 +12,43 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+type HashAlgorithm = "SHA-1" | "SHA-256" | "SHA-384" | "SHA-512";
+
 export default function HashGenerator() {
   const [input, setInput] = useState("");
-  const [hashes, setHashes] = useState<Record<string, string>>({});
-  const [copied, setCopied] = useState<string | null>(null);
+  const [algorithm, setAlgorithm] = useState<HashAlgorithm>("SHA-256");
+  const [hash, setHash] = useState("");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     if (!input) {
-      setHashes({});
+      setHash("");
       return;
     }
 
-    const generateHashes = async () => {
+    const generateHash = async () => {
       const encoder = new TextEncoder();
       const data = encoder.encode(input);
 
       try {
-        // Generate SHA-256
-        const sha256Buffer = await crypto.subtle.digest("SHA-256", data);
-        const sha256 = Array.from(new Uint8Array(sha256Buffer))
+        const hashBuffer = await crypto.subtle.digest(algorithm, data);
+        const hashHex = Array.from(new Uint8Array(hashBuffer))
           .map((b) => b.toString(16).padStart(2, "0"))
           .join("");
 
-        // Generate SHA-512
-        const sha512Buffer = await crypto.subtle.digest("SHA-512", data);
-        const sha512 = Array.from(new Uint8Array(sha512Buffer))
-          .map((b) => b.toString(16).padStart(2, "0"))
-          .join("");
-
-        // Generate SHA-1
-        const sha1Buffer = await crypto.subtle.digest("SHA-1", data);
-        const sha1 = Array.from(new Uint8Array(sha1Buffer))
-          .map((b) => b.toString(16).padStart(2, "0"))
-          .join("");
-
-        setHashes({
-          "SHA-256": sha256,
-          "SHA-512": sha512,
-          "SHA-1": sha1,
-        });
+        setHash(hashHex);
       } catch (err) {
-        console.error("Error generating hashes:", err);
+        console.error("Error generating hash:", err);
       }
     };
 
-    generateHashes();
-  }, [input]);
+    generateHash();
+  }, [input, algorithm]);
 
-  const copyToClipboard = (text: string, type: string) => {
+  const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text);
-    setCopied(type);
-    setTimeout(() => setCopied(null), 2000);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -76,8 +62,29 @@ export default function HashGenerator() {
 
       <Card className="mb-6">
         <CardHeader>
+          <CardTitle>Hash Algorithm</CardTitle>
+          <CardDescription>Select the hashing algorithm to use</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Label htmlFor="algorithm">Algorithm</Label>
+          <select
+            id="algorithm"
+            value={algorithm}
+            onChange={(e) => setAlgorithm(e.target.value as HashAlgorithm)}
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <option value="SHA-1">SHA-1</option>
+            <option value="SHA-256">SHA-256</option>
+            <option value="SHA-384">SHA-384</option>
+            <option value="SHA-512">SHA-512</option>
+          </select>
+        </CardContent>
+      </Card>
+
+      <Card className="mb-6">
+        <CardHeader>
           <CardTitle>Input Text</CardTitle>
-          <CardDescription>Enter text to generate hashes</CardDescription>
+          <CardDescription>Enter text to generate hash</CardDescription>
         </CardHeader>
         <CardContent>
           <Textarea
@@ -89,32 +96,28 @@ export default function HashGenerator() {
         </CardContent>
       </Card>
 
-      {Object.keys(hashes).length > 0 && (
-        <div className="space-y-4">
-          {Object.entries(hashes).map(([type, hash]) => (
-            <Card key={type}>
-              <CardHeader>
-                <CardTitle className="text-lg">{type}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex gap-2">
-                  <Input value={hash} readOnly className="font-mono text-sm" />
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    onClick={() => copyToClipboard(hash, type)}
-                  >
-                    {copied === type ? (
-                      <Check className="w-4 h-4" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      {hash && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">{algorithm} Hash</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex gap-2">
+              <Input value={hash} readOnly className="font-mono text-sm" />
+              <Button
+                size="icon"
+                variant="outline"
+                onClick={() => copyToClipboard(hash)}
+              >
+                {copied ? (
+                  <Check className="w-4 h-4" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       )}
     </div>
   );

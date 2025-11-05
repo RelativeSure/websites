@@ -56,18 +56,18 @@ export default function Base64Tool() {
         </div>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card>
+      <div className="grid gap-6 md:grid-cols-2 h-[calc(100vh-16rem)]">
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>Plain Text</CardTitle>
             <CardDescription>Enter text to encode</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 flex-1 flex flex-col">
             <Textarea
               placeholder="Enter text here..."
               value={plainText}
               onChange={(e) => setPlainText(e.target.value)}
-              className="font-mono min-h-[400px]"
+              className="font-mono flex-1 resize-none"
             />
             <div className="flex gap-2">
               <Button onClick={encode} className="flex-1">
@@ -81,17 +81,17 @@ export default function Base64Tool() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>Base64</CardTitle>
             <CardDescription>Enter Base64 to decode</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 flex-1 flex flex-col">
             <Textarea
               placeholder="Enter Base64 here..."
               value={base64Text}
               onChange={(e) => setBase64Text(e.target.value)}
-              className="font-mono min-h-[400px]"
+              className="font-mono flex-1 resize-none"
             />
             <div className="flex gap-2">
               <Button onClick={decode} className="flex-1">

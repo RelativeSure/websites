@@ -56,18 +56,18 @@ export default function UrlEncodeTool() {
         </div>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card>
+      <div className="grid gap-6 md:grid-cols-2 h-[calc(100vh-16rem)]">
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>Plain Text</CardTitle>
             <CardDescription>Enter text to encode</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 flex-1 flex flex-col">
             <Textarea
               placeholder="Hello World!"
               value={plainText}
               onChange={(e) => setPlainText(e.target.value)}
-              className="font-mono min-h-[400px]"
+              className="font-mono flex-1 resize-none"
             />
             <div className="flex gap-2">
               <Button onClick={encode} className="flex-1">
@@ -81,17 +81,17 @@ export default function UrlEncodeTool() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>URL Encoded</CardTitle>
             <CardDescription>Enter URL encoded text to decode</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 flex-1 flex flex-col">
             <Textarea
               placeholder="Hello%20World%21"
               value={encodedText}
               onChange={(e) => setEncodedText(e.target.value)}
-              className="font-mono min-h-[400px]"
+              className="font-mono flex-1 resize-none"
             />
             <div className="flex gap-2">
               <Button onClick={decode} className="flex-1">

@@ -60,21 +60,19 @@ export default function JsonYamlConverter() {
         </div>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card>
+      <div className="grid gap-6 md:grid-cols-2 h-[calc(100vh-16rem)]">
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>JSON</CardTitle>
             <CardDescription>Paste your JSON here</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Textarea
-                placeholder='{"key": "value"}'
-                value={jsonInput}
-                onChange={(e) => setJsonInput(e.target.value)}
-                className="font-mono min-h-[400px]"
-              />
-            </div>
+          <CardContent className="space-y-4 flex-1 flex flex-col">
+            <Textarea
+              placeholder='{"key": "value"}'
+              value={jsonInput}
+              onChange={(e) => setJsonInput(e.target.value)}
+              className="font-mono flex-1 resize-none"
+            />
             <div className="flex gap-2">
               <Button onClick={jsonToYaml} className="flex-1">
                 Convert to YAML
@@ -87,20 +85,18 @@ export default function JsonYamlConverter() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>YAML</CardTitle>
             <CardDescription>Paste your YAML here</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Textarea
-                placeholder="key: value"
-                value={yamlInput}
-                onChange={(e) => setYamlInput(e.target.value)}
-                className="font-mono min-h-[400px]"
-              />
-            </div>
+          <CardContent className="space-y-4 flex-1 flex flex-col">
+            <Textarea
+              placeholder="key: value"
+              value={yamlInput}
+              onChange={(e) => setYamlInput(e.target.value)}
+              className="font-mono flex-1 resize-none"
+            />
             <div className="flex gap-2">
               <Button onClick={yamlToJson} className="flex-1">
                 Convert to JSON

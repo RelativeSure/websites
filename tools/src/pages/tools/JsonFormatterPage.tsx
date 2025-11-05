@@ -82,13 +82,13 @@ export default function JsonFormatter() {
         </div>
       )}
 
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card>
+      <div className="grid gap-6 md:grid-cols-2 h-[calc(100vh-16rem)]">
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>Input</CardTitle>
             <CardDescription>Paste your JSON here</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 flex-1 flex flex-col">
             <Textarea
               placeholder='{"key": "value"}'
               value={input}
@@ -97,7 +97,7 @@ export default function JsonFormatter() {
                 setIsValid(null);
                 setError("");
               }}
-              className="font-mono min-h-[400px]"
+              className="font-mono flex-1 resize-none"
             />
             <div className="grid grid-cols-2 gap-2">
               <Button onClick={formatJson}>
@@ -123,16 +123,16 @@ export default function JsonFormatter() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="flex flex-col">
           <CardHeader>
             <CardTitle>Output</CardTitle>
             <CardDescription>Formatted or minified JSON</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1 flex flex-col">
             <Textarea
               value={output}
               readOnly
-              className="font-mono min-h-[400px]"
+              className="font-mono flex-1 resize-none"
               placeholder="Output will appear here..."
             />
           </CardContent>

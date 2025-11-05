@@ -11,13 +11,60 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+type UuidVersion = "v1" | "v4" | "v7";
+
 export default function UuidGenerator() {
   const [uuid, setUuid] = useState("");
+  const [version, setVersion] = useState<UuidVersion>("v7");
   const [copied, setCopied] = useState(false);
 
+  // Generate UUID v1 (time-based)
+  const generateUuidV1 = () => {
+    const timestamp = Date.now();
+    const timeLow = (timestamp & 0xffffffff).toString(16).padStart(8, "0");
+    const timeMid = ((timestamp >> 32) & 0xffff).toString(16).padStart(4, "0");
+    const timeHi = (((timestamp >> 48) & 0x0fff) | 0x1000).toString(16).padStart(4, "0");
+    const clockSeq = Math.floor(Math.random() * 0x3fff) | 0x8000;
+    const clockSeqStr = clockSeq.toString(16).padStart(4, "0");
+    const node = Array.from({ length: 6 }, () =>
+      Math.floor(Math.random() * 256).toString(16).padStart(2, "0")
+    ).join("");
+    return `${timeLow}-${timeMid}-${timeHi}-${clockSeqStr}-${node}`;
+  };
+
+  // Generate UUID v4 (random)
+  const generateUuidV4 = () => {
+    return crypto.randomUUID();
+  };
+
+  // Generate UUID v7 (time-ordered)
+  const generateUuidV7 = () => {
+    const timestamp = Date.now();
+    const timestampHex = timestamp.toString(16).padStart(12, "0");
+    const randomBytes = Array.from({ length: 10 }, () =>
+      Math.floor(Math.random() * 256).toString(16).padStart(2, "0")
+    ).join("");
+
+    // Format: tttttttt-tttt-7xxx-yxxx-xxxxxxxxxxxx
+    const formatted = `${timestampHex.slice(0, 8)}-${timestampHex.slice(8, 12)}-7${randomBytes.slice(0, 3)}-${(parseInt(randomBytes.slice(3, 5), 16) & 0x3f | 0x80).toString(16).padStart(2, "0")}${randomBytes.slice(5, 7)}-${randomBytes.slice(7, 19)}`;
+    return formatted;
+  };
+
   const generateUuid = () => {
-    // Generate UUID v4
-    const newUuid = crypto.randomUUID();
+    let newUuid: string;
+    switch (version) {
+      case "v1":
+        newUuid = generateUuidV1();
+        break;
+      case "v4":
+        newUuid = generateUuidV4();
+        break;
+      case "v7":
+        newUuid = generateUuidV7();
+        break;
+      default:
+        newUuid = generateUuidV7();
+    }
     setUuid(newUuid);
   };
 
@@ -32,18 +79,32 @@ export default function UuidGenerator() {
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">UUID Generator</h1>
         <p className="text-muted-foreground">
-          Generate random UUIDs (Universally Unique Identifiers)
+          Generate UUIDs (Universally Unique Identifiers) - 128-bit numbers used to uniquely identify information. v1: time-based, v4: random, v7: time-ordered (recommended)
         </p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>UUID v4</CardTitle>
+          <CardTitle>UUID Generator</CardTitle>
           <CardDescription>
-            Randomly generated UUID following RFC 4122 standard
+            Select version and generate UUID following RFC 4122 standard
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="version">UUID Version</Label>
+            <select
+              id="version"
+              value={version}
+              onChange={(e) => setVersion(e.target.value as UuidVersion)}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <option value="v1">v1 - Time-based</option>
+              <option value="v4">v4 - Random</option>
+              <option value="v7">v7 - Time-ordered (recommended)</option>
+            </select>
+          </div>
+
           {uuid && (
             <div className="space-y-2">
               <Label>Generated UUID</Label>
@@ -65,27 +126,8 @@ export default function UuidGenerator() {
           )}
           <Button onClick={generateUuid} className="w-full">
             <RefreshCw className="mr-2 w-4 h-4" />
-            Generate UUID
+            Generate UUID {version}
           </Button>
-        </CardContent>
-      </Card>
-
-      <Card className="mt-6">
-        <CardHeader>
-          <CardTitle>About UUIDs</CardTitle>
-        </CardHeader>
-        <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>
-            A UUID (Universally Unique Identifier) is a 128-bit number used to
-            uniquely identify information in computer systems.
-          </p>
-          <p>
-            UUID v4 uses random numbers and has a very low probability of
-            collision, making it safe for most use cases.
-          </p>
-          <p className="font-mono text-xs bg-muted p-2 rounded">
-            Format: xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
-          </p>
         </CardContent>
       </Card>
     </div>
