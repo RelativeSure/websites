@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Card,
   CardContent,
@@ -11,106 +18,151 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+type BaseType = "2" | "8" | "10" | "16" | "32" | "36" | "64";
+
+const BASE_OPTIONS = [
+  { value: "2", label: "Binary (Base 2)", chars: "0-1" },
+  { value: "8", label: "Octal (Base 8)", chars: "0-7" },
+  { value: "10", label: "Decimal (Base 10)", chars: "0-9" },
+  { value: "16", label: "Hexadecimal (Base 16)", chars: "0-9, A-F" },
+  { value: "32", label: "Base32", chars: "A-Z, 2-7" },
+  { value: "36", label: "Base36", chars: "0-9, A-Z" },
+  { value: "64", label: "Base64", chars: "A-Z, a-z, 0-9, +, /" },
+];
+
 export default function NumberBaseConverter() {
-  const [binary, setBinary] = useState("");
-  const [octal, setOctal] = useState("");
-  const [decimal, setDecimal] = useState("");
-  const [hexadecimal, setHexadecimal] = useState("");
+  const [fromBase, setFromBase] = useState<BaseType>("10");
+  const [toBase, setToBase] = useState<BaseType>("16");
+  const [input, setInput] = useState("");
+  const [output, setOutput] = useState("");
   const [error, setError] = useState("");
-  const [copied, setCopied] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
-  const updateFromBinary = (value: string) => {
-    setBinary(value);
+  const base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+  const base64Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+  const decimalToBase = (decimal: number, base: BaseType): string => {
+    if (base === "64") {
+      // Base64 encoding for numbers
+      if (decimal === 0) return base64Alphabet[0];
+      let result = "";
+      let num = decimal;
+      while (num > 0) {
+        result = base64Alphabet[num % 64] + result;
+        num = Math.floor(num / 64);
+      }
+      return result;
+    } else if (base === "32") {
+      // Base32 encoding for numbers
+      if (decimal === 0) return base32Alphabet[0];
+      let result = "";
+      let num = decimal;
+      while (num > 0) {
+        result = base32Alphabet[num % 32] + result;
+        num = Math.floor(num / 32);
+      }
+      return result;
+    } else {
+      // Standard bases 2-36
+      return decimal.toString(parseInt(base));
+    }
+  };
+
+  const baseToDecimal = (value: string, base: BaseType): number => {
+    if (base === "64") {
+      // Base64 decoding for numbers
+      let result = 0;
+      for (let i = 0; i < value.length; i++) {
+        const char = value[i];
+        const digit = base64Alphabet.indexOf(char);
+        if (digit === -1) throw new Error("Invalid Base64 character");
+        result = result * 64 + digit;
+      }
+      return result;
+    } else if (base === "32") {
+      // Base32 decoding for numbers
+      let result = 0;
+      for (let i = 0; i < value.length; i++) {
+        const char = value[i];
+        const digit = base32Alphabet.indexOf(char);
+        if (digit === -1) throw new Error("Invalid Base32 character");
+        result = result * 32 + digit;
+      }
+      return result;
+    } else {
+      // Standard bases 2-36
+      const parsed = parseInt(value, parseInt(base));
+      if (isNaN(parsed)) throw new Error("Invalid number");
+      return parsed;
+    }
+  };
+
+  const validateInput = (value: string, base: BaseType): boolean => {
+    if (!value.trim()) return true;
+
+    switch (base) {
+      case "2":
+        return /^[01]+$/.test(value);
+      case "8":
+        return /^[0-7]+$/.test(value);
+      case "10":
+        return /^\d+$/.test(value);
+      case "16":
+        return /^[0-9A-Fa-f]+$/.test(value);
+      case "32":
+        return /^[A-Z2-7]+$/i.test(value);
+      case "36":
+        return /^[0-9A-Za-z]+$/.test(value);
+      case "64":
+        return /^[A-Za-z0-9+/]+$/.test(value);
+      default:
+        return false;
+    }
+  };
+
+  const convert = (value: string) => {
+    setInput(value);
+
     if (!value.trim()) {
-      setOctal("");
-      setDecimal("");
-      setHexadecimal("");
+      setOutput("");
       setError("");
       return;
     }
 
-    if (!/^[01]+$/.test(value)) {
-      setError("Invalid binary number (use only 0 and 1)");
+    if (!validateInput(value, fromBase)) {
+      const baseInfo = BASE_OPTIONS.find(b => b.value === fromBase);
+      setError(`Invalid ${baseInfo?.label} number (use only ${baseInfo?.chars})`);
+      setOutput("");
       return;
     }
 
-    const dec = parseInt(value, 2);
-    setDecimal(dec.toString());
-    setOctal(dec.toString(8));
-    setHexadecimal(dec.toString(16).toUpperCase());
-    setError("");
-  };
-
-  const updateFromOctal = (value: string) => {
-    setOctal(value);
-    if (!value.trim()) {
-      setBinary("");
-      setDecimal("");
-      setHexadecimal("");
+    try {
+      const decimal = baseToDecimal(value.toUpperCase(), fromBase);
+      const converted = decimalToBase(decimal, toBase);
+      setOutput(converted);
       setError("");
-      return;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Conversion error");
+      setOutput("");
     }
-
-    if (!/^[0-7]+$/.test(value)) {
-      setError("Invalid octal number (use only 0-7)");
-      return;
-    }
-
-    const dec = parseInt(value, 8);
-    setDecimal(dec.toString());
-    setBinary(dec.toString(2));
-    setHexadecimal(dec.toString(16).toUpperCase());
-    setError("");
   };
 
-  const updateFromDecimal = (value: string) => {
-    setDecimal(value);
-    if (!value.trim()) {
-      setBinary("");
-      setOctal("");
-      setHexadecimal("");
-      setError("");
-      return;
-    }
-
-    if (!/^\d+$/.test(value)) {
-      setError("Invalid decimal number");
-      return;
-    }
-
-    const dec = parseInt(value, 10);
-    setBinary(dec.toString(2));
-    setOctal(dec.toString(8));
-    setHexadecimal(dec.toString(16).toUpperCase());
-    setError("");
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(output);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
-  const updateFromHexadecimal = (value: string) => {
-    setHexadecimal(value);
-    if (!value.trim()) {
-      setBinary("");
-      setOctal("");
-      setDecimal("");
-      setError("");
-      return;
-    }
-
-    if (!/^[0-9A-Fa-f]+$/.test(value)) {
-      setError("Invalid hexadecimal number (use 0-9, A-F)");
-      return;
-    }
-
-    const dec = parseInt(value, 16);
-    setDecimal(dec.toString());
-    setBinary(dec.toString(2));
-    setOctal(dec.toString(8));
-    setError("");
+  const swap = () => {
+    const temp = fromBase;
+    setFromBase(toBase);
+    setToBase(temp);
+    setInput(output);
+    convert(output);
   };
 
-  const copyToClipboard = (text: string, type: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(type);
-    setTimeout(() => setCopied(null), 2000);
+  const getBaseInfo = (base: BaseType) => {
+    return BASE_OPTIONS.find(b => b.value === base);
   };
 
   return (
@@ -118,14 +170,14 @@ export default function NumberBaseConverter() {
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Number Base Converter</h1>
         <p className="text-muted-foreground">
-          Convert between Binary, Octal, Decimal, and Hexadecimal
+          Convert numbers between different bases (Binary, Octal, Decimal, Hex, Base32, Base36, Base64)
         </p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Number Base Conversion</CardTitle>
-          <CardDescription>Enter a number in any base to convert</CardDescription>
+          <CardTitle>Base Conversion</CardTitle>
+          <CardDescription>Select source and target base, then enter your number</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           {error && (
@@ -134,108 +186,141 @@ export default function NumberBaseConverter() {
             </div>
           )}
 
-          <div className="space-y-2">
-            <Label htmlFor="binary">Binary (Base 2)</Label>
-            <div className="flex gap-2">
-              <Input
-                id="binary"
-                value={binary}
-                onChange={(e) => updateFromBinary(e.target.value)}
-                placeholder="1010"
-                className="font-mono flex-1"
-              />
+          <div className="grid gap-4 md:grid-cols-[1fr,auto,1fr]">
+            <div className="space-y-2">
+              <Label htmlFor="from-base">From Base</Label>
+              <Select value={fromBase} onValueChange={(value) => {
+                setFromBase(value as BaseType);
+                convert(input);
+              }}>
+                <SelectTrigger id="from-base">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {BASE_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground">
+                Uses: {getBaseInfo(fromBase)?.chars}
+              </p>
+            </div>
+
+            <div className="flex items-center justify-center pt-8">
               <Button
+                variant="ghost"
                 size="icon"
-                variant="outline"
-                onClick={() => copyToClipboard(binary, "binary")}
-                disabled={!binary}
+                onClick={swap}
+                className="hover:bg-primary/10"
+                title="Swap bases"
               >
-                {copied === "binary" ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
+                <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground">Uses digits: 0, 1</p>
+
+            <div className="space-y-2">
+              <Label htmlFor="to-base">To Base</Label>
+              <Select value={toBase} onValueChange={(value) => {
+                setToBase(value as BaseType);
+                convert(input);
+              }}>
+                <SelectTrigger id="to-base">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {BASE_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-muted-foreground">
+                Uses: {getBaseInfo(toBase)?.chars}
+              </p>
+            </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="octal">Octal (Base 8)</Label>
-            <div className="flex gap-2">
-              <Input
-                id="octal"
-                value={octal}
-                onChange={(e) => updateFromOctal(e.target.value)}
-                placeholder="12"
-                className="font-mono flex-1"
-              />
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={() => copyToClipboard(octal, "octal")}
-                disabled={!octal}
-              >
-                {copied === "octal" ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
-              </Button>
-            </div>
-            <p className="text-xs text-muted-foreground">Uses digits: 0-7</p>
+            <Label htmlFor="input">Input Number</Label>
+            <Input
+              id="input"
+              value={input}
+              onChange={(e) => convert(e.target.value)}
+              placeholder={`Enter ${getBaseInfo(fromBase)?.label.toLowerCase()} number`}
+              className="font-mono text-lg"
+            />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="decimal">Decimal (Base 10)</Label>
+            <Label htmlFor="output">Output Number</Label>
             <div className="flex gap-2">
               <Input
-                id="decimal"
-                value={decimal}
-                onChange={(e) => updateFromDecimal(e.target.value)}
-                placeholder="10"
-                className="font-mono flex-1"
+                id="output"
+                value={output}
+                readOnly
+                placeholder="Converted number will appear here"
+                className="font-mono text-lg flex-1"
               />
               <Button
                 size="icon"
                 variant="outline"
-                onClick={() => copyToClipboard(decimal, "decimal")}
-                disabled={!decimal}
+                onClick={copyToClipboard}
+                disabled={!output}
               >
-                {copied === "decimal" ? (
+                {copied ? (
                   <Check className="w-4 h-4" />
                 ) : (
                   <Copy className="w-4 h-4" />
                 )}
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground">Uses digits: 0-9</p>
           </div>
 
-          <div className="space-y-2">
-            <Label htmlFor="hexadecimal">Hexadecimal (Base 16)</Label>
-            <div className="flex gap-2">
-              <Input
-                id="hexadecimal"
-                value={hexadecimal}
-                onChange={(e) => updateFromHexadecimal(e.target.value.toUpperCase())}
-                placeholder="A"
-                className="font-mono flex-1"
-              />
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={() => copyToClipboard(hexadecimal, "hexadecimal")}
-                disabled={!hexadecimal}
-              >
-                {copied === "hexadecimal" ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
-              </Button>
+          {output && (
+            <div className="p-4 bg-primary/5 border border-primary/20 rounded-md">
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <span className="text-muted-foreground">From:</span>
+                  <span className="ml-2 font-semibold">{getBaseInfo(fromBase)?.label}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">To:</span>
+                  <span className="ml-2 font-semibold">{getBaseInfo(toBase)?.label}</span>
+                </div>
+                <div className="col-span-2">
+                  <span className="text-muted-foreground">Decimal equivalent:</span>
+                  <span className="ml-2 font-mono">
+                    {input && !error ? baseToDecimal(input.toUpperCase(), fromBase).toString() : "-"}
+                  </span>
+                </div>
+              </div>
             </div>
-            <p className="text-xs text-muted-foreground">Uses digits: 0-9, A-F</p>
+          )}
+
+          <div className="pt-4 border-t">
+            <h3 className="text-sm font-semibold mb-3">Common Examples:</h3>
+            <div className="grid gap-2 text-xs">
+              <div className="flex items-center gap-2">
+                <code className="px-2 py-1 bg-muted rounded">255</code>
+                <span className="text-muted-foreground">decimal =</span>
+                <code className="px-2 py-1 bg-muted rounded">FF</code>
+                <span className="text-muted-foreground">hex =</span>
+                <code className="px-2 py-1 bg-muted rounded">11111111</code>
+                <span className="text-muted-foreground">binary</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <code className="px-2 py-1 bg-muted rounded">1000</code>
+                <span className="text-muted-foreground">decimal =</span>
+                <code className="px-2 py-1 bg-muted rounded">3E8</code>
+                <span className="text-muted-foreground">hex =</span>
+                <code className="px-2 py-1 bg-muted rounded">RS</code>
+                <span className="text-muted-foreground">base32</span>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
