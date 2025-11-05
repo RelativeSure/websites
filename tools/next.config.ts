@@ -1,11 +1,10 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // For Cloudflare Workers via next-on-pages
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
 }
 
 export default nextConfig
