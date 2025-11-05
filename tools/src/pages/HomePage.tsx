@@ -9,6 +9,9 @@ import {
   Braces,
   FileText,
   Code2,
+  CheckCircle,
+  Database,
+  FileCode,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,6 +31,27 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "XML ⟷ JSON",
+    description: "Convert XML to JSON format",
+    icon: FileCode,
+    href: "/tools/xml-json",
+    category: "Converters",
+  },
+  {
+    title: "CSV ⟷ JSON",
+    description: "Convert CSV data to JSON format",
+    icon: Database,
+    href: "/tools/csv-json",
+    category: "Converters",
+  },
+  {
+    title: "Timestamp Converter",
+    description: "Convert between Unix timestamps and human-readable dates",
+    icon: Clock,
+    href: "/tools/timestamp",
+    category: "Converters",
+  },
+  {
     title: "Base64 Encoder/Decoder",
     description: "Encode and decode Base64 strings",
     icon: Binary,
@@ -42,32 +66,39 @@ const tools = [
     category: "Encoders",
   },
   {
+    title: "JSON Formatter",
+    description: "Format, validate, and minify JSON data",
+    icon: Braces,
+    href: "/tools/json-formatter",
+    category: "Formatters",
+  },
+  {
+    title: "JSON Validator",
+    description: "Validate JSON syntax and structure",
+    icon: CheckCircle,
+    href: "/tools/json-validator",
+    category: "Validators",
+  },
+  {
+    title: "YAML Validator",
+    description: "Validate YAML syntax and structure",
+    icon: CheckCircle,
+    href: "/tools/yaml-validator",
+    category: "Validators",
+  },
+  {
     title: "Hash Generator",
-    description: "Generate MD5, SHA-1, SHA-256, SHA-512 hashes",
+    description: "Generate SHA-1, SHA-256, SHA-384, SHA-512 hashes",
     icon: Hash,
     href: "/tools/hash",
     category: "Crypto",
   },
   {
     title: "UUID Generator",
-    description: "Generate UUIDs (v1, v4) and GUIDs",
+    description: "Generate UUIDs (v1, v4, v7)",
     icon: Fingerprint,
     href: "/tools/uuid",
     category: "Generators",
-  },
-  {
-    title: "Timestamp Converter",
-    description: "Convert between Unix timestamps and human-readable dates",
-    icon: Clock,
-    href: "/tools/timestamp",
-    category: "Converters",
-  },
-  {
-    title: "JSON Formatter",
-    description: "Format, validate, and minify JSON data",
-    icon: Braces,
-    href: "/tools/json-formatter",
-    category: "Formatters",
   },
   {
     title: "Text Diff Checker",

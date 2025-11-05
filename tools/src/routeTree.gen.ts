@@ -11,13 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ToolsYamlValidatorRouteImport } from './routes/tools/yaml-validator'
+import { Route as ToolsXmlJsonRouteImport } from './routes/tools/xml-json'
 import { Route as ToolsUuidRouteImport } from './routes/tools/uuid'
 import { Route as ToolsUrlEncodeRouteImport } from './routes/tools/url-encode'
 import { Route as ToolsTimestampRouteImport } from './routes/tools/timestamp'
 import { Route as ToolsJsonYamlRouteImport } from './routes/tools/json-yaml'
+import { Route as ToolsJsonValidatorRouteImport } from './routes/tools/json-validator'
 import { Route as ToolsJsonFormatterRouteImport } from './routes/tools/json-formatter'
 import { Route as ToolsHashRouteImport } from './routes/tools/hash'
 import { Route as ToolsDiffRouteImport } from './routes/tools/diff'
+import { Route as ToolsCsvJsonRouteImport } from './routes/tools/csv-json'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
 
@@ -30,6 +34,16 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ToolsYamlValidatorRoute = ToolsYamlValidatorRouteImport.update({
+  id: '/yaml-validator',
+  path: '/yaml-validator',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsXmlJsonRoute = ToolsXmlJsonRouteImport.update({
+  id: '/xml-json',
+  path: '/xml-json',
+  getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsUuidRoute = ToolsUuidRouteImport.update({
   id: '/uuid',
@@ -51,6 +65,11 @@ const ToolsJsonYamlRoute = ToolsJsonYamlRouteImport.update({
   path: '/json-yaml',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsJsonValidatorRoute = ToolsJsonValidatorRouteImport.update({
+  id: '/json-validator',
+  path: '/json-validator',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsJsonFormatterRoute = ToolsJsonFormatterRouteImport.update({
   id: '/json-formatter',
   path: '/json-formatter',
@@ -64,6 +83,11 @@ const ToolsHashRoute = ToolsHashRouteImport.update({
 const ToolsDiffRoute = ToolsDiffRouteImport.update({
   id: '/diff',
   path: '/diff',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCsvJsonRoute = ToolsCsvJsonRouteImport.update({
+  id: '/csv-json',
+  path: '/csv-json',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsCaseConverterRoute = ToolsCaseConverterRouteImport.update({
@@ -82,26 +106,34 @@ export interface FileRoutesByFullPath {
   '/tools': typeof ToolsRouteWithChildren
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
+  '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/uuid': typeof ToolsUuidRoute
+  '/tools/xml-json': typeof ToolsXmlJsonRoute
+  '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
+  '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/uuid': typeof ToolsUuidRoute
+  '/tools/xml-json': typeof ToolsXmlJsonRoute
+  '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -109,13 +141,17 @@ export interface FileRoutesById {
   '/tools': typeof ToolsRouteWithChildren
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
+  '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/uuid': typeof ToolsUuidRoute
+  '/tools/xml-json': typeof ToolsXmlJsonRoute
+  '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -124,39 +160,51 @@ export interface FileRouteTypes {
     | '/tools'
     | '/tools/base64'
     | '/tools/case-converter'
+    | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
     | '/tools/json-formatter'
+    | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/uuid'
+    | '/tools/xml-json'
+    | '/tools/yaml-validator'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/tools'
     | '/tools/base64'
     | '/tools/case-converter'
+    | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
     | '/tools/json-formatter'
+    | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/uuid'
+    | '/tools/xml-json'
+    | '/tools/yaml-validator'
   id:
     | '__root__'
     | '/'
     | '/tools'
     | '/tools/base64'
     | '/tools/case-converter'
+    | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
     | '/tools/json-formatter'
+    | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/uuid'
+    | '/tools/xml-json'
+    | '/tools/yaml-validator'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -179,6 +227,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/tools/yaml-validator': {
+      id: '/tools/yaml-validator'
+      path: '/yaml-validator'
+      fullPath: '/tools/yaml-validator'
+      preLoaderRoute: typeof ToolsYamlValidatorRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/xml-json': {
+      id: '/tools/xml-json'
+      path: '/xml-json'
+      fullPath: '/tools/xml-json'
+      preLoaderRoute: typeof ToolsXmlJsonRouteImport
+      parentRoute: typeof ToolsRoute
     }
     '/tools/uuid': {
       id: '/tools/uuid'
@@ -208,6 +270,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsJsonYamlRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/json-validator': {
+      id: '/tools/json-validator'
+      path: '/json-validator'
+      fullPath: '/tools/json-validator'
+      preLoaderRoute: typeof ToolsJsonValidatorRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/json-formatter': {
       id: '/tools/json-formatter'
       path: '/json-formatter'
@@ -227,6 +296,13 @@ declare module '@tanstack/react-router' {
       path: '/diff'
       fullPath: '/tools/diff'
       preLoaderRoute: typeof ToolsDiffRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/csv-json': {
+      id: '/tools/csv-json'
+      path: '/csv-json'
+      fullPath: '/tools/csv-json'
+      preLoaderRoute: typeof ToolsCsvJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/case-converter': {
@@ -249,25 +325,33 @@ declare module '@tanstack/react-router' {
 interface ToolsRouteChildren {
   ToolsBase64Route: typeof ToolsBase64Route
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
+  ToolsCsvJsonRoute: typeof ToolsCsvJsonRoute
   ToolsDiffRoute: typeof ToolsDiffRoute
   ToolsHashRoute: typeof ToolsHashRoute
   ToolsJsonFormatterRoute: typeof ToolsJsonFormatterRoute
+  ToolsJsonValidatorRoute: typeof ToolsJsonValidatorRoute
   ToolsJsonYamlRoute: typeof ToolsJsonYamlRoute
   ToolsTimestampRoute: typeof ToolsTimestampRoute
   ToolsUrlEncodeRoute: typeof ToolsUrlEncodeRoute
   ToolsUuidRoute: typeof ToolsUuidRoute
+  ToolsXmlJsonRoute: typeof ToolsXmlJsonRoute
+  ToolsYamlValidatorRoute: typeof ToolsYamlValidatorRoute
 }
 
 const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsBase64Route: ToolsBase64Route,
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
+  ToolsCsvJsonRoute: ToolsCsvJsonRoute,
   ToolsDiffRoute: ToolsDiffRoute,
   ToolsHashRoute: ToolsHashRoute,
   ToolsJsonFormatterRoute: ToolsJsonFormatterRoute,
+  ToolsJsonValidatorRoute: ToolsJsonValidatorRoute,
   ToolsJsonYamlRoute: ToolsJsonYamlRoute,
   ToolsTimestampRoute: ToolsTimestampRoute,
   ToolsUrlEncodeRoute: ToolsUrlEncodeRoute,
   ToolsUuidRoute: ToolsUuidRoute,
+  ToolsXmlJsonRoute: ToolsXmlJsonRoute,
+  ToolsYamlValidatorRoute: ToolsYamlValidatorRoute,
 }
 
 const ToolsRouteWithChildren = ToolsRoute._addFileChildren(ToolsRouteChildren)

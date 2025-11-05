@@ -10,6 +10,9 @@ import {
   FileText,
   Code2,
   Home,
+  CheckCircle,
+  Database,
+  FileCode,
 } from "lucide-react";
 import {
   Sidebar,
@@ -35,6 +38,24 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "XML ⟷ JSON",
+    icon: FileCode,
+    href: "/tools/xml-json",
+    category: "Converters",
+  },
+  {
+    title: "CSV ⟷ JSON",
+    icon: Database,
+    href: "/tools/csv-json",
+    category: "Converters",
+  },
+  {
+    title: "Timestamp",
+    icon: Clock,
+    href: "/tools/timestamp",
+    category: "Converters",
+  },
+  {
     title: "Base64",
     icon: Binary,
     href: "/tools/base64",
@@ -47,6 +68,24 @@ const tools = [
     category: "Encoders",
   },
   {
+    title: "JSON Formatter",
+    icon: Braces,
+    href: "/tools/json-formatter",
+    category: "Formatters",
+  },
+  {
+    title: "JSON Validator",
+    icon: CheckCircle,
+    href: "/tools/json-validator",
+    category: "Validators",
+  },
+  {
+    title: "YAML Validator",
+    icon: CheckCircle,
+    href: "/tools/yaml-validator",
+    category: "Validators",
+  },
+  {
     title: "Hash Generator",
     icon: Hash,
     href: "/tools/hash",
@@ -57,18 +96,6 @@ const tools = [
     icon: Fingerprint,
     href: "/tools/uuid",
     category: "Generators",
-  },
-  {
-    title: "Timestamp",
-    icon: Clock,
-    href: "/tools/timestamp",
-    category: "Converters",
-  },
-  {
-    title: "JSON Formatter",
-    icon: Braces,
-    href: "/tools/json-formatter",
-    category: "Formatters",
   },
   {
     title: "Text Diff",
