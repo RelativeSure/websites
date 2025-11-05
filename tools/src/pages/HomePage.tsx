@@ -12,6 +12,13 @@ import {
   CheckCircle,
   Database,
   FileCode,
+  KeyRound,
+  Palette,
+  Calculator,
+  Type,
+  Lock,
+  TestTube,
+  FileCode2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -52,6 +59,20 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "Color Converter",
+    description: "Convert between HEX, RGB, and HSL color formats",
+    icon: Palette,
+    href: "/tools/color-converter",
+    category: "Converters",
+  },
+  {
+    title: "Number Base Converter",
+    description: "Convert between Binary, Octal, Decimal, and Hexadecimal",
+    icon: Calculator,
+    href: "/tools/number-base",
+    category: "Converters",
+  },
+  {
     title: "Base64 Encoder/Decoder",
     description: "Encode and decode Base64 strings",
     icon: Binary,
@@ -66,10 +87,31 @@ const tools = [
     category: "Encoders",
   },
   {
+    title: "HTML Entity Encoder/Decoder",
+    description: "Convert special characters to HTML entities and vice versa",
+    icon: Code2,
+    href: "/tools/html-entity",
+    category: "Encoders",
+  },
+  {
+    title: "JWT Decoder",
+    description: "Decode and inspect JSON Web Tokens",
+    icon: KeyRound,
+    href: "/tools/jwt-decoder",
+    category: "Decoders",
+  },
+  {
     title: "JSON Formatter",
     description: "Format, validate, and minify JSON data",
     icon: Braces,
     href: "/tools/json-formatter",
+    category: "Formatters",
+  },
+  {
+    title: "HTML Formatter",
+    description: "Format and minify HTML code",
+    icon: FileCode2,
+    href: "/tools/html-formatter",
     category: "Formatters",
   },
   {
@@ -101,6 +143,20 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Password Generator",
+    description: "Generate secure random passwords",
+    icon: Lock,
+    href: "/tools/password-generator",
+    category: "Generators",
+  },
+  {
+    title: "Lorem Ipsum Generator",
+    description: "Generate placeholder text for designs and mockups",
+    icon: Type,
+    href: "/tools/lorem-ipsum",
+    category: "Generators",
+  },
+  {
     title: "Text Diff Checker",
     description: "Compare two text blocks and see the differences",
     icon: FileText,
@@ -112,6 +168,13 @@ const tools = [
     description: "Convert between camelCase, snake_case, kebab-case, and more",
     icon: Code2,
     href: "/tools/case-converter",
+    category: "Text Tools",
+  },
+  {
+    title: "Regex Tester",
+    description: "Test and debug regular expressions",
+    icon: TestTube,
+    href: "/tools/regex-tester",
     category: "Text Tools",
   },
 ];

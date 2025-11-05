@@ -13,6 +13,13 @@ import {
   CheckCircle,
   Database,
   FileCode,
+  KeyRound,
+  Palette,
+  Calculator,
+  Type,
+  Lock,
+  TestTube,
+  FileCode2,
 } from "lucide-react";
 import {
   Sidebar,
@@ -56,6 +63,18 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "Color Converter",
+    icon: Palette,
+    href: "/tools/color-converter",
+    category: "Converters",
+  },
+  {
+    title: "Number Base",
+    icon: Calculator,
+    href: "/tools/number-base",
+    category: "Converters",
+  },
+  {
     title: "Base64",
     icon: Binary,
     href: "/tools/base64",
@@ -68,9 +87,27 @@ const tools = [
     category: "Encoders",
   },
   {
+    title: "HTML Entity",
+    icon: Code2,
+    href: "/tools/html-entity",
+    category: "Encoders",
+  },
+  {
+    title: "JWT Decoder",
+    icon: KeyRound,
+    href: "/tools/jwt-decoder",
+    category: "Decoders",
+  },
+  {
     title: "JSON Formatter",
     icon: Braces,
     href: "/tools/json-formatter",
+    category: "Formatters",
+  },
+  {
+    title: "HTML Formatter",
+    icon: FileCode2,
+    href: "/tools/html-formatter",
     category: "Formatters",
   },
   {
@@ -98,6 +135,18 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Password Generator",
+    icon: Lock,
+    href: "/tools/password-generator",
+    category: "Generators",
+  },
+  {
+    title: "Lorem Ipsum",
+    icon: Type,
+    href: "/tools/lorem-ipsum",
+    category: "Generators",
+  },
+  {
     title: "Text Diff",
     icon: FileText,
     href: "/tools/diff",
@@ -107,6 +156,12 @@ const tools = [
     title: "Case Converter",
     icon: Code2,
     href: "/tools/case-converter",
+    category: "Text Tools",
+  },
+  {
+    title: "Regex Tester",
+    icon: TestTube,
+    href: "/tools/regex-tester",
     category: "Text Tools",
   },
 ];
