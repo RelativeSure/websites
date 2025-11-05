@@ -14,12 +14,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsYamlValidatorRouteImport } from './routes/tools/yaml-validator'
 import { Route as ToolsXmlJsonRouteImport } from './routes/tools/xml-json'
 import { Route as ToolsUuidRouteImport } from './routes/tools/uuid'
+import { Route as ToolsUserAgentParserRouteImport } from './routes/tools/user-agent-parser'
 import { Route as ToolsUrlParserRouteImport } from './routes/tools/url-parser'
 import { Route as ToolsUrlEncodeRouteImport } from './routes/tools/url-encode'
 import { Route as ToolsTimestampRouteImport } from './routes/tools/timestamp'
 import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-counter'
 import { Route as ToolsSqlFormatterRouteImport } from './routes/tools/sql-formatter'
 import { Route as ToolsRegexTesterRouteImport } from './routes/tools/regex-tester'
+import { Route as ToolsRandomDataRouteImport } from './routes/tools/random-data'
 import { Route as ToolsQrCodeRouteImport } from './routes/tools/qr-code'
 import { Route as ToolsPasswordGeneratorRouteImport } from './routes/tools/password-generator'
 import { Route as ToolsNumberBaseRouteImport } from './routes/tools/number-base'
@@ -30,6 +32,8 @@ import { Route as ToolsJsonYamlRouteImport } from './routes/tools/json-yaml'
 import { Route as ToolsJsonValidatorRouteImport } from './routes/tools/json-validator'
 import { Route as ToolsJsonToTypescriptRouteImport } from './routes/tools/json-to-typescript'
 import { Route as ToolsJsonFormatterRouteImport } from './routes/tools/json-formatter'
+import { Route as ToolsImageToBase64RouteImport } from './routes/tools/image-to-base64'
+import { Route as ToolsHttpStatusRouteImport } from './routes/tools/http-status'
 import { Route as ToolsHtmlFormatterRouteImport } from './routes/tools/html-formatter'
 import { Route as ToolsHtmlEntityRouteImport } from './routes/tools/html-entity'
 import { Route as ToolsHashRouteImport } from './routes/tools/hash'
@@ -40,6 +44,7 @@ import { Route as ToolsCronParserRouteImport } from './routes/tools/cron-parser'
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
+import { Route as ToolsBackslashEscapeRouteImport } from './routes/tools/backslash-escape'
 
 const ToolsRoute = ToolsRouteImport.update({
   id: '/tools',
@@ -64,6 +69,11 @@ const ToolsXmlJsonRoute = ToolsXmlJsonRouteImport.update({
 const ToolsUuidRoute = ToolsUuidRouteImport.update({
   id: '/uuid',
   path: '/uuid',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsUserAgentParserRoute = ToolsUserAgentParserRouteImport.update({
+  id: '/user-agent-parser',
+  path: '/user-agent-parser',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsUrlParserRoute = ToolsUrlParserRouteImport.update({
@@ -94,6 +104,11 @@ const ToolsSqlFormatterRoute = ToolsSqlFormatterRouteImport.update({
 const ToolsRegexTesterRoute = ToolsRegexTesterRouteImport.update({
   id: '/regex-tester',
   path: '/regex-tester',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsRandomDataRoute = ToolsRandomDataRouteImport.update({
+  id: '/random-data',
+  path: '/random-data',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsQrCodeRoute = ToolsQrCodeRouteImport.update({
@@ -146,6 +161,16 @@ const ToolsJsonFormatterRoute = ToolsJsonFormatterRouteImport.update({
   path: '/json-formatter',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsImageToBase64Route = ToolsImageToBase64RouteImport.update({
+  id: '/image-to-base64',
+  path: '/image-to-base64',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsHttpStatusRoute = ToolsHttpStatusRouteImport.update({
+  id: '/http-status',
+  path: '/http-status',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsHtmlFormatterRoute = ToolsHtmlFormatterRouteImport.update({
   id: '/html-formatter',
   path: '/html-formatter',
@@ -196,10 +221,16 @@ const ToolsBase64Route = ToolsBase64RouteImport.update({
   path: '/base64',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsBackslashEscapeRoute = ToolsBackslashEscapeRouteImport.update({
+  id: '/backslash-escape',
+  path: '/backslash-escape',
+  getParentRoute: () => ToolsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -210,6 +241,8 @@ export interface FileRoutesByFullPath {
   '/tools/hash': typeof ToolsHashRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
+  '/tools/http-status': typeof ToolsHttpStatusRoute
+  '/tools/image-to-base64': typeof ToolsImageToBase64Route
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
@@ -220,12 +253,14 @@ export interface FileRoutesByFullPath {
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
+  '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
+  '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
@@ -233,6 +268,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -243,6 +279,8 @@ export interface FileRoutesByTo {
   '/tools/hash': typeof ToolsHashRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
+  '/tools/http-status': typeof ToolsHttpStatusRoute
+  '/tools/image-to-base64': typeof ToolsImageToBase64Route
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
@@ -253,12 +291,14 @@ export interface FileRoutesByTo {
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
+  '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
+  '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
@@ -267,6 +307,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -277,6 +318,8 @@ export interface FileRoutesById {
   '/tools/hash': typeof ToolsHashRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
+  '/tools/http-status': typeof ToolsHttpStatusRoute
+  '/tools/image-to-base64': typeof ToolsImageToBase64Route
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
@@ -287,12 +330,14 @@ export interface FileRoutesById {
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
+  '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
+  '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
@@ -302,6 +347,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/tools'
+    | '/tools/backslash-escape'
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
@@ -312,6 +358,8 @@ export interface FileRouteTypes {
     | '/tools/hash'
     | '/tools/html-entity'
     | '/tools/html-formatter'
+    | '/tools/http-status'
+    | '/tools/image-to-base64'
     | '/tools/json-formatter'
     | '/tools/json-to-typescript'
     | '/tools/json-validator'
@@ -322,12 +370,14 @@ export interface FileRouteTypes {
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
+    | '/tools/random-data'
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/url-parser'
+    | '/tools/user-agent-parser'
     | '/tools/uuid'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
@@ -335,6 +385,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/tools'
+    | '/tools/backslash-escape'
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
@@ -345,6 +396,8 @@ export interface FileRouteTypes {
     | '/tools/hash'
     | '/tools/html-entity'
     | '/tools/html-formatter'
+    | '/tools/http-status'
+    | '/tools/image-to-base64'
     | '/tools/json-formatter'
     | '/tools/json-to-typescript'
     | '/tools/json-validator'
@@ -355,12 +408,14 @@ export interface FileRouteTypes {
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
+    | '/tools/random-data'
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/url-parser'
+    | '/tools/user-agent-parser'
     | '/tools/uuid'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
@@ -368,6 +423,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/tools'
+    | '/tools/backslash-escape'
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
@@ -378,6 +434,8 @@ export interface FileRouteTypes {
     | '/tools/hash'
     | '/tools/html-entity'
     | '/tools/html-formatter'
+    | '/tools/http-status'
+    | '/tools/image-to-base64'
     | '/tools/json-formatter'
     | '/tools/json-to-typescript'
     | '/tools/json-validator'
@@ -388,12 +446,14 @@ export interface FileRouteTypes {
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
+    | '/tools/random-data'
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/url-parser'
+    | '/tools/user-agent-parser'
     | '/tools/uuid'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
@@ -441,6 +501,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsUuidRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/user-agent-parser': {
+      id: '/tools/user-agent-parser'
+      path: '/user-agent-parser'
+      fullPath: '/tools/user-agent-parser'
+      preLoaderRoute: typeof ToolsUserAgentParserRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/url-parser': {
       id: '/tools/url-parser'
       path: '/url-parser'
@@ -481,6 +548,13 @@ declare module '@tanstack/react-router' {
       path: '/regex-tester'
       fullPath: '/tools/regex-tester'
       preLoaderRoute: typeof ToolsRegexTesterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/random-data': {
+      id: '/tools/random-data'
+      path: '/random-data'
+      fullPath: '/tools/random-data'
+      preLoaderRoute: typeof ToolsRandomDataRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/qr-code': {
@@ -553,6 +627,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsJsonFormatterRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/image-to-base64': {
+      id: '/tools/image-to-base64'
+      path: '/image-to-base64'
+      fullPath: '/tools/image-to-base64'
+      preLoaderRoute: typeof ToolsImageToBase64RouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/http-status': {
+      id: '/tools/http-status'
+      path: '/http-status'
+      fullPath: '/tools/http-status'
+      preLoaderRoute: typeof ToolsHttpStatusRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/html-formatter': {
       id: '/tools/html-formatter'
       path: '/html-formatter'
@@ -623,10 +711,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsBase64RouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/backslash-escape': {
+      id: '/tools/backslash-escape'
+      path: '/backslash-escape'
+      fullPath: '/tools/backslash-escape'
+      preLoaderRoute: typeof ToolsBackslashEscapeRouteImport
+      parentRoute: typeof ToolsRoute
+    }
   }
 }
 
 interface ToolsRouteChildren {
+  ToolsBackslashEscapeRoute: typeof ToolsBackslashEscapeRoute
   ToolsBase64Route: typeof ToolsBase64Route
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
@@ -637,6 +733,8 @@ interface ToolsRouteChildren {
   ToolsHashRoute: typeof ToolsHashRoute
   ToolsHtmlEntityRoute: typeof ToolsHtmlEntityRoute
   ToolsHtmlFormatterRoute: typeof ToolsHtmlFormatterRoute
+  ToolsHttpStatusRoute: typeof ToolsHttpStatusRoute
+  ToolsImageToBase64Route: typeof ToolsImageToBase64Route
   ToolsJsonFormatterRoute: typeof ToolsJsonFormatterRoute
   ToolsJsonToTypescriptRoute: typeof ToolsJsonToTypescriptRoute
   ToolsJsonValidatorRoute: typeof ToolsJsonValidatorRoute
@@ -647,18 +745,21 @@ interface ToolsRouteChildren {
   ToolsNumberBaseRoute: typeof ToolsNumberBaseRoute
   ToolsPasswordGeneratorRoute: typeof ToolsPasswordGeneratorRoute
   ToolsQrCodeRoute: typeof ToolsQrCodeRoute
+  ToolsRandomDataRoute: typeof ToolsRandomDataRoute
   ToolsRegexTesterRoute: typeof ToolsRegexTesterRoute
   ToolsSqlFormatterRoute: typeof ToolsSqlFormatterRoute
   ToolsStringCounterRoute: typeof ToolsStringCounterRoute
   ToolsTimestampRoute: typeof ToolsTimestampRoute
   ToolsUrlEncodeRoute: typeof ToolsUrlEncodeRoute
   ToolsUrlParserRoute: typeof ToolsUrlParserRoute
+  ToolsUserAgentParserRoute: typeof ToolsUserAgentParserRoute
   ToolsUuidRoute: typeof ToolsUuidRoute
   ToolsXmlJsonRoute: typeof ToolsXmlJsonRoute
   ToolsYamlValidatorRoute: typeof ToolsYamlValidatorRoute
 }
 
 const ToolsRouteChildren: ToolsRouteChildren = {
+  ToolsBackslashEscapeRoute: ToolsBackslashEscapeRoute,
   ToolsBase64Route: ToolsBase64Route,
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,
@@ -669,6 +770,8 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsHashRoute: ToolsHashRoute,
   ToolsHtmlEntityRoute: ToolsHtmlEntityRoute,
   ToolsHtmlFormatterRoute: ToolsHtmlFormatterRoute,
+  ToolsHttpStatusRoute: ToolsHttpStatusRoute,
+  ToolsImageToBase64Route: ToolsImageToBase64Route,
   ToolsJsonFormatterRoute: ToolsJsonFormatterRoute,
   ToolsJsonToTypescriptRoute: ToolsJsonToTypescriptRoute,
   ToolsJsonValidatorRoute: ToolsJsonValidatorRoute,
@@ -679,12 +782,14 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsNumberBaseRoute: ToolsNumberBaseRoute,
   ToolsPasswordGeneratorRoute: ToolsPasswordGeneratorRoute,
   ToolsQrCodeRoute: ToolsQrCodeRoute,
+  ToolsRandomDataRoute: ToolsRandomDataRoute,
   ToolsRegexTesterRoute: ToolsRegexTesterRoute,
   ToolsSqlFormatterRoute: ToolsSqlFormatterRoute,
   ToolsStringCounterRoute: ToolsStringCounterRoute,
   ToolsTimestampRoute: ToolsTimestampRoute,
   ToolsUrlEncodeRoute: ToolsUrlEncodeRoute,
   ToolsUrlParserRoute: ToolsUrlParserRoute,
+  ToolsUserAgentParserRoute: ToolsUserAgentParserRoute,
   ToolsUuidRoute: ToolsUuidRoute,
   ToolsXmlJsonRoute: ToolsXmlJsonRoute,
   ToolsYamlValidatorRoute: ToolsYamlValidatorRoute,

@@ -190,12 +190,15 @@ export default function HomePage() {
       <div className="container mx-auto px-4 py-16 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-16">
+          <div className="mb-12">
             <div className="flex items-center gap-2 mb-4">
               <span className="text-primary text-3xl md:text-4xl font-bold">{'>'}</span>
               <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-primary">
                 dev.tools
               </h1>
+              <span className="ml-4 px-3 py-1 bg-primary/20 text-primary text-sm font-bold rounded-full">
+                {tools.length} tools
+              </span>
             </div>
             <p className="text-base md:text-lg text-foreground/70 max-w-2xl font-mono">
               <span className="text-secondary">$</span> cat tools.json | jq '.description'<br/>
@@ -205,33 +208,33 @@ export default function HomePage() {
 
           {/* Tools Grid */}
           {categories.map((category) => (
-            <div key={category} className="mb-12">
-              <h2 className="text-xl md:text-2xl font-bold mb-6 flex items-center gap-3 text-primary">
+            <div key={category} className="mb-8">
+              <h2 className="text-lg md:text-xl font-bold mb-4 flex items-center gap-2 text-primary">
                 <span className="text-secondary">[</span>
                 {category}
                 <span className="text-secondary">]</span>
+                <span className="text-xs text-muted-foreground ml-2">
+                  {tools.filter((tool) => tool.category === category).length}
+                </span>
               </h2>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
                 {tools
                   .filter((tool) => tool.category === category)
                   .map((tool) => {
                     const Icon = tool.icon;
                     return (
                       <Link key={tool.href} to={tool.href}>
-                        <Card className="h-full group relative overflow-hidden cursor-pointer border border-primary/20 bg-card/50 backdrop-blur-sm transition-all hover:border-primary hover:shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:-translate-y-1">
+                        <Card className="h-full group relative overflow-hidden cursor-pointer border border-primary/20 bg-card/50 backdrop-blur-sm transition-all hover:border-primary hover:shadow-[0_0_15px_rgba(0,255,255,0.2)] hover:-translate-y-0.5">
                           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                          <CardHeader className="relative z-10">
-                            <div className="flex items-center gap-3 mb-2">
-                              <div className="p-2 rounded bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                                <Icon className="w-5 h-5 text-primary" />
+                          <CardHeader className="relative z-10 p-4">
+                            <div className="flex items-center gap-2">
+                              <div className="p-1.5 rounded bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                <Icon className="w-4 h-4 text-primary" />
                               </div>
-                              <CardTitle className="text-base font-bold text-foreground group-hover:text-primary transition-colors">
+                              <CardTitle className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">
                                 {tool.title}
                               </CardTitle>
                             </div>
-                            <CardDescription className="text-sm text-foreground/60 font-mono leading-relaxed">
-                              {tool.description}
-                            </CardDescription>
                           </CardHeader>
                         </Card>
                       </Link>

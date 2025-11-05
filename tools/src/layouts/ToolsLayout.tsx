@@ -27,6 +27,11 @@ import {
   Paintbrush,
   LinkIcon,
   AlignLeft,
+  Image,
+  Shuffle,
+  Info,
+  Smartphone,
+  Slash,
 } from "lucide-react";
 import {
   Sidebar,
@@ -106,6 +111,18 @@ const tools = [
     category: "Encoders",
   },
   {
+    title: "Backslash Escape",
+    icon: Slash,
+    href: "/tools/backslash-escape",
+    category: "Encoders",
+  },
+  {
+    title: "Image → Base64",
+    icon: Image,
+    href: "/tools/image-to-base64",
+    category: "Encoders",
+  },
+  {
     title: "JWT Decoder",
     icon: KeyRound,
     href: "/tools/jwt-decoder",
@@ -178,6 +195,12 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Random Data",
+    icon: Shuffle,
+    href: "/tools/random-data",
+    category: "Generators",
+  },
+  {
     title: "Text Diff",
     icon: FileText,
     href: "/tools/diff",
@@ -218,6 +241,18 @@ const tools = [
     icon: LinkIcon,
     href: "/tools/url-parser",
     category: "Dev Tools",
+  },
+  {
+    title: "User Agent Parser",
+    icon: Smartphone,
+    href: "/tools/user-agent-parser",
+    category: "Dev Tools",
+  },
+  {
+    title: "HTTP Status Codes",
+    icon: Info,
+    href: "/tools/http-status",
+    category: "Reference",
   },
 ];
 
