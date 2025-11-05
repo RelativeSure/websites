@@ -1,7 +1,8 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  // For Cloudflare Workers via next-on-pages
+  // Export as static HTML for Cloudflare Workers
+  output: 'export',
   images: {
     unoptimized: true,
   },

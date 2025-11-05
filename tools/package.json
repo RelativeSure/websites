@@ -7,9 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "pages:build": "npx @cloudflare/next-on-pages && cp public/.assetsignore .vercel/output/static/.assetsignore",
-    "preview": "pnpm pages:build && wrangler pages dev",
-    "deploy": "pnpm pages:build && wrangler pages deploy"
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy"
   },
   "dependencies": {
     "next": "^15.0.3",
