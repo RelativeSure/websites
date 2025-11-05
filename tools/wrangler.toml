@@ -4,22 +4,20 @@ compatibility_date = "2024-11-01"
 
 # Cloudflare Workers with Assets
 [assets]
-directory = "out"
+directory = "dist"
 binding = "ASSETS"
 
 # Watch only files in the tools directory (for monorepo)
 watch_paths = [
-  "app/**",
-  "components/**",
-  "hooks/**",
-  "lib/**",
-  "public/**",
   "src/**",
+  "public/**",
+  "index.html",
   "*.ts",
   "*.tsx",
   "*.js",
   "*.json",
-  "wrangler.toml"
+  "wrangler.toml",
+  "vite.config.ts"
 ]
 
 [vars]
