@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@tanstack/react-router";
 import {
   ArrowLeftRight,
   Binary,
@@ -84,7 +84,7 @@ const tools = [
   },
 ];
 
-export default function ToolsLayout() {
+export default function ToolsLayout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const pathname = location.pathname;
   const categories = Array.from(new Set(tools.map((t) => t.category)));
@@ -141,7 +141,7 @@ export default function ToolsLayout() {
           </div>
         </header>
         <div className="flex-1 overflow-auto">
-          <Outlet />
+          {children}
         </div>
       </SidebarInset>
     </SidebarProvider>
