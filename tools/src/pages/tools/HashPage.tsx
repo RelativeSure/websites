@@ -5,6 +5,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Card,
   CardContent,
   CardDescription,
@@ -56,69 +63,63 @@ export default function HashGenerator() {
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Hash Generator</h1>
         <p className="text-muted-foreground">
-          Generate SHA-1, SHA-256, and SHA-512 hashes from your text
+          Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from your text
         </p>
       </div>
 
-      <Card className="mb-6">
+      <Card>
         <CardHeader>
-          <CardTitle>Hash Algorithm</CardTitle>
-          <CardDescription>Select the hashing algorithm to use</CardDescription>
+          <CardTitle>Generate Hash</CardTitle>
+          <CardDescription>Select algorithm and enter text to generate hash</CardDescription>
         </CardHeader>
-        <CardContent>
-          <Label htmlFor="algorithm">Algorithm</Label>
-          <select
-            id="algorithm"
-            value={algorithm}
-            onChange={(e) => setAlgorithm(e.target.value as HashAlgorithm)}
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            <option value="SHA-1">SHA-1</option>
-            <option value="SHA-256">SHA-256</option>
-            <option value="SHA-384">SHA-384</option>
-            <option value="SHA-512">SHA-512</option>
-          </select>
-        </CardContent>
-      </Card>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="algorithm">Algorithm</Label>
+            <Select value={algorithm} onValueChange={(value) => setAlgorithm(value as HashAlgorithm)}>
+              <SelectTrigger id="algorithm">
+                <SelectValue placeholder="Select algorithm" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="SHA-1">SHA-1</SelectItem>
+                <SelectItem value="SHA-256">SHA-256</SelectItem>
+                <SelectItem value="SHA-384">SHA-384</SelectItem>
+                <SelectItem value="SHA-512">SHA-512</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle>Input Text</CardTitle>
-          <CardDescription>Enter text to generate hash</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Textarea
-            placeholder="Enter text here..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            className="font-mono min-h-[150px]"
-          />
-        </CardContent>
-      </Card>
+          <div className="space-y-2">
+            <Label htmlFor="input">Input Text</Label>
+            <Textarea
+              id="input"
+              placeholder="Enter text here..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="font-mono min-h-[150px]"
+            />
+          </div>
 
-      {hash && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">{algorithm} Hash</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="flex gap-2">
-              <Input value={hash} readOnly className="font-mono text-sm" />
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={() => copyToClipboard(hash)}
-              >
-                {copied ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
-              </Button>
+          {hash && (
+            <div className="space-y-2">
+              <Label htmlFor="hash">{algorithm} Hash</Label>
+              <div className="flex gap-2">
+                <Input id="hash" value={hash} readOnly className="font-mono text-sm" />
+                <Button
+                  size="icon"
+                  variant="outline"
+                  onClick={() => copyToClipboard(hash)}
+                >
+                  {copied ? (
+                    <Check className="w-4 h-4" />
+                  ) : (
+                    <Copy className="w-4 h-4" />
+                  )}
+                </Button>
+              </div>
             </div>
-          </CardContent>
-        </Card>
-      )}
+          )}
+        </CardContent>
+      </Card>
     </div>
   );
 }

@@ -57,38 +57,38 @@ export default function TimestampConverter() {
         </p>
       </div>
 
-      <Card className="mb-6">
-        <CardHeader>
-          <CardTitle>Current Time</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <Label>Unix Timestamp</Label>
-              <div className="font-mono text-2xl font-bold text-primary">
-                {Math.floor(currentTime / 1000)}
-              </div>
-            </div>
-            <div>
-              <Label>Date & Time</Label>
-              <div className="text-xl font-bold">
-                {new Date(currentTime).toLocaleString()}
-              </div>
-            </div>
-          </div>
-          <Button onClick={useCurrentTime} variant="outline" className="w-full">
-            <Clock className="mr-2 w-4 h-4" />
-            Use Current Time
-          </Button>
-        </CardContent>
-      </Card>
-
       <Card>
         <CardHeader>
-          <CardTitle>Convert</CardTitle>
-          <CardDescription>Enter timestamp or date to convert between formats</CardDescription>
+          <CardTitle>Timestamp Converter</CardTitle>
+          <CardDescription>Convert between Unix timestamps and human-readable dates</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
+          <div className="space-y-4">
+            <div>
+              <Label className="text-sm text-muted-foreground">Current Time</Label>
+              <div className="grid gap-4 md:grid-cols-2 mt-2">
+                <div>
+                  <Label className="text-xs">Unix Timestamp</Label>
+                  <div className="font-mono text-xl font-bold text-primary">
+                    {Math.floor(currentTime / 1000)}
+                  </div>
+                </div>
+                <div>
+                  <Label className="text-xs">Date & Time</Label>
+                  <div className="text-lg font-bold">
+                    {new Date(currentTime).toLocaleString()}
+                  </div>
+                </div>
+              </div>
+              <Button onClick={useCurrentTime} variant="outline" size="sm" className="w-full mt-3">
+                <Clock className="mr-2 w-4 h-4" />
+                Use Current Time
+              </Button>
+            </div>
+          </div>
+
+          <div className="h-px bg-border" />
+
           <div className="space-y-2">
             <Label htmlFor="timestamp">Unix Timestamp (seconds since 1970)</Label>
             <div className="flex gap-2">
