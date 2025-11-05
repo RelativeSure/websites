@@ -1,6 +1,24 @@
 name = "websites-tools"
-main = "src/worker.ts"
-compatibility_date = "2025-10-25"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+# Cloudflare Workers with Assets
+[assets]
+directory = "dist"
+binding = "ASSETS"
+
+# Watch only files in the tools directory (for monorepo)
+watch_paths = [
+  "src/**",
+  "public/**",
+  "index.html",
+  "*.ts",
+  "*.tsx",
+  "*.js",
+  "*.json",
+  "wrangler.toml",
+  "vite.config.ts"
+]
 
 [vars]
 NODE_VERSION = "v24"
