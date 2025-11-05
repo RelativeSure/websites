@@ -1,0 +1,2 @@
+# Ignore Next.js _headers file (incompatible format with Cloudflare Workers)
+_headers
