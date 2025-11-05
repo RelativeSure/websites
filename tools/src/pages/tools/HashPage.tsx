@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Card,
   CardContent,
@@ -75,17 +75,22 @@ export default function HashGenerator() {
         <CardContent className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="algorithm">Algorithm</Label>
-            <Select value={algorithm} onValueChange={(value) => setAlgorithm(value as HashAlgorithm)}>
-              <SelectTrigger id="algorithm">
-                <SelectValue placeholder="Select algorithm" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="SHA-1">SHA-1</SelectItem>
-                <SelectItem value="SHA-256">SHA-256</SelectItem>
-                <SelectItem value="SHA-384">SHA-384</SelectItem>
-                <SelectItem value="SHA-512">SHA-512</SelectItem>
-              </SelectContent>
-            </Select>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="w-full justify-between">
+                  {algorithm}
+                  <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-full">
+                <DropdownMenuRadioGroup value={algorithm} onValueChange={(value) => setAlgorithm(value as HashAlgorithm)}>
+                  <DropdownMenuRadioItem value="SHA-1">SHA-1</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="SHA-256">SHA-256</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="SHA-384">SHA-384</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="SHA-512">SHA-512</DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           <div className="space-y-2">

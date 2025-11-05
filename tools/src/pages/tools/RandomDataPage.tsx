@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { RefreshCw, Copy, Check } from "lucide-react";
+import { RefreshCw, Copy, Check, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Card,
   CardContent,
@@ -121,21 +121,33 @@ export default function RandomDataGenerator() {
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="type">Data Type</Label>
-              <Select value={type} onValueChange={setType}>
-                <SelectTrigger id="type">
-                  <SelectValue placeholder="Select type" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="number">Random Numbers</SelectItem>
-                  <SelectItem value="email">Email Addresses</SelectItem>
-                  <SelectItem value="name">Full Names</SelectItem>
-                  <SelectItem value="phone">Phone Numbers</SelectItem>
-                  <SelectItem value="address">Street Addresses</SelectItem>
-                  <SelectItem value="ip">IP Addresses</SelectItem>
-                  <SelectItem value="mac">MAC Addresses</SelectItem>
-                  <SelectItem value="date">Dates</SelectItem>
-                </SelectContent>
-              </Select>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="w-full justify-between">
+                    {type === "number" && "Random Numbers"}
+                    {type === "email" && "Email Addresses"}
+                    {type === "name" && "Full Names"}
+                    {type === "phone" && "Phone Numbers"}
+                    {type === "address" && "Street Addresses"}
+                    {type === "ip" && "IP Addresses"}
+                    {type === "mac" && "MAC Addresses"}
+                    {type === "date" && "Dates"}
+                    <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuRadioGroup value={type} onValueChange={setType}>
+                    <DropdownMenuRadioItem value="number">Random Numbers</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="email">Email Addresses</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="name">Full Names</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="phone">Phone Numbers</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="address">Street Addresses</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="ip">IP Addresses</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="mac">MAC Addresses</DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="date">Dates</DropdownMenuRadioItem>
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
 
             <div className="space-y-2">

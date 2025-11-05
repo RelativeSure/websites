@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Copy, Check, ArrowRight } from "lucide-react";
+import { Copy, Check, ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   Card,
   CardContent,
@@ -189,21 +189,26 @@ export default function NumberBaseConverter() {
           <div className="grid gap-4 md:grid-cols-[1fr,auto,1fr]">
             <div className="space-y-2">
               <Label htmlFor="from-base">From Base</Label>
-              <Select value={fromBase} onValueChange={(value) => {
-                setFromBase(value as BaseType);
-                convert(input);
-              }}>
-                <SelectTrigger id="from-base">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {BASE_OPTIONS.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="w-full justify-between">
+                    {getBaseInfo(fromBase)?.label}
+                    <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuRadioGroup value={fromBase} onValueChange={(value) => {
+                    setFromBase(value as BaseType);
+                    convert(input);
+                  }}>
+                    {BASE_OPTIONS.map((option) => (
+                      <DropdownMenuRadioItem key={option.value} value={option.value}>
+                        {option.label}
+                      </DropdownMenuRadioItem>
+                    ))}
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <p className="text-xs text-muted-foreground">
                 Uses: {getBaseInfo(fromBase)?.chars}
               </p>
@@ -223,21 +228,26 @@ export default function NumberBaseConverter() {
 
             <div className="space-y-2">
               <Label htmlFor="to-base">To Base</Label>
-              <Select value={toBase} onValueChange={(value) => {
-                setToBase(value as BaseType);
-                convert(input);
-              }}>
-                <SelectTrigger id="to-base">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {BASE_OPTIONS.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" className="w-full justify-between">
+                    {getBaseInfo(toBase)?.label}
+                    <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuRadioGroup value={toBase} onValueChange={(value) => {
+                    setToBase(value as BaseType);
+                    convert(input);
+                  }}>
+                    {BASE_OPTIONS.map((option) => (
+                      <DropdownMenuRadioItem key={option.value} value={option.value}>
+                        {option.label}
+                      </DropdownMenuRadioItem>
+                    ))}
+                  </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <p className="text-xs text-muted-foreground">
                 Uses: {getBaseInfo(toBase)?.chars}
               </p>
