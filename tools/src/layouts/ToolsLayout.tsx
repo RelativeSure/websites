@@ -20,6 +20,13 @@ import {
   Lock,
   TestTube,
   FileCode2,
+  QrCode,
+  Eye,
+  FileJson2,
+  CalendarClock,
+  Paintbrush,
+  LinkIcon,
+  AlignLeft,
 } from "lucide-react";
 import {
   Sidebar,
@@ -75,6 +82,12 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "JSON → TypeScript",
+    icon: FileJson2,
+    href: "/tools/json-to-typescript",
+    category: "Converters",
+  },
+  {
     title: "Base64",
     icon: Binary,
     href: "/tools/base64",
@@ -108,6 +121,18 @@ const tools = [
     title: "HTML Formatter",
     icon: FileCode2,
     href: "/tools/html-formatter",
+    category: "Formatters",
+  },
+  {
+    title: "SQL Formatter",
+    icon: Database,
+    href: "/tools/sql-formatter",
+    category: "Formatters",
+  },
+  {
+    title: "CSS Minifier",
+    icon: Paintbrush,
+    href: "/tools/css-minifier",
     category: "Formatters",
   },
   {
@@ -147,9 +172,27 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "QR Code",
+    icon: QrCode,
+    href: "/tools/qr-code",
+    category: "Generators",
+  },
+  {
     title: "Text Diff",
     icon: FileText,
     href: "/tools/diff",
+    category: "Text Tools",
+  },
+  {
+    title: "Text Analyzer",
+    icon: AlignLeft,
+    href: "/tools/string-counter",
+    category: "Text Tools",
+  },
+  {
+    title: "Markdown Preview",
+    icon: Eye,
+    href: "/tools/markdown-preview",
     category: "Text Tools",
   },
   {
@@ -163,6 +206,18 @@ const tools = [
     icon: TestTube,
     href: "/tools/regex-tester",
     category: "Text Tools",
+  },
+  {
+    title: "Cron Parser",
+    icon: CalendarClock,
+    href: "/tools/cron-parser",
+    category: "Dev Tools",
+  },
+  {
+    title: "URL Parser",
+    icon: LinkIcon,
+    href: "/tools/url-parser",
+    category: "Dev Tools",
   },
 ];
 

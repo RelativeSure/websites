@@ -14,21 +14,29 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsYamlValidatorRouteImport } from './routes/tools/yaml-validator'
 import { Route as ToolsXmlJsonRouteImport } from './routes/tools/xml-json'
 import { Route as ToolsUuidRouteImport } from './routes/tools/uuid'
+import { Route as ToolsUrlParserRouteImport } from './routes/tools/url-parser'
 import { Route as ToolsUrlEncodeRouteImport } from './routes/tools/url-encode'
 import { Route as ToolsTimestampRouteImport } from './routes/tools/timestamp'
+import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-counter'
+import { Route as ToolsSqlFormatterRouteImport } from './routes/tools/sql-formatter'
 import { Route as ToolsRegexTesterRouteImport } from './routes/tools/regex-tester'
+import { Route as ToolsQrCodeRouteImport } from './routes/tools/qr-code'
 import { Route as ToolsPasswordGeneratorRouteImport } from './routes/tools/password-generator'
 import { Route as ToolsNumberBaseRouteImport } from './routes/tools/number-base'
+import { Route as ToolsMarkdownPreviewRouteImport } from './routes/tools/markdown-preview'
 import { Route as ToolsLoremIpsumRouteImport } from './routes/tools/lorem-ipsum'
 import { Route as ToolsJwtDecoderRouteImport } from './routes/tools/jwt-decoder'
 import { Route as ToolsJsonYamlRouteImport } from './routes/tools/json-yaml'
 import { Route as ToolsJsonValidatorRouteImport } from './routes/tools/json-validator'
+import { Route as ToolsJsonToTypescriptRouteImport } from './routes/tools/json-to-typescript'
 import { Route as ToolsJsonFormatterRouteImport } from './routes/tools/json-formatter'
 import { Route as ToolsHtmlFormatterRouteImport } from './routes/tools/html-formatter'
 import { Route as ToolsHtmlEntityRouteImport } from './routes/tools/html-entity'
 import { Route as ToolsHashRouteImport } from './routes/tools/hash'
 import { Route as ToolsDiffRouteImport } from './routes/tools/diff'
 import { Route as ToolsCsvJsonRouteImport } from './routes/tools/csv-json'
+import { Route as ToolsCssMinifierRouteImport } from './routes/tools/css-minifier'
+import { Route as ToolsCronParserRouteImport } from './routes/tools/cron-parser'
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
@@ -58,6 +66,11 @@ const ToolsUuidRoute = ToolsUuidRouteImport.update({
   path: '/uuid',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsUrlParserRoute = ToolsUrlParserRouteImport.update({
+  id: '/url-parser',
+  path: '/url-parser',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsUrlEncodeRoute = ToolsUrlEncodeRouteImport.update({
   id: '/url-encode',
   path: '/url-encode',
@@ -68,9 +81,24 @@ const ToolsTimestampRoute = ToolsTimestampRouteImport.update({
   path: '/timestamp',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsStringCounterRoute = ToolsStringCounterRouteImport.update({
+  id: '/string-counter',
+  path: '/string-counter',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsSqlFormatterRoute = ToolsSqlFormatterRouteImport.update({
+  id: '/sql-formatter',
+  path: '/sql-formatter',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsRegexTesterRoute = ToolsRegexTesterRouteImport.update({
   id: '/regex-tester',
   path: '/regex-tester',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsQrCodeRoute = ToolsQrCodeRouteImport.update({
+  id: '/qr-code',
+  path: '/qr-code',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsPasswordGeneratorRoute = ToolsPasswordGeneratorRouteImport.update({
@@ -81,6 +109,11 @@ const ToolsPasswordGeneratorRoute = ToolsPasswordGeneratorRouteImport.update({
 const ToolsNumberBaseRoute = ToolsNumberBaseRouteImport.update({
   id: '/number-base',
   path: '/number-base',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsMarkdownPreviewRoute = ToolsMarkdownPreviewRouteImport.update({
+  id: '/markdown-preview',
+  path: '/markdown-preview',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsLoremIpsumRoute = ToolsLoremIpsumRouteImport.update({
@@ -101,6 +134,11 @@ const ToolsJsonYamlRoute = ToolsJsonYamlRouteImport.update({
 const ToolsJsonValidatorRoute = ToolsJsonValidatorRouteImport.update({
   id: '/json-validator',
   path: '/json-validator',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsJsonToTypescriptRoute = ToolsJsonToTypescriptRouteImport.update({
+  id: '/json-to-typescript',
+  path: '/json-to-typescript',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsJsonFormatterRoute = ToolsJsonFormatterRouteImport.update({
@@ -133,6 +171,16 @@ const ToolsCsvJsonRoute = ToolsCsvJsonRouteImport.update({
   path: '/csv-json',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsCssMinifierRoute = ToolsCssMinifierRouteImport.update({
+  id: '/css-minifier',
+  path: '/css-minifier',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCronParserRoute = ToolsCronParserRouteImport.update({
+  id: '/cron-parser',
+  path: '/cron-parser',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsColorConverterRoute = ToolsColorConverterRouteImport.update({
   id: '/color-converter',
   path: '/color-converter',
@@ -155,21 +203,29 @@ export interface FileRoutesByFullPath {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
+  '/tools/cron-parser': typeof ToolsCronParserRoute
+  '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
+  '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/jwt-decoder': typeof ToolsJwtDecoderRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
+  '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
+  '/tools/qr-code': typeof ToolsQrCodeRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
+  '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
+  '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
@@ -180,21 +236,29 @@ export interface FileRoutesByTo {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
+  '/tools/cron-parser': typeof ToolsCronParserRoute
+  '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
+  '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/jwt-decoder': typeof ToolsJwtDecoderRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
+  '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
+  '/tools/qr-code': typeof ToolsQrCodeRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
+  '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
+  '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
@@ -206,21 +270,29 @@ export interface FileRoutesById {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
+  '/tools/cron-parser': typeof ToolsCronParserRoute
+  '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
+  '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/jwt-decoder': typeof ToolsJwtDecoderRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
+  '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
+  '/tools/qr-code': typeof ToolsQrCodeRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
+  '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
+  '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
@@ -233,21 +305,29 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
+    | '/tools/cron-parser'
+    | '/tools/css-minifier'
     | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/json-formatter'
+    | '/tools/json-to-typescript'
     | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/jwt-decoder'
     | '/tools/lorem-ipsum'
+    | '/tools/markdown-preview'
     | '/tools/number-base'
     | '/tools/password-generator'
+    | '/tools/qr-code'
     | '/tools/regex-tester'
+    | '/tools/sql-formatter'
+    | '/tools/string-counter'
     | '/tools/timestamp'
     | '/tools/url-encode'
+    | '/tools/url-parser'
     | '/tools/uuid'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
@@ -258,21 +338,29 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
+    | '/tools/cron-parser'
+    | '/tools/css-minifier'
     | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/json-formatter'
+    | '/tools/json-to-typescript'
     | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/jwt-decoder'
     | '/tools/lorem-ipsum'
+    | '/tools/markdown-preview'
     | '/tools/number-base'
     | '/tools/password-generator'
+    | '/tools/qr-code'
     | '/tools/regex-tester'
+    | '/tools/sql-formatter'
+    | '/tools/string-counter'
     | '/tools/timestamp'
     | '/tools/url-encode'
+    | '/tools/url-parser'
     | '/tools/uuid'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
@@ -283,21 +371,29 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
+    | '/tools/cron-parser'
+    | '/tools/css-minifier'
     | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/json-formatter'
+    | '/tools/json-to-typescript'
     | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/jwt-decoder'
     | '/tools/lorem-ipsum'
+    | '/tools/markdown-preview'
     | '/tools/number-base'
     | '/tools/password-generator'
+    | '/tools/qr-code'
     | '/tools/regex-tester'
+    | '/tools/sql-formatter'
+    | '/tools/string-counter'
     | '/tools/timestamp'
     | '/tools/url-encode'
+    | '/tools/url-parser'
     | '/tools/uuid'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
@@ -345,6 +441,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsUuidRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/url-parser': {
+      id: '/tools/url-parser'
+      path: '/url-parser'
+      fullPath: '/tools/url-parser'
+      preLoaderRoute: typeof ToolsUrlParserRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/url-encode': {
       id: '/tools/url-encode'
       path: '/url-encode'
@@ -359,11 +462,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsTimestampRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/string-counter': {
+      id: '/tools/string-counter'
+      path: '/string-counter'
+      fullPath: '/tools/string-counter'
+      preLoaderRoute: typeof ToolsStringCounterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/sql-formatter': {
+      id: '/tools/sql-formatter'
+      path: '/sql-formatter'
+      fullPath: '/tools/sql-formatter'
+      preLoaderRoute: typeof ToolsSqlFormatterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/regex-tester': {
       id: '/tools/regex-tester'
       path: '/regex-tester'
       fullPath: '/tools/regex-tester'
       preLoaderRoute: typeof ToolsRegexTesterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/qr-code': {
+      id: '/tools/qr-code'
+      path: '/qr-code'
+      fullPath: '/tools/qr-code'
+      preLoaderRoute: typeof ToolsQrCodeRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/password-generator': {
@@ -378,6 +502,13 @@ declare module '@tanstack/react-router' {
       path: '/number-base'
       fullPath: '/tools/number-base'
       preLoaderRoute: typeof ToolsNumberBaseRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/markdown-preview': {
+      id: '/tools/markdown-preview'
+      path: '/markdown-preview'
+      fullPath: '/tools/markdown-preview'
+      preLoaderRoute: typeof ToolsMarkdownPreviewRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/lorem-ipsum': {
@@ -406,6 +537,13 @@ declare module '@tanstack/react-router' {
       path: '/json-validator'
       fullPath: '/tools/json-validator'
       preLoaderRoute: typeof ToolsJsonValidatorRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/json-to-typescript': {
+      id: '/tools/json-to-typescript'
+      path: '/json-to-typescript'
+      fullPath: '/tools/json-to-typescript'
+      preLoaderRoute: typeof ToolsJsonToTypescriptRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/json-formatter': {
@@ -450,6 +588,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsCsvJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/css-minifier': {
+      id: '/tools/css-minifier'
+      path: '/css-minifier'
+      fullPath: '/tools/css-minifier'
+      preLoaderRoute: typeof ToolsCssMinifierRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/cron-parser': {
+      id: '/tools/cron-parser'
+      path: '/cron-parser'
+      fullPath: '/tools/cron-parser'
+      preLoaderRoute: typeof ToolsCronParserRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/color-converter': {
       id: '/tools/color-converter'
       path: '/color-converter'
@@ -478,21 +630,29 @@ interface ToolsRouteChildren {
   ToolsBase64Route: typeof ToolsBase64Route
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
+  ToolsCronParserRoute: typeof ToolsCronParserRoute
+  ToolsCssMinifierRoute: typeof ToolsCssMinifierRoute
   ToolsCsvJsonRoute: typeof ToolsCsvJsonRoute
   ToolsDiffRoute: typeof ToolsDiffRoute
   ToolsHashRoute: typeof ToolsHashRoute
   ToolsHtmlEntityRoute: typeof ToolsHtmlEntityRoute
   ToolsHtmlFormatterRoute: typeof ToolsHtmlFormatterRoute
   ToolsJsonFormatterRoute: typeof ToolsJsonFormatterRoute
+  ToolsJsonToTypescriptRoute: typeof ToolsJsonToTypescriptRoute
   ToolsJsonValidatorRoute: typeof ToolsJsonValidatorRoute
   ToolsJsonYamlRoute: typeof ToolsJsonYamlRoute
   ToolsJwtDecoderRoute: typeof ToolsJwtDecoderRoute
   ToolsLoremIpsumRoute: typeof ToolsLoremIpsumRoute
+  ToolsMarkdownPreviewRoute: typeof ToolsMarkdownPreviewRoute
   ToolsNumberBaseRoute: typeof ToolsNumberBaseRoute
   ToolsPasswordGeneratorRoute: typeof ToolsPasswordGeneratorRoute
+  ToolsQrCodeRoute: typeof ToolsQrCodeRoute
   ToolsRegexTesterRoute: typeof ToolsRegexTesterRoute
+  ToolsSqlFormatterRoute: typeof ToolsSqlFormatterRoute
+  ToolsStringCounterRoute: typeof ToolsStringCounterRoute
   ToolsTimestampRoute: typeof ToolsTimestampRoute
   ToolsUrlEncodeRoute: typeof ToolsUrlEncodeRoute
+  ToolsUrlParserRoute: typeof ToolsUrlParserRoute
   ToolsUuidRoute: typeof ToolsUuidRoute
   ToolsXmlJsonRoute: typeof ToolsXmlJsonRoute
   ToolsYamlValidatorRoute: typeof ToolsYamlValidatorRoute
@@ -502,21 +662,29 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsBase64Route: ToolsBase64Route,
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,
+  ToolsCronParserRoute: ToolsCronParserRoute,
+  ToolsCssMinifierRoute: ToolsCssMinifierRoute,
   ToolsCsvJsonRoute: ToolsCsvJsonRoute,
   ToolsDiffRoute: ToolsDiffRoute,
   ToolsHashRoute: ToolsHashRoute,
   ToolsHtmlEntityRoute: ToolsHtmlEntityRoute,
   ToolsHtmlFormatterRoute: ToolsHtmlFormatterRoute,
   ToolsJsonFormatterRoute: ToolsJsonFormatterRoute,
+  ToolsJsonToTypescriptRoute: ToolsJsonToTypescriptRoute,
   ToolsJsonValidatorRoute: ToolsJsonValidatorRoute,
   ToolsJsonYamlRoute: ToolsJsonYamlRoute,
   ToolsJwtDecoderRoute: ToolsJwtDecoderRoute,
   ToolsLoremIpsumRoute: ToolsLoremIpsumRoute,
+  ToolsMarkdownPreviewRoute: ToolsMarkdownPreviewRoute,
   ToolsNumberBaseRoute: ToolsNumberBaseRoute,
   ToolsPasswordGeneratorRoute: ToolsPasswordGeneratorRoute,
+  ToolsQrCodeRoute: ToolsQrCodeRoute,
   ToolsRegexTesterRoute: ToolsRegexTesterRoute,
+  ToolsSqlFormatterRoute: ToolsSqlFormatterRoute,
+  ToolsStringCounterRoute: ToolsStringCounterRoute,
   ToolsTimestampRoute: ToolsTimestampRoute,
   ToolsUrlEncodeRoute: ToolsUrlEncodeRoute,
+  ToolsUrlParserRoute: ToolsUrlParserRoute,
   ToolsUuidRoute: ToolsUuidRoute,
   ToolsXmlJsonRoute: ToolsXmlJsonRoute,
   ToolsYamlValidatorRoute: ToolsYamlValidatorRoute,
