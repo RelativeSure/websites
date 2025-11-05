@@ -1,6 +1,8 @@
 name = "websites-tools"
-main = "src/index.ts"
 compatibility_date = "2024-11-01"
+
+# This is for Cloudflare Pages (not raw Workers)
+pages_build_output_dir = ".vercel/output/static"
 
 # Watch only files in the tools directory (for monorepo)
 watch_paths = [
@@ -9,18 +11,12 @@ watch_paths = [
   "hooks/**",
   "lib/**",
   "public/**",
-  "src/**",
   "*.ts",
   "*.tsx",
   "*.js",
   "*.json",
   "wrangler.toml"
 ]
-
-# Use Workers Assets to serve static Next.js build
-[assets]
-directory = ".vercel/output/static"
-binding = "ASSETS"
 
 [build]
 command = "pnpm pages:build"
@@ -30,7 +26,6 @@ watch_paths = [
   "hooks/**",
   "lib/**",
   "public/**",
-  "src/**",
   "next.config.ts",
   "tailwind.config.ts",
   "package.json"
