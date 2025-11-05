@@ -1,2 +1,0 @@
-# Ignore _worker.js directory - it's the Worker code, not static assets
-_worker.js/
