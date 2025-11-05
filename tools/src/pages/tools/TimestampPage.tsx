@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useForm } from "@tanstack/react-form";
 import { Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,6 +13,8 @@ import {
 
 export default function TimestampConverter() {
   const [currentTime, setCurrentTime] = useState(Date.now());
+  const [timestamp, setTimestamp] = useState("");
+  const [datetime, setDatetime] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -22,18 +23,7 @@ export default function TimestampConverter() {
     return () => clearInterval(interval);
   }, []);
 
-  const form = useForm({
-    defaultValues: {
-      timestamp: "",
-      datetime: "",
-    },
-    onSubmit: async ({ value }) => {
-      console.log(value);
-    },
-  });
-
   const timestampToDate = () => {
-    const timestamp = form.getFieldValue("timestamp");
     if (!timestamp) return;
 
     const ts = parseInt(timestamp);
@@ -41,22 +31,21 @@ export default function TimestampConverter() {
 
     // Handle both seconds and milliseconds
     const date = new Date(ts > 10000000000 ? ts : ts * 1000);
-    form.setFieldValue("datetime", date.toISOString().slice(0, 16));
+    setDatetime(date.toISOString().slice(0, 16));
   };
 
   const dateToTimestamp = () => {
-    const datetime = form.getFieldValue("datetime");
     if (!datetime) return;
 
     const date = new Date(datetime);
     if (isNaN(date.getTime())) return;
 
-    form.setFieldValue("timestamp", Math.floor(date.getTime() / 1000).toString());
+    setTimestamp(Math.floor(date.getTime() / 1000).toString());
   };
 
   const useCurrentTime = () => {
-    form.setFieldValue("timestamp", Math.floor(currentTime / 1000).toString());
-    form.setFieldValue("datetime", new Date(currentTime).toISOString().slice(0, 16));
+    setTimestamp(Math.floor(currentTime / 1000).toString());
+    setDatetime(new Date(currentTime).toISOString().slice(0, 16));
   };
 
   return (
@@ -94,73 +83,52 @@ export default function TimestampConverter() {
         </CardContent>
       </Card>
 
-      <form.Provider>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-          }}
-        >
-          <Card>
-            <CardHeader>
-              <CardTitle>Convert</CardTitle>
-              <CardDescription>Enter timestamp or date to convert between formats</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-2">
-                <form.Field name="timestamp">
-                  {(field) => (
-                    <>
-                      <Label htmlFor={field.name}>Unix Timestamp (seconds since 1970)</Label>
-                      <div className="flex gap-2">
-                        <Input
-                          id={field.name}
-                          type="number"
-                          placeholder="1234567890"
-                          value={field.state.value}
-                          onChange={(e) => field.handleChange(e.target.value)}
-                          className="font-mono flex-1"
-                        />
-                        <Button type="button" onClick={timestampToDate}>
-                          → Date
-                        </Button>
-                      </div>
-                    </>
-                  )}
-                </form.Field>
-              </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Convert</CardTitle>
+          <CardDescription>Enter timestamp or date to convert between formats</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="space-y-2">
+            <Label htmlFor="timestamp">Unix Timestamp (seconds since 1970)</Label>
+            <div className="flex gap-2">
+              <Input
+                id="timestamp"
+                type="number"
+                placeholder="1234567890"
+                value={timestamp}
+                onChange={(e) => setTimestamp(e.target.value)}
+                className="font-mono flex-1"
+              />
+              <Button type="button" onClick={timestampToDate}>
+                → Date
+              </Button>
+            </div>
+          </div>
 
-              <div className="flex items-center justify-center text-muted-foreground">
-                <div className="h-px bg-border flex-1" />
-                <span className="px-4 text-sm">or</span>
-                <div className="h-px bg-border flex-1" />
-              </div>
+          <div className="flex items-center justify-center text-muted-foreground">
+            <div className="h-px bg-border flex-1" />
+            <span className="px-4 text-sm">or</span>
+            <div className="h-px bg-border flex-1" />
+          </div>
 
-              <div className="space-y-2">
-                <form.Field name="datetime">
-                  {(field) => (
-                    <>
-                      <Label htmlFor={field.name}>Date & Time</Label>
-                      <div className="flex gap-2">
-                        <Input
-                          id={field.name}
-                          type="datetime-local"
-                          value={field.state.value}
-                          onChange={(e) => field.handleChange(e.target.value)}
-                          className="flex-1"
-                        />
-                        <Button type="button" onClick={dateToTimestamp}>
-                          → Timestamp
-                        </Button>
-                      </div>
-                    </>
-                  )}
-                </form.Field>
-              </div>
-            </CardContent>
-          </Card>
-        </form>
-      </form.Provider>
+          <div className="space-y-2">
+            <Label htmlFor="datetime">Date & Time</Label>
+            <div className="flex gap-2">
+              <Input
+                id="datetime"
+                type="datetime-local"
+                value={datetime}
+                onChange={(e) => setDatetime(e.target.value)}
+                className="flex-1"
+              />
+              <Button type="button" onClick={dateToTimestamp}>
+                → Timestamp
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
