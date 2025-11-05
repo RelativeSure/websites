@@ -1,6 +1,11 @@
 name = "developer-tools"
+main = "src/index.ts"
 compatibility_date = "2024-11-01"
-pages_build_output_dir = ".vercel/output/static"
+
+# Use Workers Assets to serve static Next.js build
+[assets]
+directory = ".vercel/output/static"
+binding = "ASSETS"
 
 [build]
 command = "pnpm pages:build"
