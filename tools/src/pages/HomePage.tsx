@@ -52,6 +52,7 @@ const tools = [
   { title: "Timestamp", icon: Clock, href: "/tools/timestamp", category: "Converters" },
   { title: "Color", icon: Palette, href: "/tools/color-converter", category: "Converters" },
   { title: "Number Base", icon: Calculator, href: "/tools/number-base", category: "Converters" },
+  { title: "Base Conv", icon: Binary, href: "/tools/base-conversion", category: "Converters" },
   { title: "Base64", icon: Binary, href: "/tools/base64", category: "Encoders" },
   { title: "URL Encode", icon: Link2, href: "/tools/url-encode", category: "Encoders" },
   { title: "HTML Entity", icon: Code2, href: "/tools/html-entity", category: "Encoders" },

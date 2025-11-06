@@ -44,6 +44,7 @@ import { Route as ToolsCronParserRouteImport } from './routes/tools/cron-parser'
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
+import { Route as ToolsBaseConversionRouteImport } from './routes/tools/base-conversion'
 import { Route as ToolsBackslashEscapeRouteImport } from './routes/tools/backslash-escape'
 
 const ToolsRoute = ToolsRouteImport.update({
@@ -221,6 +222,11 @@ const ToolsBase64Route = ToolsBase64RouteImport.update({
   path: '/base64',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsBaseConversionRoute = ToolsBaseConversionRouteImport.update({
+  id: '/base-conversion',
+  path: '/base-conversion',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsBackslashEscapeRoute = ToolsBackslashEscapeRouteImport.update({
   id: '/backslash-escape',
   path: '/backslash-escape',
@@ -231,6 +237,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
+  '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -269,6 +276,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
+  '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -308,6 +316,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
+  '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -348,6 +357,7 @@ export interface FileRouteTypes {
     | '/'
     | '/tools'
     | '/tools/backslash-escape'
+    | '/tools/base-conversion'
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
@@ -386,6 +396,7 @@ export interface FileRouteTypes {
     | '/'
     | '/tools'
     | '/tools/backslash-escape'
+    | '/tools/base-conversion'
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
@@ -424,6 +435,7 @@ export interface FileRouteTypes {
     | '/'
     | '/tools'
     | '/tools/backslash-escape'
+    | '/tools/base-conversion'
     | '/tools/base64'
     | '/tools/case-converter'
     | '/tools/color-converter'
@@ -711,6 +723,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsBase64RouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/base-conversion': {
+      id: '/tools/base-conversion'
+      path: '/base-conversion'
+      fullPath: '/tools/base-conversion'
+      preLoaderRoute: typeof ToolsBaseConversionRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/backslash-escape': {
       id: '/tools/backslash-escape'
       path: '/backslash-escape'
@@ -723,6 +742,7 @@ declare module '@tanstack/react-router' {
 
 interface ToolsRouteChildren {
   ToolsBackslashEscapeRoute: typeof ToolsBackslashEscapeRoute
+  ToolsBaseConversionRoute: typeof ToolsBaseConversionRoute
   ToolsBase64Route: typeof ToolsBase64Route
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
@@ -760,6 +780,7 @@ interface ToolsRouteChildren {
 
 const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsBackslashEscapeRoute: ToolsBackslashEscapeRoute,
+  ToolsBaseConversionRoute: ToolsBaseConversionRoute,
   ToolsBase64Route: ToolsBase64Route,
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,

@@ -87,6 +87,12 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "Base Conversion",
+    icon: Binary,
+    href: "/tools/base-conversion",
+    category: "Converters",
+  },
+  {
     title: "JSON → TypeScript",
     icon: FileJson2,
     href: "/tools/json-to-typescript",
