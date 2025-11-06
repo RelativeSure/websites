@@ -22,6 +22,7 @@ import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-co
 import { Route as ToolsSqlFormatterRouteImport } from './routes/tools/sql-formatter'
 import { Route as ToolsRegexTesterRouteImport } from './routes/tools/regex-tester'
 import { Route as ToolsRandomDataRouteImport } from './routes/tools/random-data'
+import { Route as ToolsQrScannerRouteImport } from './routes/tools/qr-scanner'
 import { Route as ToolsQrCodeRouteImport } from './routes/tools/qr-code'
 import { Route as ToolsPasswordGeneratorRouteImport } from './routes/tools/password-generator'
 import { Route as ToolsNumberBaseRouteImport } from './routes/tools/number-base'
@@ -110,6 +111,11 @@ const ToolsRegexTesterRoute = ToolsRegexTesterRouteImport.update({
 const ToolsRandomDataRoute = ToolsRandomDataRouteImport.update({
   id: '/random-data',
   path: '/random-data',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsQrScannerRoute = ToolsQrScannerRouteImport.update({
+  id: '/qr-scanner',
+  path: '/qr-scanner',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsQrCodeRoute = ToolsQrCodeRouteImport.update({
@@ -260,6 +266,7 @@ export interface FileRoutesByFullPath {
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
+  '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
@@ -299,6 +306,7 @@ export interface FileRoutesByTo {
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
+  '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
@@ -339,6 +347,7 @@ export interface FileRoutesById {
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
+  '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
@@ -380,6 +389,7 @@ export interface FileRouteTypes {
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
+    | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
@@ -419,6 +429,7 @@ export interface FileRouteTypes {
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
+    | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
@@ -458,6 +469,7 @@ export interface FileRouteTypes {
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
+    | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
@@ -567,6 +579,13 @@ declare module '@tanstack/react-router' {
       path: '/random-data'
       fullPath: '/tools/random-data'
       preLoaderRoute: typeof ToolsRandomDataRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/qr-scanner': {
+      id: '/tools/qr-scanner'
+      path: '/qr-scanner'
+      fullPath: '/tools/qr-scanner'
+      preLoaderRoute: typeof ToolsQrScannerRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/qr-code': {
@@ -765,6 +784,7 @@ interface ToolsRouteChildren {
   ToolsNumberBaseRoute: typeof ToolsNumberBaseRoute
   ToolsPasswordGeneratorRoute: typeof ToolsPasswordGeneratorRoute
   ToolsQrCodeRoute: typeof ToolsQrCodeRoute
+  ToolsQrScannerRoute: typeof ToolsQrScannerRoute
   ToolsRandomDataRoute: typeof ToolsRandomDataRoute
   ToolsRegexTesterRoute: typeof ToolsRegexTesterRoute
   ToolsSqlFormatterRoute: typeof ToolsSqlFormatterRoute
@@ -803,6 +823,7 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsNumberBaseRoute: ToolsNumberBaseRoute,
   ToolsPasswordGeneratorRoute: ToolsPasswordGeneratorRoute,
   ToolsQrCodeRoute: ToolsQrCodeRoute,
+  ToolsQrScannerRoute: ToolsQrScannerRoute,
   ToolsRandomDataRoute: ToolsRandomDataRoute,
   ToolsRegexTesterRoute: ToolsRegexTesterRoute,
   ToolsSqlFormatterRoute: ToolsSqlFormatterRoute,

@@ -32,6 +32,7 @@ import {
   Info,
   Smartphone,
   Slash,
+  ScanLine,
 } from "lucide-react";
 import {
   Sidebar,
@@ -192,6 +193,12 @@ const tools = [
     title: "QR Code",
     icon: QrCode,
     href: "/tools/qr-code",
+    category: "Generators",
+  },
+  {
+    title: "QR Scanner",
+    icon: ScanLine,
+    href: "/tools/qr-scanner",
     category: "Generators",
   },
   {

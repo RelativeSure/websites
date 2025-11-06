@@ -34,6 +34,7 @@ import {
   FileJson,
   Minimize2,
   Link as LinkIcon,
+  ScanLine,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -68,6 +69,7 @@ const tools = [
   { title: "Password", icon: Lock, href: "/tools/password-generator", category: "Generators" },
   { title: "Lorem Ipsum", icon: Type, href: "/tools/lorem-ipsum", category: "Generators" },
   { title: "QR Code", icon: QrCode, href: "/tools/qr-code", category: "Generators" },
+  { title: "QR Scanner", icon: ScanLine, href: "/tools/qr-scanner", category: "Generators" },
   { title: "Random Data", icon: Shuffle, href: "/tools/random-data", category: "Generators" },
   { title: "Text Diff", icon: FileText, href: "/tools/diff", category: "Text Tools" },
   { title: "Case Convert", icon: Code2, href: "/tools/case-converter", category: "Text Tools" },
