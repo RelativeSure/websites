@@ -1,0 +1,6 @@
+import { createFileRoute } from '@tanstack/react-router'
+import NumberBasePage from '../../../pages/tools/converters/NumberBasePage'
+
+export const Route = createFileRoute('/_tools/converters/number-base')({
+  component: NumberBasePage,
+})

@@ -9,118 +9,105 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ToolsRouteImport } from './routes/tools'
+import { Route as ToolsRouteImport } from './routes/_tools'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ToolsDiffCheckerRouteImport } from './routes/tools/diff-checker'
-import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
-import { Route as ToolsValidatorsYamlValidatorRouteImport } from './routes/tools/validators/yaml-validator'
-import { Route as ToolsValidatorsValidatorRouteImport } from './routes/tools/validators/validator'
-import { Route as ToolsValidatorsJsonValidatorRouteImport } from './routes/tools/validators/json-validator'
-import { Route as ToolsValidatorsJsonSchemaValidatorRouteImport } from './routes/tools/validators/json-schema-validator'
-import { Route as ToolsTextToolsTextToolsRouteImport } from './routes/tools/text-tools/text-tools'
-import { Route as ToolsTextToolsTextStatisticsRouteImport } from './routes/tools/text-tools/text-statistics'
-import { Route as ToolsTextToolsStringCounterRouteImport } from './routes/tools/text-tools/string-counter'
-import { Route as ToolsTextToolsRegexTesterRouteImport } from './routes/tools/text-tools/regex-tester'
-import { Route as ToolsTextToolsMarkdownPreviewRouteImport } from './routes/tools/text-tools/markdown-preview'
-import { Route as ToolsTextToolsLevenshteinRouteImport } from './routes/tools/text-tools/levenshtein'
-import { Route as ToolsTextToolsDiffRouteImport } from './routes/tools/text-tools/diff'
-import { Route as ToolsTextToolsCaseConverterRouteImport } from './routes/tools/text-tools/case-converter'
-import { Route as ToolsTextToolsAsciiArtRouteImport } from './routes/tools/text-tools/ascii-art'
-import { Route as ToolsReferenceHttpStatusRouteImport } from './routes/tools/reference/http-status'
-import { Route as ToolsMediaSvgOptimizerRouteImport } from './routes/tools/media/svg-optimizer'
-import { Route as ToolsMediaImageResizerRouteImport } from './routes/tools/media/image-resizer'
-import { Route as ToolsMediaImageCompressorRouteImport } from './routes/tools/media/image-compressor'
-import { Route as ToolsMediaFaviconGeneratorRouteImport } from './routes/tools/media/favicon-generator'
-import { Route as ToolsMathPercentageCalculatorRouteImport } from './routes/tools/math/percentage-calculator'
-import { Route as ToolsMathExpressionEvaluatorRouteImport } from './routes/tools/math/expression-evaluator'
-import { Route as ToolsMathDateCalculatorRouteImport } from './routes/tools/math/date-calculator'
-import { Route as ToolsMathBinaryCalculatorRouteImport } from './routes/tools/math/binary-calculator'
-import { Route as ToolsGeneratorsUuidRouteImport } from './routes/tools/generators/uuid'
-import { Route as ToolsGeneratorsSlugGeneratorRouteImport } from './routes/tools/generators/slug-generator'
-import { Route as ToolsGeneratorsSitemapGeneratorRouteImport } from './routes/tools/generators/sitemap-generator'
-import { Route as ToolsGeneratorsSecurityTxtRouteImport } from './routes/tools/generators/security-txt'
-import { Route as ToolsGeneratorsSecretsGeneratorRouteImport } from './routes/tools/generators/secrets-generator'
-import { Route as ToolsGeneratorsRobotsTxtRouteImport } from './routes/tools/generators/robots-txt'
-import { Route as ToolsGeneratorsRandomDataRouteImport } from './routes/tools/generators/random-data'
-import { Route as ToolsGeneratorsQrScannerRouteImport } from './routes/tools/generators/qr-scanner'
-import { Route as ToolsGeneratorsQrCodeRouteImport } from './routes/tools/generators/qr-code'
-import { Route as ToolsGeneratorsPasswordGeneratorRouteImport } from './routes/tools/generators/password-generator'
-import { Route as ToolsGeneratorsOpenGraphPreviewRouteImport } from './routes/tools/generators/open-graph-preview'
-import { Route as ToolsGeneratorsMockDataRouteImport } from './routes/tools/generators/mock-data'
-import { Route as ToolsGeneratorsMetaTagGeneratorRouteImport } from './routes/tools/generators/meta-tag-generator'
-import { Route as ToolsGeneratorsManifestGeneratorRouteImport } from './routes/tools/generators/manifest-generator'
-import { Route as ToolsGeneratorsLoremIpsumRouteImport } from './routes/tools/generators/lorem-ipsum'
-import { Route as ToolsGeneratorsHtaccessGeneratorRouteImport } from './routes/tools/generators/htaccess-generator'
-import { Route as ToolsGeneratorsDataUriRouteImport } from './routes/tools/generators/data-uri'
-import { Route as ToolsGeneratorsColorPaletteRouteImport } from './routes/tools/generators/color-palette'
-import { Route as ToolsFormattersSqlFormatterRouteImport } from './routes/tools/formatters/sql-formatter'
-import { Route as ToolsFormattersJsonFormatterRouteImport } from './routes/tools/formatters/json-formatter'
-import { Route as ToolsFormattersJsonDiffRouteImport } from './routes/tools/formatters/json-diff'
-import { Route as ToolsFormattersHtmlFormatterRouteImport } from './routes/tools/formatters/html-formatter'
-import { Route as ToolsFormattersGraphqlFormatterRouteImport } from './routes/tools/formatters/graphql-formatter'
-import { Route as ToolsFormattersCssMinifierRouteImport } from './routes/tools/formatters/css-minifier'
-import { Route as ToolsEncodersUrlEncodeRouteImport } from './routes/tools/encoders/url-encode'
-import { Route as ToolsEncodersStringEscapeRouteImport } from './routes/tools/encoders/string-escape'
-import { Route as ToolsEncodersMorseCodeRouteImport } from './routes/tools/encoders/morse-code'
-import { Route as ToolsEncodersImageToBase64RouteImport } from './routes/tools/encoders/image-to-base64'
-import { Route as ToolsEncodersHtmlEntityRouteImport } from './routes/tools/encoders/html-entity'
-import { Route as ToolsEncodersCipherRouteImport } from './routes/tools/encoders/cipher'
-import { Route as ToolsEncodersBackslashEscapeRouteImport } from './routes/tools/encoders/backslash-escape'
-import { Route as ToolsDevToolsUserAgentParserRouteImport } from './routes/tools/dev-tools/user-agent-parser'
-import { Route as ToolsDevToolsUrlParserRouteImport } from './routes/tools/dev-tools/url-parser'
-import { Route as ToolsDevToolsPackageJsonAnalyzerRouteImport } from './routes/tools/dev-tools/package-json-analyzer'
-import { Route as ToolsDevToolsJsonPathTesterRouteImport } from './routes/tools/dev-tools/json-path-tester'
-import { Route as ToolsDevToolsJsMinifierRouteImport } from './routes/tools/dev-tools/js-minifier'
-import { Route as ToolsDevToolsIpSubnetRouteImport } from './routes/tools/dev-tools/ip-subnet'
-import { Route as ToolsDevToolsCronParserRouteImport } from './routes/tools/dev-tools/cron-parser'
-import { Route as ToolsDevToolsCronBuilderRouteImport } from './routes/tools/dev-tools/cron-builder'
-import { Route as ToolsDevToolsChmodRouteImport } from './routes/tools/dev-tools/chmod'
-import { Route as ToolsDecodersJwtDecoderRouteImport } from './routes/tools/decoders/jwt-decoder'
-import { Route as ToolsCryptoTotpRouteImport } from './routes/tools/crypto/totp'
-import { Route as ToolsCryptoJwtVerifierRouteImport } from './routes/tools/crypto/jwt-verifier'
-import { Route as ToolsCryptoJwtGeneratorRouteImport } from './routes/tools/crypto/jwt-generator'
-import { Route as ToolsCryptoHmacRouteImport } from './routes/tools/crypto/hmac'
-import { Route as ToolsCryptoHashRouteImport } from './routes/tools/crypto/hash'
-import { Route as ToolsCryptoCertificateDecoderRouteImport } from './routes/tools/crypto/certificate-decoder'
-import { Route as ToolsCryptoBcryptRouteImport } from './routes/tools/crypto/bcrypt'
-import { Route as ToolsCryptoAesEncryptRouteImport } from './routes/tools/crypto/aes-encrypt'
-import { Route as ToolsConvertersXmlToYamlRouteImport } from './routes/tools/converters/xml-to-yaml'
-import { Route as ToolsConvertersXmlJsonRouteImport } from './routes/tools/converters/xml-json'
-import { Route as ToolsConvertersUnitConverterRouteImport } from './routes/tools/converters/unit-converter'
-import { Route as ToolsConvertersTimezoneConverterRouteImport } from './routes/tools/converters/timezone-converter'
-import { Route as ToolsConvertersTimestampRouteImport } from './routes/tools/converters/timestamp'
-import { Route as ToolsConvertersSqlToJsonRouteImport } from './routes/tools/converters/sql-to-json'
-import { Route as ToolsConvertersNumberBaseRouteImport } from './routes/tools/converters/number-base'
-import { Route as ToolsConvertersMarkdownToHtmlRouteImport } from './routes/tools/converters/markdown-to-html'
-import { Route as ToolsConvertersJsonYamlRouteImport } from './routes/tools/converters/json-yaml'
-import { Route as ToolsConvertersJsonToTypescriptRouteImport } from './routes/tools/converters/json-to-typescript'
-import { Route as ToolsConvertersJsonToCsvRouteImport } from './routes/tools/converters/json-to-csv'
-import { Route as ToolsConvertersCsvToJsonRouteImport } from './routes/tools/converters/csv-to-json'
-import { Route as ToolsConvertersCsvJsonRouteImport } from './routes/tools/converters/csv-json'
-import { Route as ToolsConvertersCssUnitRouteImport } from './routes/tools/converters/css-unit'
-import { Route as ToolsConvertersColorConverterRouteImport } from './routes/tools/converters/color-converter'
-import { Route as ToolsConvertersBase64ImageRouteImport } from './routes/tools/converters/base64-image'
-import { Route as ToolsConvertersBaseConversionRouteImport } from './routes/tools/converters/base-conversion'
+import { Route as ToolsValidatorsYamlValidatorRouteImport } from './routes/_tools/validators/yaml-validator'
+import { Route as ToolsValidatorsValidatorRouteImport } from './routes/_tools/validators/validator'
+import { Route as ToolsValidatorsJsonValidatorRouteImport } from './routes/_tools/validators/json-validator'
+import { Route as ToolsValidatorsJsonSchemaValidatorRouteImport } from './routes/_tools/validators/json-schema-validator'
+import { Route as ToolsTextToolsTextToolsRouteImport } from './routes/_tools/text-tools/text-tools'
+import { Route as ToolsTextToolsTextStatisticsRouteImport } from './routes/_tools/text-tools/text-statistics'
+import { Route as ToolsTextToolsStringCounterRouteImport } from './routes/_tools/text-tools/string-counter'
+import { Route as ToolsTextToolsRegexTesterRouteImport } from './routes/_tools/text-tools/regex-tester'
+import { Route as ToolsTextToolsMarkdownPreviewRouteImport } from './routes/_tools/text-tools/markdown-preview'
+import { Route as ToolsTextToolsLevenshteinRouteImport } from './routes/_tools/text-tools/levenshtein'
+import { Route as ToolsTextToolsDiffRouteImport } from './routes/_tools/text-tools/diff'
+import { Route as ToolsTextToolsCaseConverterRouteImport } from './routes/_tools/text-tools/case-converter'
+import { Route as ToolsTextToolsAsciiArtRouteImport } from './routes/_tools/text-tools/ascii-art'
+import { Route as ToolsReferenceHttpStatusRouteImport } from './routes/_tools/reference/http-status'
+import { Route as ToolsMediaSvgOptimizerRouteImport } from './routes/_tools/media/svg-optimizer'
+import { Route as ToolsMediaImageResizerRouteImport } from './routes/_tools/media/image-resizer'
+import { Route as ToolsMediaImageCompressorRouteImport } from './routes/_tools/media/image-compressor'
+import { Route as ToolsMediaFaviconGeneratorRouteImport } from './routes/_tools/media/favicon-generator'
+import { Route as ToolsMathPercentageCalculatorRouteImport } from './routes/_tools/math/percentage-calculator'
+import { Route as ToolsMathExpressionEvaluatorRouteImport } from './routes/_tools/math/expression-evaluator'
+import { Route as ToolsMathDateCalculatorRouteImport } from './routes/_tools/math/date-calculator'
+import { Route as ToolsMathBinaryCalculatorRouteImport } from './routes/_tools/math/binary-calculator'
+import { Route as ToolsGeneratorsUuidRouteImport } from './routes/_tools/generators/uuid'
+import { Route as ToolsGeneratorsSlugGeneratorRouteImport } from './routes/_tools/generators/slug-generator'
+import { Route as ToolsGeneratorsSitemapGeneratorRouteImport } from './routes/_tools/generators/sitemap-generator'
+import { Route as ToolsGeneratorsSecurityTxtRouteImport } from './routes/_tools/generators/security-txt'
+import { Route as ToolsGeneratorsSecretsGeneratorRouteImport } from './routes/_tools/generators/secrets-generator'
+import { Route as ToolsGeneratorsRobotsTxtRouteImport } from './routes/_tools/generators/robots-txt'
+import { Route as ToolsGeneratorsRandomDataRouteImport } from './routes/_tools/generators/random-data'
+import { Route as ToolsGeneratorsQrScannerRouteImport } from './routes/_tools/generators/qr-scanner'
+import { Route as ToolsGeneratorsQrCodeRouteImport } from './routes/_tools/generators/qr-code'
+import { Route as ToolsGeneratorsPasswordGeneratorRouteImport } from './routes/_tools/generators/password-generator'
+import { Route as ToolsGeneratorsOpenGraphPreviewRouteImport } from './routes/_tools/generators/open-graph-preview'
+import { Route as ToolsGeneratorsMockDataRouteImport } from './routes/_tools/generators/mock-data'
+import { Route as ToolsGeneratorsMetaTagGeneratorRouteImport } from './routes/_tools/generators/meta-tag-generator'
+import { Route as ToolsGeneratorsManifestGeneratorRouteImport } from './routes/_tools/generators/manifest-generator'
+import { Route as ToolsGeneratorsLoremIpsumRouteImport } from './routes/_tools/generators/lorem-ipsum'
+import { Route as ToolsGeneratorsHtaccessGeneratorRouteImport } from './routes/_tools/generators/htaccess-generator'
+import { Route as ToolsGeneratorsDataUriRouteImport } from './routes/_tools/generators/data-uri'
+import { Route as ToolsGeneratorsColorPaletteRouteImport } from './routes/_tools/generators/color-palette'
+import { Route as ToolsFormattersSqlFormatterRouteImport } from './routes/_tools/formatters/sql-formatter'
+import { Route as ToolsFormattersJsonFormatterRouteImport } from './routes/_tools/formatters/json-formatter'
+import { Route as ToolsFormattersJsonDiffRouteImport } from './routes/_tools/formatters/json-diff'
+import { Route as ToolsFormattersHtmlFormatterRouteImport } from './routes/_tools/formatters/html-formatter'
+import { Route as ToolsFormattersGraphqlFormatterRouteImport } from './routes/_tools/formatters/graphql-formatter'
+import { Route as ToolsFormattersCssMinifierRouteImport } from './routes/_tools/formatters/css-minifier'
+import { Route as ToolsEncodersUrlEncodeRouteImport } from './routes/_tools/encoders/url-encode'
+import { Route as ToolsEncodersStringEscapeRouteImport } from './routes/_tools/encoders/string-escape'
+import { Route as ToolsEncodersMorseCodeRouteImport } from './routes/_tools/encoders/morse-code'
+import { Route as ToolsEncodersImageToBase64RouteImport } from './routes/_tools/encoders/image-to-base64'
+import { Route as ToolsEncodersHtmlEntityRouteImport } from './routes/_tools/encoders/html-entity'
+import { Route as ToolsEncodersCipherRouteImport } from './routes/_tools/encoders/cipher'
+import { Route as ToolsEncodersBackslashEscapeRouteImport } from './routes/_tools/encoders/backslash-escape'
+import { Route as ToolsDevToolsUserAgentParserRouteImport } from './routes/_tools/dev-tools/user-agent-parser'
+import { Route as ToolsDevToolsUrlParserRouteImport } from './routes/_tools/dev-tools/url-parser'
+import { Route as ToolsDevToolsPackageJsonAnalyzerRouteImport } from './routes/_tools/dev-tools/package-json-analyzer'
+import { Route as ToolsDevToolsJsonPathTesterRouteImport } from './routes/_tools/dev-tools/json-path-tester'
+import { Route as ToolsDevToolsJsMinifierRouteImport } from './routes/_tools/dev-tools/js-minifier'
+import { Route as ToolsDevToolsIpSubnetRouteImport } from './routes/_tools/dev-tools/ip-subnet'
+import { Route as ToolsDevToolsCronParserRouteImport } from './routes/_tools/dev-tools/cron-parser'
+import { Route as ToolsDevToolsCronBuilderRouteImport } from './routes/_tools/dev-tools/cron-builder'
+import { Route as ToolsDevToolsChmodRouteImport } from './routes/_tools/dev-tools/chmod'
+import { Route as ToolsDecodersJwtDecoderRouteImport } from './routes/_tools/decoders/jwt-decoder'
+import { Route as ToolsCryptoTotpRouteImport } from './routes/_tools/crypto/totp'
+import { Route as ToolsCryptoJwtVerifierRouteImport } from './routes/_tools/crypto/jwt-verifier'
+import { Route as ToolsCryptoJwtGeneratorRouteImport } from './routes/_tools/crypto/jwt-generator'
+import { Route as ToolsCryptoHmacRouteImport } from './routes/_tools/crypto/hmac'
+import { Route as ToolsCryptoHashRouteImport } from './routes/_tools/crypto/hash'
+import { Route as ToolsCryptoCertificateDecoderRouteImport } from './routes/_tools/crypto/certificate-decoder'
+import { Route as ToolsCryptoBcryptRouteImport } from './routes/_tools/crypto/bcrypt'
+import { Route as ToolsCryptoAesEncryptRouteImport } from './routes/_tools/crypto/aes-encrypt'
+import { Route as ToolsConvertersXmlToYamlRouteImport } from './routes/_tools/converters/xml-to-yaml'
+import { Route as ToolsConvertersXmlJsonRouteImport } from './routes/_tools/converters/xml-json'
+import { Route as ToolsConvertersUnitConverterRouteImport } from './routes/_tools/converters/unit-converter'
+import { Route as ToolsConvertersTimezoneConverterRouteImport } from './routes/_tools/converters/timezone-converter'
+import { Route as ToolsConvertersTimestampRouteImport } from './routes/_tools/converters/timestamp'
+import { Route as ToolsConvertersSqlToJsonRouteImport } from './routes/_tools/converters/sql-to-json'
+import { Route as ToolsConvertersNumberBaseRouteImport } from './routes/_tools/converters/number-base'
+import { Route as ToolsConvertersMarkdownToHtmlRouteImport } from './routes/_tools/converters/markdown-to-html'
+import { Route as ToolsConvertersJsonYamlRouteImport } from './routes/_tools/converters/json-yaml'
+import { Route as ToolsConvertersJsonToTypescriptRouteImport } from './routes/_tools/converters/json-to-typescript'
+import { Route as ToolsConvertersJsonToCsvRouteImport } from './routes/_tools/converters/json-to-csv'
+import { Route as ToolsConvertersCsvToJsonRouteImport } from './routes/_tools/converters/csv-to-json'
+import { Route as ToolsConvertersCsvJsonRouteImport } from './routes/_tools/converters/csv-json'
+import { Route as ToolsConvertersCssUnitRouteImport } from './routes/_tools/converters/css-unit'
+import { Route as ToolsConvertersColorConverterRouteImport } from './routes/_tools/converters/color-converter'
+import { Route as ToolsConvertersBase64ImageRouteImport } from './routes/_tools/converters/base64-image'
+import { Route as ToolsConvertersBaseConversionRouteImport } from './routes/_tools/converters/base-conversion'
 
 const ToolsRoute = ToolsRouteImport.update({
-  id: '/tools',
-  path: '/tools',
+  id: '/_tools',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const ToolsDiffCheckerRoute = ToolsDiffCheckerRouteImport.update({
-  id: '/diff-checker',
-  path: '/diff-checker',
-  getParentRoute: () => ToolsRoute,
-} as any)
-const ToolsBase64Route = ToolsBase64RouteImport.update({
-  id: '/base64',
-  path: '/base64',
-  getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsValidatorsYamlValidatorRoute =
   ToolsValidatorsYamlValidatorRouteImport.update({
@@ -621,570 +608,554 @@ const ToolsConvertersBaseConversionRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/tools': typeof ToolsRouteWithChildren
-  '/tools/base64': typeof ToolsBase64Route
-  '/tools/diff-checker': typeof ToolsDiffCheckerRoute
-  '/tools/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
-  '/tools/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
-  '/tools/converters/color-converter': typeof ToolsConvertersColorConverterRoute
-  '/tools/converters/css-unit': typeof ToolsConvertersCssUnitRoute
-  '/tools/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
-  '/tools/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
-  '/tools/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
-  '/tools/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
-  '/tools/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
-  '/tools/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
-  '/tools/converters/number-base': typeof ToolsConvertersNumberBaseRoute
-  '/tools/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
-  '/tools/converters/timestamp': typeof ToolsConvertersTimestampRoute
-  '/tools/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
-  '/tools/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
-  '/tools/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
-  '/tools/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
-  '/tools/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
-  '/tools/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
-  '/tools/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
-  '/tools/crypto/hash': typeof ToolsCryptoHashRoute
-  '/tools/crypto/hmac': typeof ToolsCryptoHmacRoute
-  '/tools/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
-  '/tools/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
-  '/tools/crypto/totp': typeof ToolsCryptoTotpRoute
-  '/tools/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
-  '/tools/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
-  '/tools/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
-  '/tools/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
-  '/tools/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
-  '/tools/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
-  '/tools/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
-  '/tools/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
-  '/tools/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
-  '/tools/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
-  '/tools/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
-  '/tools/encoders/cipher': typeof ToolsEncodersCipherRoute
-  '/tools/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
-  '/tools/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
-  '/tools/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
-  '/tools/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
-  '/tools/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
-  '/tools/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
-  '/tools/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
-  '/tools/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
-  '/tools/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
-  '/tools/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
-  '/tools/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
-  '/tools/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
-  '/tools/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
-  '/tools/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
-  '/tools/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
-  '/tools/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
-  '/tools/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
-  '/tools/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
-  '/tools/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
-  '/tools/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
-  '/tools/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
-  '/tools/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
-  '/tools/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
-  '/tools/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
-  '/tools/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
-  '/tools/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
-  '/tools/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
-  '/tools/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
-  '/tools/generators/uuid': typeof ToolsGeneratorsUuidRoute
-  '/tools/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
-  '/tools/math/date-calculator': typeof ToolsMathDateCalculatorRoute
-  '/tools/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
-  '/tools/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
-  '/tools/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
-  '/tools/media/image-compressor': typeof ToolsMediaImageCompressorRoute
-  '/tools/media/image-resizer': typeof ToolsMediaImageResizerRoute
-  '/tools/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
-  '/tools/reference/http-status': typeof ToolsReferenceHttpStatusRoute
-  '/tools/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
-  '/tools/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
-  '/tools/text-tools/diff': typeof ToolsTextToolsDiffRoute
-  '/tools/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
-  '/tools/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
-  '/tools/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
-  '/tools/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
-  '/tools/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
-  '/tools/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
-  '/tools/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
-  '/tools/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
-  '/tools/validators/validator': typeof ToolsValidatorsValidatorRoute
-  '/tools/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
+  '/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
+  '/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
+  '/converters/color-converter': typeof ToolsConvertersColorConverterRoute
+  '/converters/css-unit': typeof ToolsConvertersCssUnitRoute
+  '/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
+  '/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
+  '/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
+  '/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
+  '/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
+  '/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
+  '/converters/number-base': typeof ToolsConvertersNumberBaseRoute
+  '/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
+  '/converters/timestamp': typeof ToolsConvertersTimestampRoute
+  '/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
+  '/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
+  '/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
+  '/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
+  '/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
+  '/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
+  '/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
+  '/crypto/hash': typeof ToolsCryptoHashRoute
+  '/crypto/hmac': typeof ToolsCryptoHmacRoute
+  '/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
+  '/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
+  '/crypto/totp': typeof ToolsCryptoTotpRoute
+  '/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
+  '/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
+  '/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
+  '/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
+  '/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
+  '/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
+  '/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
+  '/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
+  '/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
+  '/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
+  '/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
+  '/encoders/cipher': typeof ToolsEncodersCipherRoute
+  '/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
+  '/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
+  '/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
+  '/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
+  '/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
+  '/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
+  '/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
+  '/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
+  '/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
+  '/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
+  '/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
+  '/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
+  '/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
+  '/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
+  '/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
+  '/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
+  '/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
+  '/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
+  '/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
+  '/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
+  '/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
+  '/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
+  '/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
+  '/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
+  '/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
+  '/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
+  '/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
+  '/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
+  '/generators/uuid': typeof ToolsGeneratorsUuidRoute
+  '/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
+  '/math/date-calculator': typeof ToolsMathDateCalculatorRoute
+  '/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
+  '/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
+  '/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
+  '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
+  '/media/image-resizer': typeof ToolsMediaImageResizerRoute
+  '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
+  '/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
+  '/text-tools/diff': typeof ToolsTextToolsDiffRoute
+  '/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
+  '/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
+  '/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
+  '/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
+  '/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
+  '/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
+  '/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
+  '/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
+  '/validators/validator': typeof ToolsValidatorsValidatorRoute
+  '/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/tools': typeof ToolsRouteWithChildren
-  '/tools/base64': typeof ToolsBase64Route
-  '/tools/diff-checker': typeof ToolsDiffCheckerRoute
-  '/tools/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
-  '/tools/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
-  '/tools/converters/color-converter': typeof ToolsConvertersColorConverterRoute
-  '/tools/converters/css-unit': typeof ToolsConvertersCssUnitRoute
-  '/tools/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
-  '/tools/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
-  '/tools/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
-  '/tools/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
-  '/tools/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
-  '/tools/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
-  '/tools/converters/number-base': typeof ToolsConvertersNumberBaseRoute
-  '/tools/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
-  '/tools/converters/timestamp': typeof ToolsConvertersTimestampRoute
-  '/tools/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
-  '/tools/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
-  '/tools/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
-  '/tools/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
-  '/tools/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
-  '/tools/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
-  '/tools/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
-  '/tools/crypto/hash': typeof ToolsCryptoHashRoute
-  '/tools/crypto/hmac': typeof ToolsCryptoHmacRoute
-  '/tools/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
-  '/tools/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
-  '/tools/crypto/totp': typeof ToolsCryptoTotpRoute
-  '/tools/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
-  '/tools/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
-  '/tools/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
-  '/tools/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
-  '/tools/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
-  '/tools/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
-  '/tools/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
-  '/tools/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
-  '/tools/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
-  '/tools/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
-  '/tools/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
-  '/tools/encoders/cipher': typeof ToolsEncodersCipherRoute
-  '/tools/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
-  '/tools/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
-  '/tools/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
-  '/tools/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
-  '/tools/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
-  '/tools/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
-  '/tools/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
-  '/tools/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
-  '/tools/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
-  '/tools/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
-  '/tools/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
-  '/tools/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
-  '/tools/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
-  '/tools/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
-  '/tools/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
-  '/tools/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
-  '/tools/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
-  '/tools/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
-  '/tools/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
-  '/tools/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
-  '/tools/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
-  '/tools/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
-  '/tools/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
-  '/tools/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
-  '/tools/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
-  '/tools/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
-  '/tools/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
-  '/tools/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
-  '/tools/generators/uuid': typeof ToolsGeneratorsUuidRoute
-  '/tools/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
-  '/tools/math/date-calculator': typeof ToolsMathDateCalculatorRoute
-  '/tools/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
-  '/tools/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
-  '/tools/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
-  '/tools/media/image-compressor': typeof ToolsMediaImageCompressorRoute
-  '/tools/media/image-resizer': typeof ToolsMediaImageResizerRoute
-  '/tools/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
-  '/tools/reference/http-status': typeof ToolsReferenceHttpStatusRoute
-  '/tools/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
-  '/tools/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
-  '/tools/text-tools/diff': typeof ToolsTextToolsDiffRoute
-  '/tools/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
-  '/tools/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
-  '/tools/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
-  '/tools/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
-  '/tools/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
-  '/tools/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
-  '/tools/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
-  '/tools/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
-  '/tools/validators/validator': typeof ToolsValidatorsValidatorRoute
-  '/tools/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
+  '/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
+  '/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
+  '/converters/color-converter': typeof ToolsConvertersColorConverterRoute
+  '/converters/css-unit': typeof ToolsConvertersCssUnitRoute
+  '/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
+  '/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
+  '/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
+  '/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
+  '/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
+  '/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
+  '/converters/number-base': typeof ToolsConvertersNumberBaseRoute
+  '/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
+  '/converters/timestamp': typeof ToolsConvertersTimestampRoute
+  '/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
+  '/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
+  '/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
+  '/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
+  '/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
+  '/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
+  '/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
+  '/crypto/hash': typeof ToolsCryptoHashRoute
+  '/crypto/hmac': typeof ToolsCryptoHmacRoute
+  '/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
+  '/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
+  '/crypto/totp': typeof ToolsCryptoTotpRoute
+  '/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
+  '/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
+  '/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
+  '/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
+  '/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
+  '/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
+  '/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
+  '/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
+  '/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
+  '/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
+  '/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
+  '/encoders/cipher': typeof ToolsEncodersCipherRoute
+  '/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
+  '/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
+  '/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
+  '/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
+  '/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
+  '/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
+  '/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
+  '/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
+  '/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
+  '/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
+  '/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
+  '/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
+  '/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
+  '/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
+  '/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
+  '/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
+  '/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
+  '/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
+  '/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
+  '/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
+  '/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
+  '/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
+  '/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
+  '/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
+  '/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
+  '/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
+  '/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
+  '/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
+  '/generators/uuid': typeof ToolsGeneratorsUuidRoute
+  '/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
+  '/math/date-calculator': typeof ToolsMathDateCalculatorRoute
+  '/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
+  '/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
+  '/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
+  '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
+  '/media/image-resizer': typeof ToolsMediaImageResizerRoute
+  '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
+  '/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
+  '/text-tools/diff': typeof ToolsTextToolsDiffRoute
+  '/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
+  '/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
+  '/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
+  '/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
+  '/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
+  '/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
+  '/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
+  '/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
+  '/validators/validator': typeof ToolsValidatorsValidatorRoute
+  '/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/tools': typeof ToolsRouteWithChildren
-  '/tools/base64': typeof ToolsBase64Route
-  '/tools/diff-checker': typeof ToolsDiffCheckerRoute
-  '/tools/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
-  '/tools/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
-  '/tools/converters/color-converter': typeof ToolsConvertersColorConverterRoute
-  '/tools/converters/css-unit': typeof ToolsConvertersCssUnitRoute
-  '/tools/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
-  '/tools/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
-  '/tools/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
-  '/tools/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
-  '/tools/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
-  '/tools/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
-  '/tools/converters/number-base': typeof ToolsConvertersNumberBaseRoute
-  '/tools/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
-  '/tools/converters/timestamp': typeof ToolsConvertersTimestampRoute
-  '/tools/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
-  '/tools/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
-  '/tools/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
-  '/tools/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
-  '/tools/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
-  '/tools/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
-  '/tools/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
-  '/tools/crypto/hash': typeof ToolsCryptoHashRoute
-  '/tools/crypto/hmac': typeof ToolsCryptoHmacRoute
-  '/tools/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
-  '/tools/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
-  '/tools/crypto/totp': typeof ToolsCryptoTotpRoute
-  '/tools/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
-  '/tools/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
-  '/tools/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
-  '/tools/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
-  '/tools/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
-  '/tools/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
-  '/tools/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
-  '/tools/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
-  '/tools/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
-  '/tools/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
-  '/tools/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
-  '/tools/encoders/cipher': typeof ToolsEncodersCipherRoute
-  '/tools/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
-  '/tools/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
-  '/tools/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
-  '/tools/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
-  '/tools/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
-  '/tools/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
-  '/tools/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
-  '/tools/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
-  '/tools/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
-  '/tools/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
-  '/tools/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
-  '/tools/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
-  '/tools/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
-  '/tools/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
-  '/tools/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
-  '/tools/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
-  '/tools/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
-  '/tools/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
-  '/tools/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
-  '/tools/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
-  '/tools/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
-  '/tools/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
-  '/tools/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
-  '/tools/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
-  '/tools/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
-  '/tools/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
-  '/tools/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
-  '/tools/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
-  '/tools/generators/uuid': typeof ToolsGeneratorsUuidRoute
-  '/tools/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
-  '/tools/math/date-calculator': typeof ToolsMathDateCalculatorRoute
-  '/tools/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
-  '/tools/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
-  '/tools/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
-  '/tools/media/image-compressor': typeof ToolsMediaImageCompressorRoute
-  '/tools/media/image-resizer': typeof ToolsMediaImageResizerRoute
-  '/tools/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
-  '/tools/reference/http-status': typeof ToolsReferenceHttpStatusRoute
-  '/tools/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
-  '/tools/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
-  '/tools/text-tools/diff': typeof ToolsTextToolsDiffRoute
-  '/tools/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
-  '/tools/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
-  '/tools/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
-  '/tools/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
-  '/tools/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
-  '/tools/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
-  '/tools/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
-  '/tools/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
-  '/tools/validators/validator': typeof ToolsValidatorsValidatorRoute
-  '/tools/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
+  '/_tools': typeof ToolsRouteWithChildren
+  '/_tools/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
+  '/_tools/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
+  '/_tools/converters/color-converter': typeof ToolsConvertersColorConverterRoute
+  '/_tools/converters/css-unit': typeof ToolsConvertersCssUnitRoute
+  '/_tools/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
+  '/_tools/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
+  '/_tools/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
+  '/_tools/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
+  '/_tools/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
+  '/_tools/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
+  '/_tools/converters/number-base': typeof ToolsConvertersNumberBaseRoute
+  '/_tools/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
+  '/_tools/converters/timestamp': typeof ToolsConvertersTimestampRoute
+  '/_tools/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
+  '/_tools/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
+  '/_tools/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
+  '/_tools/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
+  '/_tools/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
+  '/_tools/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
+  '/_tools/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
+  '/_tools/crypto/hash': typeof ToolsCryptoHashRoute
+  '/_tools/crypto/hmac': typeof ToolsCryptoHmacRoute
+  '/_tools/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
+  '/_tools/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
+  '/_tools/crypto/totp': typeof ToolsCryptoTotpRoute
+  '/_tools/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
+  '/_tools/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
+  '/_tools/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
+  '/_tools/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
+  '/_tools/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
+  '/_tools/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
+  '/_tools/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
+  '/_tools/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
+  '/_tools/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
+  '/_tools/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
+  '/_tools/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
+  '/_tools/encoders/cipher': typeof ToolsEncodersCipherRoute
+  '/_tools/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
+  '/_tools/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
+  '/_tools/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
+  '/_tools/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
+  '/_tools/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
+  '/_tools/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
+  '/_tools/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
+  '/_tools/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
+  '/_tools/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
+  '/_tools/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
+  '/_tools/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
+  '/_tools/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
+  '/_tools/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
+  '/_tools/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
+  '/_tools/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
+  '/_tools/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
+  '/_tools/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
+  '/_tools/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
+  '/_tools/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
+  '/_tools/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
+  '/_tools/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
+  '/_tools/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
+  '/_tools/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
+  '/_tools/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
+  '/_tools/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
+  '/_tools/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
+  '/_tools/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
+  '/_tools/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
+  '/_tools/generators/uuid': typeof ToolsGeneratorsUuidRoute
+  '/_tools/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
+  '/_tools/math/date-calculator': typeof ToolsMathDateCalculatorRoute
+  '/_tools/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
+  '/_tools/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
+  '/_tools/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
+  '/_tools/media/image-compressor': typeof ToolsMediaImageCompressorRoute
+  '/_tools/media/image-resizer': typeof ToolsMediaImageResizerRoute
+  '/_tools/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/_tools/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/_tools/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
+  '/_tools/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
+  '/_tools/text-tools/diff': typeof ToolsTextToolsDiffRoute
+  '/_tools/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
+  '/_tools/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
+  '/_tools/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
+  '/_tools/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
+  '/_tools/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
+  '/_tools/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
+  '/_tools/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
+  '/_tools/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
+  '/_tools/validators/validator': typeof ToolsValidatorsValidatorRoute
+  '/_tools/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/tools'
-    | '/tools/base64'
-    | '/tools/diff-checker'
-    | '/tools/converters/base-conversion'
-    | '/tools/converters/base64-image'
-    | '/tools/converters/color-converter'
-    | '/tools/converters/css-unit'
-    | '/tools/converters/csv-json'
-    | '/tools/converters/csv-to-json'
-    | '/tools/converters/json-to-csv'
-    | '/tools/converters/json-to-typescript'
-    | '/tools/converters/json-yaml'
-    | '/tools/converters/markdown-to-html'
-    | '/tools/converters/number-base'
-    | '/tools/converters/sql-to-json'
-    | '/tools/converters/timestamp'
-    | '/tools/converters/timezone-converter'
-    | '/tools/converters/unit-converter'
-    | '/tools/converters/xml-json'
-    | '/tools/converters/xml-to-yaml'
-    | '/tools/crypto/aes-encrypt'
-    | '/tools/crypto/bcrypt'
-    | '/tools/crypto/certificate-decoder'
-    | '/tools/crypto/hash'
-    | '/tools/crypto/hmac'
-    | '/tools/crypto/jwt-generator'
-    | '/tools/crypto/jwt-verifier'
-    | '/tools/crypto/totp'
-    | '/tools/decoders/jwt-decoder'
-    | '/tools/dev-tools/chmod'
-    | '/tools/dev-tools/cron-builder'
-    | '/tools/dev-tools/cron-parser'
-    | '/tools/dev-tools/ip-subnet'
-    | '/tools/dev-tools/js-minifier'
-    | '/tools/dev-tools/json-path-tester'
-    | '/tools/dev-tools/package-json-analyzer'
-    | '/tools/dev-tools/url-parser'
-    | '/tools/dev-tools/user-agent-parser'
-    | '/tools/encoders/backslash-escape'
-    | '/tools/encoders/cipher'
-    | '/tools/encoders/html-entity'
-    | '/tools/encoders/image-to-base64'
-    | '/tools/encoders/morse-code'
-    | '/tools/encoders/string-escape'
-    | '/tools/encoders/url-encode'
-    | '/tools/formatters/css-minifier'
-    | '/tools/formatters/graphql-formatter'
-    | '/tools/formatters/html-formatter'
-    | '/tools/formatters/json-diff'
-    | '/tools/formatters/json-formatter'
-    | '/tools/formatters/sql-formatter'
-    | '/tools/generators/color-palette'
-    | '/tools/generators/data-uri'
-    | '/tools/generators/htaccess-generator'
-    | '/tools/generators/lorem-ipsum'
-    | '/tools/generators/manifest-generator'
-    | '/tools/generators/meta-tag-generator'
-    | '/tools/generators/mock-data'
-    | '/tools/generators/open-graph-preview'
-    | '/tools/generators/password-generator'
-    | '/tools/generators/qr-code'
-    | '/tools/generators/qr-scanner'
-    | '/tools/generators/random-data'
-    | '/tools/generators/robots-txt'
-    | '/tools/generators/secrets-generator'
-    | '/tools/generators/security-txt'
-    | '/tools/generators/sitemap-generator'
-    | '/tools/generators/slug-generator'
-    | '/tools/generators/uuid'
-    | '/tools/math/binary-calculator'
-    | '/tools/math/date-calculator'
-    | '/tools/math/expression-evaluator'
-    | '/tools/math/percentage-calculator'
-    | '/tools/media/favicon-generator'
-    | '/tools/media/image-compressor'
-    | '/tools/media/image-resizer'
-    | '/tools/media/svg-optimizer'
-    | '/tools/reference/http-status'
-    | '/tools/text-tools/ascii-art'
-    | '/tools/text-tools/case-converter'
-    | '/tools/text-tools/diff'
-    | '/tools/text-tools/levenshtein'
-    | '/tools/text-tools/markdown-preview'
-    | '/tools/text-tools/regex-tester'
-    | '/tools/text-tools/string-counter'
-    | '/tools/text-tools/text-statistics'
-    | '/tools/text-tools/text-tools'
-    | '/tools/validators/json-schema-validator'
-    | '/tools/validators/json-validator'
-    | '/tools/validators/validator'
-    | '/tools/validators/yaml-validator'
+    | '/converters/base-conversion'
+    | '/converters/base64-image'
+    | '/converters/color-converter'
+    | '/converters/css-unit'
+    | '/converters/csv-json'
+    | '/converters/csv-to-json'
+    | '/converters/json-to-csv'
+    | '/converters/json-to-typescript'
+    | '/converters/json-yaml'
+    | '/converters/markdown-to-html'
+    | '/converters/number-base'
+    | '/converters/sql-to-json'
+    | '/converters/timestamp'
+    | '/converters/timezone-converter'
+    | '/converters/unit-converter'
+    | '/converters/xml-json'
+    | '/converters/xml-to-yaml'
+    | '/crypto/aes-encrypt'
+    | '/crypto/bcrypt'
+    | '/crypto/certificate-decoder'
+    | '/crypto/hash'
+    | '/crypto/hmac'
+    | '/crypto/jwt-generator'
+    | '/crypto/jwt-verifier'
+    | '/crypto/totp'
+    | '/decoders/jwt-decoder'
+    | '/dev-tools/chmod'
+    | '/dev-tools/cron-builder'
+    | '/dev-tools/cron-parser'
+    | '/dev-tools/ip-subnet'
+    | '/dev-tools/js-minifier'
+    | '/dev-tools/json-path-tester'
+    | '/dev-tools/package-json-analyzer'
+    | '/dev-tools/url-parser'
+    | '/dev-tools/user-agent-parser'
+    | '/encoders/backslash-escape'
+    | '/encoders/cipher'
+    | '/encoders/html-entity'
+    | '/encoders/image-to-base64'
+    | '/encoders/morse-code'
+    | '/encoders/string-escape'
+    | '/encoders/url-encode'
+    | '/formatters/css-minifier'
+    | '/formatters/graphql-formatter'
+    | '/formatters/html-formatter'
+    | '/formatters/json-diff'
+    | '/formatters/json-formatter'
+    | '/formatters/sql-formatter'
+    | '/generators/color-palette'
+    | '/generators/data-uri'
+    | '/generators/htaccess-generator'
+    | '/generators/lorem-ipsum'
+    | '/generators/manifest-generator'
+    | '/generators/meta-tag-generator'
+    | '/generators/mock-data'
+    | '/generators/open-graph-preview'
+    | '/generators/password-generator'
+    | '/generators/qr-code'
+    | '/generators/qr-scanner'
+    | '/generators/random-data'
+    | '/generators/robots-txt'
+    | '/generators/secrets-generator'
+    | '/generators/security-txt'
+    | '/generators/sitemap-generator'
+    | '/generators/slug-generator'
+    | '/generators/uuid'
+    | '/math/binary-calculator'
+    | '/math/date-calculator'
+    | '/math/expression-evaluator'
+    | '/math/percentage-calculator'
+    | '/media/favicon-generator'
+    | '/media/image-compressor'
+    | '/media/image-resizer'
+    | '/media/svg-optimizer'
+    | '/reference/http-status'
+    | '/text-tools/ascii-art'
+    | '/text-tools/case-converter'
+    | '/text-tools/diff'
+    | '/text-tools/levenshtein'
+    | '/text-tools/markdown-preview'
+    | '/text-tools/regex-tester'
+    | '/text-tools/string-counter'
+    | '/text-tools/text-statistics'
+    | '/text-tools/text-tools'
+    | '/validators/json-schema-validator'
+    | '/validators/json-validator'
+    | '/validators/validator'
+    | '/validators/yaml-validator'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/tools'
-    | '/tools/base64'
-    | '/tools/diff-checker'
-    | '/tools/converters/base-conversion'
-    | '/tools/converters/base64-image'
-    | '/tools/converters/color-converter'
-    | '/tools/converters/css-unit'
-    | '/tools/converters/csv-json'
-    | '/tools/converters/csv-to-json'
-    | '/tools/converters/json-to-csv'
-    | '/tools/converters/json-to-typescript'
-    | '/tools/converters/json-yaml'
-    | '/tools/converters/markdown-to-html'
-    | '/tools/converters/number-base'
-    | '/tools/converters/sql-to-json'
-    | '/tools/converters/timestamp'
-    | '/tools/converters/timezone-converter'
-    | '/tools/converters/unit-converter'
-    | '/tools/converters/xml-json'
-    | '/tools/converters/xml-to-yaml'
-    | '/tools/crypto/aes-encrypt'
-    | '/tools/crypto/bcrypt'
-    | '/tools/crypto/certificate-decoder'
-    | '/tools/crypto/hash'
-    | '/tools/crypto/hmac'
-    | '/tools/crypto/jwt-generator'
-    | '/tools/crypto/jwt-verifier'
-    | '/tools/crypto/totp'
-    | '/tools/decoders/jwt-decoder'
-    | '/tools/dev-tools/chmod'
-    | '/tools/dev-tools/cron-builder'
-    | '/tools/dev-tools/cron-parser'
-    | '/tools/dev-tools/ip-subnet'
-    | '/tools/dev-tools/js-minifier'
-    | '/tools/dev-tools/json-path-tester'
-    | '/tools/dev-tools/package-json-analyzer'
-    | '/tools/dev-tools/url-parser'
-    | '/tools/dev-tools/user-agent-parser'
-    | '/tools/encoders/backslash-escape'
-    | '/tools/encoders/cipher'
-    | '/tools/encoders/html-entity'
-    | '/tools/encoders/image-to-base64'
-    | '/tools/encoders/morse-code'
-    | '/tools/encoders/string-escape'
-    | '/tools/encoders/url-encode'
-    | '/tools/formatters/css-minifier'
-    | '/tools/formatters/graphql-formatter'
-    | '/tools/formatters/html-formatter'
-    | '/tools/formatters/json-diff'
-    | '/tools/formatters/json-formatter'
-    | '/tools/formatters/sql-formatter'
-    | '/tools/generators/color-palette'
-    | '/tools/generators/data-uri'
-    | '/tools/generators/htaccess-generator'
-    | '/tools/generators/lorem-ipsum'
-    | '/tools/generators/manifest-generator'
-    | '/tools/generators/meta-tag-generator'
-    | '/tools/generators/mock-data'
-    | '/tools/generators/open-graph-preview'
-    | '/tools/generators/password-generator'
-    | '/tools/generators/qr-code'
-    | '/tools/generators/qr-scanner'
-    | '/tools/generators/random-data'
-    | '/tools/generators/robots-txt'
-    | '/tools/generators/secrets-generator'
-    | '/tools/generators/security-txt'
-    | '/tools/generators/sitemap-generator'
-    | '/tools/generators/slug-generator'
-    | '/tools/generators/uuid'
-    | '/tools/math/binary-calculator'
-    | '/tools/math/date-calculator'
-    | '/tools/math/expression-evaluator'
-    | '/tools/math/percentage-calculator'
-    | '/tools/media/favicon-generator'
-    | '/tools/media/image-compressor'
-    | '/tools/media/image-resizer'
-    | '/tools/media/svg-optimizer'
-    | '/tools/reference/http-status'
-    | '/tools/text-tools/ascii-art'
-    | '/tools/text-tools/case-converter'
-    | '/tools/text-tools/diff'
-    | '/tools/text-tools/levenshtein'
-    | '/tools/text-tools/markdown-preview'
-    | '/tools/text-tools/regex-tester'
-    | '/tools/text-tools/string-counter'
-    | '/tools/text-tools/text-statistics'
-    | '/tools/text-tools/text-tools'
-    | '/tools/validators/json-schema-validator'
-    | '/tools/validators/json-validator'
-    | '/tools/validators/validator'
-    | '/tools/validators/yaml-validator'
+    | '/converters/base-conversion'
+    | '/converters/base64-image'
+    | '/converters/color-converter'
+    | '/converters/css-unit'
+    | '/converters/csv-json'
+    | '/converters/csv-to-json'
+    | '/converters/json-to-csv'
+    | '/converters/json-to-typescript'
+    | '/converters/json-yaml'
+    | '/converters/markdown-to-html'
+    | '/converters/number-base'
+    | '/converters/sql-to-json'
+    | '/converters/timestamp'
+    | '/converters/timezone-converter'
+    | '/converters/unit-converter'
+    | '/converters/xml-json'
+    | '/converters/xml-to-yaml'
+    | '/crypto/aes-encrypt'
+    | '/crypto/bcrypt'
+    | '/crypto/certificate-decoder'
+    | '/crypto/hash'
+    | '/crypto/hmac'
+    | '/crypto/jwt-generator'
+    | '/crypto/jwt-verifier'
+    | '/crypto/totp'
+    | '/decoders/jwt-decoder'
+    | '/dev-tools/chmod'
+    | '/dev-tools/cron-builder'
+    | '/dev-tools/cron-parser'
+    | '/dev-tools/ip-subnet'
+    | '/dev-tools/js-minifier'
+    | '/dev-tools/json-path-tester'
+    | '/dev-tools/package-json-analyzer'
+    | '/dev-tools/url-parser'
+    | '/dev-tools/user-agent-parser'
+    | '/encoders/backslash-escape'
+    | '/encoders/cipher'
+    | '/encoders/html-entity'
+    | '/encoders/image-to-base64'
+    | '/encoders/morse-code'
+    | '/encoders/string-escape'
+    | '/encoders/url-encode'
+    | '/formatters/css-minifier'
+    | '/formatters/graphql-formatter'
+    | '/formatters/html-formatter'
+    | '/formatters/json-diff'
+    | '/formatters/json-formatter'
+    | '/formatters/sql-formatter'
+    | '/generators/color-palette'
+    | '/generators/data-uri'
+    | '/generators/htaccess-generator'
+    | '/generators/lorem-ipsum'
+    | '/generators/manifest-generator'
+    | '/generators/meta-tag-generator'
+    | '/generators/mock-data'
+    | '/generators/open-graph-preview'
+    | '/generators/password-generator'
+    | '/generators/qr-code'
+    | '/generators/qr-scanner'
+    | '/generators/random-data'
+    | '/generators/robots-txt'
+    | '/generators/secrets-generator'
+    | '/generators/security-txt'
+    | '/generators/sitemap-generator'
+    | '/generators/slug-generator'
+    | '/generators/uuid'
+    | '/math/binary-calculator'
+    | '/math/date-calculator'
+    | '/math/expression-evaluator'
+    | '/math/percentage-calculator'
+    | '/media/favicon-generator'
+    | '/media/image-compressor'
+    | '/media/image-resizer'
+    | '/media/svg-optimizer'
+    | '/reference/http-status'
+    | '/text-tools/ascii-art'
+    | '/text-tools/case-converter'
+    | '/text-tools/diff'
+    | '/text-tools/levenshtein'
+    | '/text-tools/markdown-preview'
+    | '/text-tools/regex-tester'
+    | '/text-tools/string-counter'
+    | '/text-tools/text-statistics'
+    | '/text-tools/text-tools'
+    | '/validators/json-schema-validator'
+    | '/validators/json-validator'
+    | '/validators/validator'
+    | '/validators/yaml-validator'
   id:
     | '__root__'
     | '/'
-    | '/tools'
-    | '/tools/base64'
-    | '/tools/diff-checker'
-    | '/tools/converters/base-conversion'
-    | '/tools/converters/base64-image'
-    | '/tools/converters/color-converter'
-    | '/tools/converters/css-unit'
-    | '/tools/converters/csv-json'
-    | '/tools/converters/csv-to-json'
-    | '/tools/converters/json-to-csv'
-    | '/tools/converters/json-to-typescript'
-    | '/tools/converters/json-yaml'
-    | '/tools/converters/markdown-to-html'
-    | '/tools/converters/number-base'
-    | '/tools/converters/sql-to-json'
-    | '/tools/converters/timestamp'
-    | '/tools/converters/timezone-converter'
-    | '/tools/converters/unit-converter'
-    | '/tools/converters/xml-json'
-    | '/tools/converters/xml-to-yaml'
-    | '/tools/crypto/aes-encrypt'
-    | '/tools/crypto/bcrypt'
-    | '/tools/crypto/certificate-decoder'
-    | '/tools/crypto/hash'
-    | '/tools/crypto/hmac'
-    | '/tools/crypto/jwt-generator'
-    | '/tools/crypto/jwt-verifier'
-    | '/tools/crypto/totp'
-    | '/tools/decoders/jwt-decoder'
-    | '/tools/dev-tools/chmod'
-    | '/tools/dev-tools/cron-builder'
-    | '/tools/dev-tools/cron-parser'
-    | '/tools/dev-tools/ip-subnet'
-    | '/tools/dev-tools/js-minifier'
-    | '/tools/dev-tools/json-path-tester'
-    | '/tools/dev-tools/package-json-analyzer'
-    | '/tools/dev-tools/url-parser'
-    | '/tools/dev-tools/user-agent-parser'
-    | '/tools/encoders/backslash-escape'
-    | '/tools/encoders/cipher'
-    | '/tools/encoders/html-entity'
-    | '/tools/encoders/image-to-base64'
-    | '/tools/encoders/morse-code'
-    | '/tools/encoders/string-escape'
-    | '/tools/encoders/url-encode'
-    | '/tools/formatters/css-minifier'
-    | '/tools/formatters/graphql-formatter'
-    | '/tools/formatters/html-formatter'
-    | '/tools/formatters/json-diff'
-    | '/tools/formatters/json-formatter'
-    | '/tools/formatters/sql-formatter'
-    | '/tools/generators/color-palette'
-    | '/tools/generators/data-uri'
-    | '/tools/generators/htaccess-generator'
-    | '/tools/generators/lorem-ipsum'
-    | '/tools/generators/manifest-generator'
-    | '/tools/generators/meta-tag-generator'
-    | '/tools/generators/mock-data'
-    | '/tools/generators/open-graph-preview'
-    | '/tools/generators/password-generator'
-    | '/tools/generators/qr-code'
-    | '/tools/generators/qr-scanner'
-    | '/tools/generators/random-data'
-    | '/tools/generators/robots-txt'
-    | '/tools/generators/secrets-generator'
-    | '/tools/generators/security-txt'
-    | '/tools/generators/sitemap-generator'
-    | '/tools/generators/slug-generator'
-    | '/tools/generators/uuid'
-    | '/tools/math/binary-calculator'
-    | '/tools/math/date-calculator'
-    | '/tools/math/expression-evaluator'
-    | '/tools/math/percentage-calculator'
-    | '/tools/media/favicon-generator'
-    | '/tools/media/image-compressor'
-    | '/tools/media/image-resizer'
-    | '/tools/media/svg-optimizer'
-    | '/tools/reference/http-status'
-    | '/tools/text-tools/ascii-art'
-    | '/tools/text-tools/case-converter'
-    | '/tools/text-tools/diff'
-    | '/tools/text-tools/levenshtein'
-    | '/tools/text-tools/markdown-preview'
-    | '/tools/text-tools/regex-tester'
-    | '/tools/text-tools/string-counter'
-    | '/tools/text-tools/text-statistics'
-    | '/tools/text-tools/text-tools'
-    | '/tools/validators/json-schema-validator'
-    | '/tools/validators/json-validator'
-    | '/tools/validators/validator'
-    | '/tools/validators/yaml-validator'
+    | '/_tools'
+    | '/_tools/converters/base-conversion'
+    | '/_tools/converters/base64-image'
+    | '/_tools/converters/color-converter'
+    | '/_tools/converters/css-unit'
+    | '/_tools/converters/csv-json'
+    | '/_tools/converters/csv-to-json'
+    | '/_tools/converters/json-to-csv'
+    | '/_tools/converters/json-to-typescript'
+    | '/_tools/converters/json-yaml'
+    | '/_tools/converters/markdown-to-html'
+    | '/_tools/converters/number-base'
+    | '/_tools/converters/sql-to-json'
+    | '/_tools/converters/timestamp'
+    | '/_tools/converters/timezone-converter'
+    | '/_tools/converters/unit-converter'
+    | '/_tools/converters/xml-json'
+    | '/_tools/converters/xml-to-yaml'
+    | '/_tools/crypto/aes-encrypt'
+    | '/_tools/crypto/bcrypt'
+    | '/_tools/crypto/certificate-decoder'
+    | '/_tools/crypto/hash'
+    | '/_tools/crypto/hmac'
+    | '/_tools/crypto/jwt-generator'
+    | '/_tools/crypto/jwt-verifier'
+    | '/_tools/crypto/totp'
+    | '/_tools/decoders/jwt-decoder'
+    | '/_tools/dev-tools/chmod'
+    | '/_tools/dev-tools/cron-builder'
+    | '/_tools/dev-tools/cron-parser'
+    | '/_tools/dev-tools/ip-subnet'
+    | '/_tools/dev-tools/js-minifier'
+    | '/_tools/dev-tools/json-path-tester'
+    | '/_tools/dev-tools/package-json-analyzer'
+    | '/_tools/dev-tools/url-parser'
+    | '/_tools/dev-tools/user-agent-parser'
+    | '/_tools/encoders/backslash-escape'
+    | '/_tools/encoders/cipher'
+    | '/_tools/encoders/html-entity'
+    | '/_tools/encoders/image-to-base64'
+    | '/_tools/encoders/morse-code'
+    | '/_tools/encoders/string-escape'
+    | '/_tools/encoders/url-encode'
+    | '/_tools/formatters/css-minifier'
+    | '/_tools/formatters/graphql-formatter'
+    | '/_tools/formatters/html-formatter'
+    | '/_tools/formatters/json-diff'
+    | '/_tools/formatters/json-formatter'
+    | '/_tools/formatters/sql-formatter'
+    | '/_tools/generators/color-palette'
+    | '/_tools/generators/data-uri'
+    | '/_tools/generators/htaccess-generator'
+    | '/_tools/generators/lorem-ipsum'
+    | '/_tools/generators/manifest-generator'
+    | '/_tools/generators/meta-tag-generator'
+    | '/_tools/generators/mock-data'
+    | '/_tools/generators/open-graph-preview'
+    | '/_tools/generators/password-generator'
+    | '/_tools/generators/qr-code'
+    | '/_tools/generators/qr-scanner'
+    | '/_tools/generators/random-data'
+    | '/_tools/generators/robots-txt'
+    | '/_tools/generators/secrets-generator'
+    | '/_tools/generators/security-txt'
+    | '/_tools/generators/sitemap-generator'
+    | '/_tools/generators/slug-generator'
+    | '/_tools/generators/uuid'
+    | '/_tools/math/binary-calculator'
+    | '/_tools/math/date-calculator'
+    | '/_tools/math/expression-evaluator'
+    | '/_tools/math/percentage-calculator'
+    | '/_tools/media/favicon-generator'
+    | '/_tools/media/image-compressor'
+    | '/_tools/media/image-resizer'
+    | '/_tools/media/svg-optimizer'
+    | '/_tools/reference/http-status'
+    | '/_tools/text-tools/ascii-art'
+    | '/_tools/text-tools/case-converter'
+    | '/_tools/text-tools/diff'
+    | '/_tools/text-tools/levenshtein'
+    | '/_tools/text-tools/markdown-preview'
+    | '/_tools/text-tools/regex-tester'
+    | '/_tools/text-tools/string-counter'
+    | '/_tools/text-tools/text-statistics'
+    | '/_tools/text-tools/text-tools'
+    | '/_tools/validators/json-schema-validator'
+    | '/_tools/validators/json-validator'
+    | '/_tools/validators/validator'
+    | '/_tools/validators/yaml-validator'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -1194,10 +1165,10 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/tools': {
-      id: '/tools'
-      path: '/tools'
-      fullPath: '/tools'
+    '/_tools': {
+      id: '/_tools'
+      path: ''
+      fullPath: ''
       preLoaderRoute: typeof ToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -1208,633 +1179,619 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tools/diff-checker': {
-      id: '/tools/diff-checker'
-      path: '/diff-checker'
-      fullPath: '/tools/diff-checker'
-      preLoaderRoute: typeof ToolsDiffCheckerRouteImport
-      parentRoute: typeof ToolsRoute
-    }
-    '/tools/base64': {
-      id: '/tools/base64'
-      path: '/base64'
-      fullPath: '/tools/base64'
-      preLoaderRoute: typeof ToolsBase64RouteImport
-      parentRoute: typeof ToolsRoute
-    }
-    '/tools/validators/yaml-validator': {
-      id: '/tools/validators/yaml-validator'
+    '/_tools/validators/yaml-validator': {
+      id: '/_tools/validators/yaml-validator'
       path: '/validators/yaml-validator'
-      fullPath: '/tools/validators/yaml-validator'
+      fullPath: '/validators/yaml-validator'
       preLoaderRoute: typeof ToolsValidatorsYamlValidatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/validators/validator': {
-      id: '/tools/validators/validator'
+    '/_tools/validators/validator': {
+      id: '/_tools/validators/validator'
       path: '/validators/validator'
-      fullPath: '/tools/validators/validator'
+      fullPath: '/validators/validator'
       preLoaderRoute: typeof ToolsValidatorsValidatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/validators/json-validator': {
-      id: '/tools/validators/json-validator'
+    '/_tools/validators/json-validator': {
+      id: '/_tools/validators/json-validator'
       path: '/validators/json-validator'
-      fullPath: '/tools/validators/json-validator'
+      fullPath: '/validators/json-validator'
       preLoaderRoute: typeof ToolsValidatorsJsonValidatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/validators/json-schema-validator': {
-      id: '/tools/validators/json-schema-validator'
+    '/_tools/validators/json-schema-validator': {
+      id: '/_tools/validators/json-schema-validator'
       path: '/validators/json-schema-validator'
-      fullPath: '/tools/validators/json-schema-validator'
+      fullPath: '/validators/json-schema-validator'
       preLoaderRoute: typeof ToolsValidatorsJsonSchemaValidatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/text-tools': {
-      id: '/tools/text-tools/text-tools'
+    '/_tools/text-tools/text-tools': {
+      id: '/_tools/text-tools/text-tools'
       path: '/text-tools/text-tools'
-      fullPath: '/tools/text-tools/text-tools'
+      fullPath: '/text-tools/text-tools'
       preLoaderRoute: typeof ToolsTextToolsTextToolsRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/text-statistics': {
-      id: '/tools/text-tools/text-statistics'
+    '/_tools/text-tools/text-statistics': {
+      id: '/_tools/text-tools/text-statistics'
       path: '/text-tools/text-statistics'
-      fullPath: '/tools/text-tools/text-statistics'
+      fullPath: '/text-tools/text-statistics'
       preLoaderRoute: typeof ToolsTextToolsTextStatisticsRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/string-counter': {
-      id: '/tools/text-tools/string-counter'
+    '/_tools/text-tools/string-counter': {
+      id: '/_tools/text-tools/string-counter'
       path: '/text-tools/string-counter'
-      fullPath: '/tools/text-tools/string-counter'
+      fullPath: '/text-tools/string-counter'
       preLoaderRoute: typeof ToolsTextToolsStringCounterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/regex-tester': {
-      id: '/tools/text-tools/regex-tester'
+    '/_tools/text-tools/regex-tester': {
+      id: '/_tools/text-tools/regex-tester'
       path: '/text-tools/regex-tester'
-      fullPath: '/tools/text-tools/regex-tester'
+      fullPath: '/text-tools/regex-tester'
       preLoaderRoute: typeof ToolsTextToolsRegexTesterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/markdown-preview': {
-      id: '/tools/text-tools/markdown-preview'
+    '/_tools/text-tools/markdown-preview': {
+      id: '/_tools/text-tools/markdown-preview'
       path: '/text-tools/markdown-preview'
-      fullPath: '/tools/text-tools/markdown-preview'
+      fullPath: '/text-tools/markdown-preview'
       preLoaderRoute: typeof ToolsTextToolsMarkdownPreviewRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/levenshtein': {
-      id: '/tools/text-tools/levenshtein'
+    '/_tools/text-tools/levenshtein': {
+      id: '/_tools/text-tools/levenshtein'
       path: '/text-tools/levenshtein'
-      fullPath: '/tools/text-tools/levenshtein'
+      fullPath: '/text-tools/levenshtein'
       preLoaderRoute: typeof ToolsTextToolsLevenshteinRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/diff': {
-      id: '/tools/text-tools/diff'
+    '/_tools/text-tools/diff': {
+      id: '/_tools/text-tools/diff'
       path: '/text-tools/diff'
-      fullPath: '/tools/text-tools/diff'
+      fullPath: '/text-tools/diff'
       preLoaderRoute: typeof ToolsTextToolsDiffRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/case-converter': {
-      id: '/tools/text-tools/case-converter'
+    '/_tools/text-tools/case-converter': {
+      id: '/_tools/text-tools/case-converter'
       path: '/text-tools/case-converter'
-      fullPath: '/tools/text-tools/case-converter'
+      fullPath: '/text-tools/case-converter'
       preLoaderRoute: typeof ToolsTextToolsCaseConverterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/text-tools/ascii-art': {
-      id: '/tools/text-tools/ascii-art'
+    '/_tools/text-tools/ascii-art': {
+      id: '/_tools/text-tools/ascii-art'
       path: '/text-tools/ascii-art'
-      fullPath: '/tools/text-tools/ascii-art'
+      fullPath: '/text-tools/ascii-art'
       preLoaderRoute: typeof ToolsTextToolsAsciiArtRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/reference/http-status': {
-      id: '/tools/reference/http-status'
+    '/_tools/reference/http-status': {
+      id: '/_tools/reference/http-status'
       path: '/reference/http-status'
-      fullPath: '/tools/reference/http-status'
+      fullPath: '/reference/http-status'
       preLoaderRoute: typeof ToolsReferenceHttpStatusRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/media/svg-optimizer': {
-      id: '/tools/media/svg-optimizer'
+    '/_tools/media/svg-optimizer': {
+      id: '/_tools/media/svg-optimizer'
       path: '/media/svg-optimizer'
-      fullPath: '/tools/media/svg-optimizer'
+      fullPath: '/media/svg-optimizer'
       preLoaderRoute: typeof ToolsMediaSvgOptimizerRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/media/image-resizer': {
-      id: '/tools/media/image-resizer'
+    '/_tools/media/image-resizer': {
+      id: '/_tools/media/image-resizer'
       path: '/media/image-resizer'
-      fullPath: '/tools/media/image-resizer'
+      fullPath: '/media/image-resizer'
       preLoaderRoute: typeof ToolsMediaImageResizerRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/media/image-compressor': {
-      id: '/tools/media/image-compressor'
+    '/_tools/media/image-compressor': {
+      id: '/_tools/media/image-compressor'
       path: '/media/image-compressor'
-      fullPath: '/tools/media/image-compressor'
+      fullPath: '/media/image-compressor'
       preLoaderRoute: typeof ToolsMediaImageCompressorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/media/favicon-generator': {
-      id: '/tools/media/favicon-generator'
+    '/_tools/media/favicon-generator': {
+      id: '/_tools/media/favicon-generator'
       path: '/media/favicon-generator'
-      fullPath: '/tools/media/favicon-generator'
+      fullPath: '/media/favicon-generator'
       preLoaderRoute: typeof ToolsMediaFaviconGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/math/percentage-calculator': {
-      id: '/tools/math/percentage-calculator'
+    '/_tools/math/percentage-calculator': {
+      id: '/_tools/math/percentage-calculator'
       path: '/math/percentage-calculator'
-      fullPath: '/tools/math/percentage-calculator'
+      fullPath: '/math/percentage-calculator'
       preLoaderRoute: typeof ToolsMathPercentageCalculatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/math/expression-evaluator': {
-      id: '/tools/math/expression-evaluator'
+    '/_tools/math/expression-evaluator': {
+      id: '/_tools/math/expression-evaluator'
       path: '/math/expression-evaluator'
-      fullPath: '/tools/math/expression-evaluator'
+      fullPath: '/math/expression-evaluator'
       preLoaderRoute: typeof ToolsMathExpressionEvaluatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/math/date-calculator': {
-      id: '/tools/math/date-calculator'
+    '/_tools/math/date-calculator': {
+      id: '/_tools/math/date-calculator'
       path: '/math/date-calculator'
-      fullPath: '/tools/math/date-calculator'
+      fullPath: '/math/date-calculator'
       preLoaderRoute: typeof ToolsMathDateCalculatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/math/binary-calculator': {
-      id: '/tools/math/binary-calculator'
+    '/_tools/math/binary-calculator': {
+      id: '/_tools/math/binary-calculator'
       path: '/math/binary-calculator'
-      fullPath: '/tools/math/binary-calculator'
+      fullPath: '/math/binary-calculator'
       preLoaderRoute: typeof ToolsMathBinaryCalculatorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/uuid': {
-      id: '/tools/generators/uuid'
+    '/_tools/generators/uuid': {
+      id: '/_tools/generators/uuid'
       path: '/generators/uuid'
-      fullPath: '/tools/generators/uuid'
+      fullPath: '/generators/uuid'
       preLoaderRoute: typeof ToolsGeneratorsUuidRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/slug-generator': {
-      id: '/tools/generators/slug-generator'
+    '/_tools/generators/slug-generator': {
+      id: '/_tools/generators/slug-generator'
       path: '/generators/slug-generator'
-      fullPath: '/tools/generators/slug-generator'
+      fullPath: '/generators/slug-generator'
       preLoaderRoute: typeof ToolsGeneratorsSlugGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/sitemap-generator': {
-      id: '/tools/generators/sitemap-generator'
+    '/_tools/generators/sitemap-generator': {
+      id: '/_tools/generators/sitemap-generator'
       path: '/generators/sitemap-generator'
-      fullPath: '/tools/generators/sitemap-generator'
+      fullPath: '/generators/sitemap-generator'
       preLoaderRoute: typeof ToolsGeneratorsSitemapGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/security-txt': {
-      id: '/tools/generators/security-txt'
+    '/_tools/generators/security-txt': {
+      id: '/_tools/generators/security-txt'
       path: '/generators/security-txt'
-      fullPath: '/tools/generators/security-txt'
+      fullPath: '/generators/security-txt'
       preLoaderRoute: typeof ToolsGeneratorsSecurityTxtRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/secrets-generator': {
-      id: '/tools/generators/secrets-generator'
+    '/_tools/generators/secrets-generator': {
+      id: '/_tools/generators/secrets-generator'
       path: '/generators/secrets-generator'
-      fullPath: '/tools/generators/secrets-generator'
+      fullPath: '/generators/secrets-generator'
       preLoaderRoute: typeof ToolsGeneratorsSecretsGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/robots-txt': {
-      id: '/tools/generators/robots-txt'
+    '/_tools/generators/robots-txt': {
+      id: '/_tools/generators/robots-txt'
       path: '/generators/robots-txt'
-      fullPath: '/tools/generators/robots-txt'
+      fullPath: '/generators/robots-txt'
       preLoaderRoute: typeof ToolsGeneratorsRobotsTxtRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/random-data': {
-      id: '/tools/generators/random-data'
+    '/_tools/generators/random-data': {
+      id: '/_tools/generators/random-data'
       path: '/generators/random-data'
-      fullPath: '/tools/generators/random-data'
+      fullPath: '/generators/random-data'
       preLoaderRoute: typeof ToolsGeneratorsRandomDataRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/qr-scanner': {
-      id: '/tools/generators/qr-scanner'
+    '/_tools/generators/qr-scanner': {
+      id: '/_tools/generators/qr-scanner'
       path: '/generators/qr-scanner'
-      fullPath: '/tools/generators/qr-scanner'
+      fullPath: '/generators/qr-scanner'
       preLoaderRoute: typeof ToolsGeneratorsQrScannerRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/qr-code': {
-      id: '/tools/generators/qr-code'
+    '/_tools/generators/qr-code': {
+      id: '/_tools/generators/qr-code'
       path: '/generators/qr-code'
-      fullPath: '/tools/generators/qr-code'
+      fullPath: '/generators/qr-code'
       preLoaderRoute: typeof ToolsGeneratorsQrCodeRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/password-generator': {
-      id: '/tools/generators/password-generator'
+    '/_tools/generators/password-generator': {
+      id: '/_tools/generators/password-generator'
       path: '/generators/password-generator'
-      fullPath: '/tools/generators/password-generator'
+      fullPath: '/generators/password-generator'
       preLoaderRoute: typeof ToolsGeneratorsPasswordGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/open-graph-preview': {
-      id: '/tools/generators/open-graph-preview'
+    '/_tools/generators/open-graph-preview': {
+      id: '/_tools/generators/open-graph-preview'
       path: '/generators/open-graph-preview'
-      fullPath: '/tools/generators/open-graph-preview'
+      fullPath: '/generators/open-graph-preview'
       preLoaderRoute: typeof ToolsGeneratorsOpenGraphPreviewRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/mock-data': {
-      id: '/tools/generators/mock-data'
+    '/_tools/generators/mock-data': {
+      id: '/_tools/generators/mock-data'
       path: '/generators/mock-data'
-      fullPath: '/tools/generators/mock-data'
+      fullPath: '/generators/mock-data'
       preLoaderRoute: typeof ToolsGeneratorsMockDataRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/meta-tag-generator': {
-      id: '/tools/generators/meta-tag-generator'
+    '/_tools/generators/meta-tag-generator': {
+      id: '/_tools/generators/meta-tag-generator'
       path: '/generators/meta-tag-generator'
-      fullPath: '/tools/generators/meta-tag-generator'
+      fullPath: '/generators/meta-tag-generator'
       preLoaderRoute: typeof ToolsGeneratorsMetaTagGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/manifest-generator': {
-      id: '/tools/generators/manifest-generator'
+    '/_tools/generators/manifest-generator': {
+      id: '/_tools/generators/manifest-generator'
       path: '/generators/manifest-generator'
-      fullPath: '/tools/generators/manifest-generator'
+      fullPath: '/generators/manifest-generator'
       preLoaderRoute: typeof ToolsGeneratorsManifestGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/lorem-ipsum': {
-      id: '/tools/generators/lorem-ipsum'
+    '/_tools/generators/lorem-ipsum': {
+      id: '/_tools/generators/lorem-ipsum'
       path: '/generators/lorem-ipsum'
-      fullPath: '/tools/generators/lorem-ipsum'
+      fullPath: '/generators/lorem-ipsum'
       preLoaderRoute: typeof ToolsGeneratorsLoremIpsumRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/htaccess-generator': {
-      id: '/tools/generators/htaccess-generator'
+    '/_tools/generators/htaccess-generator': {
+      id: '/_tools/generators/htaccess-generator'
       path: '/generators/htaccess-generator'
-      fullPath: '/tools/generators/htaccess-generator'
+      fullPath: '/generators/htaccess-generator'
       preLoaderRoute: typeof ToolsGeneratorsHtaccessGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/data-uri': {
-      id: '/tools/generators/data-uri'
+    '/_tools/generators/data-uri': {
+      id: '/_tools/generators/data-uri'
       path: '/generators/data-uri'
-      fullPath: '/tools/generators/data-uri'
+      fullPath: '/generators/data-uri'
       preLoaderRoute: typeof ToolsGeneratorsDataUriRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/generators/color-palette': {
-      id: '/tools/generators/color-palette'
+    '/_tools/generators/color-palette': {
+      id: '/_tools/generators/color-palette'
       path: '/generators/color-palette'
-      fullPath: '/tools/generators/color-palette'
+      fullPath: '/generators/color-palette'
       preLoaderRoute: typeof ToolsGeneratorsColorPaletteRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/formatters/sql-formatter': {
-      id: '/tools/formatters/sql-formatter'
+    '/_tools/formatters/sql-formatter': {
+      id: '/_tools/formatters/sql-formatter'
       path: '/formatters/sql-formatter'
-      fullPath: '/tools/formatters/sql-formatter'
+      fullPath: '/formatters/sql-formatter'
       preLoaderRoute: typeof ToolsFormattersSqlFormatterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/formatters/json-formatter': {
-      id: '/tools/formatters/json-formatter'
+    '/_tools/formatters/json-formatter': {
+      id: '/_tools/formatters/json-formatter'
       path: '/formatters/json-formatter'
-      fullPath: '/tools/formatters/json-formatter'
+      fullPath: '/formatters/json-formatter'
       preLoaderRoute: typeof ToolsFormattersJsonFormatterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/formatters/json-diff': {
-      id: '/tools/formatters/json-diff'
+    '/_tools/formatters/json-diff': {
+      id: '/_tools/formatters/json-diff'
       path: '/formatters/json-diff'
-      fullPath: '/tools/formatters/json-diff'
+      fullPath: '/formatters/json-diff'
       preLoaderRoute: typeof ToolsFormattersJsonDiffRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/formatters/html-formatter': {
-      id: '/tools/formatters/html-formatter'
+    '/_tools/formatters/html-formatter': {
+      id: '/_tools/formatters/html-formatter'
       path: '/formatters/html-formatter'
-      fullPath: '/tools/formatters/html-formatter'
+      fullPath: '/formatters/html-formatter'
       preLoaderRoute: typeof ToolsFormattersHtmlFormatterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/formatters/graphql-formatter': {
-      id: '/tools/formatters/graphql-formatter'
+    '/_tools/formatters/graphql-formatter': {
+      id: '/_tools/formatters/graphql-formatter'
       path: '/formatters/graphql-formatter'
-      fullPath: '/tools/formatters/graphql-formatter'
+      fullPath: '/formatters/graphql-formatter'
       preLoaderRoute: typeof ToolsFormattersGraphqlFormatterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/formatters/css-minifier': {
-      id: '/tools/formatters/css-minifier'
+    '/_tools/formatters/css-minifier': {
+      id: '/_tools/formatters/css-minifier'
       path: '/formatters/css-minifier'
-      fullPath: '/tools/formatters/css-minifier'
+      fullPath: '/formatters/css-minifier'
       preLoaderRoute: typeof ToolsFormattersCssMinifierRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/encoders/url-encode': {
-      id: '/tools/encoders/url-encode'
+    '/_tools/encoders/url-encode': {
+      id: '/_tools/encoders/url-encode'
       path: '/encoders/url-encode'
-      fullPath: '/tools/encoders/url-encode'
+      fullPath: '/encoders/url-encode'
       preLoaderRoute: typeof ToolsEncodersUrlEncodeRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/encoders/string-escape': {
-      id: '/tools/encoders/string-escape'
+    '/_tools/encoders/string-escape': {
+      id: '/_tools/encoders/string-escape'
       path: '/encoders/string-escape'
-      fullPath: '/tools/encoders/string-escape'
+      fullPath: '/encoders/string-escape'
       preLoaderRoute: typeof ToolsEncodersStringEscapeRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/encoders/morse-code': {
-      id: '/tools/encoders/morse-code'
+    '/_tools/encoders/morse-code': {
+      id: '/_tools/encoders/morse-code'
       path: '/encoders/morse-code'
-      fullPath: '/tools/encoders/morse-code'
+      fullPath: '/encoders/morse-code'
       preLoaderRoute: typeof ToolsEncodersMorseCodeRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/encoders/image-to-base64': {
-      id: '/tools/encoders/image-to-base64'
+    '/_tools/encoders/image-to-base64': {
+      id: '/_tools/encoders/image-to-base64'
       path: '/encoders/image-to-base64'
-      fullPath: '/tools/encoders/image-to-base64'
+      fullPath: '/encoders/image-to-base64'
       preLoaderRoute: typeof ToolsEncodersImageToBase64RouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/encoders/html-entity': {
-      id: '/tools/encoders/html-entity'
+    '/_tools/encoders/html-entity': {
+      id: '/_tools/encoders/html-entity'
       path: '/encoders/html-entity'
-      fullPath: '/tools/encoders/html-entity'
+      fullPath: '/encoders/html-entity'
       preLoaderRoute: typeof ToolsEncodersHtmlEntityRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/encoders/cipher': {
-      id: '/tools/encoders/cipher'
+    '/_tools/encoders/cipher': {
+      id: '/_tools/encoders/cipher'
       path: '/encoders/cipher'
-      fullPath: '/tools/encoders/cipher'
+      fullPath: '/encoders/cipher'
       preLoaderRoute: typeof ToolsEncodersCipherRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/encoders/backslash-escape': {
-      id: '/tools/encoders/backslash-escape'
+    '/_tools/encoders/backslash-escape': {
+      id: '/_tools/encoders/backslash-escape'
       path: '/encoders/backslash-escape'
-      fullPath: '/tools/encoders/backslash-escape'
+      fullPath: '/encoders/backslash-escape'
       preLoaderRoute: typeof ToolsEncodersBackslashEscapeRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/user-agent-parser': {
-      id: '/tools/dev-tools/user-agent-parser'
+    '/_tools/dev-tools/user-agent-parser': {
+      id: '/_tools/dev-tools/user-agent-parser'
       path: '/dev-tools/user-agent-parser'
-      fullPath: '/tools/dev-tools/user-agent-parser'
+      fullPath: '/dev-tools/user-agent-parser'
       preLoaderRoute: typeof ToolsDevToolsUserAgentParserRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/url-parser': {
-      id: '/tools/dev-tools/url-parser'
+    '/_tools/dev-tools/url-parser': {
+      id: '/_tools/dev-tools/url-parser'
       path: '/dev-tools/url-parser'
-      fullPath: '/tools/dev-tools/url-parser'
+      fullPath: '/dev-tools/url-parser'
       preLoaderRoute: typeof ToolsDevToolsUrlParserRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/package-json-analyzer': {
-      id: '/tools/dev-tools/package-json-analyzer'
+    '/_tools/dev-tools/package-json-analyzer': {
+      id: '/_tools/dev-tools/package-json-analyzer'
       path: '/dev-tools/package-json-analyzer'
-      fullPath: '/tools/dev-tools/package-json-analyzer'
+      fullPath: '/dev-tools/package-json-analyzer'
       preLoaderRoute: typeof ToolsDevToolsPackageJsonAnalyzerRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/json-path-tester': {
-      id: '/tools/dev-tools/json-path-tester'
+    '/_tools/dev-tools/json-path-tester': {
+      id: '/_tools/dev-tools/json-path-tester'
       path: '/dev-tools/json-path-tester'
-      fullPath: '/tools/dev-tools/json-path-tester'
+      fullPath: '/dev-tools/json-path-tester'
       preLoaderRoute: typeof ToolsDevToolsJsonPathTesterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/js-minifier': {
-      id: '/tools/dev-tools/js-minifier'
+    '/_tools/dev-tools/js-minifier': {
+      id: '/_tools/dev-tools/js-minifier'
       path: '/dev-tools/js-minifier'
-      fullPath: '/tools/dev-tools/js-minifier'
+      fullPath: '/dev-tools/js-minifier'
       preLoaderRoute: typeof ToolsDevToolsJsMinifierRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/ip-subnet': {
-      id: '/tools/dev-tools/ip-subnet'
+    '/_tools/dev-tools/ip-subnet': {
+      id: '/_tools/dev-tools/ip-subnet'
       path: '/dev-tools/ip-subnet'
-      fullPath: '/tools/dev-tools/ip-subnet'
+      fullPath: '/dev-tools/ip-subnet'
       preLoaderRoute: typeof ToolsDevToolsIpSubnetRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/cron-parser': {
-      id: '/tools/dev-tools/cron-parser'
+    '/_tools/dev-tools/cron-parser': {
+      id: '/_tools/dev-tools/cron-parser'
       path: '/dev-tools/cron-parser'
-      fullPath: '/tools/dev-tools/cron-parser'
+      fullPath: '/dev-tools/cron-parser'
       preLoaderRoute: typeof ToolsDevToolsCronParserRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/cron-builder': {
-      id: '/tools/dev-tools/cron-builder'
+    '/_tools/dev-tools/cron-builder': {
+      id: '/_tools/dev-tools/cron-builder'
       path: '/dev-tools/cron-builder'
-      fullPath: '/tools/dev-tools/cron-builder'
+      fullPath: '/dev-tools/cron-builder'
       preLoaderRoute: typeof ToolsDevToolsCronBuilderRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/dev-tools/chmod': {
-      id: '/tools/dev-tools/chmod'
+    '/_tools/dev-tools/chmod': {
+      id: '/_tools/dev-tools/chmod'
       path: '/dev-tools/chmod'
-      fullPath: '/tools/dev-tools/chmod'
+      fullPath: '/dev-tools/chmod'
       preLoaderRoute: typeof ToolsDevToolsChmodRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/decoders/jwt-decoder': {
-      id: '/tools/decoders/jwt-decoder'
+    '/_tools/decoders/jwt-decoder': {
+      id: '/_tools/decoders/jwt-decoder'
       path: '/decoders/jwt-decoder'
-      fullPath: '/tools/decoders/jwt-decoder'
+      fullPath: '/decoders/jwt-decoder'
       preLoaderRoute: typeof ToolsDecodersJwtDecoderRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/totp': {
-      id: '/tools/crypto/totp'
+    '/_tools/crypto/totp': {
+      id: '/_tools/crypto/totp'
       path: '/crypto/totp'
-      fullPath: '/tools/crypto/totp'
+      fullPath: '/crypto/totp'
       preLoaderRoute: typeof ToolsCryptoTotpRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/jwt-verifier': {
-      id: '/tools/crypto/jwt-verifier'
+    '/_tools/crypto/jwt-verifier': {
+      id: '/_tools/crypto/jwt-verifier'
       path: '/crypto/jwt-verifier'
-      fullPath: '/tools/crypto/jwt-verifier'
+      fullPath: '/crypto/jwt-verifier'
       preLoaderRoute: typeof ToolsCryptoJwtVerifierRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/jwt-generator': {
-      id: '/tools/crypto/jwt-generator'
+    '/_tools/crypto/jwt-generator': {
+      id: '/_tools/crypto/jwt-generator'
       path: '/crypto/jwt-generator'
-      fullPath: '/tools/crypto/jwt-generator'
+      fullPath: '/crypto/jwt-generator'
       preLoaderRoute: typeof ToolsCryptoJwtGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/hmac': {
-      id: '/tools/crypto/hmac'
+    '/_tools/crypto/hmac': {
+      id: '/_tools/crypto/hmac'
       path: '/crypto/hmac'
-      fullPath: '/tools/crypto/hmac'
+      fullPath: '/crypto/hmac'
       preLoaderRoute: typeof ToolsCryptoHmacRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/hash': {
-      id: '/tools/crypto/hash'
+    '/_tools/crypto/hash': {
+      id: '/_tools/crypto/hash'
       path: '/crypto/hash'
-      fullPath: '/tools/crypto/hash'
+      fullPath: '/crypto/hash'
       preLoaderRoute: typeof ToolsCryptoHashRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/certificate-decoder': {
-      id: '/tools/crypto/certificate-decoder'
+    '/_tools/crypto/certificate-decoder': {
+      id: '/_tools/crypto/certificate-decoder'
       path: '/crypto/certificate-decoder'
-      fullPath: '/tools/crypto/certificate-decoder'
+      fullPath: '/crypto/certificate-decoder'
       preLoaderRoute: typeof ToolsCryptoCertificateDecoderRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/bcrypt': {
-      id: '/tools/crypto/bcrypt'
+    '/_tools/crypto/bcrypt': {
+      id: '/_tools/crypto/bcrypt'
       path: '/crypto/bcrypt'
-      fullPath: '/tools/crypto/bcrypt'
+      fullPath: '/crypto/bcrypt'
       preLoaderRoute: typeof ToolsCryptoBcryptRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/crypto/aes-encrypt': {
-      id: '/tools/crypto/aes-encrypt'
+    '/_tools/crypto/aes-encrypt': {
+      id: '/_tools/crypto/aes-encrypt'
       path: '/crypto/aes-encrypt'
-      fullPath: '/tools/crypto/aes-encrypt'
+      fullPath: '/crypto/aes-encrypt'
       preLoaderRoute: typeof ToolsCryptoAesEncryptRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/xml-to-yaml': {
-      id: '/tools/converters/xml-to-yaml'
+    '/_tools/converters/xml-to-yaml': {
+      id: '/_tools/converters/xml-to-yaml'
       path: '/converters/xml-to-yaml'
-      fullPath: '/tools/converters/xml-to-yaml'
+      fullPath: '/converters/xml-to-yaml'
       preLoaderRoute: typeof ToolsConvertersXmlToYamlRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/xml-json': {
-      id: '/tools/converters/xml-json'
+    '/_tools/converters/xml-json': {
+      id: '/_tools/converters/xml-json'
       path: '/converters/xml-json'
-      fullPath: '/tools/converters/xml-json'
+      fullPath: '/converters/xml-json'
       preLoaderRoute: typeof ToolsConvertersXmlJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/unit-converter': {
-      id: '/tools/converters/unit-converter'
+    '/_tools/converters/unit-converter': {
+      id: '/_tools/converters/unit-converter'
       path: '/converters/unit-converter'
-      fullPath: '/tools/converters/unit-converter'
+      fullPath: '/converters/unit-converter'
       preLoaderRoute: typeof ToolsConvertersUnitConverterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/timezone-converter': {
-      id: '/tools/converters/timezone-converter'
+    '/_tools/converters/timezone-converter': {
+      id: '/_tools/converters/timezone-converter'
       path: '/converters/timezone-converter'
-      fullPath: '/tools/converters/timezone-converter'
+      fullPath: '/converters/timezone-converter'
       preLoaderRoute: typeof ToolsConvertersTimezoneConverterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/timestamp': {
-      id: '/tools/converters/timestamp'
+    '/_tools/converters/timestamp': {
+      id: '/_tools/converters/timestamp'
       path: '/converters/timestamp'
-      fullPath: '/tools/converters/timestamp'
+      fullPath: '/converters/timestamp'
       preLoaderRoute: typeof ToolsConvertersTimestampRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/sql-to-json': {
-      id: '/tools/converters/sql-to-json'
+    '/_tools/converters/sql-to-json': {
+      id: '/_tools/converters/sql-to-json'
       path: '/converters/sql-to-json'
-      fullPath: '/tools/converters/sql-to-json'
+      fullPath: '/converters/sql-to-json'
       preLoaderRoute: typeof ToolsConvertersSqlToJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/number-base': {
-      id: '/tools/converters/number-base'
+    '/_tools/converters/number-base': {
+      id: '/_tools/converters/number-base'
       path: '/converters/number-base'
-      fullPath: '/tools/converters/number-base'
+      fullPath: '/converters/number-base'
       preLoaderRoute: typeof ToolsConvertersNumberBaseRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/markdown-to-html': {
-      id: '/tools/converters/markdown-to-html'
+    '/_tools/converters/markdown-to-html': {
+      id: '/_tools/converters/markdown-to-html'
       path: '/converters/markdown-to-html'
-      fullPath: '/tools/converters/markdown-to-html'
+      fullPath: '/converters/markdown-to-html'
       preLoaderRoute: typeof ToolsConvertersMarkdownToHtmlRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/json-yaml': {
-      id: '/tools/converters/json-yaml'
+    '/_tools/converters/json-yaml': {
+      id: '/_tools/converters/json-yaml'
       path: '/converters/json-yaml'
-      fullPath: '/tools/converters/json-yaml'
+      fullPath: '/converters/json-yaml'
       preLoaderRoute: typeof ToolsConvertersJsonYamlRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/json-to-typescript': {
-      id: '/tools/converters/json-to-typescript'
+    '/_tools/converters/json-to-typescript': {
+      id: '/_tools/converters/json-to-typescript'
       path: '/converters/json-to-typescript'
-      fullPath: '/tools/converters/json-to-typescript'
+      fullPath: '/converters/json-to-typescript'
       preLoaderRoute: typeof ToolsConvertersJsonToTypescriptRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/json-to-csv': {
-      id: '/tools/converters/json-to-csv'
+    '/_tools/converters/json-to-csv': {
+      id: '/_tools/converters/json-to-csv'
       path: '/converters/json-to-csv'
-      fullPath: '/tools/converters/json-to-csv'
+      fullPath: '/converters/json-to-csv'
       preLoaderRoute: typeof ToolsConvertersJsonToCsvRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/csv-to-json': {
-      id: '/tools/converters/csv-to-json'
+    '/_tools/converters/csv-to-json': {
+      id: '/_tools/converters/csv-to-json'
       path: '/converters/csv-to-json'
-      fullPath: '/tools/converters/csv-to-json'
+      fullPath: '/converters/csv-to-json'
       preLoaderRoute: typeof ToolsConvertersCsvToJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/csv-json': {
-      id: '/tools/converters/csv-json'
+    '/_tools/converters/csv-json': {
+      id: '/_tools/converters/csv-json'
       path: '/converters/csv-json'
-      fullPath: '/tools/converters/csv-json'
+      fullPath: '/converters/csv-json'
       preLoaderRoute: typeof ToolsConvertersCsvJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/css-unit': {
-      id: '/tools/converters/css-unit'
+    '/_tools/converters/css-unit': {
+      id: '/_tools/converters/css-unit'
       path: '/converters/css-unit'
-      fullPath: '/tools/converters/css-unit'
+      fullPath: '/converters/css-unit'
       preLoaderRoute: typeof ToolsConvertersCssUnitRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/color-converter': {
-      id: '/tools/converters/color-converter'
+    '/_tools/converters/color-converter': {
+      id: '/_tools/converters/color-converter'
       path: '/converters/color-converter'
-      fullPath: '/tools/converters/color-converter'
+      fullPath: '/converters/color-converter'
       preLoaderRoute: typeof ToolsConvertersColorConverterRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/base64-image': {
-      id: '/tools/converters/base64-image'
+    '/_tools/converters/base64-image': {
+      id: '/_tools/converters/base64-image'
       path: '/converters/base64-image'
-      fullPath: '/tools/converters/base64-image'
+      fullPath: '/converters/base64-image'
       preLoaderRoute: typeof ToolsConvertersBase64ImageRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/tools/converters/base-conversion': {
-      id: '/tools/converters/base-conversion'
+    '/_tools/converters/base-conversion': {
+      id: '/_tools/converters/base-conversion'
       path: '/converters/base-conversion'
-      fullPath: '/tools/converters/base-conversion'
+      fullPath: '/converters/base-conversion'
       preLoaderRoute: typeof ToolsConvertersBaseConversionRouteImport
       parentRoute: typeof ToolsRoute
     }
@@ -1842,8 +1799,6 @@ declare module '@tanstack/react-router' {
 }
 
 interface ToolsRouteChildren {
-  ToolsBase64Route: typeof ToolsBase64Route
-  ToolsDiffCheckerRoute: typeof ToolsDiffCheckerRoute
   ToolsConvertersBaseConversionRoute: typeof ToolsConvertersBaseConversionRoute
   ToolsConvertersBase64ImageRoute: typeof ToolsConvertersBase64ImageRoute
   ToolsConvertersColorConverterRoute: typeof ToolsConvertersColorConverterRoute
@@ -1935,8 +1890,6 @@ interface ToolsRouteChildren {
 }
 
 const ToolsRouteChildren: ToolsRouteChildren = {
-  ToolsBase64Route: ToolsBase64Route,
-  ToolsDiffCheckerRoute: ToolsDiffCheckerRoute,
   ToolsConvertersBaseConversionRoute: ToolsConvertersBaseConversionRoute,
   ToolsConvertersBase64ImageRoute: ToolsConvertersBase64ImageRoute,
   ToolsConvertersColorConverterRoute: ToolsConvertersColorConverterRoute,
