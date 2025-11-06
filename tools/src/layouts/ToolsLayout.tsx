@@ -41,6 +41,11 @@ import {
   Key,
   Ruler,
   Sparkles,
+  GitCompare,
+  CalendarCog,
+  Network,
+  FileType,
+  ShieldAlert,
 } from "lucide-react";
 import {
   Sidebar,
@@ -186,6 +191,12 @@ const tools = [
     category: "Formatters",
   },
   {
+    title: "JSON Diff",
+    icon: GitCompare,
+    href: "/tools/json-diff",
+    category: "Formatters",
+  },
+  {
     title: "JSON Validator",
     icon: CheckCircle,
     href: "/tools/json-validator",
@@ -219,6 +230,12 @@ const tools = [
     title: "HMAC Generator",
     icon: Key,
     href: "/tools/hmac",
+    category: "Crypto",
+  },
+  {
+    title: "TOTP Generator",
+    icon: ShieldAlert,
+    href: "/tools/totp",
     category: "Crypto",
   },
   {
@@ -276,6 +293,12 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Data URI Generator",
+    icon: FileType,
+    href: "/tools/data-uri",
+    category: "Generators",
+  },
+  {
     title: "Text Diff",
     icon: FileText,
     href: "/tools/diff",
@@ -321,6 +344,18 @@ const tools = [
     title: "Cron Parser",
     icon: CalendarClock,
     href: "/tools/cron-parser",
+    category: "Dev Tools",
+  },
+  {
+    title: "Cron Builder",
+    icon: CalendarCog,
+    href: "/tools/cron-builder",
+    category: "Dev Tools",
+  },
+  {
+    title: "IP Subnet Calculator",
+    icon: Network,
+    href: "/tools/ip-subnet",
     category: "Dev Tools",
   },
   {

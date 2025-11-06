@@ -19,6 +19,7 @@ import { Route as ToolsUserAgentParserRouteImport } from './routes/tools/user-ag
 import { Route as ToolsUrlParserRouteImport } from './routes/tools/url-parser'
 import { Route as ToolsUrlEncodeRouteImport } from './routes/tools/url-encode'
 import { Route as ToolsUnitConverterRouteImport } from './routes/tools/unit-converter'
+import { Route as ToolsTotpRouteImport } from './routes/tools/totp'
 import { Route as ToolsTimestampRouteImport } from './routes/tools/timestamp'
 import { Route as ToolsTextToolsRouteImport } from './routes/tools/text-tools'
 import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-counter'
@@ -40,16 +41,21 @@ import { Route as ToolsJsonYamlRouteImport } from './routes/tools/json-yaml'
 import { Route as ToolsJsonValidatorRouteImport } from './routes/tools/json-validator'
 import { Route as ToolsJsonToTypescriptRouteImport } from './routes/tools/json-to-typescript'
 import { Route as ToolsJsonFormatterRouteImport } from './routes/tools/json-formatter'
+import { Route as ToolsJsonDiffRouteImport } from './routes/tools/json-diff'
+import { Route as ToolsIpSubnetRouteImport } from './routes/tools/ip-subnet'
 import { Route as ToolsImageToBase64RouteImport } from './routes/tools/image-to-base64'
 import { Route as ToolsHttpStatusRouteImport } from './routes/tools/http-status'
 import { Route as ToolsHtmlFormatterRouteImport } from './routes/tools/html-formatter'
 import { Route as ToolsHtmlEntityRouteImport } from './routes/tools/html-entity'
 import { Route as ToolsHmacRouteImport } from './routes/tools/hmac'
 import { Route as ToolsHashRouteImport } from './routes/tools/hash'
+import { Route as ToolsDiffCheckerRouteImport } from './routes/tools/diff-checker'
 import { Route as ToolsDiffRouteImport } from './routes/tools/diff'
+import { Route as ToolsDataUriRouteImport } from './routes/tools/data-uri'
 import { Route as ToolsCsvJsonRouteImport } from './routes/tools/csv-json'
 import { Route as ToolsCssMinifierRouteImport } from './routes/tools/css-minifier'
 import { Route as ToolsCronParserRouteImport } from './routes/tools/cron-parser'
+import { Route as ToolsCronBuilderRouteImport } from './routes/tools/cron-builder'
 import { Route as ToolsColorPaletteRouteImport } from './routes/tools/color-palette'
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
 import { Route as ToolsCipherRouteImport } from './routes/tools/cipher'
@@ -108,6 +114,11 @@ const ToolsUrlEncodeRoute = ToolsUrlEncodeRouteImport.update({
 const ToolsUnitConverterRoute = ToolsUnitConverterRouteImport.update({
   id: '/unit-converter',
   path: '/unit-converter',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsTotpRoute = ToolsTotpRouteImport.update({
+  id: '/totp',
+  path: '/totp',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsTimestampRoute = ToolsTimestampRouteImport.update({
@@ -215,6 +226,16 @@ const ToolsJsonFormatterRoute = ToolsJsonFormatterRouteImport.update({
   path: '/json-formatter',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsJsonDiffRoute = ToolsJsonDiffRouteImport.update({
+  id: '/json-diff',
+  path: '/json-diff',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsIpSubnetRoute = ToolsIpSubnetRouteImport.update({
+  id: '/ip-subnet',
+  path: '/ip-subnet',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsImageToBase64Route = ToolsImageToBase64RouteImport.update({
   id: '/image-to-base64',
   path: '/image-to-base64',
@@ -245,9 +266,19 @@ const ToolsHashRoute = ToolsHashRouteImport.update({
   path: '/hash',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsDiffCheckerRoute = ToolsDiffCheckerRouteImport.update({
+  id: '/diff-checker',
+  path: '/diff-checker',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsDiffRoute = ToolsDiffRouteImport.update({
   id: '/diff',
   path: '/diff',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsDataUriRoute = ToolsDataUriRouteImport.update({
+  id: '/data-uri',
+  path: '/data-uri',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsCsvJsonRoute = ToolsCsvJsonRouteImport.update({
@@ -263,6 +294,11 @@ const ToolsCssMinifierRoute = ToolsCssMinifierRouteImport.update({
 const ToolsCronParserRoute = ToolsCronParserRouteImport.update({
   id: '/cron-parser',
   path: '/cron-parser',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCronBuilderRoute = ToolsCronBuilderRouteImport.update({
+  id: '/cron-builder',
+  path: '/cron-builder',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsColorPaletteRoute = ToolsColorPaletteRouteImport.update({
@@ -323,16 +359,21 @@ export interface FileRoutesByFullPath {
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/color-palette': typeof ToolsColorPaletteRoute
+  '/tools/cron-builder': typeof ToolsCronBuilderRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
+  '/tools/data-uri': typeof ToolsDataUriRoute
   '/tools/diff': typeof ToolsDiffRoute
+  '/tools/diff-checker': typeof ToolsDiffCheckerRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/hmac': typeof ToolsHmacRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
   '/tools/image-to-base64': typeof ToolsImageToBase64Route
+  '/tools/ip-subnet': typeof ToolsIpSubnetRoute
+  '/tools/json-diff': typeof ToolsJsonDiffRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
@@ -354,6 +395,7 @@ export interface FileRoutesByFullPath {
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
+  '/tools/totp': typeof ToolsTotpRoute
   '/tools/unit-converter': typeof ToolsUnitConverterRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
@@ -375,16 +417,21 @@ export interface FileRoutesByTo {
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/color-palette': typeof ToolsColorPaletteRoute
+  '/tools/cron-builder': typeof ToolsCronBuilderRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
+  '/tools/data-uri': typeof ToolsDataUriRoute
   '/tools/diff': typeof ToolsDiffRoute
+  '/tools/diff-checker': typeof ToolsDiffCheckerRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/hmac': typeof ToolsHmacRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
   '/tools/image-to-base64': typeof ToolsImageToBase64Route
+  '/tools/ip-subnet': typeof ToolsIpSubnetRoute
+  '/tools/json-diff': typeof ToolsJsonDiffRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
@@ -406,6 +453,7 @@ export interface FileRoutesByTo {
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
+  '/tools/totp': typeof ToolsTotpRoute
   '/tools/unit-converter': typeof ToolsUnitConverterRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
@@ -428,16 +476,21 @@ export interface FileRoutesById {
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/color-palette': typeof ToolsColorPaletteRoute
+  '/tools/cron-builder': typeof ToolsCronBuilderRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
+  '/tools/data-uri': typeof ToolsDataUriRoute
   '/tools/diff': typeof ToolsDiffRoute
+  '/tools/diff-checker': typeof ToolsDiffCheckerRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/hmac': typeof ToolsHmacRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
   '/tools/image-to-base64': typeof ToolsImageToBase64Route
+  '/tools/ip-subnet': typeof ToolsIpSubnetRoute
+  '/tools/json-diff': typeof ToolsJsonDiffRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-to-typescript': typeof ToolsJsonToTypescriptRoute
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
@@ -459,6 +512,7 @@ export interface FileRoutesById {
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
+  '/tools/totp': typeof ToolsTotpRoute
   '/tools/unit-converter': typeof ToolsUnitConverterRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
@@ -482,16 +536,21 @@ export interface FileRouteTypes {
     | '/tools/cipher'
     | '/tools/color-converter'
     | '/tools/color-palette'
+    | '/tools/cron-builder'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
     | '/tools/csv-json'
+    | '/tools/data-uri'
     | '/tools/diff'
+    | '/tools/diff-checker'
     | '/tools/hash'
     | '/tools/hmac'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/http-status'
     | '/tools/image-to-base64'
+    | '/tools/ip-subnet'
+    | '/tools/json-diff'
     | '/tools/json-formatter'
     | '/tools/json-to-typescript'
     | '/tools/json-validator'
@@ -513,6 +572,7 @@ export interface FileRouteTypes {
     | '/tools/string-counter'
     | '/tools/text-tools'
     | '/tools/timestamp'
+    | '/tools/totp'
     | '/tools/unit-converter'
     | '/tools/url-encode'
     | '/tools/url-parser'
@@ -534,16 +594,21 @@ export interface FileRouteTypes {
     | '/tools/cipher'
     | '/tools/color-converter'
     | '/tools/color-palette'
+    | '/tools/cron-builder'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
     | '/tools/csv-json'
+    | '/tools/data-uri'
     | '/tools/diff'
+    | '/tools/diff-checker'
     | '/tools/hash'
     | '/tools/hmac'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/http-status'
     | '/tools/image-to-base64'
+    | '/tools/ip-subnet'
+    | '/tools/json-diff'
     | '/tools/json-formatter'
     | '/tools/json-to-typescript'
     | '/tools/json-validator'
@@ -565,6 +630,7 @@ export interface FileRouteTypes {
     | '/tools/string-counter'
     | '/tools/text-tools'
     | '/tools/timestamp'
+    | '/tools/totp'
     | '/tools/unit-converter'
     | '/tools/url-encode'
     | '/tools/url-parser'
@@ -586,16 +652,21 @@ export interface FileRouteTypes {
     | '/tools/cipher'
     | '/tools/color-converter'
     | '/tools/color-palette'
+    | '/tools/cron-builder'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
     | '/tools/csv-json'
+    | '/tools/data-uri'
     | '/tools/diff'
+    | '/tools/diff-checker'
     | '/tools/hash'
     | '/tools/hmac'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/http-status'
     | '/tools/image-to-base64'
+    | '/tools/ip-subnet'
+    | '/tools/json-diff'
     | '/tools/json-formatter'
     | '/tools/json-to-typescript'
     | '/tools/json-validator'
@@ -617,6 +688,7 @@ export interface FileRouteTypes {
     | '/tools/string-counter'
     | '/tools/text-tools'
     | '/tools/timestamp'
+    | '/tools/totp'
     | '/tools/unit-converter'
     | '/tools/url-encode'
     | '/tools/url-parser'
@@ -702,6 +774,13 @@ declare module '@tanstack/react-router' {
       path: '/unit-converter'
       fullPath: '/tools/unit-converter'
       preLoaderRoute: typeof ToolsUnitConverterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/totp': {
+      id: '/tools/totp'
+      path: '/totp'
+      fullPath: '/tools/totp'
+      preLoaderRoute: typeof ToolsTotpRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/timestamp': {
@@ -851,6 +930,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsJsonFormatterRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/json-diff': {
+      id: '/tools/json-diff'
+      path: '/json-diff'
+      fullPath: '/tools/json-diff'
+      preLoaderRoute: typeof ToolsJsonDiffRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/ip-subnet': {
+      id: '/tools/ip-subnet'
+      path: '/ip-subnet'
+      fullPath: '/tools/ip-subnet'
+      preLoaderRoute: typeof ToolsIpSubnetRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/image-to-base64': {
       id: '/tools/image-to-base64'
       path: '/image-to-base64'
@@ -893,11 +986,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsHashRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/diff-checker': {
+      id: '/tools/diff-checker'
+      path: '/diff-checker'
+      fullPath: '/tools/diff-checker'
+      preLoaderRoute: typeof ToolsDiffCheckerRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/diff': {
       id: '/tools/diff'
       path: '/diff'
       fullPath: '/tools/diff'
       preLoaderRoute: typeof ToolsDiffRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/data-uri': {
+      id: '/tools/data-uri'
+      path: '/data-uri'
+      fullPath: '/tools/data-uri'
+      preLoaderRoute: typeof ToolsDataUriRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/csv-json': {
@@ -919,6 +1026,13 @@ declare module '@tanstack/react-router' {
       path: '/cron-parser'
       fullPath: '/tools/cron-parser'
       preLoaderRoute: typeof ToolsCronParserRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/cron-builder': {
+      id: '/tools/cron-builder'
+      path: '/cron-builder'
+      fullPath: '/tools/cron-builder'
+      preLoaderRoute: typeof ToolsCronBuilderRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/color-palette': {
@@ -997,16 +1111,21 @@ interface ToolsRouteChildren {
   ToolsCipherRoute: typeof ToolsCipherRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
   ToolsColorPaletteRoute: typeof ToolsColorPaletteRoute
+  ToolsCronBuilderRoute: typeof ToolsCronBuilderRoute
   ToolsCronParserRoute: typeof ToolsCronParserRoute
   ToolsCssMinifierRoute: typeof ToolsCssMinifierRoute
   ToolsCsvJsonRoute: typeof ToolsCsvJsonRoute
+  ToolsDataUriRoute: typeof ToolsDataUriRoute
   ToolsDiffRoute: typeof ToolsDiffRoute
+  ToolsDiffCheckerRoute: typeof ToolsDiffCheckerRoute
   ToolsHashRoute: typeof ToolsHashRoute
   ToolsHmacRoute: typeof ToolsHmacRoute
   ToolsHtmlEntityRoute: typeof ToolsHtmlEntityRoute
   ToolsHtmlFormatterRoute: typeof ToolsHtmlFormatterRoute
   ToolsHttpStatusRoute: typeof ToolsHttpStatusRoute
   ToolsImageToBase64Route: typeof ToolsImageToBase64Route
+  ToolsIpSubnetRoute: typeof ToolsIpSubnetRoute
+  ToolsJsonDiffRoute: typeof ToolsJsonDiffRoute
   ToolsJsonFormatterRoute: typeof ToolsJsonFormatterRoute
   ToolsJsonToTypescriptRoute: typeof ToolsJsonToTypescriptRoute
   ToolsJsonValidatorRoute: typeof ToolsJsonValidatorRoute
@@ -1028,6 +1147,7 @@ interface ToolsRouteChildren {
   ToolsStringCounterRoute: typeof ToolsStringCounterRoute
   ToolsTextToolsRoute: typeof ToolsTextToolsRoute
   ToolsTimestampRoute: typeof ToolsTimestampRoute
+  ToolsTotpRoute: typeof ToolsTotpRoute
   ToolsUnitConverterRoute: typeof ToolsUnitConverterRoute
   ToolsUrlEncodeRoute: typeof ToolsUrlEncodeRoute
   ToolsUrlParserRoute: typeof ToolsUrlParserRoute
@@ -1048,16 +1168,21 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsCipherRoute: ToolsCipherRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,
   ToolsColorPaletteRoute: ToolsColorPaletteRoute,
+  ToolsCronBuilderRoute: ToolsCronBuilderRoute,
   ToolsCronParserRoute: ToolsCronParserRoute,
   ToolsCssMinifierRoute: ToolsCssMinifierRoute,
   ToolsCsvJsonRoute: ToolsCsvJsonRoute,
+  ToolsDataUriRoute: ToolsDataUriRoute,
   ToolsDiffRoute: ToolsDiffRoute,
+  ToolsDiffCheckerRoute: ToolsDiffCheckerRoute,
   ToolsHashRoute: ToolsHashRoute,
   ToolsHmacRoute: ToolsHmacRoute,
   ToolsHtmlEntityRoute: ToolsHtmlEntityRoute,
   ToolsHtmlFormatterRoute: ToolsHtmlFormatterRoute,
   ToolsHttpStatusRoute: ToolsHttpStatusRoute,
   ToolsImageToBase64Route: ToolsImageToBase64Route,
+  ToolsIpSubnetRoute: ToolsIpSubnetRoute,
+  ToolsJsonDiffRoute: ToolsJsonDiffRoute,
   ToolsJsonFormatterRoute: ToolsJsonFormatterRoute,
   ToolsJsonToTypescriptRoute: ToolsJsonToTypescriptRoute,
   ToolsJsonValidatorRoute: ToolsJsonValidatorRoute,
@@ -1079,6 +1204,7 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsStringCounterRoute: ToolsStringCounterRoute,
   ToolsTextToolsRoute: ToolsTextToolsRoute,
   ToolsTimestampRoute: ToolsTimestampRoute,
+  ToolsTotpRoute: ToolsTotpRoute,
   ToolsUnitConverterRoute: ToolsUnitConverterRoute,
   ToolsUrlEncodeRoute: ToolsUrlEncodeRoute,
   ToolsUrlParserRoute: ToolsUrlParserRoute,
