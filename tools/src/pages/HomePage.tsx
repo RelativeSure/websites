@@ -50,6 +50,9 @@ import {
   Download,
   Terminal,
   MonitorSmartphone,
+  Globe,
+  Percent,
+  KeySquare,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -73,6 +76,9 @@ const tools = [
   { title: "Unit Convert", icon: Ruler, href: "/tools/unit-converter", category: "Converters" },
   { title: "JSON → CSV", icon: Download, href: "/tools/json-to-csv", category: "Converters" },
   { title: "CSS Units", icon: MonitorSmartphone, href: "/tools/css-unit", category: "Converters" },
+  { title: "CSV → JSON", icon: ArrowLeftRight, href: "/tools/csv-to-json", category: "Converters" },
+  { title: "Timezone", icon: Globe, href: "/tools/timezone-converter", category: "Converters" },
+  { title: "MD → HTML", icon: FileCode, href: "/tools/markdown-to-html", category: "Converters" },
   { title: "URL Encode", icon: Link2, href: "/tools/url-encode", category: "Encoders" },
   { title: "HTML Entity", icon: Code2, href: "/tools/html-entity", category: "Encoders" },
   { title: "Backslash Escape", icon: Slash, href: "/tools/backslash-escape", category: "Encoders" },
@@ -103,6 +109,7 @@ const tools = [
   { title: "QR Scanner", icon: ScanLine, href: "/tools/qr-scanner", category: "Generators" },
   { title: "Random Data", icon: Shuffle, href: "/tools/random-data", category: "Generators" },
   { title: "Data URI Gen", icon: FileType, href: "/tools/data-uri", category: "Generators" },
+  { title: "Secrets Gen", icon: KeySquare, href: "/tools/secrets-generator", category: "Generators" },
   { title: "Text Diff", icon: FileText, href: "/tools/diff", category: "Text Tools" },
   { title: "Case Convert", icon: Code2, href: "/tools/case-converter", category: "Text Tools" },
   { title: "Text Tools", icon: WrapText, href: "/tools/text-tools", category: "Text Tools" },
@@ -118,6 +125,8 @@ const tools = [
   { title: "CSS Minify", icon: Minimize2, href: "/tools/css-minifier", category: "Dev Tools" },
   { title: "URL Parser", icon: LinkIcon, href: "/tools/url-parser", category: "Dev Tools" },
   { title: "User Agent", icon: Smartphone, href: "/tools/user-agent-parser", category: "Dev Tools" },
+  { title: "Expr Eval", icon: Calculator, href: "/tools/expression-evaluator", category: "Math" },
+  { title: "Percentage", icon: Percent, href: "/tools/percentage-calculator", category: "Math" },
   { title: "HTTP Status", icon: Info, href: "/tools/http-status", category: "Reference" },
 ];
 

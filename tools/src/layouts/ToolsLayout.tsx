@@ -49,6 +49,9 @@ import {
   Download,
   Terminal,
   MonitorSmartphone,
+  Globe,
+  Percent,
+  KeySquare,
 } from "lucide-react";
 import {
   Sidebar,
@@ -137,6 +140,24 @@ const tools = [
     title: "CSS Unit Converter",
     icon: MonitorSmartphone,
     href: "/tools/css-unit",
+    category: "Converters",
+  },
+  {
+    title: "CSV → JSON",
+    icon: ArrowLeftRight,
+    href: "/tools/csv-to-json",
+    category: "Converters",
+  },
+  {
+    title: "Timezone Converter",
+    icon: Globe,
+    href: "/tools/timezone-converter",
+    category: "Converters",
+  },
+  {
+    title: "Markdown → HTML",
+    icon: FileCode,
+    href: "/tools/markdown-to-html",
     category: "Converters",
   },
   {
@@ -326,6 +347,12 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Secrets Generator",
+    icon: KeySquare,
+    href: "/tools/secrets-generator",
+    category: "Generators",
+  },
+  {
     title: "Text Diff",
     icon: FileText,
     href: "/tools/diff",
@@ -402,6 +429,18 @@ const tools = [
     icon: Smartphone,
     href: "/tools/user-agent-parser",
     category: "Dev Tools",
+  },
+  {
+    title: "Expression Evaluator",
+    icon: Calculator,
+    href: "/tools/expression-evaluator",
+    category: "Math",
+  },
+  {
+    title: "Percentage Calculator",
+    icon: Percent,
+    href: "/tools/percentage-calculator",
+    category: "Math",
   },
   {
     title: "HTTP Status Codes",
