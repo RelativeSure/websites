@@ -47,6 +47,9 @@ import {
   CalendarCog,
   Network,
   ShieldAlert,
+  Download,
+  Terminal,
+  MonitorSmartphone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -68,6 +71,8 @@ const tools = [
   { title: "Base Conv", icon: Binary, href: "/tools/base-conversion", category: "Converters" },
   { title: "Base64 Img", icon: Image, href: "/tools/base64-image", category: "Converters" },
   { title: "Unit Convert", icon: Ruler, href: "/tools/unit-converter", category: "Converters" },
+  { title: "JSON → CSV", icon: Download, href: "/tools/json-to-csv", category: "Converters" },
+  { title: "CSS Units", icon: MonitorSmartphone, href: "/tools/css-unit", category: "Converters" },
   { title: "URL Encode", icon: Link2, href: "/tools/url-encode", category: "Encoders" },
   { title: "HTML Entity", icon: Code2, href: "/tools/html-entity", category: "Encoders" },
   { title: "Backslash Escape", icon: Slash, href: "/tools/backslash-escape", category: "Encoders" },
@@ -86,6 +91,8 @@ const tools = [
   { title: "JWT Gen", icon: KeyRound, href: "/tools/jwt-generator", category: "Crypto" },
   { title: "HMAC Gen", icon: Key, href: "/tools/hmac", category: "Crypto" },
   { title: "TOTP Gen", icon: ShieldAlert, href: "/tools/totp", category: "Crypto" },
+  { title: "Bcrypt Hash", icon: Lock, href: "/tools/bcrypt", category: "Crypto" },
+  { title: "JWT Verify", icon: ShieldCheck, href: "/tools/jwt-verifier", category: "Crypto" },
   { title: "UUID Gen", icon: Fingerprint, href: "/tools/uuid", category: "Generators" },
   { title: "Password", icon: Lock, href: "/tools/password-generator", category: "Generators" },
   { title: "Lorem Ipsum", icon: Type, href: "/tools/lorem-ipsum", category: "Generators" },
@@ -106,6 +113,7 @@ const tools = [
   { title: "Cron Parser", icon: Timer, href: "/tools/cron-parser", category: "Dev Tools" },
   { title: "Cron Builder", icon: CalendarCog, href: "/tools/cron-builder", category: "Dev Tools" },
   { title: "IP Subnet", icon: Network, href: "/tools/ip-subnet", category: "Dev Tools" },
+  { title: "Chmod Calc", icon: Terminal, href: "/tools/chmod", category: "Dev Tools" },
   { title: "JSON → TS", icon: FileJson, href: "/tools/json-to-typescript", category: "Dev Tools" },
   { title: "CSS Minify", icon: Minimize2, href: "/tools/css-minifier", category: "Dev Tools" },
   { title: "URL Parser", icon: LinkIcon, href: "/tools/url-parser", category: "Dev Tools" },

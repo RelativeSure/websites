@@ -46,6 +46,9 @@ import {
   Network,
   FileType,
   ShieldAlert,
+  Download,
+  Terminal,
+  MonitorSmartphone,
 } from "lucide-react";
 import {
   Sidebar,
@@ -122,6 +125,18 @@ const tools = [
     title: "JSON → TypeScript",
     icon: FileJson2,
     href: "/tools/json-to-typescript",
+    category: "Converters",
+  },
+  {
+    title: "JSON → CSV",
+    icon: Download,
+    href: "/tools/json-to-csv",
+    category: "Converters",
+  },
+  {
+    title: "CSS Unit Converter",
+    icon: MonitorSmartphone,
+    href: "/tools/css-unit",
     category: "Converters",
   },
   {
@@ -236,6 +251,18 @@ const tools = [
     title: "TOTP Generator",
     icon: ShieldAlert,
     href: "/tools/totp",
+    category: "Crypto",
+  },
+  {
+    title: "Bcrypt Hash Generator",
+    icon: Lock,
+    href: "/tools/bcrypt",
+    category: "Crypto",
+  },
+  {
+    title: "JWT Verifier",
+    icon: ShieldCheck,
+    href: "/tools/jwt-verifier",
     category: "Crypto",
   },
   {
@@ -356,6 +383,12 @@ const tools = [
     title: "IP Subnet Calculator",
     icon: Network,
     href: "/tools/ip-subnet",
+    category: "Dev Tools",
+  },
+  {
+    title: "Unix Chmod Calculator",
+    icon: Terminal,
+    href: "/tools/chmod",
     category: "Dev Tools",
   },
   {
