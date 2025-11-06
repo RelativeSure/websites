@@ -94,6 +94,12 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "Base64 Image",
+    icon: Image,
+    href: "/tools/base64-image",
+    category: "Converters",
+  },
+  {
     title: "JSON → TypeScript",
     icon: FileJson2,
     href: "/tools/json-to-typescript",
@@ -169,6 +175,12 @@ const tools = [
     title: "Hash Generator",
     icon: Hash,
     href: "/tools/hash",
+    category: "Crypto",
+  },
+  {
+    title: "JWT Generator",
+    icon: KeyRound,
+    href: "/tools/jwt-generator",
     category: "Crypto",
   },
   {

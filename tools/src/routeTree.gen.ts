@@ -28,6 +28,7 @@ import { Route as ToolsPasswordGeneratorRouteImport } from './routes/tools/passw
 import { Route as ToolsNumberBaseRouteImport } from './routes/tools/number-base'
 import { Route as ToolsMarkdownPreviewRouteImport } from './routes/tools/markdown-preview'
 import { Route as ToolsLoremIpsumRouteImport } from './routes/tools/lorem-ipsum'
+import { Route as ToolsJwtGeneratorRouteImport } from './routes/tools/jwt-generator'
 import { Route as ToolsJwtDecoderRouteImport } from './routes/tools/jwt-decoder'
 import { Route as ToolsJsonYamlRouteImport } from './routes/tools/json-yaml'
 import { Route as ToolsJsonValidatorRouteImport } from './routes/tools/json-validator'
@@ -44,6 +45,7 @@ import { Route as ToolsCssMinifierRouteImport } from './routes/tools/css-minifie
 import { Route as ToolsCronParserRouteImport } from './routes/tools/cron-parser'
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
+import { Route as ToolsBase64ImageRouteImport } from './routes/tools/base64-image'
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
 import { Route as ToolsBaseConversionRouteImport } from './routes/tools/base-conversion'
 import { Route as ToolsBackslashEscapeRouteImport } from './routes/tools/backslash-escape'
@@ -143,6 +145,11 @@ const ToolsLoremIpsumRoute = ToolsLoremIpsumRouteImport.update({
   path: '/lorem-ipsum',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsJwtGeneratorRoute = ToolsJwtGeneratorRouteImport.update({
+  id: '/jwt-generator',
+  path: '/jwt-generator',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsJwtDecoderRoute = ToolsJwtDecoderRouteImport.update({
   id: '/jwt-decoder',
   path: '/jwt-decoder',
@@ -223,6 +230,11 @@ const ToolsCaseConverterRoute = ToolsCaseConverterRouteImport.update({
   path: '/case-converter',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsBase64ImageRoute = ToolsBase64ImageRouteImport.update({
+  id: '/base64-image',
+  path: '/base64-image',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsBase64Route = ToolsBase64RouteImport.update({
   id: '/base64',
   path: '/base64',
@@ -245,6 +257,7 @@ export interface FileRoutesByFullPath {
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
+  '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
@@ -261,6 +274,7 @@ export interface FileRoutesByFullPath {
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/jwt-decoder': typeof ToolsJwtDecoderRoute
+  '/tools/jwt-generator': typeof ToolsJwtGeneratorRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
@@ -285,6 +299,7 @@ export interface FileRoutesByTo {
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
+  '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
@@ -301,6 +316,7 @@ export interface FileRoutesByTo {
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/jwt-decoder': typeof ToolsJwtDecoderRoute
+  '/tools/jwt-generator': typeof ToolsJwtGeneratorRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
@@ -326,6 +342,7 @@ export interface FileRoutesById {
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
+  '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
@@ -342,6 +359,7 @@ export interface FileRoutesById {
   '/tools/json-validator': typeof ToolsJsonValidatorRoute
   '/tools/json-yaml': typeof ToolsJsonYamlRoute
   '/tools/jwt-decoder': typeof ToolsJwtDecoderRoute
+  '/tools/jwt-generator': typeof ToolsJwtGeneratorRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
@@ -368,6 +386,7 @@ export interface FileRouteTypes {
     | '/tools/backslash-escape'
     | '/tools/base-conversion'
     | '/tools/base64'
+    | '/tools/base64-image'
     | '/tools/case-converter'
     | '/tools/color-converter'
     | '/tools/cron-parser'
@@ -384,6 +403,7 @@ export interface FileRouteTypes {
     | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/jwt-decoder'
+    | '/tools/jwt-generator'
     | '/tools/lorem-ipsum'
     | '/tools/markdown-preview'
     | '/tools/number-base'
@@ -408,6 +428,7 @@ export interface FileRouteTypes {
     | '/tools/backslash-escape'
     | '/tools/base-conversion'
     | '/tools/base64'
+    | '/tools/base64-image'
     | '/tools/case-converter'
     | '/tools/color-converter'
     | '/tools/cron-parser'
@@ -424,6 +445,7 @@ export interface FileRouteTypes {
     | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/jwt-decoder'
+    | '/tools/jwt-generator'
     | '/tools/lorem-ipsum'
     | '/tools/markdown-preview'
     | '/tools/number-base'
@@ -448,6 +470,7 @@ export interface FileRouteTypes {
     | '/tools/backslash-escape'
     | '/tools/base-conversion'
     | '/tools/base64'
+    | '/tools/base64-image'
     | '/tools/case-converter'
     | '/tools/color-converter'
     | '/tools/cron-parser'
@@ -464,6 +487,7 @@ export interface FileRouteTypes {
     | '/tools/json-validator'
     | '/tools/json-yaml'
     | '/tools/jwt-decoder'
+    | '/tools/jwt-generator'
     | '/tools/lorem-ipsum'
     | '/tools/markdown-preview'
     | '/tools/number-base'
@@ -623,6 +647,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsLoremIpsumRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/jwt-generator': {
+      id: '/tools/jwt-generator'
+      path: '/jwt-generator'
+      fullPath: '/tools/jwt-generator'
+      preLoaderRoute: typeof ToolsJwtGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/jwt-decoder': {
       id: '/tools/jwt-decoder'
       path: '/jwt-decoder'
@@ -735,6 +766,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsCaseConverterRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/base64-image': {
+      id: '/tools/base64-image'
+      path: '/base64-image'
+      fullPath: '/tools/base64-image'
+      preLoaderRoute: typeof ToolsBase64ImageRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/base64': {
       id: '/tools/base64'
       path: '/base64'
@@ -763,6 +801,7 @@ interface ToolsRouteChildren {
   ToolsBackslashEscapeRoute: typeof ToolsBackslashEscapeRoute
   ToolsBaseConversionRoute: typeof ToolsBaseConversionRoute
   ToolsBase64Route: typeof ToolsBase64Route
+  ToolsBase64ImageRoute: typeof ToolsBase64ImageRoute
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
   ToolsCronParserRoute: typeof ToolsCronParserRoute
@@ -779,6 +818,7 @@ interface ToolsRouteChildren {
   ToolsJsonValidatorRoute: typeof ToolsJsonValidatorRoute
   ToolsJsonYamlRoute: typeof ToolsJsonYamlRoute
   ToolsJwtDecoderRoute: typeof ToolsJwtDecoderRoute
+  ToolsJwtGeneratorRoute: typeof ToolsJwtGeneratorRoute
   ToolsLoremIpsumRoute: typeof ToolsLoremIpsumRoute
   ToolsMarkdownPreviewRoute: typeof ToolsMarkdownPreviewRoute
   ToolsNumberBaseRoute: typeof ToolsNumberBaseRoute
@@ -802,6 +842,7 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsBackslashEscapeRoute: ToolsBackslashEscapeRoute,
   ToolsBaseConversionRoute: ToolsBaseConversionRoute,
   ToolsBase64Route: ToolsBase64Route,
+  ToolsBase64ImageRoute: ToolsBase64ImageRoute,
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,
   ToolsCronParserRoute: ToolsCronParserRoute,
@@ -818,6 +859,7 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsJsonValidatorRoute: ToolsJsonValidatorRoute,
   ToolsJsonYamlRoute: ToolsJsonYamlRoute,
   ToolsJwtDecoderRoute: ToolsJwtDecoderRoute,
+  ToolsJwtGeneratorRoute: ToolsJwtGeneratorRoute,
   ToolsLoremIpsumRoute: ToolsLoremIpsumRoute,
   ToolsMarkdownPreviewRoute: ToolsMarkdownPreviewRoute,
   ToolsNumberBaseRoute: ToolsNumberBaseRoute,
