@@ -9,166 +9,99 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ValidatorsRouteRouteImport } from './routes/validators/route'
-import { Route as TextToolsRouteRouteImport } from './routes/text-tools/route'
-import { Route as ReferenceRouteRouteImport } from './routes/reference/route'
-import { Route as MediaRouteRouteImport } from './routes/media/route'
-import { Route as MathRouteRouteImport } from './routes/math/route'
-import { Route as GeneratorsRouteRouteImport } from './routes/generators/route'
-import { Route as FormattersRouteRouteImport } from './routes/formatters/route'
-import { Route as EncodersRouteRouteImport } from './routes/encoders/route'
-import { Route as DevToolsRouteRouteImport } from './routes/dev-tools/route'
-import { Route as DecodersRouteRouteImport } from './routes/decoders/route'
-import { Route as CryptoRouteRouteImport } from './routes/crypto/route'
-import { Route as ConvertersRouteRouteImport } from './routes/converters/route'
+import { Route as ToolsRouteImport } from './routes/_tools'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ValidatorsYamlValidatorRouteImport } from './routes/validators/yaml-validator'
-import { Route as ValidatorsValidatorRouteImport } from './routes/validators/validator'
-import { Route as ValidatorsJsonValidatorRouteImport } from './routes/validators/json-validator'
-import { Route as ValidatorsJsonSchemaValidatorRouteImport } from './routes/validators/json-schema-validator'
-import { Route as TextToolsTextToolsRouteImport } from './routes/text-tools/text-tools'
-import { Route as TextToolsTextStatisticsRouteImport } from './routes/text-tools/text-statistics'
-import { Route as TextToolsStringCounterRouteImport } from './routes/text-tools/string-counter'
-import { Route as TextToolsRegexTesterRouteImport } from './routes/text-tools/regex-tester'
-import { Route as TextToolsMarkdownPreviewRouteImport } from './routes/text-tools/markdown-preview'
-import { Route as TextToolsLevenshteinRouteImport } from './routes/text-tools/levenshtein'
-import { Route as TextToolsDiffRouteImport } from './routes/text-tools/diff'
-import { Route as TextToolsCaseConverterRouteImport } from './routes/text-tools/case-converter'
-import { Route as TextToolsAsciiArtRouteImport } from './routes/text-tools/ascii-art'
-import { Route as ReferenceHttpStatusRouteImport } from './routes/reference/http-status'
-import { Route as MediaSvgOptimizerRouteImport } from './routes/media/svg-optimizer'
-import { Route as MediaImageResizerRouteImport } from './routes/media/image-resizer'
-import { Route as MediaImageCompressorRouteImport } from './routes/media/image-compressor'
-import { Route as MediaFaviconGeneratorRouteImport } from './routes/media/favicon-generator'
-import { Route as MathPercentageCalculatorRouteImport } from './routes/math/percentage-calculator'
-import { Route as MathExpressionEvaluatorRouteImport } from './routes/math/expression-evaluator'
-import { Route as MathDateCalculatorRouteImport } from './routes/math/date-calculator'
-import { Route as MathBinaryCalculatorRouteImport } from './routes/math/binary-calculator'
-import { Route as GeneratorsUuidRouteImport } from './routes/generators/uuid'
-import { Route as GeneratorsSlugGeneratorRouteImport } from './routes/generators/slug-generator'
-import { Route as GeneratorsSitemapGeneratorRouteImport } from './routes/generators/sitemap-generator'
-import { Route as GeneratorsSecurityTxtRouteImport } from './routes/generators/security-txt'
-import { Route as GeneratorsSecretsGeneratorRouteImport } from './routes/generators/secrets-generator'
-import { Route as GeneratorsRobotsTxtRouteImport } from './routes/generators/robots-txt'
-import { Route as GeneratorsRandomDataRouteImport } from './routes/generators/random-data'
-import { Route as GeneratorsQrScannerRouteImport } from './routes/generators/qr-scanner'
-import { Route as GeneratorsQrCodeRouteImport } from './routes/generators/qr-code'
-import { Route as GeneratorsPasswordGeneratorRouteImport } from './routes/generators/password-generator'
-import { Route as GeneratorsOpenGraphPreviewRouteImport } from './routes/generators/open-graph-preview'
-import { Route as GeneratorsMockDataRouteImport } from './routes/generators/mock-data'
-import { Route as GeneratorsMetaTagGeneratorRouteImport } from './routes/generators/meta-tag-generator'
-import { Route as GeneratorsManifestGeneratorRouteImport } from './routes/generators/manifest-generator'
-import { Route as GeneratorsLoremIpsumRouteImport } from './routes/generators/lorem-ipsum'
-import { Route as GeneratorsHtaccessGeneratorRouteImport } from './routes/generators/htaccess-generator'
-import { Route as GeneratorsDataUriRouteImport } from './routes/generators/data-uri'
-import { Route as GeneratorsColorPaletteRouteImport } from './routes/generators/color-palette'
-import { Route as FormattersSqlFormatterRouteImport } from './routes/formatters/sql-formatter'
-import { Route as FormattersJsonFormatterRouteImport } from './routes/formatters/json-formatter'
-import { Route as FormattersJsonDiffRouteImport } from './routes/formatters/json-diff'
-import { Route as FormattersHtmlFormatterRouteImport } from './routes/formatters/html-formatter'
-import { Route as FormattersGraphqlFormatterRouteImport } from './routes/formatters/graphql-formatter'
-import { Route as FormattersCssMinifierRouteImport } from './routes/formatters/css-minifier'
-import { Route as EncodersUrlEncodeRouteImport } from './routes/encoders/url-encode'
-import { Route as EncodersStringEscapeRouteImport } from './routes/encoders/string-escape'
-import { Route as EncodersMorseCodeRouteImport } from './routes/encoders/morse-code'
-import { Route as EncodersImageToBase64RouteImport } from './routes/encoders/image-to-base64'
-import { Route as EncodersHtmlEntityRouteImport } from './routes/encoders/html-entity'
-import { Route as EncodersCipherRouteImport } from './routes/encoders/cipher'
-import { Route as EncodersBackslashEscapeRouteImport } from './routes/encoders/backslash-escape'
-import { Route as DevToolsUserAgentParserRouteImport } from './routes/dev-tools/user-agent-parser'
-import { Route as DevToolsUrlParserRouteImport } from './routes/dev-tools/url-parser'
-import { Route as DevToolsPackageJsonAnalyzerRouteImport } from './routes/dev-tools/package-json-analyzer'
-import { Route as DevToolsJsonPathTesterRouteImport } from './routes/dev-tools/json-path-tester'
-import { Route as DevToolsJsMinifierRouteImport } from './routes/dev-tools/js-minifier'
-import { Route as DevToolsIpSubnetRouteImport } from './routes/dev-tools/ip-subnet'
-import { Route as DevToolsCronParserRouteImport } from './routes/dev-tools/cron-parser'
-import { Route as DevToolsCronBuilderRouteImport } from './routes/dev-tools/cron-builder'
-import { Route as DevToolsChmodRouteImport } from './routes/dev-tools/chmod'
-import { Route as DecodersJwtDecoderRouteImport } from './routes/decoders/jwt-decoder'
-import { Route as CryptoTotpRouteImport } from './routes/crypto/totp'
-import { Route as CryptoJwtVerifierRouteImport } from './routes/crypto/jwt-verifier'
-import { Route as CryptoJwtGeneratorRouteImport } from './routes/crypto/jwt-generator'
-import { Route as CryptoHmacRouteImport } from './routes/crypto/hmac'
-import { Route as CryptoHashRouteImport } from './routes/crypto/hash'
-import { Route as CryptoCertificateDecoderRouteImport } from './routes/crypto/certificate-decoder'
-import { Route as CryptoBcryptRouteImport } from './routes/crypto/bcrypt'
-import { Route as CryptoAesEncryptRouteImport } from './routes/crypto/aes-encrypt'
-import { Route as ConvertersXmlToYamlRouteImport } from './routes/converters/xml-to-yaml'
-import { Route as ConvertersXmlJsonRouteImport } from './routes/converters/xml-json'
-import { Route as ConvertersUnitConverterRouteImport } from './routes/converters/unit-converter'
-import { Route as ConvertersTimezoneConverterRouteImport } from './routes/converters/timezone-converter'
-import { Route as ConvertersTimestampRouteImport } from './routes/converters/timestamp'
-import { Route as ConvertersSqlToJsonRouteImport } from './routes/converters/sql-to-json'
-import { Route as ConvertersNumberBaseRouteImport } from './routes/converters/number-base'
-import { Route as ConvertersMarkdownToHtmlRouteImport } from './routes/converters/markdown-to-html'
-import { Route as ConvertersJsonYamlRouteImport } from './routes/converters/json-yaml'
-import { Route as ConvertersJsonToTypescriptRouteImport } from './routes/converters/json-to-typescript'
-import { Route as ConvertersJsonToCsvRouteImport } from './routes/converters/json-to-csv'
-import { Route as ConvertersCsvToJsonRouteImport } from './routes/converters/csv-to-json'
-import { Route as ConvertersCsvJsonRouteImport } from './routes/converters/csv-json'
-import { Route as ConvertersCssUnitRouteImport } from './routes/converters/css-unit'
-import { Route as ConvertersColorConverterRouteImport } from './routes/converters/color-converter'
-import { Route as ConvertersBase64ImageRouteImport } from './routes/converters/base64-image'
-import { Route as ConvertersBaseConversionRouteImport } from './routes/converters/base-conversion'
+import { Route as ToolsValidatorsYamlValidatorRouteImport } from './routes/_tools/validators/yaml-validator'
+import { Route as ToolsValidatorsValidatorRouteImport } from './routes/_tools/validators/validator'
+import { Route as ToolsValidatorsJsonValidatorRouteImport } from './routes/_tools/validators/json-validator'
+import { Route as ToolsValidatorsJsonSchemaValidatorRouteImport } from './routes/_tools/validators/json-schema-validator'
+import { Route as ToolsTextToolsTextToolsRouteImport } from './routes/_tools/text-tools/text-tools'
+import { Route as ToolsTextToolsTextStatisticsRouteImport } from './routes/_tools/text-tools/text-statistics'
+import { Route as ToolsTextToolsStringCounterRouteImport } from './routes/_tools/text-tools/string-counter'
+import { Route as ToolsTextToolsRegexTesterRouteImport } from './routes/_tools/text-tools/regex-tester'
+import { Route as ToolsTextToolsMarkdownPreviewRouteImport } from './routes/_tools/text-tools/markdown-preview'
+import { Route as ToolsTextToolsLevenshteinRouteImport } from './routes/_tools/text-tools/levenshtein'
+import { Route as ToolsTextToolsDiffRouteImport } from './routes/_tools/text-tools/diff'
+import { Route as ToolsTextToolsCaseConverterRouteImport } from './routes/_tools/text-tools/case-converter'
+import { Route as ToolsTextToolsAsciiArtRouteImport } from './routes/_tools/text-tools/ascii-art'
+import { Route as ToolsReferenceHttpStatusRouteImport } from './routes/_tools/reference/http-status'
+import { Route as ToolsMediaSvgOptimizerRouteImport } from './routes/_tools/media/svg-optimizer'
+import { Route as ToolsMediaImageResizerRouteImport } from './routes/_tools/media/image-resizer'
+import { Route as ToolsMediaImageCompressorRouteImport } from './routes/_tools/media/image-compressor'
+import { Route as ToolsMediaFaviconGeneratorRouteImport } from './routes/_tools/media/favicon-generator'
+import { Route as ToolsMathPercentageCalculatorRouteImport } from './routes/_tools/math/percentage-calculator'
+import { Route as ToolsMathExpressionEvaluatorRouteImport } from './routes/_tools/math/expression-evaluator'
+import { Route as ToolsMathDateCalculatorRouteImport } from './routes/_tools/math/date-calculator'
+import { Route as ToolsMathBinaryCalculatorRouteImport } from './routes/_tools/math/binary-calculator'
+import { Route as ToolsGeneratorsUuidRouteImport } from './routes/_tools/generators/uuid'
+import { Route as ToolsGeneratorsSlugGeneratorRouteImport } from './routes/_tools/generators/slug-generator'
+import { Route as ToolsGeneratorsSitemapGeneratorRouteImport } from './routes/_tools/generators/sitemap-generator'
+import { Route as ToolsGeneratorsSecurityTxtRouteImport } from './routes/_tools/generators/security-txt'
+import { Route as ToolsGeneratorsSecretsGeneratorRouteImport } from './routes/_tools/generators/secrets-generator'
+import { Route as ToolsGeneratorsRobotsTxtRouteImport } from './routes/_tools/generators/robots-txt'
+import { Route as ToolsGeneratorsRandomDataRouteImport } from './routes/_tools/generators/random-data'
+import { Route as ToolsGeneratorsQrScannerRouteImport } from './routes/_tools/generators/qr-scanner'
+import { Route as ToolsGeneratorsQrCodeRouteImport } from './routes/_tools/generators/qr-code'
+import { Route as ToolsGeneratorsPasswordGeneratorRouteImport } from './routes/_tools/generators/password-generator'
+import { Route as ToolsGeneratorsOpenGraphPreviewRouteImport } from './routes/_tools/generators/open-graph-preview'
+import { Route as ToolsGeneratorsMockDataRouteImport } from './routes/_tools/generators/mock-data'
+import { Route as ToolsGeneratorsMetaTagGeneratorRouteImport } from './routes/_tools/generators/meta-tag-generator'
+import { Route as ToolsGeneratorsManifestGeneratorRouteImport } from './routes/_tools/generators/manifest-generator'
+import { Route as ToolsGeneratorsLoremIpsumRouteImport } from './routes/_tools/generators/lorem-ipsum'
+import { Route as ToolsGeneratorsHtaccessGeneratorRouteImport } from './routes/_tools/generators/htaccess-generator'
+import { Route as ToolsGeneratorsDataUriRouteImport } from './routes/_tools/generators/data-uri'
+import { Route as ToolsGeneratorsColorPaletteRouteImport } from './routes/_tools/generators/color-palette'
+import { Route as ToolsFormattersSqlFormatterRouteImport } from './routes/_tools/formatters/sql-formatter'
+import { Route as ToolsFormattersJsonFormatterRouteImport } from './routes/_tools/formatters/json-formatter'
+import { Route as ToolsFormattersJsonDiffRouteImport } from './routes/_tools/formatters/json-diff'
+import { Route as ToolsFormattersHtmlFormatterRouteImport } from './routes/_tools/formatters/html-formatter'
+import { Route as ToolsFormattersGraphqlFormatterRouteImport } from './routes/_tools/formatters/graphql-formatter'
+import { Route as ToolsFormattersCssMinifierRouteImport } from './routes/_tools/formatters/css-minifier'
+import { Route as ToolsEncodersUrlEncodeRouteImport } from './routes/_tools/encoders/url-encode'
+import { Route as ToolsEncodersStringEscapeRouteImport } from './routes/_tools/encoders/string-escape'
+import { Route as ToolsEncodersMorseCodeRouteImport } from './routes/_tools/encoders/morse-code'
+import { Route as ToolsEncodersImageToBase64RouteImport } from './routes/_tools/encoders/image-to-base64'
+import { Route as ToolsEncodersHtmlEntityRouteImport } from './routes/_tools/encoders/html-entity'
+import { Route as ToolsEncodersCipherRouteImport } from './routes/_tools/encoders/cipher'
+import { Route as ToolsEncodersBackslashEscapeRouteImport } from './routes/_tools/encoders/backslash-escape'
+import { Route as ToolsDevToolsUserAgentParserRouteImport } from './routes/_tools/dev-tools/user-agent-parser'
+import { Route as ToolsDevToolsUrlParserRouteImport } from './routes/_tools/dev-tools/url-parser'
+import { Route as ToolsDevToolsPackageJsonAnalyzerRouteImport } from './routes/_tools/dev-tools/package-json-analyzer'
+import { Route as ToolsDevToolsJsonPathTesterRouteImport } from './routes/_tools/dev-tools/json-path-tester'
+import { Route as ToolsDevToolsJsMinifierRouteImport } from './routes/_tools/dev-tools/js-minifier'
+import { Route as ToolsDevToolsIpSubnetRouteImport } from './routes/_tools/dev-tools/ip-subnet'
+import { Route as ToolsDevToolsCronParserRouteImport } from './routes/_tools/dev-tools/cron-parser'
+import { Route as ToolsDevToolsCronBuilderRouteImport } from './routes/_tools/dev-tools/cron-builder'
+import { Route as ToolsDevToolsChmodRouteImport } from './routes/_tools/dev-tools/chmod'
+import { Route as ToolsDecodersJwtDecoderRouteImport } from './routes/_tools/decoders/jwt-decoder'
+import { Route as ToolsCryptoTotpRouteImport } from './routes/_tools/crypto/totp'
+import { Route as ToolsCryptoJwtVerifierRouteImport } from './routes/_tools/crypto/jwt-verifier'
+import { Route as ToolsCryptoJwtGeneratorRouteImport } from './routes/_tools/crypto/jwt-generator'
+import { Route as ToolsCryptoHmacRouteImport } from './routes/_tools/crypto/hmac'
+import { Route as ToolsCryptoHashRouteImport } from './routes/_tools/crypto/hash'
+import { Route as ToolsCryptoCertificateDecoderRouteImport } from './routes/_tools/crypto/certificate-decoder'
+import { Route as ToolsCryptoBcryptRouteImport } from './routes/_tools/crypto/bcrypt'
+import { Route as ToolsCryptoAesEncryptRouteImport } from './routes/_tools/crypto/aes-encrypt'
+import { Route as ToolsConvertersXmlToYamlRouteImport } from './routes/_tools/converters/xml-to-yaml'
+import { Route as ToolsConvertersXmlJsonRouteImport } from './routes/_tools/converters/xml-json'
+import { Route as ToolsConvertersUnitConverterRouteImport } from './routes/_tools/converters/unit-converter'
+import { Route as ToolsConvertersTimezoneConverterRouteImport } from './routes/_tools/converters/timezone-converter'
+import { Route as ToolsConvertersTimestampRouteImport } from './routes/_tools/converters/timestamp'
+import { Route as ToolsConvertersSqlToJsonRouteImport } from './routes/_tools/converters/sql-to-json'
+import { Route as ToolsConvertersNumberBaseRouteImport } from './routes/_tools/converters/number-base'
+import { Route as ToolsConvertersMarkdownToHtmlRouteImport } from './routes/_tools/converters/markdown-to-html'
+import { Route as ToolsConvertersJsonYamlRouteImport } from './routes/_tools/converters/json-yaml'
+import { Route as ToolsConvertersJsonToTypescriptRouteImport } from './routes/_tools/converters/json-to-typescript'
+import { Route as ToolsConvertersJsonToCsvRouteImport } from './routes/_tools/converters/json-to-csv'
+import { Route as ToolsConvertersCsvToJsonRouteImport } from './routes/_tools/converters/csv-to-json'
+import { Route as ToolsConvertersCsvJsonRouteImport } from './routes/_tools/converters/csv-json'
+import { Route as ToolsConvertersCssUnitRouteImport } from './routes/_tools/converters/css-unit'
+import { Route as ToolsConvertersColorConverterRouteImport } from './routes/_tools/converters/color-converter'
+import { Route as ToolsConvertersBase64ImageRouteImport } from './routes/_tools/converters/base64-image'
+import { Route as ToolsConvertersBaseConversionRouteImport } from './routes/_tools/converters/base-conversion'
 
-const ValidatorsRouteRoute = ValidatorsRouteRouteImport.update({
-  id: '/validators',
-  path: '/validators',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TextToolsRouteRoute = TextToolsRouteRouteImport.update({
-  id: '/text-tools',
-  path: '/text-tools',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReferenceRouteRoute = ReferenceRouteRouteImport.update({
-  id: '/reference',
-  path: '/reference',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MediaRouteRoute = MediaRouteRouteImport.update({
-  id: '/media',
-  path: '/media',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MathRouteRoute = MathRouteRouteImport.update({
-  id: '/math',
-  path: '/math',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GeneratorsRouteRoute = GeneratorsRouteRouteImport.update({
-  id: '/generators',
-  path: '/generators',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FormattersRouteRoute = FormattersRouteRouteImport.update({
-  id: '/formatters',
-  path: '/formatters',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EncodersRouteRoute = EncodersRouteRouteImport.update({
-  id: '/encoders',
-  path: '/encoders',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DevToolsRouteRoute = DevToolsRouteRouteImport.update({
-  id: '/dev-tools',
-  path: '/dev-tools',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DecodersRouteRoute = DecodersRouteRouteImport.update({
-  id: '/decoders',
-  path: '/decoders',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CryptoRouteRoute = CryptoRouteRouteImport.update({
-  id: '/crypto',
-  path: '/crypto',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConvertersRouteRoute = ConvertersRouteRouteImport.update({
-  id: '/converters',
-  path: '/converters',
+const ToolsRoute = ToolsRouteImport.update({
+  id: '/_tools',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -176,791 +109,782 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ValidatorsYamlValidatorRoute = ValidatorsYamlValidatorRouteImport.update({
-  id: '/yaml-validator',
-  path: '/yaml-validator',
-  getParentRoute: () => ValidatorsRouteRoute,
-} as any)
-const ValidatorsValidatorRoute = ValidatorsValidatorRouteImport.update({
-  id: '/validator',
-  path: '/validator',
-  getParentRoute: () => ValidatorsRouteRoute,
-} as any)
-const ValidatorsJsonValidatorRoute = ValidatorsJsonValidatorRouteImport.update({
-  id: '/json-validator',
-  path: '/json-validator',
-  getParentRoute: () => ValidatorsRouteRoute,
-} as any)
-const ValidatorsJsonSchemaValidatorRoute =
-  ValidatorsJsonSchemaValidatorRouteImport.update({
-    id: '/json-schema-validator',
-    path: '/json-schema-validator',
-    getParentRoute: () => ValidatorsRouteRoute,
+const ToolsValidatorsYamlValidatorRoute =
+  ToolsValidatorsYamlValidatorRouteImport.update({
+    id: '/validators/yaml-validator',
+    path: '/validators/yaml-validator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const TextToolsTextToolsRoute = TextToolsTextToolsRouteImport.update({
-  id: '/text-tools',
-  path: '/text-tools',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const TextToolsTextStatisticsRoute = TextToolsTextStatisticsRouteImport.update({
-  id: '/text-statistics',
-  path: '/text-statistics',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const TextToolsStringCounterRoute = TextToolsStringCounterRouteImport.update({
-  id: '/string-counter',
-  path: '/string-counter',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const TextToolsRegexTesterRoute = TextToolsRegexTesterRouteImport.update({
-  id: '/regex-tester',
-  path: '/regex-tester',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const TextToolsMarkdownPreviewRoute =
-  TextToolsMarkdownPreviewRouteImport.update({
-    id: '/markdown-preview',
-    path: '/markdown-preview',
-    getParentRoute: () => TextToolsRouteRoute,
+const ToolsValidatorsValidatorRoute =
+  ToolsValidatorsValidatorRouteImport.update({
+    id: '/validators/validator',
+    path: '/validators/validator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const TextToolsLevenshteinRoute = TextToolsLevenshteinRouteImport.update({
-  id: '/levenshtein',
-  path: '/levenshtein',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const TextToolsDiffRoute = TextToolsDiffRouteImport.update({
-  id: '/diff',
-  path: '/diff',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const TextToolsCaseConverterRoute = TextToolsCaseConverterRouteImport.update({
-  id: '/case-converter',
-  path: '/case-converter',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const TextToolsAsciiArtRoute = TextToolsAsciiArtRouteImport.update({
-  id: '/ascii-art',
-  path: '/ascii-art',
-  getParentRoute: () => TextToolsRouteRoute,
-} as any)
-const ReferenceHttpStatusRoute = ReferenceHttpStatusRouteImport.update({
-  id: '/http-status',
-  path: '/http-status',
-  getParentRoute: () => ReferenceRouteRoute,
-} as any)
-const MediaSvgOptimizerRoute = MediaSvgOptimizerRouteImport.update({
-  id: '/svg-optimizer',
-  path: '/svg-optimizer',
-  getParentRoute: () => MediaRouteRoute,
-} as any)
-const MediaImageResizerRoute = MediaImageResizerRouteImport.update({
-  id: '/image-resizer',
-  path: '/image-resizer',
-  getParentRoute: () => MediaRouteRoute,
-} as any)
-const MediaImageCompressorRoute = MediaImageCompressorRouteImport.update({
-  id: '/image-compressor',
-  path: '/image-compressor',
-  getParentRoute: () => MediaRouteRoute,
-} as any)
-const MediaFaviconGeneratorRoute = MediaFaviconGeneratorRouteImport.update({
-  id: '/favicon-generator',
-  path: '/favicon-generator',
-  getParentRoute: () => MediaRouteRoute,
-} as any)
-const MathPercentageCalculatorRoute =
-  MathPercentageCalculatorRouteImport.update({
-    id: '/percentage-calculator',
-    path: '/percentage-calculator',
-    getParentRoute: () => MathRouteRoute,
+const ToolsValidatorsJsonValidatorRoute =
+  ToolsValidatorsJsonValidatorRouteImport.update({
+    id: '/validators/json-validator',
+    path: '/validators/json-validator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const MathExpressionEvaluatorRoute = MathExpressionEvaluatorRouteImport.update({
-  id: '/expression-evaluator',
-  path: '/expression-evaluator',
-  getParentRoute: () => MathRouteRoute,
-} as any)
-const MathDateCalculatorRoute = MathDateCalculatorRouteImport.update({
-  id: '/date-calculator',
-  path: '/date-calculator',
-  getParentRoute: () => MathRouteRoute,
-} as any)
-const MathBinaryCalculatorRoute = MathBinaryCalculatorRouteImport.update({
-  id: '/binary-calculator',
-  path: '/binary-calculator',
-  getParentRoute: () => MathRouteRoute,
-} as any)
-const GeneratorsUuidRoute = GeneratorsUuidRouteImport.update({
-  id: '/uuid',
-  path: '/uuid',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const GeneratorsSlugGeneratorRoute = GeneratorsSlugGeneratorRouteImport.update({
-  id: '/slug-generator',
-  path: '/slug-generator',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const GeneratorsSitemapGeneratorRoute =
-  GeneratorsSitemapGeneratorRouteImport.update({
-    id: '/sitemap-generator',
-    path: '/sitemap-generator',
-    getParentRoute: () => GeneratorsRouteRoute,
+const ToolsValidatorsJsonSchemaValidatorRoute =
+  ToolsValidatorsJsonSchemaValidatorRouteImport.update({
+    id: '/validators/json-schema-validator',
+    path: '/validators/json-schema-validator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const GeneratorsSecurityTxtRoute = GeneratorsSecurityTxtRouteImport.update({
-  id: '/security-txt',
-  path: '/security-txt',
-  getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsTextToolsRoute = ToolsTextToolsTextToolsRouteImport.update({
+  id: '/text-tools/text-tools',
+  path: '/text-tools/text-tools',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const GeneratorsSecretsGeneratorRoute =
-  GeneratorsSecretsGeneratorRouteImport.update({
-    id: '/secrets-generator',
-    path: '/secrets-generator',
-    getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsTextStatisticsRoute =
+  ToolsTextToolsTextStatisticsRouteImport.update({
+    id: '/text-tools/text-statistics',
+    path: '/text-tools/text-statistics',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const GeneratorsRobotsTxtRoute = GeneratorsRobotsTxtRouteImport.update({
-  id: '/robots-txt',
-  path: '/robots-txt',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const GeneratorsRandomDataRoute = GeneratorsRandomDataRouteImport.update({
-  id: '/random-data',
-  path: '/random-data',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const GeneratorsQrScannerRoute = GeneratorsQrScannerRouteImport.update({
-  id: '/qr-scanner',
-  path: '/qr-scanner',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const GeneratorsQrCodeRoute = GeneratorsQrCodeRouteImport.update({
-  id: '/qr-code',
-  path: '/qr-code',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const GeneratorsPasswordGeneratorRoute =
-  GeneratorsPasswordGeneratorRouteImport.update({
-    id: '/password-generator',
-    path: '/password-generator',
-    getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsStringCounterRoute =
+  ToolsTextToolsStringCounterRouteImport.update({
+    id: '/text-tools/string-counter',
+    path: '/text-tools/string-counter',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const GeneratorsOpenGraphPreviewRoute =
-  GeneratorsOpenGraphPreviewRouteImport.update({
-    id: '/open-graph-preview',
-    path: '/open-graph-preview',
-    getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsRegexTesterRoute =
+  ToolsTextToolsRegexTesterRouteImport.update({
+    id: '/text-tools/regex-tester',
+    path: '/text-tools/regex-tester',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const GeneratorsMockDataRoute = GeneratorsMockDataRouteImport.update({
-  id: '/mock-data',
-  path: '/mock-data',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const GeneratorsMetaTagGeneratorRoute =
-  GeneratorsMetaTagGeneratorRouteImport.update({
-    id: '/meta-tag-generator',
-    path: '/meta-tag-generator',
-    getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsMarkdownPreviewRoute =
+  ToolsTextToolsMarkdownPreviewRouteImport.update({
+    id: '/text-tools/markdown-preview',
+    path: '/text-tools/markdown-preview',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const GeneratorsManifestGeneratorRoute =
-  GeneratorsManifestGeneratorRouteImport.update({
-    id: '/manifest-generator',
-    path: '/manifest-generator',
-    getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsLevenshteinRoute =
+  ToolsTextToolsLevenshteinRouteImport.update({
+    id: '/text-tools/levenshtein',
+    path: '/text-tools/levenshtein',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const GeneratorsLoremIpsumRoute = GeneratorsLoremIpsumRouteImport.update({
-  id: '/lorem-ipsum',
-  path: '/lorem-ipsum',
-  getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsDiffRoute = ToolsTextToolsDiffRouteImport.update({
+  id: '/text-tools/diff',
+  path: '/text-tools/diff',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const GeneratorsHtaccessGeneratorRoute =
-  GeneratorsHtaccessGeneratorRouteImport.update({
-    id: '/htaccess-generator',
-    path: '/htaccess-generator',
-    getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsCaseConverterRoute =
+  ToolsTextToolsCaseConverterRouteImport.update({
+    id: '/text-tools/case-converter',
+    path: '/text-tools/case-converter',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const GeneratorsDataUriRoute = GeneratorsDataUriRouteImport.update({
-  id: '/data-uri',
-  path: '/data-uri',
-  getParentRoute: () => GeneratorsRouteRoute,
+const ToolsTextToolsAsciiArtRoute = ToolsTextToolsAsciiArtRouteImport.update({
+  id: '/text-tools/ascii-art',
+  path: '/text-tools/ascii-art',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const GeneratorsColorPaletteRoute = GeneratorsColorPaletteRouteImport.update({
-  id: '/color-palette',
-  path: '/color-palette',
-  getParentRoute: () => GeneratorsRouteRoute,
-} as any)
-const FormattersSqlFormatterRoute = FormattersSqlFormatterRouteImport.update({
-  id: '/sql-formatter',
-  path: '/sql-formatter',
-  getParentRoute: () => FormattersRouteRoute,
-} as any)
-const FormattersJsonFormatterRoute = FormattersJsonFormatterRouteImport.update({
-  id: '/json-formatter',
-  path: '/json-formatter',
-  getParentRoute: () => FormattersRouteRoute,
-} as any)
-const FormattersJsonDiffRoute = FormattersJsonDiffRouteImport.update({
-  id: '/json-diff',
-  path: '/json-diff',
-  getParentRoute: () => FormattersRouteRoute,
-} as any)
-const FormattersHtmlFormatterRoute = FormattersHtmlFormatterRouteImport.update({
-  id: '/html-formatter',
-  path: '/html-formatter',
-  getParentRoute: () => FormattersRouteRoute,
-} as any)
-const FormattersGraphqlFormatterRoute =
-  FormattersGraphqlFormatterRouteImport.update({
-    id: '/graphql-formatter',
-    path: '/graphql-formatter',
-    getParentRoute: () => FormattersRouteRoute,
+const ToolsReferenceHttpStatusRoute =
+  ToolsReferenceHttpStatusRouteImport.update({
+    id: '/reference/http-status',
+    path: '/reference/http-status',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const FormattersCssMinifierRoute = FormattersCssMinifierRouteImport.update({
-  id: '/css-minifier',
-  path: '/css-minifier',
-  getParentRoute: () => FormattersRouteRoute,
+const ToolsMediaSvgOptimizerRoute = ToolsMediaSvgOptimizerRouteImport.update({
+  id: '/media/svg-optimizer',
+  path: '/media/svg-optimizer',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const EncodersUrlEncodeRoute = EncodersUrlEncodeRouteImport.update({
-  id: '/url-encode',
-  path: '/url-encode',
-  getParentRoute: () => EncodersRouteRoute,
+const ToolsMediaImageResizerRoute = ToolsMediaImageResizerRouteImport.update({
+  id: '/media/image-resizer',
+  path: '/media/image-resizer',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const EncodersStringEscapeRoute = EncodersStringEscapeRouteImport.update({
-  id: '/string-escape',
-  path: '/string-escape',
-  getParentRoute: () => EncodersRouteRoute,
-} as any)
-const EncodersMorseCodeRoute = EncodersMorseCodeRouteImport.update({
-  id: '/morse-code',
-  path: '/morse-code',
-  getParentRoute: () => EncodersRouteRoute,
-} as any)
-const EncodersImageToBase64Route = EncodersImageToBase64RouteImport.update({
-  id: '/image-to-base64',
-  path: '/image-to-base64',
-  getParentRoute: () => EncodersRouteRoute,
-} as any)
-const EncodersHtmlEntityRoute = EncodersHtmlEntityRouteImport.update({
-  id: '/html-entity',
-  path: '/html-entity',
-  getParentRoute: () => EncodersRouteRoute,
-} as any)
-const EncodersCipherRoute = EncodersCipherRouteImport.update({
-  id: '/cipher',
-  path: '/cipher',
-  getParentRoute: () => EncodersRouteRoute,
-} as any)
-const EncodersBackslashEscapeRoute = EncodersBackslashEscapeRouteImport.update({
-  id: '/backslash-escape',
-  path: '/backslash-escape',
-  getParentRoute: () => EncodersRouteRoute,
-} as any)
-const DevToolsUserAgentParserRoute = DevToolsUserAgentParserRouteImport.update({
-  id: '/user-agent-parser',
-  path: '/user-agent-parser',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DevToolsUrlParserRoute = DevToolsUrlParserRouteImport.update({
-  id: '/url-parser',
-  path: '/url-parser',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DevToolsPackageJsonAnalyzerRoute =
-  DevToolsPackageJsonAnalyzerRouteImport.update({
-    id: '/package-json-analyzer',
-    path: '/package-json-analyzer',
-    getParentRoute: () => DevToolsRouteRoute,
+const ToolsMediaImageCompressorRoute =
+  ToolsMediaImageCompressorRouteImport.update({
+    id: '/media/image-compressor',
+    path: '/media/image-compressor',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const DevToolsJsonPathTesterRoute = DevToolsJsonPathTesterRouteImport.update({
-  id: '/json-path-tester',
-  path: '/json-path-tester',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DevToolsJsMinifierRoute = DevToolsJsMinifierRouteImport.update({
-  id: '/js-minifier',
-  path: '/js-minifier',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DevToolsIpSubnetRoute = DevToolsIpSubnetRouteImport.update({
-  id: '/ip-subnet',
-  path: '/ip-subnet',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DevToolsCronParserRoute = DevToolsCronParserRouteImport.update({
-  id: '/cron-parser',
-  path: '/cron-parser',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DevToolsCronBuilderRoute = DevToolsCronBuilderRouteImport.update({
-  id: '/cron-builder',
-  path: '/cron-builder',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DevToolsChmodRoute = DevToolsChmodRouteImport.update({
-  id: '/chmod',
-  path: '/chmod',
-  getParentRoute: () => DevToolsRouteRoute,
-} as any)
-const DecodersJwtDecoderRoute = DecodersJwtDecoderRouteImport.update({
-  id: '/jwt-decoder',
-  path: '/jwt-decoder',
-  getParentRoute: () => DecodersRouteRoute,
-} as any)
-const CryptoTotpRoute = CryptoTotpRouteImport.update({
-  id: '/totp',
-  path: '/totp',
-  getParentRoute: () => CryptoRouteRoute,
-} as any)
-const CryptoJwtVerifierRoute = CryptoJwtVerifierRouteImport.update({
-  id: '/jwt-verifier',
-  path: '/jwt-verifier',
-  getParentRoute: () => CryptoRouteRoute,
-} as any)
-const CryptoJwtGeneratorRoute = CryptoJwtGeneratorRouteImport.update({
-  id: '/jwt-generator',
-  path: '/jwt-generator',
-  getParentRoute: () => CryptoRouteRoute,
-} as any)
-const CryptoHmacRoute = CryptoHmacRouteImport.update({
-  id: '/hmac',
-  path: '/hmac',
-  getParentRoute: () => CryptoRouteRoute,
-} as any)
-const CryptoHashRoute = CryptoHashRouteImport.update({
-  id: '/hash',
-  path: '/hash',
-  getParentRoute: () => CryptoRouteRoute,
-} as any)
-const CryptoCertificateDecoderRoute =
-  CryptoCertificateDecoderRouteImport.update({
-    id: '/certificate-decoder',
-    path: '/certificate-decoder',
-    getParentRoute: () => CryptoRouteRoute,
+const ToolsMediaFaviconGeneratorRoute =
+  ToolsMediaFaviconGeneratorRouteImport.update({
+    id: '/media/favicon-generator',
+    path: '/media/favicon-generator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const CryptoBcryptRoute = CryptoBcryptRouteImport.update({
-  id: '/bcrypt',
-  path: '/bcrypt',
-  getParentRoute: () => CryptoRouteRoute,
-} as any)
-const CryptoAesEncryptRoute = CryptoAesEncryptRouteImport.update({
-  id: '/aes-encrypt',
-  path: '/aes-encrypt',
-  getParentRoute: () => CryptoRouteRoute,
-} as any)
-const ConvertersXmlToYamlRoute = ConvertersXmlToYamlRouteImport.update({
-  id: '/xml-to-yaml',
-  path: '/xml-to-yaml',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersXmlJsonRoute = ConvertersXmlJsonRouteImport.update({
-  id: '/xml-json',
-  path: '/xml-json',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersUnitConverterRoute = ConvertersUnitConverterRouteImport.update({
-  id: '/unit-converter',
-  path: '/unit-converter',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersTimezoneConverterRoute =
-  ConvertersTimezoneConverterRouteImport.update({
-    id: '/timezone-converter',
-    path: '/timezone-converter',
-    getParentRoute: () => ConvertersRouteRoute,
+const ToolsMathPercentageCalculatorRoute =
+  ToolsMathPercentageCalculatorRouteImport.update({
+    id: '/math/percentage-calculator',
+    path: '/math/percentage-calculator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const ConvertersTimestampRoute = ConvertersTimestampRouteImport.update({
-  id: '/timestamp',
-  path: '/timestamp',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersSqlToJsonRoute = ConvertersSqlToJsonRouteImport.update({
-  id: '/sql-to-json',
-  path: '/sql-to-json',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersNumberBaseRoute = ConvertersNumberBaseRouteImport.update({
-  id: '/number-base',
-  path: '/number-base',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersMarkdownToHtmlRoute =
-  ConvertersMarkdownToHtmlRouteImport.update({
-    id: '/markdown-to-html',
-    path: '/markdown-to-html',
-    getParentRoute: () => ConvertersRouteRoute,
+const ToolsMathExpressionEvaluatorRoute =
+  ToolsMathExpressionEvaluatorRouteImport.update({
+    id: '/math/expression-evaluator',
+    path: '/math/expression-evaluator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const ConvertersJsonYamlRoute = ConvertersJsonYamlRouteImport.update({
-  id: '/json-yaml',
-  path: '/json-yaml',
-  getParentRoute: () => ConvertersRouteRoute,
+const ToolsMathDateCalculatorRoute = ToolsMathDateCalculatorRouteImport.update({
+  id: '/math/date-calculator',
+  path: '/math/date-calculator',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const ConvertersJsonToTypescriptRoute =
-  ConvertersJsonToTypescriptRouteImport.update({
-    id: '/json-to-typescript',
-    path: '/json-to-typescript',
-    getParentRoute: () => ConvertersRouteRoute,
+const ToolsMathBinaryCalculatorRoute =
+  ToolsMathBinaryCalculatorRouteImport.update({
+    id: '/math/binary-calculator',
+    path: '/math/binary-calculator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const ConvertersJsonToCsvRoute = ConvertersJsonToCsvRouteImport.update({
-  id: '/json-to-csv',
-  path: '/json-to-csv',
-  getParentRoute: () => ConvertersRouteRoute,
+const ToolsGeneratorsUuidRoute = ToolsGeneratorsUuidRouteImport.update({
+  id: '/generators/uuid',
+  path: '/generators/uuid',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const ConvertersCsvToJsonRoute = ConvertersCsvToJsonRouteImport.update({
-  id: '/csv-to-json',
-  path: '/csv-to-json',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersCsvJsonRoute = ConvertersCsvJsonRouteImport.update({
-  id: '/csv-json',
-  path: '/csv-json',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersCssUnitRoute = ConvertersCssUnitRouteImport.update({
-  id: '/css-unit',
-  path: '/css-unit',
-  getParentRoute: () => ConvertersRouteRoute,
-} as any)
-const ConvertersColorConverterRoute =
-  ConvertersColorConverterRouteImport.update({
-    id: '/color-converter',
-    path: '/color-converter',
-    getParentRoute: () => ConvertersRouteRoute,
+const ToolsGeneratorsSlugGeneratorRoute =
+  ToolsGeneratorsSlugGeneratorRouteImport.update({
+    id: '/generators/slug-generator',
+    path: '/generators/slug-generator',
+    getParentRoute: () => ToolsRoute,
   } as any)
-const ConvertersBase64ImageRoute = ConvertersBase64ImageRouteImport.update({
-  id: '/base64-image',
-  path: '/base64-image',
-  getParentRoute: () => ConvertersRouteRoute,
+const ToolsGeneratorsSitemapGeneratorRoute =
+  ToolsGeneratorsSitemapGeneratorRouteImport.update({
+    id: '/generators/sitemap-generator',
+    path: '/generators/sitemap-generator',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsSecurityTxtRoute =
+  ToolsGeneratorsSecurityTxtRouteImport.update({
+    id: '/generators/security-txt',
+    path: '/generators/security-txt',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsSecretsGeneratorRoute =
+  ToolsGeneratorsSecretsGeneratorRouteImport.update({
+    id: '/generators/secrets-generator',
+    path: '/generators/secrets-generator',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsRobotsTxtRoute =
+  ToolsGeneratorsRobotsTxtRouteImport.update({
+    id: '/generators/robots-txt',
+    path: '/generators/robots-txt',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsRandomDataRoute =
+  ToolsGeneratorsRandomDataRouteImport.update({
+    id: '/generators/random-data',
+    path: '/generators/random-data',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsQrScannerRoute =
+  ToolsGeneratorsQrScannerRouteImport.update({
+    id: '/generators/qr-scanner',
+    path: '/generators/qr-scanner',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsQrCodeRoute = ToolsGeneratorsQrCodeRouteImport.update({
+  id: '/generators/qr-code',
+  path: '/generators/qr-code',
+  getParentRoute: () => ToolsRoute,
 } as any)
-const ConvertersBaseConversionRoute =
-  ConvertersBaseConversionRouteImport.update({
-    id: '/base-conversion',
-    path: '/base-conversion',
-    getParentRoute: () => ConvertersRouteRoute,
+const ToolsGeneratorsPasswordGeneratorRoute =
+  ToolsGeneratorsPasswordGeneratorRouteImport.update({
+    id: '/generators/password-generator',
+    path: '/generators/password-generator',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsOpenGraphPreviewRoute =
+  ToolsGeneratorsOpenGraphPreviewRouteImport.update({
+    id: '/generators/open-graph-preview',
+    path: '/generators/open-graph-preview',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsMockDataRoute = ToolsGeneratorsMockDataRouteImport.update({
+  id: '/generators/mock-data',
+  path: '/generators/mock-data',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsGeneratorsMetaTagGeneratorRoute =
+  ToolsGeneratorsMetaTagGeneratorRouteImport.update({
+    id: '/generators/meta-tag-generator',
+    path: '/generators/meta-tag-generator',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsManifestGeneratorRoute =
+  ToolsGeneratorsManifestGeneratorRouteImport.update({
+    id: '/generators/manifest-generator',
+    path: '/generators/manifest-generator',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsLoremIpsumRoute =
+  ToolsGeneratorsLoremIpsumRouteImport.update({
+    id: '/generators/lorem-ipsum',
+    path: '/generators/lorem-ipsum',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsHtaccessGeneratorRoute =
+  ToolsGeneratorsHtaccessGeneratorRouteImport.update({
+    id: '/generators/htaccess-generator',
+    path: '/generators/htaccess-generator',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsGeneratorsDataUriRoute = ToolsGeneratorsDataUriRouteImport.update({
+  id: '/generators/data-uri',
+  path: '/generators/data-uri',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsGeneratorsColorPaletteRoute =
+  ToolsGeneratorsColorPaletteRouteImport.update({
+    id: '/generators/color-palette',
+    path: '/generators/color-palette',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsFormattersSqlFormatterRoute =
+  ToolsFormattersSqlFormatterRouteImport.update({
+    id: '/formatters/sql-formatter',
+    path: '/formatters/sql-formatter',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsFormattersJsonFormatterRoute =
+  ToolsFormattersJsonFormatterRouteImport.update({
+    id: '/formatters/json-formatter',
+    path: '/formatters/json-formatter',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsFormattersJsonDiffRoute = ToolsFormattersJsonDiffRouteImport.update({
+  id: '/formatters/json-diff',
+  path: '/formatters/json-diff',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsFormattersHtmlFormatterRoute =
+  ToolsFormattersHtmlFormatterRouteImport.update({
+    id: '/formatters/html-formatter',
+    path: '/formatters/html-formatter',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsFormattersGraphqlFormatterRoute =
+  ToolsFormattersGraphqlFormatterRouteImport.update({
+    id: '/formatters/graphql-formatter',
+    path: '/formatters/graphql-formatter',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsFormattersCssMinifierRoute =
+  ToolsFormattersCssMinifierRouteImport.update({
+    id: '/formatters/css-minifier',
+    path: '/formatters/css-minifier',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsEncodersUrlEncodeRoute = ToolsEncodersUrlEncodeRouteImport.update({
+  id: '/encoders/url-encode',
+  path: '/encoders/url-encode',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsEncodersStringEscapeRoute =
+  ToolsEncodersStringEscapeRouteImport.update({
+    id: '/encoders/string-escape',
+    path: '/encoders/string-escape',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsEncodersMorseCodeRoute = ToolsEncodersMorseCodeRouteImport.update({
+  id: '/encoders/morse-code',
+  path: '/encoders/morse-code',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsEncodersImageToBase64Route =
+  ToolsEncodersImageToBase64RouteImport.update({
+    id: '/encoders/image-to-base64',
+    path: '/encoders/image-to-base64',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsEncodersHtmlEntityRoute = ToolsEncodersHtmlEntityRouteImport.update({
+  id: '/encoders/html-entity',
+  path: '/encoders/html-entity',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsEncodersCipherRoute = ToolsEncodersCipherRouteImport.update({
+  id: '/encoders/cipher',
+  path: '/encoders/cipher',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsEncodersBackslashEscapeRoute =
+  ToolsEncodersBackslashEscapeRouteImport.update({
+    id: '/encoders/backslash-escape',
+    path: '/encoders/backslash-escape',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsDevToolsUserAgentParserRoute =
+  ToolsDevToolsUserAgentParserRouteImport.update({
+    id: '/dev-tools/user-agent-parser',
+    path: '/dev-tools/user-agent-parser',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsDevToolsUrlParserRoute = ToolsDevToolsUrlParserRouteImport.update({
+  id: '/dev-tools/url-parser',
+  path: '/dev-tools/url-parser',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsDevToolsPackageJsonAnalyzerRoute =
+  ToolsDevToolsPackageJsonAnalyzerRouteImport.update({
+    id: '/dev-tools/package-json-analyzer',
+    path: '/dev-tools/package-json-analyzer',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsDevToolsJsonPathTesterRoute =
+  ToolsDevToolsJsonPathTesterRouteImport.update({
+    id: '/dev-tools/json-path-tester',
+    path: '/dev-tools/json-path-tester',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsDevToolsJsMinifierRoute = ToolsDevToolsJsMinifierRouteImport.update({
+  id: '/dev-tools/js-minifier',
+  path: '/dev-tools/js-minifier',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsDevToolsIpSubnetRoute = ToolsDevToolsIpSubnetRouteImport.update({
+  id: '/dev-tools/ip-subnet',
+  path: '/dev-tools/ip-subnet',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsDevToolsCronParserRoute = ToolsDevToolsCronParserRouteImport.update({
+  id: '/dev-tools/cron-parser',
+  path: '/dev-tools/cron-parser',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsDevToolsCronBuilderRoute =
+  ToolsDevToolsCronBuilderRouteImport.update({
+    id: '/dev-tools/cron-builder',
+    path: '/dev-tools/cron-builder',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsDevToolsChmodRoute = ToolsDevToolsChmodRouteImport.update({
+  id: '/dev-tools/chmod',
+  path: '/dev-tools/chmod',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsDecodersJwtDecoderRoute = ToolsDecodersJwtDecoderRouteImport.update({
+  id: '/decoders/jwt-decoder',
+  path: '/decoders/jwt-decoder',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCryptoTotpRoute = ToolsCryptoTotpRouteImport.update({
+  id: '/crypto/totp',
+  path: '/crypto/totp',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCryptoJwtVerifierRoute = ToolsCryptoJwtVerifierRouteImport.update({
+  id: '/crypto/jwt-verifier',
+  path: '/crypto/jwt-verifier',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCryptoJwtGeneratorRoute = ToolsCryptoJwtGeneratorRouteImport.update({
+  id: '/crypto/jwt-generator',
+  path: '/crypto/jwt-generator',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCryptoHmacRoute = ToolsCryptoHmacRouteImport.update({
+  id: '/crypto/hmac',
+  path: '/crypto/hmac',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCryptoHashRoute = ToolsCryptoHashRouteImport.update({
+  id: '/crypto/hash',
+  path: '/crypto/hash',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCryptoCertificateDecoderRoute =
+  ToolsCryptoCertificateDecoderRouteImport.update({
+    id: '/crypto/certificate-decoder',
+    path: '/crypto/certificate-decoder',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsCryptoBcryptRoute = ToolsCryptoBcryptRouteImport.update({
+  id: '/crypto/bcrypt',
+  path: '/crypto/bcrypt',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsCryptoAesEncryptRoute = ToolsCryptoAesEncryptRouteImport.update({
+  id: '/crypto/aes-encrypt',
+  path: '/crypto/aes-encrypt',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsConvertersXmlToYamlRoute =
+  ToolsConvertersXmlToYamlRouteImport.update({
+    id: '/converters/xml-to-yaml',
+    path: '/converters/xml-to-yaml',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersXmlJsonRoute = ToolsConvertersXmlJsonRouteImport.update({
+  id: '/converters/xml-json',
+  path: '/converters/xml-json',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsConvertersUnitConverterRoute =
+  ToolsConvertersUnitConverterRouteImport.update({
+    id: '/converters/unit-converter',
+    path: '/converters/unit-converter',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersTimezoneConverterRoute =
+  ToolsConvertersTimezoneConverterRouteImport.update({
+    id: '/converters/timezone-converter',
+    path: '/converters/timezone-converter',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersTimestampRoute =
+  ToolsConvertersTimestampRouteImport.update({
+    id: '/converters/timestamp',
+    path: '/converters/timestamp',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersSqlToJsonRoute =
+  ToolsConvertersSqlToJsonRouteImport.update({
+    id: '/converters/sql-to-json',
+    path: '/converters/sql-to-json',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersNumberBaseRoute =
+  ToolsConvertersNumberBaseRouteImport.update({
+    id: '/converters/number-base',
+    path: '/converters/number-base',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersMarkdownToHtmlRoute =
+  ToolsConvertersMarkdownToHtmlRouteImport.update({
+    id: '/converters/markdown-to-html',
+    path: '/converters/markdown-to-html',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersJsonYamlRoute = ToolsConvertersJsonYamlRouteImport.update({
+  id: '/converters/json-yaml',
+  path: '/converters/json-yaml',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsConvertersJsonToTypescriptRoute =
+  ToolsConvertersJsonToTypescriptRouteImport.update({
+    id: '/converters/json-to-typescript',
+    path: '/converters/json-to-typescript',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersJsonToCsvRoute =
+  ToolsConvertersJsonToCsvRouteImport.update({
+    id: '/converters/json-to-csv',
+    path: '/converters/json-to-csv',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersCsvToJsonRoute =
+  ToolsConvertersCsvToJsonRouteImport.update({
+    id: '/converters/csv-to-json',
+    path: '/converters/csv-to-json',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersCsvJsonRoute = ToolsConvertersCsvJsonRouteImport.update({
+  id: '/converters/csv-json',
+  path: '/converters/csv-json',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsConvertersCssUnitRoute = ToolsConvertersCssUnitRouteImport.update({
+  id: '/converters/css-unit',
+  path: '/converters/css-unit',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsConvertersColorConverterRoute =
+  ToolsConvertersColorConverterRouteImport.update({
+    id: '/converters/color-converter',
+    path: '/converters/color-converter',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersBase64ImageRoute =
+  ToolsConvertersBase64ImageRouteImport.update({
+    id: '/converters/base64-image',
+    path: '/converters/base64-image',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsConvertersBaseConversionRoute =
+  ToolsConvertersBaseConversionRouteImport.update({
+    id: '/converters/base-conversion',
+    path: '/converters/base-conversion',
+    getParentRoute: () => ToolsRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/converters': typeof ConvertersRouteRouteWithChildren
-  '/crypto': typeof CryptoRouteRouteWithChildren
-  '/decoders': typeof DecodersRouteRouteWithChildren
-  '/dev-tools': typeof DevToolsRouteRouteWithChildren
-  '/encoders': typeof EncodersRouteRouteWithChildren
-  '/formatters': typeof FormattersRouteRouteWithChildren
-  '/generators': typeof GeneratorsRouteRouteWithChildren
-  '/math': typeof MathRouteRouteWithChildren
-  '/media': typeof MediaRouteRouteWithChildren
-  '/reference': typeof ReferenceRouteRouteWithChildren
-  '/text-tools': typeof TextToolsRouteRouteWithChildren
-  '/validators': typeof ValidatorsRouteRouteWithChildren
-  '/converters/base-conversion': typeof ConvertersBaseConversionRoute
-  '/converters/base64-image': typeof ConvertersBase64ImageRoute
-  '/converters/color-converter': typeof ConvertersColorConverterRoute
-  '/converters/css-unit': typeof ConvertersCssUnitRoute
-  '/converters/csv-json': typeof ConvertersCsvJsonRoute
-  '/converters/csv-to-json': typeof ConvertersCsvToJsonRoute
-  '/converters/json-to-csv': typeof ConvertersJsonToCsvRoute
-  '/converters/json-to-typescript': typeof ConvertersJsonToTypescriptRoute
-  '/converters/json-yaml': typeof ConvertersJsonYamlRoute
-  '/converters/markdown-to-html': typeof ConvertersMarkdownToHtmlRoute
-  '/converters/number-base': typeof ConvertersNumberBaseRoute
-  '/converters/sql-to-json': typeof ConvertersSqlToJsonRoute
-  '/converters/timestamp': typeof ConvertersTimestampRoute
-  '/converters/timezone-converter': typeof ConvertersTimezoneConverterRoute
-  '/converters/unit-converter': typeof ConvertersUnitConverterRoute
-  '/converters/xml-json': typeof ConvertersXmlJsonRoute
-  '/converters/xml-to-yaml': typeof ConvertersXmlToYamlRoute
-  '/crypto/aes-encrypt': typeof CryptoAesEncryptRoute
-  '/crypto/bcrypt': typeof CryptoBcryptRoute
-  '/crypto/certificate-decoder': typeof CryptoCertificateDecoderRoute
-  '/crypto/hash': typeof CryptoHashRoute
-  '/crypto/hmac': typeof CryptoHmacRoute
-  '/crypto/jwt-generator': typeof CryptoJwtGeneratorRoute
-  '/crypto/jwt-verifier': typeof CryptoJwtVerifierRoute
-  '/crypto/totp': typeof CryptoTotpRoute
-  '/decoders/jwt-decoder': typeof DecodersJwtDecoderRoute
-  '/dev-tools/chmod': typeof DevToolsChmodRoute
-  '/dev-tools/cron-builder': typeof DevToolsCronBuilderRoute
-  '/dev-tools/cron-parser': typeof DevToolsCronParserRoute
-  '/dev-tools/ip-subnet': typeof DevToolsIpSubnetRoute
-  '/dev-tools/js-minifier': typeof DevToolsJsMinifierRoute
-  '/dev-tools/json-path-tester': typeof DevToolsJsonPathTesterRoute
-  '/dev-tools/package-json-analyzer': typeof DevToolsPackageJsonAnalyzerRoute
-  '/dev-tools/url-parser': typeof DevToolsUrlParserRoute
-  '/dev-tools/user-agent-parser': typeof DevToolsUserAgentParserRoute
-  '/encoders/backslash-escape': typeof EncodersBackslashEscapeRoute
-  '/encoders/cipher': typeof EncodersCipherRoute
-  '/encoders/html-entity': typeof EncodersHtmlEntityRoute
-  '/encoders/image-to-base64': typeof EncodersImageToBase64Route
-  '/encoders/morse-code': typeof EncodersMorseCodeRoute
-  '/encoders/string-escape': typeof EncodersStringEscapeRoute
-  '/encoders/url-encode': typeof EncodersUrlEncodeRoute
-  '/formatters/css-minifier': typeof FormattersCssMinifierRoute
-  '/formatters/graphql-formatter': typeof FormattersGraphqlFormatterRoute
-  '/formatters/html-formatter': typeof FormattersHtmlFormatterRoute
-  '/formatters/json-diff': typeof FormattersJsonDiffRoute
-  '/formatters/json-formatter': typeof FormattersJsonFormatterRoute
-  '/formatters/sql-formatter': typeof FormattersSqlFormatterRoute
-  '/generators/color-palette': typeof GeneratorsColorPaletteRoute
-  '/generators/data-uri': typeof GeneratorsDataUriRoute
-  '/generators/htaccess-generator': typeof GeneratorsHtaccessGeneratorRoute
-  '/generators/lorem-ipsum': typeof GeneratorsLoremIpsumRoute
-  '/generators/manifest-generator': typeof GeneratorsManifestGeneratorRoute
-  '/generators/meta-tag-generator': typeof GeneratorsMetaTagGeneratorRoute
-  '/generators/mock-data': typeof GeneratorsMockDataRoute
-  '/generators/open-graph-preview': typeof GeneratorsOpenGraphPreviewRoute
-  '/generators/password-generator': typeof GeneratorsPasswordGeneratorRoute
-  '/generators/qr-code': typeof GeneratorsQrCodeRoute
-  '/generators/qr-scanner': typeof GeneratorsQrScannerRoute
-  '/generators/random-data': typeof GeneratorsRandomDataRoute
-  '/generators/robots-txt': typeof GeneratorsRobotsTxtRoute
-  '/generators/secrets-generator': typeof GeneratorsSecretsGeneratorRoute
-  '/generators/security-txt': typeof GeneratorsSecurityTxtRoute
-  '/generators/sitemap-generator': typeof GeneratorsSitemapGeneratorRoute
-  '/generators/slug-generator': typeof GeneratorsSlugGeneratorRoute
-  '/generators/uuid': typeof GeneratorsUuidRoute
-  '/math/binary-calculator': typeof MathBinaryCalculatorRoute
-  '/math/date-calculator': typeof MathDateCalculatorRoute
-  '/math/expression-evaluator': typeof MathExpressionEvaluatorRoute
-  '/math/percentage-calculator': typeof MathPercentageCalculatorRoute
-  '/media/favicon-generator': typeof MediaFaviconGeneratorRoute
-  '/media/image-compressor': typeof MediaImageCompressorRoute
-  '/media/image-resizer': typeof MediaImageResizerRoute
-  '/media/svg-optimizer': typeof MediaSvgOptimizerRoute
-  '/reference/http-status': typeof ReferenceHttpStatusRoute
-  '/text-tools/ascii-art': typeof TextToolsAsciiArtRoute
-  '/text-tools/case-converter': typeof TextToolsCaseConverterRoute
-  '/text-tools/diff': typeof TextToolsDiffRoute
-  '/text-tools/levenshtein': typeof TextToolsLevenshteinRoute
-  '/text-tools/markdown-preview': typeof TextToolsMarkdownPreviewRoute
-  '/text-tools/regex-tester': typeof TextToolsRegexTesterRoute
-  '/text-tools/string-counter': typeof TextToolsStringCounterRoute
-  '/text-tools/text-statistics': typeof TextToolsTextStatisticsRoute
-  '/text-tools/text-tools': typeof TextToolsTextToolsRoute
-  '/validators/json-schema-validator': typeof ValidatorsJsonSchemaValidatorRoute
-  '/validators/json-validator': typeof ValidatorsJsonValidatorRoute
-  '/validators/validator': typeof ValidatorsValidatorRoute
-  '/validators/yaml-validator': typeof ValidatorsYamlValidatorRoute
+  '/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
+  '/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
+  '/converters/color-converter': typeof ToolsConvertersColorConverterRoute
+  '/converters/css-unit': typeof ToolsConvertersCssUnitRoute
+  '/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
+  '/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
+  '/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
+  '/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
+  '/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
+  '/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
+  '/converters/number-base': typeof ToolsConvertersNumberBaseRoute
+  '/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
+  '/converters/timestamp': typeof ToolsConvertersTimestampRoute
+  '/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
+  '/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
+  '/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
+  '/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
+  '/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
+  '/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
+  '/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
+  '/crypto/hash': typeof ToolsCryptoHashRoute
+  '/crypto/hmac': typeof ToolsCryptoHmacRoute
+  '/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
+  '/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
+  '/crypto/totp': typeof ToolsCryptoTotpRoute
+  '/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
+  '/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
+  '/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
+  '/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
+  '/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
+  '/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
+  '/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
+  '/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
+  '/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
+  '/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
+  '/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
+  '/encoders/cipher': typeof ToolsEncodersCipherRoute
+  '/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
+  '/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
+  '/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
+  '/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
+  '/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
+  '/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
+  '/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
+  '/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
+  '/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
+  '/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
+  '/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
+  '/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
+  '/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
+  '/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
+  '/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
+  '/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
+  '/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
+  '/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
+  '/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
+  '/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
+  '/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
+  '/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
+  '/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
+  '/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
+  '/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
+  '/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
+  '/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
+  '/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
+  '/generators/uuid': typeof ToolsGeneratorsUuidRoute
+  '/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
+  '/math/date-calculator': typeof ToolsMathDateCalculatorRoute
+  '/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
+  '/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
+  '/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
+  '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
+  '/media/image-resizer': typeof ToolsMediaImageResizerRoute
+  '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
+  '/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
+  '/text-tools/diff': typeof ToolsTextToolsDiffRoute
+  '/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
+  '/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
+  '/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
+  '/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
+  '/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
+  '/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
+  '/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
+  '/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
+  '/validators/validator': typeof ToolsValidatorsValidatorRoute
+  '/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/converters': typeof ConvertersRouteRouteWithChildren
-  '/crypto': typeof CryptoRouteRouteWithChildren
-  '/decoders': typeof DecodersRouteRouteWithChildren
-  '/dev-tools': typeof DevToolsRouteRouteWithChildren
-  '/encoders': typeof EncodersRouteRouteWithChildren
-  '/formatters': typeof FormattersRouteRouteWithChildren
-  '/generators': typeof GeneratorsRouteRouteWithChildren
-  '/math': typeof MathRouteRouteWithChildren
-  '/media': typeof MediaRouteRouteWithChildren
-  '/reference': typeof ReferenceRouteRouteWithChildren
-  '/text-tools': typeof TextToolsRouteRouteWithChildren
-  '/validators': typeof ValidatorsRouteRouteWithChildren
-  '/converters/base-conversion': typeof ConvertersBaseConversionRoute
-  '/converters/base64-image': typeof ConvertersBase64ImageRoute
-  '/converters/color-converter': typeof ConvertersColorConverterRoute
-  '/converters/css-unit': typeof ConvertersCssUnitRoute
-  '/converters/csv-json': typeof ConvertersCsvJsonRoute
-  '/converters/csv-to-json': typeof ConvertersCsvToJsonRoute
-  '/converters/json-to-csv': typeof ConvertersJsonToCsvRoute
-  '/converters/json-to-typescript': typeof ConvertersJsonToTypescriptRoute
-  '/converters/json-yaml': typeof ConvertersJsonYamlRoute
-  '/converters/markdown-to-html': typeof ConvertersMarkdownToHtmlRoute
-  '/converters/number-base': typeof ConvertersNumberBaseRoute
-  '/converters/sql-to-json': typeof ConvertersSqlToJsonRoute
-  '/converters/timestamp': typeof ConvertersTimestampRoute
-  '/converters/timezone-converter': typeof ConvertersTimezoneConverterRoute
-  '/converters/unit-converter': typeof ConvertersUnitConverterRoute
-  '/converters/xml-json': typeof ConvertersXmlJsonRoute
-  '/converters/xml-to-yaml': typeof ConvertersXmlToYamlRoute
-  '/crypto/aes-encrypt': typeof CryptoAesEncryptRoute
-  '/crypto/bcrypt': typeof CryptoBcryptRoute
-  '/crypto/certificate-decoder': typeof CryptoCertificateDecoderRoute
-  '/crypto/hash': typeof CryptoHashRoute
-  '/crypto/hmac': typeof CryptoHmacRoute
-  '/crypto/jwt-generator': typeof CryptoJwtGeneratorRoute
-  '/crypto/jwt-verifier': typeof CryptoJwtVerifierRoute
-  '/crypto/totp': typeof CryptoTotpRoute
-  '/decoders/jwt-decoder': typeof DecodersJwtDecoderRoute
-  '/dev-tools/chmod': typeof DevToolsChmodRoute
-  '/dev-tools/cron-builder': typeof DevToolsCronBuilderRoute
-  '/dev-tools/cron-parser': typeof DevToolsCronParserRoute
-  '/dev-tools/ip-subnet': typeof DevToolsIpSubnetRoute
-  '/dev-tools/js-minifier': typeof DevToolsJsMinifierRoute
-  '/dev-tools/json-path-tester': typeof DevToolsJsonPathTesterRoute
-  '/dev-tools/package-json-analyzer': typeof DevToolsPackageJsonAnalyzerRoute
-  '/dev-tools/url-parser': typeof DevToolsUrlParserRoute
-  '/dev-tools/user-agent-parser': typeof DevToolsUserAgentParserRoute
-  '/encoders/backslash-escape': typeof EncodersBackslashEscapeRoute
-  '/encoders/cipher': typeof EncodersCipherRoute
-  '/encoders/html-entity': typeof EncodersHtmlEntityRoute
-  '/encoders/image-to-base64': typeof EncodersImageToBase64Route
-  '/encoders/morse-code': typeof EncodersMorseCodeRoute
-  '/encoders/string-escape': typeof EncodersStringEscapeRoute
-  '/encoders/url-encode': typeof EncodersUrlEncodeRoute
-  '/formatters/css-minifier': typeof FormattersCssMinifierRoute
-  '/formatters/graphql-formatter': typeof FormattersGraphqlFormatterRoute
-  '/formatters/html-formatter': typeof FormattersHtmlFormatterRoute
-  '/formatters/json-diff': typeof FormattersJsonDiffRoute
-  '/formatters/json-formatter': typeof FormattersJsonFormatterRoute
-  '/formatters/sql-formatter': typeof FormattersSqlFormatterRoute
-  '/generators/color-palette': typeof GeneratorsColorPaletteRoute
-  '/generators/data-uri': typeof GeneratorsDataUriRoute
-  '/generators/htaccess-generator': typeof GeneratorsHtaccessGeneratorRoute
-  '/generators/lorem-ipsum': typeof GeneratorsLoremIpsumRoute
-  '/generators/manifest-generator': typeof GeneratorsManifestGeneratorRoute
-  '/generators/meta-tag-generator': typeof GeneratorsMetaTagGeneratorRoute
-  '/generators/mock-data': typeof GeneratorsMockDataRoute
-  '/generators/open-graph-preview': typeof GeneratorsOpenGraphPreviewRoute
-  '/generators/password-generator': typeof GeneratorsPasswordGeneratorRoute
-  '/generators/qr-code': typeof GeneratorsQrCodeRoute
-  '/generators/qr-scanner': typeof GeneratorsQrScannerRoute
-  '/generators/random-data': typeof GeneratorsRandomDataRoute
-  '/generators/robots-txt': typeof GeneratorsRobotsTxtRoute
-  '/generators/secrets-generator': typeof GeneratorsSecretsGeneratorRoute
-  '/generators/security-txt': typeof GeneratorsSecurityTxtRoute
-  '/generators/sitemap-generator': typeof GeneratorsSitemapGeneratorRoute
-  '/generators/slug-generator': typeof GeneratorsSlugGeneratorRoute
-  '/generators/uuid': typeof GeneratorsUuidRoute
-  '/math/binary-calculator': typeof MathBinaryCalculatorRoute
-  '/math/date-calculator': typeof MathDateCalculatorRoute
-  '/math/expression-evaluator': typeof MathExpressionEvaluatorRoute
-  '/math/percentage-calculator': typeof MathPercentageCalculatorRoute
-  '/media/favicon-generator': typeof MediaFaviconGeneratorRoute
-  '/media/image-compressor': typeof MediaImageCompressorRoute
-  '/media/image-resizer': typeof MediaImageResizerRoute
-  '/media/svg-optimizer': typeof MediaSvgOptimizerRoute
-  '/reference/http-status': typeof ReferenceHttpStatusRoute
-  '/text-tools/ascii-art': typeof TextToolsAsciiArtRoute
-  '/text-tools/case-converter': typeof TextToolsCaseConverterRoute
-  '/text-tools/diff': typeof TextToolsDiffRoute
-  '/text-tools/levenshtein': typeof TextToolsLevenshteinRoute
-  '/text-tools/markdown-preview': typeof TextToolsMarkdownPreviewRoute
-  '/text-tools/regex-tester': typeof TextToolsRegexTesterRoute
-  '/text-tools/string-counter': typeof TextToolsStringCounterRoute
-  '/text-tools/text-statistics': typeof TextToolsTextStatisticsRoute
-  '/text-tools/text-tools': typeof TextToolsTextToolsRoute
-  '/validators/json-schema-validator': typeof ValidatorsJsonSchemaValidatorRoute
-  '/validators/json-validator': typeof ValidatorsJsonValidatorRoute
-  '/validators/validator': typeof ValidatorsValidatorRoute
-  '/validators/yaml-validator': typeof ValidatorsYamlValidatorRoute
+  '/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
+  '/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
+  '/converters/color-converter': typeof ToolsConvertersColorConverterRoute
+  '/converters/css-unit': typeof ToolsConvertersCssUnitRoute
+  '/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
+  '/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
+  '/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
+  '/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
+  '/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
+  '/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
+  '/converters/number-base': typeof ToolsConvertersNumberBaseRoute
+  '/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
+  '/converters/timestamp': typeof ToolsConvertersTimestampRoute
+  '/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
+  '/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
+  '/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
+  '/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
+  '/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
+  '/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
+  '/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
+  '/crypto/hash': typeof ToolsCryptoHashRoute
+  '/crypto/hmac': typeof ToolsCryptoHmacRoute
+  '/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
+  '/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
+  '/crypto/totp': typeof ToolsCryptoTotpRoute
+  '/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
+  '/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
+  '/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
+  '/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
+  '/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
+  '/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
+  '/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
+  '/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
+  '/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
+  '/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
+  '/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
+  '/encoders/cipher': typeof ToolsEncodersCipherRoute
+  '/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
+  '/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
+  '/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
+  '/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
+  '/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
+  '/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
+  '/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
+  '/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
+  '/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
+  '/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
+  '/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
+  '/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
+  '/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
+  '/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
+  '/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
+  '/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
+  '/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
+  '/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
+  '/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
+  '/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
+  '/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
+  '/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
+  '/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
+  '/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
+  '/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
+  '/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
+  '/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
+  '/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
+  '/generators/uuid': typeof ToolsGeneratorsUuidRoute
+  '/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
+  '/math/date-calculator': typeof ToolsMathDateCalculatorRoute
+  '/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
+  '/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
+  '/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
+  '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
+  '/media/image-resizer': typeof ToolsMediaImageResizerRoute
+  '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
+  '/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
+  '/text-tools/diff': typeof ToolsTextToolsDiffRoute
+  '/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
+  '/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
+  '/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
+  '/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
+  '/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
+  '/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
+  '/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
+  '/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
+  '/validators/validator': typeof ToolsValidatorsValidatorRoute
+  '/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/converters': typeof ConvertersRouteRouteWithChildren
-  '/crypto': typeof CryptoRouteRouteWithChildren
-  '/decoders': typeof DecodersRouteRouteWithChildren
-  '/dev-tools': typeof DevToolsRouteRouteWithChildren
-  '/encoders': typeof EncodersRouteRouteWithChildren
-  '/formatters': typeof FormattersRouteRouteWithChildren
-  '/generators': typeof GeneratorsRouteRouteWithChildren
-  '/math': typeof MathRouteRouteWithChildren
-  '/media': typeof MediaRouteRouteWithChildren
-  '/reference': typeof ReferenceRouteRouteWithChildren
-  '/text-tools': typeof TextToolsRouteRouteWithChildren
-  '/validators': typeof ValidatorsRouteRouteWithChildren
-  '/converters/base-conversion': typeof ConvertersBaseConversionRoute
-  '/converters/base64-image': typeof ConvertersBase64ImageRoute
-  '/converters/color-converter': typeof ConvertersColorConverterRoute
-  '/converters/css-unit': typeof ConvertersCssUnitRoute
-  '/converters/csv-json': typeof ConvertersCsvJsonRoute
-  '/converters/csv-to-json': typeof ConvertersCsvToJsonRoute
-  '/converters/json-to-csv': typeof ConvertersJsonToCsvRoute
-  '/converters/json-to-typescript': typeof ConvertersJsonToTypescriptRoute
-  '/converters/json-yaml': typeof ConvertersJsonYamlRoute
-  '/converters/markdown-to-html': typeof ConvertersMarkdownToHtmlRoute
-  '/converters/number-base': typeof ConvertersNumberBaseRoute
-  '/converters/sql-to-json': typeof ConvertersSqlToJsonRoute
-  '/converters/timestamp': typeof ConvertersTimestampRoute
-  '/converters/timezone-converter': typeof ConvertersTimezoneConverterRoute
-  '/converters/unit-converter': typeof ConvertersUnitConverterRoute
-  '/converters/xml-json': typeof ConvertersXmlJsonRoute
-  '/converters/xml-to-yaml': typeof ConvertersXmlToYamlRoute
-  '/crypto/aes-encrypt': typeof CryptoAesEncryptRoute
-  '/crypto/bcrypt': typeof CryptoBcryptRoute
-  '/crypto/certificate-decoder': typeof CryptoCertificateDecoderRoute
-  '/crypto/hash': typeof CryptoHashRoute
-  '/crypto/hmac': typeof CryptoHmacRoute
-  '/crypto/jwt-generator': typeof CryptoJwtGeneratorRoute
-  '/crypto/jwt-verifier': typeof CryptoJwtVerifierRoute
-  '/crypto/totp': typeof CryptoTotpRoute
-  '/decoders/jwt-decoder': typeof DecodersJwtDecoderRoute
-  '/dev-tools/chmod': typeof DevToolsChmodRoute
-  '/dev-tools/cron-builder': typeof DevToolsCronBuilderRoute
-  '/dev-tools/cron-parser': typeof DevToolsCronParserRoute
-  '/dev-tools/ip-subnet': typeof DevToolsIpSubnetRoute
-  '/dev-tools/js-minifier': typeof DevToolsJsMinifierRoute
-  '/dev-tools/json-path-tester': typeof DevToolsJsonPathTesterRoute
-  '/dev-tools/package-json-analyzer': typeof DevToolsPackageJsonAnalyzerRoute
-  '/dev-tools/url-parser': typeof DevToolsUrlParserRoute
-  '/dev-tools/user-agent-parser': typeof DevToolsUserAgentParserRoute
-  '/encoders/backslash-escape': typeof EncodersBackslashEscapeRoute
-  '/encoders/cipher': typeof EncodersCipherRoute
-  '/encoders/html-entity': typeof EncodersHtmlEntityRoute
-  '/encoders/image-to-base64': typeof EncodersImageToBase64Route
-  '/encoders/morse-code': typeof EncodersMorseCodeRoute
-  '/encoders/string-escape': typeof EncodersStringEscapeRoute
-  '/encoders/url-encode': typeof EncodersUrlEncodeRoute
-  '/formatters/css-minifier': typeof FormattersCssMinifierRoute
-  '/formatters/graphql-formatter': typeof FormattersGraphqlFormatterRoute
-  '/formatters/html-formatter': typeof FormattersHtmlFormatterRoute
-  '/formatters/json-diff': typeof FormattersJsonDiffRoute
-  '/formatters/json-formatter': typeof FormattersJsonFormatterRoute
-  '/formatters/sql-formatter': typeof FormattersSqlFormatterRoute
-  '/generators/color-palette': typeof GeneratorsColorPaletteRoute
-  '/generators/data-uri': typeof GeneratorsDataUriRoute
-  '/generators/htaccess-generator': typeof GeneratorsHtaccessGeneratorRoute
-  '/generators/lorem-ipsum': typeof GeneratorsLoremIpsumRoute
-  '/generators/manifest-generator': typeof GeneratorsManifestGeneratorRoute
-  '/generators/meta-tag-generator': typeof GeneratorsMetaTagGeneratorRoute
-  '/generators/mock-data': typeof GeneratorsMockDataRoute
-  '/generators/open-graph-preview': typeof GeneratorsOpenGraphPreviewRoute
-  '/generators/password-generator': typeof GeneratorsPasswordGeneratorRoute
-  '/generators/qr-code': typeof GeneratorsQrCodeRoute
-  '/generators/qr-scanner': typeof GeneratorsQrScannerRoute
-  '/generators/random-data': typeof GeneratorsRandomDataRoute
-  '/generators/robots-txt': typeof GeneratorsRobotsTxtRoute
-  '/generators/secrets-generator': typeof GeneratorsSecretsGeneratorRoute
-  '/generators/security-txt': typeof GeneratorsSecurityTxtRoute
-  '/generators/sitemap-generator': typeof GeneratorsSitemapGeneratorRoute
-  '/generators/slug-generator': typeof GeneratorsSlugGeneratorRoute
-  '/generators/uuid': typeof GeneratorsUuidRoute
-  '/math/binary-calculator': typeof MathBinaryCalculatorRoute
-  '/math/date-calculator': typeof MathDateCalculatorRoute
-  '/math/expression-evaluator': typeof MathExpressionEvaluatorRoute
-  '/math/percentage-calculator': typeof MathPercentageCalculatorRoute
-  '/media/favicon-generator': typeof MediaFaviconGeneratorRoute
-  '/media/image-compressor': typeof MediaImageCompressorRoute
-  '/media/image-resizer': typeof MediaImageResizerRoute
-  '/media/svg-optimizer': typeof MediaSvgOptimizerRoute
-  '/reference/http-status': typeof ReferenceHttpStatusRoute
-  '/text-tools/ascii-art': typeof TextToolsAsciiArtRoute
-  '/text-tools/case-converter': typeof TextToolsCaseConverterRoute
-  '/text-tools/diff': typeof TextToolsDiffRoute
-  '/text-tools/levenshtein': typeof TextToolsLevenshteinRoute
-  '/text-tools/markdown-preview': typeof TextToolsMarkdownPreviewRoute
-  '/text-tools/regex-tester': typeof TextToolsRegexTesterRoute
-  '/text-tools/string-counter': typeof TextToolsStringCounterRoute
-  '/text-tools/text-statistics': typeof TextToolsTextStatisticsRoute
-  '/text-tools/text-tools': typeof TextToolsTextToolsRoute
-  '/validators/json-schema-validator': typeof ValidatorsJsonSchemaValidatorRoute
-  '/validators/json-validator': typeof ValidatorsJsonValidatorRoute
-  '/validators/validator': typeof ValidatorsValidatorRoute
-  '/validators/yaml-validator': typeof ValidatorsYamlValidatorRoute
+  '/_tools': typeof ToolsRouteWithChildren
+  '/_tools/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
+  '/_tools/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
+  '/_tools/converters/color-converter': typeof ToolsConvertersColorConverterRoute
+  '/_tools/converters/css-unit': typeof ToolsConvertersCssUnitRoute
+  '/_tools/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
+  '/_tools/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
+  '/_tools/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
+  '/_tools/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
+  '/_tools/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
+  '/_tools/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
+  '/_tools/converters/number-base': typeof ToolsConvertersNumberBaseRoute
+  '/_tools/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
+  '/_tools/converters/timestamp': typeof ToolsConvertersTimestampRoute
+  '/_tools/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
+  '/_tools/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
+  '/_tools/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
+  '/_tools/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
+  '/_tools/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
+  '/_tools/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
+  '/_tools/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
+  '/_tools/crypto/hash': typeof ToolsCryptoHashRoute
+  '/_tools/crypto/hmac': typeof ToolsCryptoHmacRoute
+  '/_tools/crypto/jwt-generator': typeof ToolsCryptoJwtGeneratorRoute
+  '/_tools/crypto/jwt-verifier': typeof ToolsCryptoJwtVerifierRoute
+  '/_tools/crypto/totp': typeof ToolsCryptoTotpRoute
+  '/_tools/decoders/jwt-decoder': typeof ToolsDecodersJwtDecoderRoute
+  '/_tools/dev-tools/chmod': typeof ToolsDevToolsChmodRoute
+  '/_tools/dev-tools/cron-builder': typeof ToolsDevToolsCronBuilderRoute
+  '/_tools/dev-tools/cron-parser': typeof ToolsDevToolsCronParserRoute
+  '/_tools/dev-tools/ip-subnet': typeof ToolsDevToolsIpSubnetRoute
+  '/_tools/dev-tools/js-minifier': typeof ToolsDevToolsJsMinifierRoute
+  '/_tools/dev-tools/json-path-tester': typeof ToolsDevToolsJsonPathTesterRoute
+  '/_tools/dev-tools/package-json-analyzer': typeof ToolsDevToolsPackageJsonAnalyzerRoute
+  '/_tools/dev-tools/url-parser': typeof ToolsDevToolsUrlParserRoute
+  '/_tools/dev-tools/user-agent-parser': typeof ToolsDevToolsUserAgentParserRoute
+  '/_tools/encoders/backslash-escape': typeof ToolsEncodersBackslashEscapeRoute
+  '/_tools/encoders/cipher': typeof ToolsEncodersCipherRoute
+  '/_tools/encoders/html-entity': typeof ToolsEncodersHtmlEntityRoute
+  '/_tools/encoders/image-to-base64': typeof ToolsEncodersImageToBase64Route
+  '/_tools/encoders/morse-code': typeof ToolsEncodersMorseCodeRoute
+  '/_tools/encoders/string-escape': typeof ToolsEncodersStringEscapeRoute
+  '/_tools/encoders/url-encode': typeof ToolsEncodersUrlEncodeRoute
+  '/_tools/formatters/css-minifier': typeof ToolsFormattersCssMinifierRoute
+  '/_tools/formatters/graphql-formatter': typeof ToolsFormattersGraphqlFormatterRoute
+  '/_tools/formatters/html-formatter': typeof ToolsFormattersHtmlFormatterRoute
+  '/_tools/formatters/json-diff': typeof ToolsFormattersJsonDiffRoute
+  '/_tools/formatters/json-formatter': typeof ToolsFormattersJsonFormatterRoute
+  '/_tools/formatters/sql-formatter': typeof ToolsFormattersSqlFormatterRoute
+  '/_tools/generators/color-palette': typeof ToolsGeneratorsColorPaletteRoute
+  '/_tools/generators/data-uri': typeof ToolsGeneratorsDataUriRoute
+  '/_tools/generators/htaccess-generator': typeof ToolsGeneratorsHtaccessGeneratorRoute
+  '/_tools/generators/lorem-ipsum': typeof ToolsGeneratorsLoremIpsumRoute
+  '/_tools/generators/manifest-generator': typeof ToolsGeneratorsManifestGeneratorRoute
+  '/_tools/generators/meta-tag-generator': typeof ToolsGeneratorsMetaTagGeneratorRoute
+  '/_tools/generators/mock-data': typeof ToolsGeneratorsMockDataRoute
+  '/_tools/generators/open-graph-preview': typeof ToolsGeneratorsOpenGraphPreviewRoute
+  '/_tools/generators/password-generator': typeof ToolsGeneratorsPasswordGeneratorRoute
+  '/_tools/generators/qr-code': typeof ToolsGeneratorsQrCodeRoute
+  '/_tools/generators/qr-scanner': typeof ToolsGeneratorsQrScannerRoute
+  '/_tools/generators/random-data': typeof ToolsGeneratorsRandomDataRoute
+  '/_tools/generators/robots-txt': typeof ToolsGeneratorsRobotsTxtRoute
+  '/_tools/generators/secrets-generator': typeof ToolsGeneratorsSecretsGeneratorRoute
+  '/_tools/generators/security-txt': typeof ToolsGeneratorsSecurityTxtRoute
+  '/_tools/generators/sitemap-generator': typeof ToolsGeneratorsSitemapGeneratorRoute
+  '/_tools/generators/slug-generator': typeof ToolsGeneratorsSlugGeneratorRoute
+  '/_tools/generators/uuid': typeof ToolsGeneratorsUuidRoute
+  '/_tools/math/binary-calculator': typeof ToolsMathBinaryCalculatorRoute
+  '/_tools/math/date-calculator': typeof ToolsMathDateCalculatorRoute
+  '/_tools/math/expression-evaluator': typeof ToolsMathExpressionEvaluatorRoute
+  '/_tools/math/percentage-calculator': typeof ToolsMathPercentageCalculatorRoute
+  '/_tools/media/favicon-generator': typeof ToolsMediaFaviconGeneratorRoute
+  '/_tools/media/image-compressor': typeof ToolsMediaImageCompressorRoute
+  '/_tools/media/image-resizer': typeof ToolsMediaImageResizerRoute
+  '/_tools/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/_tools/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/_tools/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
+  '/_tools/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
+  '/_tools/text-tools/diff': typeof ToolsTextToolsDiffRoute
+  '/_tools/text-tools/levenshtein': typeof ToolsTextToolsLevenshteinRoute
+  '/_tools/text-tools/markdown-preview': typeof ToolsTextToolsMarkdownPreviewRoute
+  '/_tools/text-tools/regex-tester': typeof ToolsTextToolsRegexTesterRoute
+  '/_tools/text-tools/string-counter': typeof ToolsTextToolsStringCounterRoute
+  '/_tools/text-tools/text-statistics': typeof ToolsTextToolsTextStatisticsRoute
+  '/_tools/text-tools/text-tools': typeof ToolsTextToolsTextToolsRoute
+  '/_tools/validators/json-schema-validator': typeof ToolsValidatorsJsonSchemaValidatorRoute
+  '/_tools/validators/json-validator': typeof ToolsValidatorsJsonValidatorRoute
+  '/_tools/validators/validator': typeof ToolsValidatorsValidatorRoute
+  '/_tools/validators/yaml-validator': typeof ToolsValidatorsYamlValidatorRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/converters'
-    | '/crypto'
-    | '/decoders'
-    | '/dev-tools'
-    | '/encoders'
-    | '/formatters'
-    | '/generators'
-    | '/math'
-    | '/media'
-    | '/reference'
-    | '/text-tools'
-    | '/validators'
     | '/converters/base-conversion'
     | '/converters/base64-image'
     | '/converters/color-converter'
@@ -1052,18 +976,6 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/converters'
-    | '/crypto'
-    | '/decoders'
-    | '/dev-tools'
-    | '/encoders'
-    | '/formatters'
-    | '/generators'
-    | '/math'
-    | '/media'
-    | '/reference'
-    | '/text-tools'
-    | '/validators'
     | '/converters/base-conversion'
     | '/converters/base64-image'
     | '/converters/color-converter'
@@ -1155,208 +1067,109 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
-    | '/converters'
-    | '/crypto'
-    | '/decoders'
-    | '/dev-tools'
-    | '/encoders'
-    | '/formatters'
-    | '/generators'
-    | '/math'
-    | '/media'
-    | '/reference'
-    | '/text-tools'
-    | '/validators'
-    | '/converters/base-conversion'
-    | '/converters/base64-image'
-    | '/converters/color-converter'
-    | '/converters/css-unit'
-    | '/converters/csv-json'
-    | '/converters/csv-to-json'
-    | '/converters/json-to-csv'
-    | '/converters/json-to-typescript'
-    | '/converters/json-yaml'
-    | '/converters/markdown-to-html'
-    | '/converters/number-base'
-    | '/converters/sql-to-json'
-    | '/converters/timestamp'
-    | '/converters/timezone-converter'
-    | '/converters/unit-converter'
-    | '/converters/xml-json'
-    | '/converters/xml-to-yaml'
-    | '/crypto/aes-encrypt'
-    | '/crypto/bcrypt'
-    | '/crypto/certificate-decoder'
-    | '/crypto/hash'
-    | '/crypto/hmac'
-    | '/crypto/jwt-generator'
-    | '/crypto/jwt-verifier'
-    | '/crypto/totp'
-    | '/decoders/jwt-decoder'
-    | '/dev-tools/chmod'
-    | '/dev-tools/cron-builder'
-    | '/dev-tools/cron-parser'
-    | '/dev-tools/ip-subnet'
-    | '/dev-tools/js-minifier'
-    | '/dev-tools/json-path-tester'
-    | '/dev-tools/package-json-analyzer'
-    | '/dev-tools/url-parser'
-    | '/dev-tools/user-agent-parser'
-    | '/encoders/backslash-escape'
-    | '/encoders/cipher'
-    | '/encoders/html-entity'
-    | '/encoders/image-to-base64'
-    | '/encoders/morse-code'
-    | '/encoders/string-escape'
-    | '/encoders/url-encode'
-    | '/formatters/css-minifier'
-    | '/formatters/graphql-formatter'
-    | '/formatters/html-formatter'
-    | '/formatters/json-diff'
-    | '/formatters/json-formatter'
-    | '/formatters/sql-formatter'
-    | '/generators/color-palette'
-    | '/generators/data-uri'
-    | '/generators/htaccess-generator'
-    | '/generators/lorem-ipsum'
-    | '/generators/manifest-generator'
-    | '/generators/meta-tag-generator'
-    | '/generators/mock-data'
-    | '/generators/open-graph-preview'
-    | '/generators/password-generator'
-    | '/generators/qr-code'
-    | '/generators/qr-scanner'
-    | '/generators/random-data'
-    | '/generators/robots-txt'
-    | '/generators/secrets-generator'
-    | '/generators/security-txt'
-    | '/generators/sitemap-generator'
-    | '/generators/slug-generator'
-    | '/generators/uuid'
-    | '/math/binary-calculator'
-    | '/math/date-calculator'
-    | '/math/expression-evaluator'
-    | '/math/percentage-calculator'
-    | '/media/favicon-generator'
-    | '/media/image-compressor'
-    | '/media/image-resizer'
-    | '/media/svg-optimizer'
-    | '/reference/http-status'
-    | '/text-tools/ascii-art'
-    | '/text-tools/case-converter'
-    | '/text-tools/diff'
-    | '/text-tools/levenshtein'
-    | '/text-tools/markdown-preview'
-    | '/text-tools/regex-tester'
-    | '/text-tools/string-counter'
-    | '/text-tools/text-statistics'
-    | '/text-tools/text-tools'
-    | '/validators/json-schema-validator'
-    | '/validators/json-validator'
-    | '/validators/validator'
-    | '/validators/yaml-validator'
+    | '/_tools'
+    | '/_tools/converters/base-conversion'
+    | '/_tools/converters/base64-image'
+    | '/_tools/converters/color-converter'
+    | '/_tools/converters/css-unit'
+    | '/_tools/converters/csv-json'
+    | '/_tools/converters/csv-to-json'
+    | '/_tools/converters/json-to-csv'
+    | '/_tools/converters/json-to-typescript'
+    | '/_tools/converters/json-yaml'
+    | '/_tools/converters/markdown-to-html'
+    | '/_tools/converters/number-base'
+    | '/_tools/converters/sql-to-json'
+    | '/_tools/converters/timestamp'
+    | '/_tools/converters/timezone-converter'
+    | '/_tools/converters/unit-converter'
+    | '/_tools/converters/xml-json'
+    | '/_tools/converters/xml-to-yaml'
+    | '/_tools/crypto/aes-encrypt'
+    | '/_tools/crypto/bcrypt'
+    | '/_tools/crypto/certificate-decoder'
+    | '/_tools/crypto/hash'
+    | '/_tools/crypto/hmac'
+    | '/_tools/crypto/jwt-generator'
+    | '/_tools/crypto/jwt-verifier'
+    | '/_tools/crypto/totp'
+    | '/_tools/decoders/jwt-decoder'
+    | '/_tools/dev-tools/chmod'
+    | '/_tools/dev-tools/cron-builder'
+    | '/_tools/dev-tools/cron-parser'
+    | '/_tools/dev-tools/ip-subnet'
+    | '/_tools/dev-tools/js-minifier'
+    | '/_tools/dev-tools/json-path-tester'
+    | '/_tools/dev-tools/package-json-analyzer'
+    | '/_tools/dev-tools/url-parser'
+    | '/_tools/dev-tools/user-agent-parser'
+    | '/_tools/encoders/backslash-escape'
+    | '/_tools/encoders/cipher'
+    | '/_tools/encoders/html-entity'
+    | '/_tools/encoders/image-to-base64'
+    | '/_tools/encoders/morse-code'
+    | '/_tools/encoders/string-escape'
+    | '/_tools/encoders/url-encode'
+    | '/_tools/formatters/css-minifier'
+    | '/_tools/formatters/graphql-formatter'
+    | '/_tools/formatters/html-formatter'
+    | '/_tools/formatters/json-diff'
+    | '/_tools/formatters/json-formatter'
+    | '/_tools/formatters/sql-formatter'
+    | '/_tools/generators/color-palette'
+    | '/_tools/generators/data-uri'
+    | '/_tools/generators/htaccess-generator'
+    | '/_tools/generators/lorem-ipsum'
+    | '/_tools/generators/manifest-generator'
+    | '/_tools/generators/meta-tag-generator'
+    | '/_tools/generators/mock-data'
+    | '/_tools/generators/open-graph-preview'
+    | '/_tools/generators/password-generator'
+    | '/_tools/generators/qr-code'
+    | '/_tools/generators/qr-scanner'
+    | '/_tools/generators/random-data'
+    | '/_tools/generators/robots-txt'
+    | '/_tools/generators/secrets-generator'
+    | '/_tools/generators/security-txt'
+    | '/_tools/generators/sitemap-generator'
+    | '/_tools/generators/slug-generator'
+    | '/_tools/generators/uuid'
+    | '/_tools/math/binary-calculator'
+    | '/_tools/math/date-calculator'
+    | '/_tools/math/expression-evaluator'
+    | '/_tools/math/percentage-calculator'
+    | '/_tools/media/favicon-generator'
+    | '/_tools/media/image-compressor'
+    | '/_tools/media/image-resizer'
+    | '/_tools/media/svg-optimizer'
+    | '/_tools/reference/http-status'
+    | '/_tools/text-tools/ascii-art'
+    | '/_tools/text-tools/case-converter'
+    | '/_tools/text-tools/diff'
+    | '/_tools/text-tools/levenshtein'
+    | '/_tools/text-tools/markdown-preview'
+    | '/_tools/text-tools/regex-tester'
+    | '/_tools/text-tools/string-counter'
+    | '/_tools/text-tools/text-statistics'
+    | '/_tools/text-tools/text-tools'
+    | '/_tools/validators/json-schema-validator'
+    | '/_tools/validators/json-validator'
+    | '/_tools/validators/validator'
+    | '/_tools/validators/yaml-validator'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ConvertersRouteRoute: typeof ConvertersRouteRouteWithChildren
-  CryptoRouteRoute: typeof CryptoRouteRouteWithChildren
-  DecodersRouteRoute: typeof DecodersRouteRouteWithChildren
-  DevToolsRouteRoute: typeof DevToolsRouteRouteWithChildren
-  EncodersRouteRoute: typeof EncodersRouteRouteWithChildren
-  FormattersRouteRoute: typeof FormattersRouteRouteWithChildren
-  GeneratorsRouteRoute: typeof GeneratorsRouteRouteWithChildren
-  MathRouteRoute: typeof MathRouteRouteWithChildren
-  MediaRouteRoute: typeof MediaRouteRouteWithChildren
-  ReferenceRouteRoute: typeof ReferenceRouteRouteWithChildren
-  TextToolsRouteRoute: typeof TextToolsRouteRouteWithChildren
-  ValidatorsRouteRoute: typeof ValidatorsRouteRouteWithChildren
+  ToolsRoute: typeof ToolsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/validators': {
-      id: '/validators'
-      path: '/validators'
-      fullPath: '/validators'
-      preLoaderRoute: typeof ValidatorsRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/text-tools': {
-      id: '/text-tools'
-      path: '/text-tools'
-      fullPath: '/text-tools'
-      preLoaderRoute: typeof TextToolsRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reference': {
-      id: '/reference'
-      path: '/reference'
-      fullPath: '/reference'
-      preLoaderRoute: typeof ReferenceRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/media': {
-      id: '/media'
-      path: '/media'
-      fullPath: '/media'
-      preLoaderRoute: typeof MediaRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/math': {
-      id: '/math'
-      path: '/math'
-      fullPath: '/math'
-      preLoaderRoute: typeof MathRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/generators': {
-      id: '/generators'
-      path: '/generators'
-      fullPath: '/generators'
-      preLoaderRoute: typeof GeneratorsRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/formatters': {
-      id: '/formatters'
-      path: '/formatters'
-      fullPath: '/formatters'
-      preLoaderRoute: typeof FormattersRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/encoders': {
-      id: '/encoders'
-      path: '/encoders'
-      fullPath: '/encoders'
-      preLoaderRoute: typeof EncodersRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dev-tools': {
-      id: '/dev-tools'
-      path: '/dev-tools'
-      fullPath: '/dev-tools'
-      preLoaderRoute: typeof DevToolsRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/decoders': {
-      id: '/decoders'
-      path: '/decoders'
-      fullPath: '/decoders'
-      preLoaderRoute: typeof DecodersRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/crypto': {
-      id: '/crypto'
-      path: '/crypto'
-      fullPath: '/crypto'
-      preLoaderRoute: typeof CryptoRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/converters': {
-      id: '/converters'
-      path: '/converters'
-      fullPath: '/converters'
-      preLoaderRoute: typeof ConvertersRouteRouteImport
+    '/_tools': {
+      id: '/_tools'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof ToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -1366,935 +1179,813 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/validators/yaml-validator': {
-      id: '/validators/yaml-validator'
-      path: '/yaml-validator'
+    '/_tools/validators/yaml-validator': {
+      id: '/_tools/validators/yaml-validator'
+      path: '/validators/yaml-validator'
       fullPath: '/validators/yaml-validator'
-      preLoaderRoute: typeof ValidatorsYamlValidatorRouteImport
-      parentRoute: typeof ValidatorsRouteRoute
+      preLoaderRoute: typeof ToolsValidatorsYamlValidatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/validators/validator': {
-      id: '/validators/validator'
-      path: '/validator'
+    '/_tools/validators/validator': {
+      id: '/_tools/validators/validator'
+      path: '/validators/validator'
       fullPath: '/validators/validator'
-      preLoaderRoute: typeof ValidatorsValidatorRouteImport
-      parentRoute: typeof ValidatorsRouteRoute
+      preLoaderRoute: typeof ToolsValidatorsValidatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/validators/json-validator': {
-      id: '/validators/json-validator'
-      path: '/json-validator'
+    '/_tools/validators/json-validator': {
+      id: '/_tools/validators/json-validator'
+      path: '/validators/json-validator'
       fullPath: '/validators/json-validator'
-      preLoaderRoute: typeof ValidatorsJsonValidatorRouteImport
-      parentRoute: typeof ValidatorsRouteRoute
+      preLoaderRoute: typeof ToolsValidatorsJsonValidatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/validators/json-schema-validator': {
-      id: '/validators/json-schema-validator'
-      path: '/json-schema-validator'
+    '/_tools/validators/json-schema-validator': {
+      id: '/_tools/validators/json-schema-validator'
+      path: '/validators/json-schema-validator'
       fullPath: '/validators/json-schema-validator'
-      preLoaderRoute: typeof ValidatorsJsonSchemaValidatorRouteImport
-      parentRoute: typeof ValidatorsRouteRoute
+      preLoaderRoute: typeof ToolsValidatorsJsonSchemaValidatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/text-tools': {
-      id: '/text-tools/text-tools'
-      path: '/text-tools'
+    '/_tools/text-tools/text-tools': {
+      id: '/_tools/text-tools/text-tools'
+      path: '/text-tools/text-tools'
       fullPath: '/text-tools/text-tools'
-      preLoaderRoute: typeof TextToolsTextToolsRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsTextToolsRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/text-statistics': {
-      id: '/text-tools/text-statistics'
-      path: '/text-statistics'
+    '/_tools/text-tools/text-statistics': {
+      id: '/_tools/text-tools/text-statistics'
+      path: '/text-tools/text-statistics'
       fullPath: '/text-tools/text-statistics'
-      preLoaderRoute: typeof TextToolsTextStatisticsRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsTextStatisticsRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/string-counter': {
-      id: '/text-tools/string-counter'
-      path: '/string-counter'
+    '/_tools/text-tools/string-counter': {
+      id: '/_tools/text-tools/string-counter'
+      path: '/text-tools/string-counter'
       fullPath: '/text-tools/string-counter'
-      preLoaderRoute: typeof TextToolsStringCounterRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsStringCounterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/regex-tester': {
-      id: '/text-tools/regex-tester'
-      path: '/regex-tester'
+    '/_tools/text-tools/regex-tester': {
+      id: '/_tools/text-tools/regex-tester'
+      path: '/text-tools/regex-tester'
       fullPath: '/text-tools/regex-tester'
-      preLoaderRoute: typeof TextToolsRegexTesterRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsRegexTesterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/markdown-preview': {
-      id: '/text-tools/markdown-preview'
-      path: '/markdown-preview'
+    '/_tools/text-tools/markdown-preview': {
+      id: '/_tools/text-tools/markdown-preview'
+      path: '/text-tools/markdown-preview'
       fullPath: '/text-tools/markdown-preview'
-      preLoaderRoute: typeof TextToolsMarkdownPreviewRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsMarkdownPreviewRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/levenshtein': {
-      id: '/text-tools/levenshtein'
-      path: '/levenshtein'
+    '/_tools/text-tools/levenshtein': {
+      id: '/_tools/text-tools/levenshtein'
+      path: '/text-tools/levenshtein'
       fullPath: '/text-tools/levenshtein'
-      preLoaderRoute: typeof TextToolsLevenshteinRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsLevenshteinRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/diff': {
-      id: '/text-tools/diff'
-      path: '/diff'
+    '/_tools/text-tools/diff': {
+      id: '/_tools/text-tools/diff'
+      path: '/text-tools/diff'
       fullPath: '/text-tools/diff'
-      preLoaderRoute: typeof TextToolsDiffRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsDiffRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/case-converter': {
-      id: '/text-tools/case-converter'
-      path: '/case-converter'
+    '/_tools/text-tools/case-converter': {
+      id: '/_tools/text-tools/case-converter'
+      path: '/text-tools/case-converter'
       fullPath: '/text-tools/case-converter'
-      preLoaderRoute: typeof TextToolsCaseConverterRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsCaseConverterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/text-tools/ascii-art': {
-      id: '/text-tools/ascii-art'
-      path: '/ascii-art'
+    '/_tools/text-tools/ascii-art': {
+      id: '/_tools/text-tools/ascii-art'
+      path: '/text-tools/ascii-art'
       fullPath: '/text-tools/ascii-art'
-      preLoaderRoute: typeof TextToolsAsciiArtRouteImport
-      parentRoute: typeof TextToolsRouteRoute
+      preLoaderRoute: typeof ToolsTextToolsAsciiArtRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/reference/http-status': {
-      id: '/reference/http-status'
-      path: '/http-status'
+    '/_tools/reference/http-status': {
+      id: '/_tools/reference/http-status'
+      path: '/reference/http-status'
       fullPath: '/reference/http-status'
-      preLoaderRoute: typeof ReferenceHttpStatusRouteImport
-      parentRoute: typeof ReferenceRouteRoute
+      preLoaderRoute: typeof ToolsReferenceHttpStatusRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/media/svg-optimizer': {
-      id: '/media/svg-optimizer'
-      path: '/svg-optimizer'
+    '/_tools/media/svg-optimizer': {
+      id: '/_tools/media/svg-optimizer'
+      path: '/media/svg-optimizer'
       fullPath: '/media/svg-optimizer'
-      preLoaderRoute: typeof MediaSvgOptimizerRouteImport
-      parentRoute: typeof MediaRouteRoute
+      preLoaderRoute: typeof ToolsMediaSvgOptimizerRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/media/image-resizer': {
-      id: '/media/image-resizer'
-      path: '/image-resizer'
+    '/_tools/media/image-resizer': {
+      id: '/_tools/media/image-resizer'
+      path: '/media/image-resizer'
       fullPath: '/media/image-resizer'
-      preLoaderRoute: typeof MediaImageResizerRouteImport
-      parentRoute: typeof MediaRouteRoute
+      preLoaderRoute: typeof ToolsMediaImageResizerRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/media/image-compressor': {
-      id: '/media/image-compressor'
-      path: '/image-compressor'
+    '/_tools/media/image-compressor': {
+      id: '/_tools/media/image-compressor'
+      path: '/media/image-compressor'
       fullPath: '/media/image-compressor'
-      preLoaderRoute: typeof MediaImageCompressorRouteImport
-      parentRoute: typeof MediaRouteRoute
+      preLoaderRoute: typeof ToolsMediaImageCompressorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/media/favicon-generator': {
-      id: '/media/favicon-generator'
-      path: '/favicon-generator'
+    '/_tools/media/favicon-generator': {
+      id: '/_tools/media/favicon-generator'
+      path: '/media/favicon-generator'
       fullPath: '/media/favicon-generator'
-      preLoaderRoute: typeof MediaFaviconGeneratorRouteImport
-      parentRoute: typeof MediaRouteRoute
+      preLoaderRoute: typeof ToolsMediaFaviconGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/math/percentage-calculator': {
-      id: '/math/percentage-calculator'
-      path: '/percentage-calculator'
+    '/_tools/math/percentage-calculator': {
+      id: '/_tools/math/percentage-calculator'
+      path: '/math/percentage-calculator'
       fullPath: '/math/percentage-calculator'
-      preLoaderRoute: typeof MathPercentageCalculatorRouteImport
-      parentRoute: typeof MathRouteRoute
+      preLoaderRoute: typeof ToolsMathPercentageCalculatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/math/expression-evaluator': {
-      id: '/math/expression-evaluator'
-      path: '/expression-evaluator'
+    '/_tools/math/expression-evaluator': {
+      id: '/_tools/math/expression-evaluator'
+      path: '/math/expression-evaluator'
       fullPath: '/math/expression-evaluator'
-      preLoaderRoute: typeof MathExpressionEvaluatorRouteImport
-      parentRoute: typeof MathRouteRoute
+      preLoaderRoute: typeof ToolsMathExpressionEvaluatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/math/date-calculator': {
-      id: '/math/date-calculator'
-      path: '/date-calculator'
+    '/_tools/math/date-calculator': {
+      id: '/_tools/math/date-calculator'
+      path: '/math/date-calculator'
       fullPath: '/math/date-calculator'
-      preLoaderRoute: typeof MathDateCalculatorRouteImport
-      parentRoute: typeof MathRouteRoute
+      preLoaderRoute: typeof ToolsMathDateCalculatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/math/binary-calculator': {
-      id: '/math/binary-calculator'
-      path: '/binary-calculator'
+    '/_tools/math/binary-calculator': {
+      id: '/_tools/math/binary-calculator'
+      path: '/math/binary-calculator'
       fullPath: '/math/binary-calculator'
-      preLoaderRoute: typeof MathBinaryCalculatorRouteImport
-      parentRoute: typeof MathRouteRoute
+      preLoaderRoute: typeof ToolsMathBinaryCalculatorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/uuid': {
-      id: '/generators/uuid'
-      path: '/uuid'
+    '/_tools/generators/uuid': {
+      id: '/_tools/generators/uuid'
+      path: '/generators/uuid'
       fullPath: '/generators/uuid'
-      preLoaderRoute: typeof GeneratorsUuidRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsUuidRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/slug-generator': {
-      id: '/generators/slug-generator'
-      path: '/slug-generator'
+    '/_tools/generators/slug-generator': {
+      id: '/_tools/generators/slug-generator'
+      path: '/generators/slug-generator'
       fullPath: '/generators/slug-generator'
-      preLoaderRoute: typeof GeneratorsSlugGeneratorRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsSlugGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/sitemap-generator': {
-      id: '/generators/sitemap-generator'
-      path: '/sitemap-generator'
+    '/_tools/generators/sitemap-generator': {
+      id: '/_tools/generators/sitemap-generator'
+      path: '/generators/sitemap-generator'
       fullPath: '/generators/sitemap-generator'
-      preLoaderRoute: typeof GeneratorsSitemapGeneratorRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsSitemapGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/security-txt': {
-      id: '/generators/security-txt'
-      path: '/security-txt'
+    '/_tools/generators/security-txt': {
+      id: '/_tools/generators/security-txt'
+      path: '/generators/security-txt'
       fullPath: '/generators/security-txt'
-      preLoaderRoute: typeof GeneratorsSecurityTxtRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsSecurityTxtRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/secrets-generator': {
-      id: '/generators/secrets-generator'
-      path: '/secrets-generator'
+    '/_tools/generators/secrets-generator': {
+      id: '/_tools/generators/secrets-generator'
+      path: '/generators/secrets-generator'
       fullPath: '/generators/secrets-generator'
-      preLoaderRoute: typeof GeneratorsSecretsGeneratorRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsSecretsGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/robots-txt': {
-      id: '/generators/robots-txt'
-      path: '/robots-txt'
+    '/_tools/generators/robots-txt': {
+      id: '/_tools/generators/robots-txt'
+      path: '/generators/robots-txt'
       fullPath: '/generators/robots-txt'
-      preLoaderRoute: typeof GeneratorsRobotsTxtRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsRobotsTxtRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/random-data': {
-      id: '/generators/random-data'
-      path: '/random-data'
+    '/_tools/generators/random-data': {
+      id: '/_tools/generators/random-data'
+      path: '/generators/random-data'
       fullPath: '/generators/random-data'
-      preLoaderRoute: typeof GeneratorsRandomDataRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsRandomDataRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/qr-scanner': {
-      id: '/generators/qr-scanner'
-      path: '/qr-scanner'
+    '/_tools/generators/qr-scanner': {
+      id: '/_tools/generators/qr-scanner'
+      path: '/generators/qr-scanner'
       fullPath: '/generators/qr-scanner'
-      preLoaderRoute: typeof GeneratorsQrScannerRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsQrScannerRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/qr-code': {
-      id: '/generators/qr-code'
-      path: '/qr-code'
+    '/_tools/generators/qr-code': {
+      id: '/_tools/generators/qr-code'
+      path: '/generators/qr-code'
       fullPath: '/generators/qr-code'
-      preLoaderRoute: typeof GeneratorsQrCodeRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsQrCodeRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/password-generator': {
-      id: '/generators/password-generator'
-      path: '/password-generator'
+    '/_tools/generators/password-generator': {
+      id: '/_tools/generators/password-generator'
+      path: '/generators/password-generator'
       fullPath: '/generators/password-generator'
-      preLoaderRoute: typeof GeneratorsPasswordGeneratorRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsPasswordGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/open-graph-preview': {
-      id: '/generators/open-graph-preview'
-      path: '/open-graph-preview'
+    '/_tools/generators/open-graph-preview': {
+      id: '/_tools/generators/open-graph-preview'
+      path: '/generators/open-graph-preview'
       fullPath: '/generators/open-graph-preview'
-      preLoaderRoute: typeof GeneratorsOpenGraphPreviewRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsOpenGraphPreviewRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/mock-data': {
-      id: '/generators/mock-data'
-      path: '/mock-data'
+    '/_tools/generators/mock-data': {
+      id: '/_tools/generators/mock-data'
+      path: '/generators/mock-data'
       fullPath: '/generators/mock-data'
-      preLoaderRoute: typeof GeneratorsMockDataRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsMockDataRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/meta-tag-generator': {
-      id: '/generators/meta-tag-generator'
-      path: '/meta-tag-generator'
+    '/_tools/generators/meta-tag-generator': {
+      id: '/_tools/generators/meta-tag-generator'
+      path: '/generators/meta-tag-generator'
       fullPath: '/generators/meta-tag-generator'
-      preLoaderRoute: typeof GeneratorsMetaTagGeneratorRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsMetaTagGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/manifest-generator': {
-      id: '/generators/manifest-generator'
-      path: '/manifest-generator'
+    '/_tools/generators/manifest-generator': {
+      id: '/_tools/generators/manifest-generator'
+      path: '/generators/manifest-generator'
       fullPath: '/generators/manifest-generator'
-      preLoaderRoute: typeof GeneratorsManifestGeneratorRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsManifestGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/lorem-ipsum': {
-      id: '/generators/lorem-ipsum'
-      path: '/lorem-ipsum'
+    '/_tools/generators/lorem-ipsum': {
+      id: '/_tools/generators/lorem-ipsum'
+      path: '/generators/lorem-ipsum'
       fullPath: '/generators/lorem-ipsum'
-      preLoaderRoute: typeof GeneratorsLoremIpsumRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsLoremIpsumRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/htaccess-generator': {
-      id: '/generators/htaccess-generator'
-      path: '/htaccess-generator'
+    '/_tools/generators/htaccess-generator': {
+      id: '/_tools/generators/htaccess-generator'
+      path: '/generators/htaccess-generator'
       fullPath: '/generators/htaccess-generator'
-      preLoaderRoute: typeof GeneratorsHtaccessGeneratorRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsHtaccessGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/data-uri': {
-      id: '/generators/data-uri'
-      path: '/data-uri'
+    '/_tools/generators/data-uri': {
+      id: '/_tools/generators/data-uri'
+      path: '/generators/data-uri'
       fullPath: '/generators/data-uri'
-      preLoaderRoute: typeof GeneratorsDataUriRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsDataUriRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/generators/color-palette': {
-      id: '/generators/color-palette'
-      path: '/color-palette'
+    '/_tools/generators/color-palette': {
+      id: '/_tools/generators/color-palette'
+      path: '/generators/color-palette'
       fullPath: '/generators/color-palette'
-      preLoaderRoute: typeof GeneratorsColorPaletteRouteImport
-      parentRoute: typeof GeneratorsRouteRoute
+      preLoaderRoute: typeof ToolsGeneratorsColorPaletteRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/formatters/sql-formatter': {
-      id: '/formatters/sql-formatter'
-      path: '/sql-formatter'
+    '/_tools/formatters/sql-formatter': {
+      id: '/_tools/formatters/sql-formatter'
+      path: '/formatters/sql-formatter'
       fullPath: '/formatters/sql-formatter'
-      preLoaderRoute: typeof FormattersSqlFormatterRouteImport
-      parentRoute: typeof FormattersRouteRoute
+      preLoaderRoute: typeof ToolsFormattersSqlFormatterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/formatters/json-formatter': {
-      id: '/formatters/json-formatter'
-      path: '/json-formatter'
+    '/_tools/formatters/json-formatter': {
+      id: '/_tools/formatters/json-formatter'
+      path: '/formatters/json-formatter'
       fullPath: '/formatters/json-formatter'
-      preLoaderRoute: typeof FormattersJsonFormatterRouteImport
-      parentRoute: typeof FormattersRouteRoute
+      preLoaderRoute: typeof ToolsFormattersJsonFormatterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/formatters/json-diff': {
-      id: '/formatters/json-diff'
-      path: '/json-diff'
+    '/_tools/formatters/json-diff': {
+      id: '/_tools/formatters/json-diff'
+      path: '/formatters/json-diff'
       fullPath: '/formatters/json-diff'
-      preLoaderRoute: typeof FormattersJsonDiffRouteImport
-      parentRoute: typeof FormattersRouteRoute
+      preLoaderRoute: typeof ToolsFormattersJsonDiffRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/formatters/html-formatter': {
-      id: '/formatters/html-formatter'
-      path: '/html-formatter'
+    '/_tools/formatters/html-formatter': {
+      id: '/_tools/formatters/html-formatter'
+      path: '/formatters/html-formatter'
       fullPath: '/formatters/html-formatter'
-      preLoaderRoute: typeof FormattersHtmlFormatterRouteImport
-      parentRoute: typeof FormattersRouteRoute
+      preLoaderRoute: typeof ToolsFormattersHtmlFormatterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/formatters/graphql-formatter': {
-      id: '/formatters/graphql-formatter'
-      path: '/graphql-formatter'
+    '/_tools/formatters/graphql-formatter': {
+      id: '/_tools/formatters/graphql-formatter'
+      path: '/formatters/graphql-formatter'
       fullPath: '/formatters/graphql-formatter'
-      preLoaderRoute: typeof FormattersGraphqlFormatterRouteImport
-      parentRoute: typeof FormattersRouteRoute
+      preLoaderRoute: typeof ToolsFormattersGraphqlFormatterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/formatters/css-minifier': {
-      id: '/formatters/css-minifier'
-      path: '/css-minifier'
+    '/_tools/formatters/css-minifier': {
+      id: '/_tools/formatters/css-minifier'
+      path: '/formatters/css-minifier'
       fullPath: '/formatters/css-minifier'
-      preLoaderRoute: typeof FormattersCssMinifierRouteImport
-      parentRoute: typeof FormattersRouteRoute
+      preLoaderRoute: typeof ToolsFormattersCssMinifierRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/encoders/url-encode': {
-      id: '/encoders/url-encode'
-      path: '/url-encode'
+    '/_tools/encoders/url-encode': {
+      id: '/_tools/encoders/url-encode'
+      path: '/encoders/url-encode'
       fullPath: '/encoders/url-encode'
-      preLoaderRoute: typeof EncodersUrlEncodeRouteImport
-      parentRoute: typeof EncodersRouteRoute
+      preLoaderRoute: typeof ToolsEncodersUrlEncodeRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/encoders/string-escape': {
-      id: '/encoders/string-escape'
-      path: '/string-escape'
+    '/_tools/encoders/string-escape': {
+      id: '/_tools/encoders/string-escape'
+      path: '/encoders/string-escape'
       fullPath: '/encoders/string-escape'
-      preLoaderRoute: typeof EncodersStringEscapeRouteImport
-      parentRoute: typeof EncodersRouteRoute
+      preLoaderRoute: typeof ToolsEncodersStringEscapeRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/encoders/morse-code': {
-      id: '/encoders/morse-code'
-      path: '/morse-code'
+    '/_tools/encoders/morse-code': {
+      id: '/_tools/encoders/morse-code'
+      path: '/encoders/morse-code'
       fullPath: '/encoders/morse-code'
-      preLoaderRoute: typeof EncodersMorseCodeRouteImport
-      parentRoute: typeof EncodersRouteRoute
+      preLoaderRoute: typeof ToolsEncodersMorseCodeRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/encoders/image-to-base64': {
-      id: '/encoders/image-to-base64'
-      path: '/image-to-base64'
+    '/_tools/encoders/image-to-base64': {
+      id: '/_tools/encoders/image-to-base64'
+      path: '/encoders/image-to-base64'
       fullPath: '/encoders/image-to-base64'
-      preLoaderRoute: typeof EncodersImageToBase64RouteImport
-      parentRoute: typeof EncodersRouteRoute
+      preLoaderRoute: typeof ToolsEncodersImageToBase64RouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/encoders/html-entity': {
-      id: '/encoders/html-entity'
-      path: '/html-entity'
+    '/_tools/encoders/html-entity': {
+      id: '/_tools/encoders/html-entity'
+      path: '/encoders/html-entity'
       fullPath: '/encoders/html-entity'
-      preLoaderRoute: typeof EncodersHtmlEntityRouteImport
-      parentRoute: typeof EncodersRouteRoute
+      preLoaderRoute: typeof ToolsEncodersHtmlEntityRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/encoders/cipher': {
-      id: '/encoders/cipher'
-      path: '/cipher'
+    '/_tools/encoders/cipher': {
+      id: '/_tools/encoders/cipher'
+      path: '/encoders/cipher'
       fullPath: '/encoders/cipher'
-      preLoaderRoute: typeof EncodersCipherRouteImport
-      parentRoute: typeof EncodersRouteRoute
+      preLoaderRoute: typeof ToolsEncodersCipherRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/encoders/backslash-escape': {
-      id: '/encoders/backslash-escape'
-      path: '/backslash-escape'
+    '/_tools/encoders/backslash-escape': {
+      id: '/_tools/encoders/backslash-escape'
+      path: '/encoders/backslash-escape'
       fullPath: '/encoders/backslash-escape'
-      preLoaderRoute: typeof EncodersBackslashEscapeRouteImport
-      parentRoute: typeof EncodersRouteRoute
+      preLoaderRoute: typeof ToolsEncodersBackslashEscapeRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/user-agent-parser': {
-      id: '/dev-tools/user-agent-parser'
-      path: '/user-agent-parser'
+    '/_tools/dev-tools/user-agent-parser': {
+      id: '/_tools/dev-tools/user-agent-parser'
+      path: '/dev-tools/user-agent-parser'
       fullPath: '/dev-tools/user-agent-parser'
-      preLoaderRoute: typeof DevToolsUserAgentParserRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsUserAgentParserRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/url-parser': {
-      id: '/dev-tools/url-parser'
-      path: '/url-parser'
+    '/_tools/dev-tools/url-parser': {
+      id: '/_tools/dev-tools/url-parser'
+      path: '/dev-tools/url-parser'
       fullPath: '/dev-tools/url-parser'
-      preLoaderRoute: typeof DevToolsUrlParserRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsUrlParserRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/package-json-analyzer': {
-      id: '/dev-tools/package-json-analyzer'
-      path: '/package-json-analyzer'
+    '/_tools/dev-tools/package-json-analyzer': {
+      id: '/_tools/dev-tools/package-json-analyzer'
+      path: '/dev-tools/package-json-analyzer'
       fullPath: '/dev-tools/package-json-analyzer'
-      preLoaderRoute: typeof DevToolsPackageJsonAnalyzerRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsPackageJsonAnalyzerRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/json-path-tester': {
-      id: '/dev-tools/json-path-tester'
-      path: '/json-path-tester'
+    '/_tools/dev-tools/json-path-tester': {
+      id: '/_tools/dev-tools/json-path-tester'
+      path: '/dev-tools/json-path-tester'
       fullPath: '/dev-tools/json-path-tester'
-      preLoaderRoute: typeof DevToolsJsonPathTesterRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsJsonPathTesterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/js-minifier': {
-      id: '/dev-tools/js-minifier'
-      path: '/js-minifier'
+    '/_tools/dev-tools/js-minifier': {
+      id: '/_tools/dev-tools/js-minifier'
+      path: '/dev-tools/js-minifier'
       fullPath: '/dev-tools/js-minifier'
-      preLoaderRoute: typeof DevToolsJsMinifierRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsJsMinifierRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/ip-subnet': {
-      id: '/dev-tools/ip-subnet'
-      path: '/ip-subnet'
+    '/_tools/dev-tools/ip-subnet': {
+      id: '/_tools/dev-tools/ip-subnet'
+      path: '/dev-tools/ip-subnet'
       fullPath: '/dev-tools/ip-subnet'
-      preLoaderRoute: typeof DevToolsIpSubnetRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsIpSubnetRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/cron-parser': {
-      id: '/dev-tools/cron-parser'
-      path: '/cron-parser'
+    '/_tools/dev-tools/cron-parser': {
+      id: '/_tools/dev-tools/cron-parser'
+      path: '/dev-tools/cron-parser'
       fullPath: '/dev-tools/cron-parser'
-      preLoaderRoute: typeof DevToolsCronParserRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsCronParserRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/cron-builder': {
-      id: '/dev-tools/cron-builder'
-      path: '/cron-builder'
+    '/_tools/dev-tools/cron-builder': {
+      id: '/_tools/dev-tools/cron-builder'
+      path: '/dev-tools/cron-builder'
       fullPath: '/dev-tools/cron-builder'
-      preLoaderRoute: typeof DevToolsCronBuilderRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsCronBuilderRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/dev-tools/chmod': {
-      id: '/dev-tools/chmod'
-      path: '/chmod'
+    '/_tools/dev-tools/chmod': {
+      id: '/_tools/dev-tools/chmod'
+      path: '/dev-tools/chmod'
       fullPath: '/dev-tools/chmod'
-      preLoaderRoute: typeof DevToolsChmodRouteImport
-      parentRoute: typeof DevToolsRouteRoute
+      preLoaderRoute: typeof ToolsDevToolsChmodRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/decoders/jwt-decoder': {
-      id: '/decoders/jwt-decoder'
-      path: '/jwt-decoder'
+    '/_tools/decoders/jwt-decoder': {
+      id: '/_tools/decoders/jwt-decoder'
+      path: '/decoders/jwt-decoder'
       fullPath: '/decoders/jwt-decoder'
-      preLoaderRoute: typeof DecodersJwtDecoderRouteImport
-      parentRoute: typeof DecodersRouteRoute
+      preLoaderRoute: typeof ToolsDecodersJwtDecoderRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/totp': {
-      id: '/crypto/totp'
-      path: '/totp'
+    '/_tools/crypto/totp': {
+      id: '/_tools/crypto/totp'
+      path: '/crypto/totp'
       fullPath: '/crypto/totp'
-      preLoaderRoute: typeof CryptoTotpRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoTotpRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/jwt-verifier': {
-      id: '/crypto/jwt-verifier'
-      path: '/jwt-verifier'
+    '/_tools/crypto/jwt-verifier': {
+      id: '/_tools/crypto/jwt-verifier'
+      path: '/crypto/jwt-verifier'
       fullPath: '/crypto/jwt-verifier'
-      preLoaderRoute: typeof CryptoJwtVerifierRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoJwtVerifierRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/jwt-generator': {
-      id: '/crypto/jwt-generator'
-      path: '/jwt-generator'
+    '/_tools/crypto/jwt-generator': {
+      id: '/_tools/crypto/jwt-generator'
+      path: '/crypto/jwt-generator'
       fullPath: '/crypto/jwt-generator'
-      preLoaderRoute: typeof CryptoJwtGeneratorRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoJwtGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/hmac': {
-      id: '/crypto/hmac'
-      path: '/hmac'
+    '/_tools/crypto/hmac': {
+      id: '/_tools/crypto/hmac'
+      path: '/crypto/hmac'
       fullPath: '/crypto/hmac'
-      preLoaderRoute: typeof CryptoHmacRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoHmacRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/hash': {
-      id: '/crypto/hash'
-      path: '/hash'
+    '/_tools/crypto/hash': {
+      id: '/_tools/crypto/hash'
+      path: '/crypto/hash'
       fullPath: '/crypto/hash'
-      preLoaderRoute: typeof CryptoHashRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoHashRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/certificate-decoder': {
-      id: '/crypto/certificate-decoder'
-      path: '/certificate-decoder'
+    '/_tools/crypto/certificate-decoder': {
+      id: '/_tools/crypto/certificate-decoder'
+      path: '/crypto/certificate-decoder'
       fullPath: '/crypto/certificate-decoder'
-      preLoaderRoute: typeof CryptoCertificateDecoderRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoCertificateDecoderRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/bcrypt': {
-      id: '/crypto/bcrypt'
-      path: '/bcrypt'
+    '/_tools/crypto/bcrypt': {
+      id: '/_tools/crypto/bcrypt'
+      path: '/crypto/bcrypt'
       fullPath: '/crypto/bcrypt'
-      preLoaderRoute: typeof CryptoBcryptRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoBcryptRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/crypto/aes-encrypt': {
-      id: '/crypto/aes-encrypt'
-      path: '/aes-encrypt'
+    '/_tools/crypto/aes-encrypt': {
+      id: '/_tools/crypto/aes-encrypt'
+      path: '/crypto/aes-encrypt'
       fullPath: '/crypto/aes-encrypt'
-      preLoaderRoute: typeof CryptoAesEncryptRouteImport
-      parentRoute: typeof CryptoRouteRoute
+      preLoaderRoute: typeof ToolsCryptoAesEncryptRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/xml-to-yaml': {
-      id: '/converters/xml-to-yaml'
-      path: '/xml-to-yaml'
+    '/_tools/converters/xml-to-yaml': {
+      id: '/_tools/converters/xml-to-yaml'
+      path: '/converters/xml-to-yaml'
       fullPath: '/converters/xml-to-yaml'
-      preLoaderRoute: typeof ConvertersXmlToYamlRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersXmlToYamlRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/xml-json': {
-      id: '/converters/xml-json'
-      path: '/xml-json'
+    '/_tools/converters/xml-json': {
+      id: '/_tools/converters/xml-json'
+      path: '/converters/xml-json'
       fullPath: '/converters/xml-json'
-      preLoaderRoute: typeof ConvertersXmlJsonRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersXmlJsonRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/unit-converter': {
-      id: '/converters/unit-converter'
-      path: '/unit-converter'
+    '/_tools/converters/unit-converter': {
+      id: '/_tools/converters/unit-converter'
+      path: '/converters/unit-converter'
       fullPath: '/converters/unit-converter'
-      preLoaderRoute: typeof ConvertersUnitConverterRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersUnitConverterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/timezone-converter': {
-      id: '/converters/timezone-converter'
-      path: '/timezone-converter'
+    '/_tools/converters/timezone-converter': {
+      id: '/_tools/converters/timezone-converter'
+      path: '/converters/timezone-converter'
       fullPath: '/converters/timezone-converter'
-      preLoaderRoute: typeof ConvertersTimezoneConverterRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersTimezoneConverterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/timestamp': {
-      id: '/converters/timestamp'
-      path: '/timestamp'
+    '/_tools/converters/timestamp': {
+      id: '/_tools/converters/timestamp'
+      path: '/converters/timestamp'
       fullPath: '/converters/timestamp'
-      preLoaderRoute: typeof ConvertersTimestampRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersTimestampRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/sql-to-json': {
-      id: '/converters/sql-to-json'
-      path: '/sql-to-json'
+    '/_tools/converters/sql-to-json': {
+      id: '/_tools/converters/sql-to-json'
+      path: '/converters/sql-to-json'
       fullPath: '/converters/sql-to-json'
-      preLoaderRoute: typeof ConvertersSqlToJsonRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersSqlToJsonRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/number-base': {
-      id: '/converters/number-base'
-      path: '/number-base'
+    '/_tools/converters/number-base': {
+      id: '/_tools/converters/number-base'
+      path: '/converters/number-base'
       fullPath: '/converters/number-base'
-      preLoaderRoute: typeof ConvertersNumberBaseRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersNumberBaseRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/markdown-to-html': {
-      id: '/converters/markdown-to-html'
-      path: '/markdown-to-html'
+    '/_tools/converters/markdown-to-html': {
+      id: '/_tools/converters/markdown-to-html'
+      path: '/converters/markdown-to-html'
       fullPath: '/converters/markdown-to-html'
-      preLoaderRoute: typeof ConvertersMarkdownToHtmlRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersMarkdownToHtmlRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/json-yaml': {
-      id: '/converters/json-yaml'
-      path: '/json-yaml'
+    '/_tools/converters/json-yaml': {
+      id: '/_tools/converters/json-yaml'
+      path: '/converters/json-yaml'
       fullPath: '/converters/json-yaml'
-      preLoaderRoute: typeof ConvertersJsonYamlRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersJsonYamlRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/json-to-typescript': {
-      id: '/converters/json-to-typescript'
-      path: '/json-to-typescript'
+    '/_tools/converters/json-to-typescript': {
+      id: '/_tools/converters/json-to-typescript'
+      path: '/converters/json-to-typescript'
       fullPath: '/converters/json-to-typescript'
-      preLoaderRoute: typeof ConvertersJsonToTypescriptRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersJsonToTypescriptRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/json-to-csv': {
-      id: '/converters/json-to-csv'
-      path: '/json-to-csv'
+    '/_tools/converters/json-to-csv': {
+      id: '/_tools/converters/json-to-csv'
+      path: '/converters/json-to-csv'
       fullPath: '/converters/json-to-csv'
-      preLoaderRoute: typeof ConvertersJsonToCsvRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersJsonToCsvRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/csv-to-json': {
-      id: '/converters/csv-to-json'
-      path: '/csv-to-json'
+    '/_tools/converters/csv-to-json': {
+      id: '/_tools/converters/csv-to-json'
+      path: '/converters/csv-to-json'
       fullPath: '/converters/csv-to-json'
-      preLoaderRoute: typeof ConvertersCsvToJsonRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersCsvToJsonRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/csv-json': {
-      id: '/converters/csv-json'
-      path: '/csv-json'
+    '/_tools/converters/csv-json': {
+      id: '/_tools/converters/csv-json'
+      path: '/converters/csv-json'
       fullPath: '/converters/csv-json'
-      preLoaderRoute: typeof ConvertersCsvJsonRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersCsvJsonRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/css-unit': {
-      id: '/converters/css-unit'
-      path: '/css-unit'
+    '/_tools/converters/css-unit': {
+      id: '/_tools/converters/css-unit'
+      path: '/converters/css-unit'
       fullPath: '/converters/css-unit'
-      preLoaderRoute: typeof ConvertersCssUnitRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersCssUnitRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/color-converter': {
-      id: '/converters/color-converter'
-      path: '/color-converter'
+    '/_tools/converters/color-converter': {
+      id: '/_tools/converters/color-converter'
+      path: '/converters/color-converter'
       fullPath: '/converters/color-converter'
-      preLoaderRoute: typeof ConvertersColorConverterRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersColorConverterRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/base64-image': {
-      id: '/converters/base64-image'
-      path: '/base64-image'
+    '/_tools/converters/base64-image': {
+      id: '/_tools/converters/base64-image'
+      path: '/converters/base64-image'
       fullPath: '/converters/base64-image'
-      preLoaderRoute: typeof ConvertersBase64ImageRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersBase64ImageRouteImport
+      parentRoute: typeof ToolsRoute
     }
-    '/converters/base-conversion': {
-      id: '/converters/base-conversion'
-      path: '/base-conversion'
+    '/_tools/converters/base-conversion': {
+      id: '/_tools/converters/base-conversion'
+      path: '/converters/base-conversion'
       fullPath: '/converters/base-conversion'
-      preLoaderRoute: typeof ConvertersBaseConversionRouteImport
-      parentRoute: typeof ConvertersRouteRoute
+      preLoaderRoute: typeof ToolsConvertersBaseConversionRouteImport
+      parentRoute: typeof ToolsRoute
     }
   }
 }
 
-interface ConvertersRouteRouteChildren {
-  ConvertersBaseConversionRoute: typeof ConvertersBaseConversionRoute
-  ConvertersBase64ImageRoute: typeof ConvertersBase64ImageRoute
-  ConvertersColorConverterRoute: typeof ConvertersColorConverterRoute
-  ConvertersCssUnitRoute: typeof ConvertersCssUnitRoute
-  ConvertersCsvJsonRoute: typeof ConvertersCsvJsonRoute
-  ConvertersCsvToJsonRoute: typeof ConvertersCsvToJsonRoute
-  ConvertersJsonToCsvRoute: typeof ConvertersJsonToCsvRoute
-  ConvertersJsonToTypescriptRoute: typeof ConvertersJsonToTypescriptRoute
-  ConvertersJsonYamlRoute: typeof ConvertersJsonYamlRoute
-  ConvertersMarkdownToHtmlRoute: typeof ConvertersMarkdownToHtmlRoute
-  ConvertersNumberBaseRoute: typeof ConvertersNumberBaseRoute
-  ConvertersSqlToJsonRoute: typeof ConvertersSqlToJsonRoute
-  ConvertersTimestampRoute: typeof ConvertersTimestampRoute
-  ConvertersTimezoneConverterRoute: typeof ConvertersTimezoneConverterRoute
-  ConvertersUnitConverterRoute: typeof ConvertersUnitConverterRoute
-  ConvertersXmlJsonRoute: typeof ConvertersXmlJsonRoute
-  ConvertersXmlToYamlRoute: typeof ConvertersXmlToYamlRoute
+interface ToolsRouteChildren {
+  ToolsConvertersBaseConversionRoute: typeof ToolsConvertersBaseConversionRoute
+  ToolsConvertersBase64ImageRoute: typeof ToolsConvertersBase64ImageRoute
+  ToolsConvertersColorConverterRoute: typeof ToolsConvertersColorConverterRoute
+  ToolsConvertersCssUnitRoute: typeof ToolsConvertersCssUnitRoute
+  ToolsConvertersCsvJsonRoute: typeof ToolsConvertersCsvJsonRoute
+  ToolsConvertersCsvToJsonRoute: typeof ToolsConvertersCsvToJsonRoute
+  ToolsConvertersJsonToCsvRoute: typeof ToolsConvertersJsonToCsvRoute
+  ToolsConvertersJsonToTypescriptRoute: typeof ToolsConvertersJsonToTypescriptRoute
+  ToolsConvertersJsonYamlRoute: typeof ToolsConvertersJsonYamlRoute
+  ToolsConvertersMarkdownToHtmlRoute: typeof ToolsConvertersMarkdownToHtmlRoute
+  ToolsConvertersNumberBaseRoute: typeof ToolsConvertersNumberBaseRoute
+  ToolsConvertersSqlToJsonRoute: typeof ToolsConvertersSqlToJsonRoute
+  ToolsConvertersTimestampRoute: typeof ToolsConvertersTimestampRoute
+  ToolsConvertersTimezoneConverterRoute: typeof ToolsConvertersTimezoneConverterRoute
+  ToolsConvertersUnitConverterRoute: typeof ToolsConvertersUnitConverterRoute
+  ToolsConvertersXmlJsonRoute: typeof ToolsConvertersXmlJsonRoute
+  ToolsConvertersXmlToYamlRoute: typeof ToolsConvertersXmlToYamlRoute
+  ToolsCryptoAesEncryptRoute: typeof ToolsCryptoAesEncryptRoute
+  ToolsCryptoBcryptRoute: typeof ToolsCryptoBcryptRoute
+  ToolsCryptoCertificateDecoderRoute: typeof ToolsCryptoCertificateDecoderRoute
+  ToolsCryptoHashRoute: typeof ToolsCryptoHashRoute
+  ToolsCryptoHmacRoute: typeof ToolsCryptoHmacRoute
+  ToolsCryptoJwtGeneratorRoute: typeof ToolsCryptoJwtGeneratorRoute
+  ToolsCryptoJwtVerifierRoute: typeof ToolsCryptoJwtVerifierRoute
+  ToolsCryptoTotpRoute: typeof ToolsCryptoTotpRoute
+  ToolsDecodersJwtDecoderRoute: typeof ToolsDecodersJwtDecoderRoute
+  ToolsDevToolsChmodRoute: typeof ToolsDevToolsChmodRoute
+  ToolsDevToolsCronBuilderRoute: typeof ToolsDevToolsCronBuilderRoute
+  ToolsDevToolsCronParserRoute: typeof ToolsDevToolsCronParserRoute
+  ToolsDevToolsIpSubnetRoute: typeof ToolsDevToolsIpSubnetRoute
+  ToolsDevToolsJsMinifierRoute: typeof ToolsDevToolsJsMinifierRoute
+  ToolsDevToolsJsonPathTesterRoute: typeof ToolsDevToolsJsonPathTesterRoute
+  ToolsDevToolsPackageJsonAnalyzerRoute: typeof ToolsDevToolsPackageJsonAnalyzerRoute
+  ToolsDevToolsUrlParserRoute: typeof ToolsDevToolsUrlParserRoute
+  ToolsDevToolsUserAgentParserRoute: typeof ToolsDevToolsUserAgentParserRoute
+  ToolsEncodersBackslashEscapeRoute: typeof ToolsEncodersBackslashEscapeRoute
+  ToolsEncodersCipherRoute: typeof ToolsEncodersCipherRoute
+  ToolsEncodersHtmlEntityRoute: typeof ToolsEncodersHtmlEntityRoute
+  ToolsEncodersImageToBase64Route: typeof ToolsEncodersImageToBase64Route
+  ToolsEncodersMorseCodeRoute: typeof ToolsEncodersMorseCodeRoute
+  ToolsEncodersStringEscapeRoute: typeof ToolsEncodersStringEscapeRoute
+  ToolsEncodersUrlEncodeRoute: typeof ToolsEncodersUrlEncodeRoute
+  ToolsFormattersCssMinifierRoute: typeof ToolsFormattersCssMinifierRoute
+  ToolsFormattersGraphqlFormatterRoute: typeof ToolsFormattersGraphqlFormatterRoute
+  ToolsFormattersHtmlFormatterRoute: typeof ToolsFormattersHtmlFormatterRoute
+  ToolsFormattersJsonDiffRoute: typeof ToolsFormattersJsonDiffRoute
+  ToolsFormattersJsonFormatterRoute: typeof ToolsFormattersJsonFormatterRoute
+  ToolsFormattersSqlFormatterRoute: typeof ToolsFormattersSqlFormatterRoute
+  ToolsGeneratorsColorPaletteRoute: typeof ToolsGeneratorsColorPaletteRoute
+  ToolsGeneratorsDataUriRoute: typeof ToolsGeneratorsDataUriRoute
+  ToolsGeneratorsHtaccessGeneratorRoute: typeof ToolsGeneratorsHtaccessGeneratorRoute
+  ToolsGeneratorsLoremIpsumRoute: typeof ToolsGeneratorsLoremIpsumRoute
+  ToolsGeneratorsManifestGeneratorRoute: typeof ToolsGeneratorsManifestGeneratorRoute
+  ToolsGeneratorsMetaTagGeneratorRoute: typeof ToolsGeneratorsMetaTagGeneratorRoute
+  ToolsGeneratorsMockDataRoute: typeof ToolsGeneratorsMockDataRoute
+  ToolsGeneratorsOpenGraphPreviewRoute: typeof ToolsGeneratorsOpenGraphPreviewRoute
+  ToolsGeneratorsPasswordGeneratorRoute: typeof ToolsGeneratorsPasswordGeneratorRoute
+  ToolsGeneratorsQrCodeRoute: typeof ToolsGeneratorsQrCodeRoute
+  ToolsGeneratorsQrScannerRoute: typeof ToolsGeneratorsQrScannerRoute
+  ToolsGeneratorsRandomDataRoute: typeof ToolsGeneratorsRandomDataRoute
+  ToolsGeneratorsRobotsTxtRoute: typeof ToolsGeneratorsRobotsTxtRoute
+  ToolsGeneratorsSecretsGeneratorRoute: typeof ToolsGeneratorsSecretsGeneratorRoute
+  ToolsGeneratorsSecurityTxtRoute: typeof ToolsGeneratorsSecurityTxtRoute
+  ToolsGeneratorsSitemapGeneratorRoute: typeof ToolsGeneratorsSitemapGeneratorRoute
+  ToolsGeneratorsSlugGeneratorRoute: typeof ToolsGeneratorsSlugGeneratorRoute
+  ToolsGeneratorsUuidRoute: typeof ToolsGeneratorsUuidRoute
+  ToolsMathBinaryCalculatorRoute: typeof ToolsMathBinaryCalculatorRoute
+  ToolsMathDateCalculatorRoute: typeof ToolsMathDateCalculatorRoute
+  ToolsMathExpressionEvaluatorRoute: typeof ToolsMathExpressionEvaluatorRoute
+  ToolsMathPercentageCalculatorRoute: typeof ToolsMathPercentageCalculatorRoute
+  ToolsMediaFaviconGeneratorRoute: typeof ToolsMediaFaviconGeneratorRoute
+  ToolsMediaImageCompressorRoute: typeof ToolsMediaImageCompressorRoute
+  ToolsMediaImageResizerRoute: typeof ToolsMediaImageResizerRoute
+  ToolsMediaSvgOptimizerRoute: typeof ToolsMediaSvgOptimizerRoute
+  ToolsReferenceHttpStatusRoute: typeof ToolsReferenceHttpStatusRoute
+  ToolsTextToolsAsciiArtRoute: typeof ToolsTextToolsAsciiArtRoute
+  ToolsTextToolsCaseConverterRoute: typeof ToolsTextToolsCaseConverterRoute
+  ToolsTextToolsDiffRoute: typeof ToolsTextToolsDiffRoute
+  ToolsTextToolsLevenshteinRoute: typeof ToolsTextToolsLevenshteinRoute
+  ToolsTextToolsMarkdownPreviewRoute: typeof ToolsTextToolsMarkdownPreviewRoute
+  ToolsTextToolsRegexTesterRoute: typeof ToolsTextToolsRegexTesterRoute
+  ToolsTextToolsStringCounterRoute: typeof ToolsTextToolsStringCounterRoute
+  ToolsTextToolsTextStatisticsRoute: typeof ToolsTextToolsTextStatisticsRoute
+  ToolsTextToolsTextToolsRoute: typeof ToolsTextToolsTextToolsRoute
+  ToolsValidatorsJsonSchemaValidatorRoute: typeof ToolsValidatorsJsonSchemaValidatorRoute
+  ToolsValidatorsJsonValidatorRoute: typeof ToolsValidatorsJsonValidatorRoute
+  ToolsValidatorsValidatorRoute: typeof ToolsValidatorsValidatorRoute
+  ToolsValidatorsYamlValidatorRoute: typeof ToolsValidatorsYamlValidatorRoute
 }
 
-const ConvertersRouteRouteChildren: ConvertersRouteRouteChildren = {
-  ConvertersBaseConversionRoute: ConvertersBaseConversionRoute,
-  ConvertersBase64ImageRoute: ConvertersBase64ImageRoute,
-  ConvertersColorConverterRoute: ConvertersColorConverterRoute,
-  ConvertersCssUnitRoute: ConvertersCssUnitRoute,
-  ConvertersCsvJsonRoute: ConvertersCsvJsonRoute,
-  ConvertersCsvToJsonRoute: ConvertersCsvToJsonRoute,
-  ConvertersJsonToCsvRoute: ConvertersJsonToCsvRoute,
-  ConvertersJsonToTypescriptRoute: ConvertersJsonToTypescriptRoute,
-  ConvertersJsonYamlRoute: ConvertersJsonYamlRoute,
-  ConvertersMarkdownToHtmlRoute: ConvertersMarkdownToHtmlRoute,
-  ConvertersNumberBaseRoute: ConvertersNumberBaseRoute,
-  ConvertersSqlToJsonRoute: ConvertersSqlToJsonRoute,
-  ConvertersTimestampRoute: ConvertersTimestampRoute,
-  ConvertersTimezoneConverterRoute: ConvertersTimezoneConverterRoute,
-  ConvertersUnitConverterRoute: ConvertersUnitConverterRoute,
-  ConvertersXmlJsonRoute: ConvertersXmlJsonRoute,
-  ConvertersXmlToYamlRoute: ConvertersXmlToYamlRoute,
+const ToolsRouteChildren: ToolsRouteChildren = {
+  ToolsConvertersBaseConversionRoute: ToolsConvertersBaseConversionRoute,
+  ToolsConvertersBase64ImageRoute: ToolsConvertersBase64ImageRoute,
+  ToolsConvertersColorConverterRoute: ToolsConvertersColorConverterRoute,
+  ToolsConvertersCssUnitRoute: ToolsConvertersCssUnitRoute,
+  ToolsConvertersCsvJsonRoute: ToolsConvertersCsvJsonRoute,
+  ToolsConvertersCsvToJsonRoute: ToolsConvertersCsvToJsonRoute,
+  ToolsConvertersJsonToCsvRoute: ToolsConvertersJsonToCsvRoute,
+  ToolsConvertersJsonToTypescriptRoute: ToolsConvertersJsonToTypescriptRoute,
+  ToolsConvertersJsonYamlRoute: ToolsConvertersJsonYamlRoute,
+  ToolsConvertersMarkdownToHtmlRoute: ToolsConvertersMarkdownToHtmlRoute,
+  ToolsConvertersNumberBaseRoute: ToolsConvertersNumberBaseRoute,
+  ToolsConvertersSqlToJsonRoute: ToolsConvertersSqlToJsonRoute,
+  ToolsConvertersTimestampRoute: ToolsConvertersTimestampRoute,
+  ToolsConvertersTimezoneConverterRoute: ToolsConvertersTimezoneConverterRoute,
+  ToolsConvertersUnitConverterRoute: ToolsConvertersUnitConverterRoute,
+  ToolsConvertersXmlJsonRoute: ToolsConvertersXmlJsonRoute,
+  ToolsConvertersXmlToYamlRoute: ToolsConvertersXmlToYamlRoute,
+  ToolsCryptoAesEncryptRoute: ToolsCryptoAesEncryptRoute,
+  ToolsCryptoBcryptRoute: ToolsCryptoBcryptRoute,
+  ToolsCryptoCertificateDecoderRoute: ToolsCryptoCertificateDecoderRoute,
+  ToolsCryptoHashRoute: ToolsCryptoHashRoute,
+  ToolsCryptoHmacRoute: ToolsCryptoHmacRoute,
+  ToolsCryptoJwtGeneratorRoute: ToolsCryptoJwtGeneratorRoute,
+  ToolsCryptoJwtVerifierRoute: ToolsCryptoJwtVerifierRoute,
+  ToolsCryptoTotpRoute: ToolsCryptoTotpRoute,
+  ToolsDecodersJwtDecoderRoute: ToolsDecodersJwtDecoderRoute,
+  ToolsDevToolsChmodRoute: ToolsDevToolsChmodRoute,
+  ToolsDevToolsCronBuilderRoute: ToolsDevToolsCronBuilderRoute,
+  ToolsDevToolsCronParserRoute: ToolsDevToolsCronParserRoute,
+  ToolsDevToolsIpSubnetRoute: ToolsDevToolsIpSubnetRoute,
+  ToolsDevToolsJsMinifierRoute: ToolsDevToolsJsMinifierRoute,
+  ToolsDevToolsJsonPathTesterRoute: ToolsDevToolsJsonPathTesterRoute,
+  ToolsDevToolsPackageJsonAnalyzerRoute: ToolsDevToolsPackageJsonAnalyzerRoute,
+  ToolsDevToolsUrlParserRoute: ToolsDevToolsUrlParserRoute,
+  ToolsDevToolsUserAgentParserRoute: ToolsDevToolsUserAgentParserRoute,
+  ToolsEncodersBackslashEscapeRoute: ToolsEncodersBackslashEscapeRoute,
+  ToolsEncodersCipherRoute: ToolsEncodersCipherRoute,
+  ToolsEncodersHtmlEntityRoute: ToolsEncodersHtmlEntityRoute,
+  ToolsEncodersImageToBase64Route: ToolsEncodersImageToBase64Route,
+  ToolsEncodersMorseCodeRoute: ToolsEncodersMorseCodeRoute,
+  ToolsEncodersStringEscapeRoute: ToolsEncodersStringEscapeRoute,
+  ToolsEncodersUrlEncodeRoute: ToolsEncodersUrlEncodeRoute,
+  ToolsFormattersCssMinifierRoute: ToolsFormattersCssMinifierRoute,
+  ToolsFormattersGraphqlFormatterRoute: ToolsFormattersGraphqlFormatterRoute,
+  ToolsFormattersHtmlFormatterRoute: ToolsFormattersHtmlFormatterRoute,
+  ToolsFormattersJsonDiffRoute: ToolsFormattersJsonDiffRoute,
+  ToolsFormattersJsonFormatterRoute: ToolsFormattersJsonFormatterRoute,
+  ToolsFormattersSqlFormatterRoute: ToolsFormattersSqlFormatterRoute,
+  ToolsGeneratorsColorPaletteRoute: ToolsGeneratorsColorPaletteRoute,
+  ToolsGeneratorsDataUriRoute: ToolsGeneratorsDataUriRoute,
+  ToolsGeneratorsHtaccessGeneratorRoute: ToolsGeneratorsHtaccessGeneratorRoute,
+  ToolsGeneratorsLoremIpsumRoute: ToolsGeneratorsLoremIpsumRoute,
+  ToolsGeneratorsManifestGeneratorRoute: ToolsGeneratorsManifestGeneratorRoute,
+  ToolsGeneratorsMetaTagGeneratorRoute: ToolsGeneratorsMetaTagGeneratorRoute,
+  ToolsGeneratorsMockDataRoute: ToolsGeneratorsMockDataRoute,
+  ToolsGeneratorsOpenGraphPreviewRoute: ToolsGeneratorsOpenGraphPreviewRoute,
+  ToolsGeneratorsPasswordGeneratorRoute: ToolsGeneratorsPasswordGeneratorRoute,
+  ToolsGeneratorsQrCodeRoute: ToolsGeneratorsQrCodeRoute,
+  ToolsGeneratorsQrScannerRoute: ToolsGeneratorsQrScannerRoute,
+  ToolsGeneratorsRandomDataRoute: ToolsGeneratorsRandomDataRoute,
+  ToolsGeneratorsRobotsTxtRoute: ToolsGeneratorsRobotsTxtRoute,
+  ToolsGeneratorsSecretsGeneratorRoute: ToolsGeneratorsSecretsGeneratorRoute,
+  ToolsGeneratorsSecurityTxtRoute: ToolsGeneratorsSecurityTxtRoute,
+  ToolsGeneratorsSitemapGeneratorRoute: ToolsGeneratorsSitemapGeneratorRoute,
+  ToolsGeneratorsSlugGeneratorRoute: ToolsGeneratorsSlugGeneratorRoute,
+  ToolsGeneratorsUuidRoute: ToolsGeneratorsUuidRoute,
+  ToolsMathBinaryCalculatorRoute: ToolsMathBinaryCalculatorRoute,
+  ToolsMathDateCalculatorRoute: ToolsMathDateCalculatorRoute,
+  ToolsMathExpressionEvaluatorRoute: ToolsMathExpressionEvaluatorRoute,
+  ToolsMathPercentageCalculatorRoute: ToolsMathPercentageCalculatorRoute,
+  ToolsMediaFaviconGeneratorRoute: ToolsMediaFaviconGeneratorRoute,
+  ToolsMediaImageCompressorRoute: ToolsMediaImageCompressorRoute,
+  ToolsMediaImageResizerRoute: ToolsMediaImageResizerRoute,
+  ToolsMediaSvgOptimizerRoute: ToolsMediaSvgOptimizerRoute,
+  ToolsReferenceHttpStatusRoute: ToolsReferenceHttpStatusRoute,
+  ToolsTextToolsAsciiArtRoute: ToolsTextToolsAsciiArtRoute,
+  ToolsTextToolsCaseConverterRoute: ToolsTextToolsCaseConverterRoute,
+  ToolsTextToolsDiffRoute: ToolsTextToolsDiffRoute,
+  ToolsTextToolsLevenshteinRoute: ToolsTextToolsLevenshteinRoute,
+  ToolsTextToolsMarkdownPreviewRoute: ToolsTextToolsMarkdownPreviewRoute,
+  ToolsTextToolsRegexTesterRoute: ToolsTextToolsRegexTesterRoute,
+  ToolsTextToolsStringCounterRoute: ToolsTextToolsStringCounterRoute,
+  ToolsTextToolsTextStatisticsRoute: ToolsTextToolsTextStatisticsRoute,
+  ToolsTextToolsTextToolsRoute: ToolsTextToolsTextToolsRoute,
+  ToolsValidatorsJsonSchemaValidatorRoute:
+    ToolsValidatorsJsonSchemaValidatorRoute,
+  ToolsValidatorsJsonValidatorRoute: ToolsValidatorsJsonValidatorRoute,
+  ToolsValidatorsValidatorRoute: ToolsValidatorsValidatorRoute,
+  ToolsValidatorsYamlValidatorRoute: ToolsValidatorsYamlValidatorRoute,
 }
 
-const ConvertersRouteRouteWithChildren = ConvertersRouteRoute._addFileChildren(
-  ConvertersRouteRouteChildren,
-)
-
-interface CryptoRouteRouteChildren {
-  CryptoAesEncryptRoute: typeof CryptoAesEncryptRoute
-  CryptoBcryptRoute: typeof CryptoBcryptRoute
-  CryptoCertificateDecoderRoute: typeof CryptoCertificateDecoderRoute
-  CryptoHashRoute: typeof CryptoHashRoute
-  CryptoHmacRoute: typeof CryptoHmacRoute
-  CryptoJwtGeneratorRoute: typeof CryptoJwtGeneratorRoute
-  CryptoJwtVerifierRoute: typeof CryptoJwtVerifierRoute
-  CryptoTotpRoute: typeof CryptoTotpRoute
-}
-
-const CryptoRouteRouteChildren: CryptoRouteRouteChildren = {
-  CryptoAesEncryptRoute: CryptoAesEncryptRoute,
-  CryptoBcryptRoute: CryptoBcryptRoute,
-  CryptoCertificateDecoderRoute: CryptoCertificateDecoderRoute,
-  CryptoHashRoute: CryptoHashRoute,
-  CryptoHmacRoute: CryptoHmacRoute,
-  CryptoJwtGeneratorRoute: CryptoJwtGeneratorRoute,
-  CryptoJwtVerifierRoute: CryptoJwtVerifierRoute,
-  CryptoTotpRoute: CryptoTotpRoute,
-}
-
-const CryptoRouteRouteWithChildren = CryptoRouteRoute._addFileChildren(
-  CryptoRouteRouteChildren,
-)
-
-interface DecodersRouteRouteChildren {
-  DecodersJwtDecoderRoute: typeof DecodersJwtDecoderRoute
-}
-
-const DecodersRouteRouteChildren: DecodersRouteRouteChildren = {
-  DecodersJwtDecoderRoute: DecodersJwtDecoderRoute,
-}
-
-const DecodersRouteRouteWithChildren = DecodersRouteRoute._addFileChildren(
-  DecodersRouteRouteChildren,
-)
-
-interface DevToolsRouteRouteChildren {
-  DevToolsChmodRoute: typeof DevToolsChmodRoute
-  DevToolsCronBuilderRoute: typeof DevToolsCronBuilderRoute
-  DevToolsCronParserRoute: typeof DevToolsCronParserRoute
-  DevToolsIpSubnetRoute: typeof DevToolsIpSubnetRoute
-  DevToolsJsMinifierRoute: typeof DevToolsJsMinifierRoute
-  DevToolsJsonPathTesterRoute: typeof DevToolsJsonPathTesterRoute
-  DevToolsPackageJsonAnalyzerRoute: typeof DevToolsPackageJsonAnalyzerRoute
-  DevToolsUrlParserRoute: typeof DevToolsUrlParserRoute
-  DevToolsUserAgentParserRoute: typeof DevToolsUserAgentParserRoute
-}
-
-const DevToolsRouteRouteChildren: DevToolsRouteRouteChildren = {
-  DevToolsChmodRoute: DevToolsChmodRoute,
-  DevToolsCronBuilderRoute: DevToolsCronBuilderRoute,
-  DevToolsCronParserRoute: DevToolsCronParserRoute,
-  DevToolsIpSubnetRoute: DevToolsIpSubnetRoute,
-  DevToolsJsMinifierRoute: DevToolsJsMinifierRoute,
-  DevToolsJsonPathTesterRoute: DevToolsJsonPathTesterRoute,
-  DevToolsPackageJsonAnalyzerRoute: DevToolsPackageJsonAnalyzerRoute,
-  DevToolsUrlParserRoute: DevToolsUrlParserRoute,
-  DevToolsUserAgentParserRoute: DevToolsUserAgentParserRoute,
-}
-
-const DevToolsRouteRouteWithChildren = DevToolsRouteRoute._addFileChildren(
-  DevToolsRouteRouteChildren,
-)
-
-interface EncodersRouteRouteChildren {
-  EncodersBackslashEscapeRoute: typeof EncodersBackslashEscapeRoute
-  EncodersCipherRoute: typeof EncodersCipherRoute
-  EncodersHtmlEntityRoute: typeof EncodersHtmlEntityRoute
-  EncodersImageToBase64Route: typeof EncodersImageToBase64Route
-  EncodersMorseCodeRoute: typeof EncodersMorseCodeRoute
-  EncodersStringEscapeRoute: typeof EncodersStringEscapeRoute
-  EncodersUrlEncodeRoute: typeof EncodersUrlEncodeRoute
-}
-
-const EncodersRouteRouteChildren: EncodersRouteRouteChildren = {
-  EncodersBackslashEscapeRoute: EncodersBackslashEscapeRoute,
-  EncodersCipherRoute: EncodersCipherRoute,
-  EncodersHtmlEntityRoute: EncodersHtmlEntityRoute,
-  EncodersImageToBase64Route: EncodersImageToBase64Route,
-  EncodersMorseCodeRoute: EncodersMorseCodeRoute,
-  EncodersStringEscapeRoute: EncodersStringEscapeRoute,
-  EncodersUrlEncodeRoute: EncodersUrlEncodeRoute,
-}
-
-const EncodersRouteRouteWithChildren = EncodersRouteRoute._addFileChildren(
-  EncodersRouteRouteChildren,
-)
-
-interface FormattersRouteRouteChildren {
-  FormattersCssMinifierRoute: typeof FormattersCssMinifierRoute
-  FormattersGraphqlFormatterRoute: typeof FormattersGraphqlFormatterRoute
-  FormattersHtmlFormatterRoute: typeof FormattersHtmlFormatterRoute
-  FormattersJsonDiffRoute: typeof FormattersJsonDiffRoute
-  FormattersJsonFormatterRoute: typeof FormattersJsonFormatterRoute
-  FormattersSqlFormatterRoute: typeof FormattersSqlFormatterRoute
-}
-
-const FormattersRouteRouteChildren: FormattersRouteRouteChildren = {
-  FormattersCssMinifierRoute: FormattersCssMinifierRoute,
-  FormattersGraphqlFormatterRoute: FormattersGraphqlFormatterRoute,
-  FormattersHtmlFormatterRoute: FormattersHtmlFormatterRoute,
-  FormattersJsonDiffRoute: FormattersJsonDiffRoute,
-  FormattersJsonFormatterRoute: FormattersJsonFormatterRoute,
-  FormattersSqlFormatterRoute: FormattersSqlFormatterRoute,
-}
-
-const FormattersRouteRouteWithChildren = FormattersRouteRoute._addFileChildren(
-  FormattersRouteRouteChildren,
-)
-
-interface GeneratorsRouteRouteChildren {
-  GeneratorsColorPaletteRoute: typeof GeneratorsColorPaletteRoute
-  GeneratorsDataUriRoute: typeof GeneratorsDataUriRoute
-  GeneratorsHtaccessGeneratorRoute: typeof GeneratorsHtaccessGeneratorRoute
-  GeneratorsLoremIpsumRoute: typeof GeneratorsLoremIpsumRoute
-  GeneratorsManifestGeneratorRoute: typeof GeneratorsManifestGeneratorRoute
-  GeneratorsMetaTagGeneratorRoute: typeof GeneratorsMetaTagGeneratorRoute
-  GeneratorsMockDataRoute: typeof GeneratorsMockDataRoute
-  GeneratorsOpenGraphPreviewRoute: typeof GeneratorsOpenGraphPreviewRoute
-  GeneratorsPasswordGeneratorRoute: typeof GeneratorsPasswordGeneratorRoute
-  GeneratorsQrCodeRoute: typeof GeneratorsQrCodeRoute
-  GeneratorsQrScannerRoute: typeof GeneratorsQrScannerRoute
-  GeneratorsRandomDataRoute: typeof GeneratorsRandomDataRoute
-  GeneratorsRobotsTxtRoute: typeof GeneratorsRobotsTxtRoute
-  GeneratorsSecretsGeneratorRoute: typeof GeneratorsSecretsGeneratorRoute
-  GeneratorsSecurityTxtRoute: typeof GeneratorsSecurityTxtRoute
-  GeneratorsSitemapGeneratorRoute: typeof GeneratorsSitemapGeneratorRoute
-  GeneratorsSlugGeneratorRoute: typeof GeneratorsSlugGeneratorRoute
-  GeneratorsUuidRoute: typeof GeneratorsUuidRoute
-}
-
-const GeneratorsRouteRouteChildren: GeneratorsRouteRouteChildren = {
-  GeneratorsColorPaletteRoute: GeneratorsColorPaletteRoute,
-  GeneratorsDataUriRoute: GeneratorsDataUriRoute,
-  GeneratorsHtaccessGeneratorRoute: GeneratorsHtaccessGeneratorRoute,
-  GeneratorsLoremIpsumRoute: GeneratorsLoremIpsumRoute,
-  GeneratorsManifestGeneratorRoute: GeneratorsManifestGeneratorRoute,
-  GeneratorsMetaTagGeneratorRoute: GeneratorsMetaTagGeneratorRoute,
-  GeneratorsMockDataRoute: GeneratorsMockDataRoute,
-  GeneratorsOpenGraphPreviewRoute: GeneratorsOpenGraphPreviewRoute,
-  GeneratorsPasswordGeneratorRoute: GeneratorsPasswordGeneratorRoute,
-  GeneratorsQrCodeRoute: GeneratorsQrCodeRoute,
-  GeneratorsQrScannerRoute: GeneratorsQrScannerRoute,
-  GeneratorsRandomDataRoute: GeneratorsRandomDataRoute,
-  GeneratorsRobotsTxtRoute: GeneratorsRobotsTxtRoute,
-  GeneratorsSecretsGeneratorRoute: GeneratorsSecretsGeneratorRoute,
-  GeneratorsSecurityTxtRoute: GeneratorsSecurityTxtRoute,
-  GeneratorsSitemapGeneratorRoute: GeneratorsSitemapGeneratorRoute,
-  GeneratorsSlugGeneratorRoute: GeneratorsSlugGeneratorRoute,
-  GeneratorsUuidRoute: GeneratorsUuidRoute,
-}
-
-const GeneratorsRouteRouteWithChildren = GeneratorsRouteRoute._addFileChildren(
-  GeneratorsRouteRouteChildren,
-)
-
-interface MathRouteRouteChildren {
-  MathBinaryCalculatorRoute: typeof MathBinaryCalculatorRoute
-  MathDateCalculatorRoute: typeof MathDateCalculatorRoute
-  MathExpressionEvaluatorRoute: typeof MathExpressionEvaluatorRoute
-  MathPercentageCalculatorRoute: typeof MathPercentageCalculatorRoute
-}
-
-const MathRouteRouteChildren: MathRouteRouteChildren = {
-  MathBinaryCalculatorRoute: MathBinaryCalculatorRoute,
-  MathDateCalculatorRoute: MathDateCalculatorRoute,
-  MathExpressionEvaluatorRoute: MathExpressionEvaluatorRoute,
-  MathPercentageCalculatorRoute: MathPercentageCalculatorRoute,
-}
-
-const MathRouteRouteWithChildren = MathRouteRoute._addFileChildren(
-  MathRouteRouteChildren,
-)
-
-interface MediaRouteRouteChildren {
-  MediaFaviconGeneratorRoute: typeof MediaFaviconGeneratorRoute
-  MediaImageCompressorRoute: typeof MediaImageCompressorRoute
-  MediaImageResizerRoute: typeof MediaImageResizerRoute
-  MediaSvgOptimizerRoute: typeof MediaSvgOptimizerRoute
-}
-
-const MediaRouteRouteChildren: MediaRouteRouteChildren = {
-  MediaFaviconGeneratorRoute: MediaFaviconGeneratorRoute,
-  MediaImageCompressorRoute: MediaImageCompressorRoute,
-  MediaImageResizerRoute: MediaImageResizerRoute,
-  MediaSvgOptimizerRoute: MediaSvgOptimizerRoute,
-}
-
-const MediaRouteRouteWithChildren = MediaRouteRoute._addFileChildren(
-  MediaRouteRouteChildren,
-)
-
-interface ReferenceRouteRouteChildren {
-  ReferenceHttpStatusRoute: typeof ReferenceHttpStatusRoute
-}
-
-const ReferenceRouteRouteChildren: ReferenceRouteRouteChildren = {
-  ReferenceHttpStatusRoute: ReferenceHttpStatusRoute,
-}
-
-const ReferenceRouteRouteWithChildren = ReferenceRouteRoute._addFileChildren(
-  ReferenceRouteRouteChildren,
-)
-
-interface TextToolsRouteRouteChildren {
-  TextToolsAsciiArtRoute: typeof TextToolsAsciiArtRoute
-  TextToolsCaseConverterRoute: typeof TextToolsCaseConverterRoute
-  TextToolsDiffRoute: typeof TextToolsDiffRoute
-  TextToolsLevenshteinRoute: typeof TextToolsLevenshteinRoute
-  TextToolsMarkdownPreviewRoute: typeof TextToolsMarkdownPreviewRoute
-  TextToolsRegexTesterRoute: typeof TextToolsRegexTesterRoute
-  TextToolsStringCounterRoute: typeof TextToolsStringCounterRoute
-  TextToolsTextStatisticsRoute: typeof TextToolsTextStatisticsRoute
-  TextToolsTextToolsRoute: typeof TextToolsTextToolsRoute
-}
-
-const TextToolsRouteRouteChildren: TextToolsRouteRouteChildren = {
-  TextToolsAsciiArtRoute: TextToolsAsciiArtRoute,
-  TextToolsCaseConverterRoute: TextToolsCaseConverterRoute,
-  TextToolsDiffRoute: TextToolsDiffRoute,
-  TextToolsLevenshteinRoute: TextToolsLevenshteinRoute,
-  TextToolsMarkdownPreviewRoute: TextToolsMarkdownPreviewRoute,
-  TextToolsRegexTesterRoute: TextToolsRegexTesterRoute,
-  TextToolsStringCounterRoute: TextToolsStringCounterRoute,
-  TextToolsTextStatisticsRoute: TextToolsTextStatisticsRoute,
-  TextToolsTextToolsRoute: TextToolsTextToolsRoute,
-}
-
-const TextToolsRouteRouteWithChildren = TextToolsRouteRoute._addFileChildren(
-  TextToolsRouteRouteChildren,
-)
-
-interface ValidatorsRouteRouteChildren {
-  ValidatorsJsonSchemaValidatorRoute: typeof ValidatorsJsonSchemaValidatorRoute
-  ValidatorsJsonValidatorRoute: typeof ValidatorsJsonValidatorRoute
-  ValidatorsValidatorRoute: typeof ValidatorsValidatorRoute
-  ValidatorsYamlValidatorRoute: typeof ValidatorsYamlValidatorRoute
-}
-
-const ValidatorsRouteRouteChildren: ValidatorsRouteRouteChildren = {
-  ValidatorsJsonSchemaValidatorRoute: ValidatorsJsonSchemaValidatorRoute,
-  ValidatorsJsonValidatorRoute: ValidatorsJsonValidatorRoute,
-  ValidatorsValidatorRoute: ValidatorsValidatorRoute,
-  ValidatorsYamlValidatorRoute: ValidatorsYamlValidatorRoute,
-}
-
-const ValidatorsRouteRouteWithChildren = ValidatorsRouteRoute._addFileChildren(
-  ValidatorsRouteRouteChildren,
-)
+const ToolsRouteWithChildren = ToolsRoute._addFileChildren(ToolsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ConvertersRouteRoute: ConvertersRouteRouteWithChildren,
-  CryptoRouteRoute: CryptoRouteRouteWithChildren,
-  DecodersRouteRoute: DecodersRouteRouteWithChildren,
-  DevToolsRouteRoute: DevToolsRouteRouteWithChildren,
-  EncodersRouteRoute: EncodersRouteRouteWithChildren,
-  FormattersRouteRoute: FormattersRouteRouteWithChildren,
-  GeneratorsRouteRoute: GeneratorsRouteRouteWithChildren,
-  MathRouteRoute: MathRouteRouteWithChildren,
-  MediaRouteRoute: MediaRouteRouteWithChildren,
-  ReferenceRouteRoute: ReferenceRouteRouteWithChildren,
-  TextToolsRouteRoute: TextToolsRouteRouteWithChildren,
-  ValidatorsRouteRoute: ValidatorsRouteRouteWithChildren,
+  ToolsRoute: ToolsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
