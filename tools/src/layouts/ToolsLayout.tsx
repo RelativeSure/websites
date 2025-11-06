@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import {
   ArrowLeftRight,
@@ -621,6 +622,29 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
   const location = useLocation();
   const pathname = location.pathname;
   const categories = Array.from(new Set(tools.map((t) => t.category)));
+  const sidebarContentRef = React.useRef<HTMLDivElement>(null);
+  const scrollPositionRef = React.useRef<number>(0);
+
+  // Save scroll position before navigation
+  React.useEffect(() => {
+    const contentEl = sidebarContentRef.current;
+    if (!contentEl) return;
+
+    const handleScroll = () => {
+      scrollPositionRef.current = contentEl.scrollTop;
+    };
+
+    contentEl.addEventListener('scroll', handleScroll);
+    return () => contentEl.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Restore scroll position after navigation
+  React.useEffect(() => {
+    const contentEl = sidebarContentRef.current;
+    if (contentEl && scrollPositionRef.current > 0) {
+      contentEl.scrollTop = scrollPositionRef.current;
+    }
+  }, [pathname]);
 
   return (
     <SidebarProvider defaultOpen={true}>
@@ -634,7 +658,7 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
             </div>
           </Link>
         </SidebarHeader>
-        <SidebarContent>
+        <SidebarContent ref={sidebarContentRef}>
           {categories.map((category) => (
             <SidebarGroup key={category}>
               <SidebarGroupLabel>{category}</SidebarGroupLabel>
