@@ -11,6 +11,11 @@ export function baseOptions(): BaseLayoutProps {
                 url: "/docs/contact",
             },
             {
+                text: "Tools",
+                url: "https://tools.rasmusj.dk",
+                external: true,
+            },
+            {
                 text: "GitHub",
                 url: "https://github.com/RelativeSure",
                 external: true,

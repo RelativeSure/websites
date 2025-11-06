@@ -21,7 +21,7 @@ export default defineConfig({
       },
       editLink: {
         baseUrl:
-          "https://github.com/RelativeSure/personal-starlight-site/edit/main/",
+          "https://github.com/RelativeSure/websites/edit/master/starlight/",
       },
       components: {
         ThemeSelect: "./src/components/starlight/ThemeSelect.astro",
