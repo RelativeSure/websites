@@ -53,7 +53,6 @@ const tools = [
   { title: "Color", icon: Palette, href: "/tools/color-converter", category: "Converters" },
   { title: "Number Base", icon: Calculator, href: "/tools/number-base", category: "Converters" },
   { title: "Base Conv", icon: Binary, href: "/tools/base-conversion", category: "Converters" },
-  { title: "Base64", icon: Binary, href: "/tools/base64", category: "Encoders" },
   { title: "URL Encode", icon: Link2, href: "/tools/url-encode", category: "Encoders" },
   { title: "HTML Entity", icon: Code2, href: "/tools/html-entity", category: "Encoders" },
   { title: "Backslash Escape", icon: Slash, href: "/tools/backslash-escape", category: "Encoders" },
@@ -109,7 +108,7 @@ export default function HomePage() {
               <div className="flex items-center gap-2">
                 <span className="text-primary text-2xl md:text-3xl font-bold animate-pulse">{'>'}</span>
                 <h1 className="text-2xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
-                  dev.tools
+                  tools.rasmusj.dk
                 </h1>
                 <span className="px-2 py-0.5 md:px-3 md:py-1 bg-primary/20 text-primary text-xs md:text-sm font-bold rounded-full border border-primary/30 animate-pulse">
                   {tools.length}

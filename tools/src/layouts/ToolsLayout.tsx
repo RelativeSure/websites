@@ -99,12 +99,6 @@ const tools = [
     category: "Converters",
   },
   {
-    title: "Base64",
-    icon: Binary,
-    href: "/tools/base64",
-    category: "Encoders",
-  },
-  {
     title: "URL Encode",
     icon: Link2,
     href: "/tools/url-encode",
