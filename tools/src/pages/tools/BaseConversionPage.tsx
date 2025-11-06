@@ -36,113 +36,147 @@ export default function BaseConversionPage() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
 
-  // Base64 URL Safe encoding/decoding
-  const base64ToBase64Url = (str: string): string => {
-    return str.replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
-  };
-
-  const base64UrlToBase64 = (str: string): string => {
-    let base64 = str.replace(/-/g, "+").replace(/_/g, "/");
-    while (base64.length % 4) {
-      base64 += "=";
-    }
-    return base64;
-  };
-
   // Base32 encoding/decoding (RFC 4648)
   const base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 
-  const textToBase32 = (text: string): string => {
-    const bytes = new TextEncoder().encode(text);
-    let bits = "";
-    for (const byte of bytes) {
-      bits += byte.toString(2).padStart(8, "0");
-    }
-
-    let result = "";
-    for (let i = 0; i < bits.length; i += 5) {
-      const chunk = bits.slice(i, i + 5).padEnd(5, "0");
-      result += base32Alphabet[parseInt(chunk, 2)];
-    }
-
-    // Add padding
-    while (result.length % 8) {
-      result += "=";
-    }
-
-    return result;
-  };
-
-  const base32ToText = (base32: string): string => {
-    // Remove padding
-    base32 = base32.replace(/=/g, "");
-
-    let bits = "";
-    for (const char of base32.toUpperCase()) {
-      const index = base32Alphabet.indexOf(char);
-      if (index === -1) {
-        throw new Error(`Invalid Base32 character: ${char}`);
-      }
-      bits += index.toString(2).padStart(5, "0");
-    }
-
-    const bytes: number[] = [];
-    for (let i = 0; i < bits.length - 7; i += 8) {
-      bytes.push(parseInt(bits.slice(i, i + 8), 2));
-    }
-
-    return new TextDecoder().decode(new Uint8Array(bytes));
-  };
-
-  // Convert from any base to text
-  const toText = (value: string, from: BaseType): string => {
+  // Convert from any base to raw bytes (Uint8Array)
+  const toBytes = (value: string, from: BaseType): Uint8Array => {
     switch (from) {
       case "text":
-        return value;
-      case "base64":
-        return atob(value);
-      case "base64url":
-        return atob(base64UrlToBase64(value));
-      case "base32":
-        return base32ToText(value);
-      case "hex":
-        return decodeURIComponent(
-          value.replace(/\s/g, "").replace(/(.{2})/g, "%$1")
-        );
-      case "binary":
+        return new TextEncoder().encode(value);
+
+      case "base64": {
+        const binaryString = atob(value);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes;
+      }
+
+      case "base64url": {
+        // Convert base64url to standard base64
+        let base64 = value.replace(/-/g, "+").replace(/_/g, "/");
+        while (base64.length % 4) {
+          base64 += "=";
+        }
+        const binaryString = atob(base64);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes;
+      }
+
+      case "base32": {
+        // Remove padding
+        const cleanBase32 = value.replace(/=/g, "");
+
+        let bits = "";
+        for (const char of cleanBase32.toUpperCase()) {
+          const index = base32Alphabet.indexOf(char);
+          if (index === -1) {
+            throw new Error(`Invalid Base32 character: ${char}`);
+          }
+          bits += index.toString(2).padStart(5, "0");
+        }
+
+        const bytes: number[] = [];
+        for (let i = 0; i < bits.length - 7; i += 8) {
+          bytes.push(parseInt(bits.slice(i, i + 8), 2));
+        }
+
+        return new Uint8Array(bytes);
+      }
+
+      case "hex": {
+        const hex = value.replace(/\s/g, "");
+        if (!/^[0-9a-fA-F]*$/.test(hex)) {
+          throw new Error("Invalid hexadecimal string");
+        }
+        if (hex.length % 2 !== 0) {
+          throw new Error("Hexadecimal string must have even length");
+        }
+
+        const bytes = new Uint8Array(hex.length / 2);
+        for (let i = 0; i < hex.length; i += 2) {
+          bytes[i / 2] = parseInt(hex.slice(i, i + 2), 16);
+        }
+        return bytes;
+      }
+
+      case "binary": {
         const binary = value.replace(/\s/g, "");
         if (!/^[01]+$/.test(binary)) {
           throw new Error("Invalid binary string");
         }
+
         const bytes: number[] = [];
         for (let i = 0; i < binary.length; i += 8) {
-          bytes.push(parseInt(binary.slice(i, i + 8), 2));
+          const byte = binary.slice(i, i + 8).padEnd(8, "0");
+          bytes.push(parseInt(byte, 2));
         }
-        return new TextDecoder().decode(new Uint8Array(bytes));
+        return new Uint8Array(bytes);
+      }
+
       default:
         throw new Error("Unsupported base");
     }
   };
 
-  // Convert from text to any base
-  const fromText = (text: string, to: BaseType): string => {
+  // Convert from raw bytes (Uint8Array) to any base
+  const fromBytes = (bytes: Uint8Array, to: BaseType): string => {
     switch (to) {
       case "text":
-        return text;
-      case "base64":
-        return btoa(text);
-      case "base64url":
-        return base64ToBase64Url(btoa(text));
-      case "base32":
-        return textToBase32(text);
+        return new TextDecoder().decode(bytes);
+
+      case "base64": {
+        let binaryString = "";
+        for (let i = 0; i < bytes.length; i++) {
+          binaryString += String.fromCharCode(bytes[i]);
+        }
+        return btoa(binaryString);
+      }
+
+      case "base64url": {
+        let binaryString = "";
+        for (let i = 0; i < bytes.length; i++) {
+          binaryString += String.fromCharCode(bytes[i]);
+        }
+        const base64 = btoa(binaryString);
+        return base64.replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+      }
+
+      case "base32": {
+        let bits = "";
+        for (const byte of bytes) {
+          bits += byte.toString(2).padStart(8, "0");
+        }
+
+        let result = "";
+        for (let i = 0; i < bits.length; i += 5) {
+          const chunk = bits.slice(i, i + 5).padEnd(5, "0");
+          result += base32Alphabet[parseInt(chunk, 2)];
+        }
+
+        // Add padding
+        while (result.length % 8) {
+          result += "=";
+        }
+
+        return result;
+      }
+
       case "hex":
-        return Array.from(new TextEncoder().encode(text))
+        return Array.from(bytes)
           .map((b) => b.toString(16).padStart(2, "0"))
           .join("");
+
       case "binary":
-        return Array.from(new TextEncoder().encode(text))
+        return Array.from(bytes)
           .map((b) => b.toString(2).padStart(8, "0"))
           .join(" ");
+
       default:
         throw new Error("Unsupported base");
     }
@@ -156,9 +190,9 @@ export default function BaseConversionPage() {
         return;
       }
 
-      // Convert: input -> text -> output
-      const text = toText(input, fromBase);
-      const result = fromText(text, toBase);
+      // Convert: input -> bytes -> output
+      const bytes = toBytes(input, fromBase);
+      const result = fromBytes(bytes, toBase);
       setOutput(result);
     } catch (err) {
       setError(
@@ -314,6 +348,12 @@ export default function BaseConversionPage() {
             <p className="text-sm font-medium">Text to Base64:</p>
             <p className="text-sm text-muted-foreground font-mono">
               "Hello World" → "SGVsbG8gV29ybGQ="
+            </p>
+          </div>
+          <div>
+            <p className="text-sm font-medium">Base64 to Hex (binary data preserved):</p>
+            <p className="text-sm text-muted-foreground font-mono">
+              "/w==" (0xFF byte) → "ff"
             </p>
           </div>
           <div>
