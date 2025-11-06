@@ -18,10 +18,12 @@ import { Route as ToolsUuidRouteImport } from './routes/tools/uuid'
 import { Route as ToolsUserAgentParserRouteImport } from './routes/tools/user-agent-parser'
 import { Route as ToolsUrlParserRouteImport } from './routes/tools/url-parser'
 import { Route as ToolsUrlEncodeRouteImport } from './routes/tools/url-encode'
+import { Route as ToolsUnitConverterRouteImport } from './routes/tools/unit-converter'
 import { Route as ToolsTimestampRouteImport } from './routes/tools/timestamp'
 import { Route as ToolsTextToolsRouteImport } from './routes/tools/text-tools'
 import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-counter'
 import { Route as ToolsSqlFormatterRouteImport } from './routes/tools/sql-formatter'
+import { Route as ToolsSlugGeneratorRouteImport } from './routes/tools/slug-generator'
 import { Route as ToolsRegexTesterRouteImport } from './routes/tools/regex-tester'
 import { Route as ToolsRandomDataRouteImport } from './routes/tools/random-data'
 import { Route as ToolsQrScannerRouteImport } from './routes/tools/qr-scanner'
@@ -42,11 +44,13 @@ import { Route as ToolsImageToBase64RouteImport } from './routes/tools/image-to-
 import { Route as ToolsHttpStatusRouteImport } from './routes/tools/http-status'
 import { Route as ToolsHtmlFormatterRouteImport } from './routes/tools/html-formatter'
 import { Route as ToolsHtmlEntityRouteImport } from './routes/tools/html-entity'
+import { Route as ToolsHmacRouteImport } from './routes/tools/hmac'
 import { Route as ToolsHashRouteImport } from './routes/tools/hash'
 import { Route as ToolsDiffRouteImport } from './routes/tools/diff'
 import { Route as ToolsCsvJsonRouteImport } from './routes/tools/csv-json'
 import { Route as ToolsCssMinifierRouteImport } from './routes/tools/css-minifier'
 import { Route as ToolsCronParserRouteImport } from './routes/tools/cron-parser'
+import { Route as ToolsColorPaletteRouteImport } from './routes/tools/color-palette'
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
 import { Route as ToolsCipherRouteImport } from './routes/tools/cipher'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
@@ -54,6 +58,7 @@ import { Route as ToolsBase64ImageRouteImport } from './routes/tools/base64-imag
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
 import { Route as ToolsBaseConversionRouteImport } from './routes/tools/base-conversion'
 import { Route as ToolsBackslashEscapeRouteImport } from './routes/tools/backslash-escape'
+import { Route as ToolsAsciiArtRouteImport } from './routes/tools/ascii-art'
 
 const ToolsRoute = ToolsRouteImport.update({
   id: '/tools',
@@ -100,6 +105,11 @@ const ToolsUrlEncodeRoute = ToolsUrlEncodeRouteImport.update({
   path: '/url-encode',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsUnitConverterRoute = ToolsUnitConverterRouteImport.update({
+  id: '/unit-converter',
+  path: '/unit-converter',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsTimestampRoute = ToolsTimestampRouteImport.update({
   id: '/timestamp',
   path: '/timestamp',
@@ -118,6 +128,11 @@ const ToolsStringCounterRoute = ToolsStringCounterRouteImport.update({
 const ToolsSqlFormatterRoute = ToolsSqlFormatterRouteImport.update({
   id: '/sql-formatter',
   path: '/sql-formatter',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsSlugGeneratorRoute = ToolsSlugGeneratorRouteImport.update({
+  id: '/slug-generator',
+  path: '/slug-generator',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsRegexTesterRoute = ToolsRegexTesterRouteImport.update({
@@ -220,6 +235,11 @@ const ToolsHtmlEntityRoute = ToolsHtmlEntityRouteImport.update({
   path: '/html-entity',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsHmacRoute = ToolsHmacRouteImport.update({
+  id: '/hmac',
+  path: '/hmac',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsHashRoute = ToolsHashRouteImport.update({
   id: '/hash',
   path: '/hash',
@@ -243,6 +263,11 @@ const ToolsCssMinifierRoute = ToolsCssMinifierRouteImport.update({
 const ToolsCronParserRoute = ToolsCronParserRouteImport.update({
   id: '/cron-parser',
   path: '/cron-parser',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsColorPaletteRoute = ToolsColorPaletteRouteImport.update({
+  id: '/color-palette',
+  path: '/color-palette',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsColorConverterRoute = ToolsColorConverterRouteImport.update({
@@ -280,10 +305,16 @@ const ToolsBackslashEscapeRoute = ToolsBackslashEscapeRouteImport.update({
   path: '/backslash-escape',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsAsciiArtRoute = ToolsAsciiArtRouteImport.update({
+  id: '/ascii-art',
+  path: '/ascii-art',
+  getParentRoute: () => ToolsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/tools/ascii-art': typeof ToolsAsciiArtRoute
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
@@ -291,11 +322,13 @@ export interface FileRoutesByFullPath {
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
+  '/tools/color-palette': typeof ToolsColorPaletteRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
+  '/tools/hmac': typeof ToolsHmacRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
@@ -316,10 +349,12 @@ export interface FileRoutesByFullPath {
   '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
+  '/tools/unit-converter': typeof ToolsUnitConverterRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
@@ -331,6 +366,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/tools/ascii-art': typeof ToolsAsciiArtRoute
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
@@ -338,11 +374,13 @@ export interface FileRoutesByTo {
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
+  '/tools/color-palette': typeof ToolsColorPaletteRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
+  '/tools/hmac': typeof ToolsHmacRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
@@ -363,10 +401,12 @@ export interface FileRoutesByTo {
   '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
+  '/tools/unit-converter': typeof ToolsUnitConverterRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
@@ -379,6 +419,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/tools': typeof ToolsRouteWithChildren
+  '/tools/ascii-art': typeof ToolsAsciiArtRoute
   '/tools/backslash-escape': typeof ToolsBackslashEscapeRoute
   '/tools/base-conversion': typeof ToolsBaseConversionRoute
   '/tools/base64': typeof ToolsBase64Route
@@ -386,11 +427,13 @@ export interface FileRoutesById {
   '/tools/case-converter': typeof ToolsCaseConverterRoute
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
+  '/tools/color-palette': typeof ToolsColorPaletteRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
   '/tools/csv-json': typeof ToolsCsvJsonRoute
   '/tools/diff': typeof ToolsDiffRoute
   '/tools/hash': typeof ToolsHashRoute
+  '/tools/hmac': typeof ToolsHmacRoute
   '/tools/html-entity': typeof ToolsHtmlEntityRoute
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
@@ -411,10 +454,12 @@ export interface FileRoutesById {
   '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
+  '/tools/unit-converter': typeof ToolsUnitConverterRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
@@ -428,6 +473,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/tools'
+    | '/tools/ascii-art'
     | '/tools/backslash-escape'
     | '/tools/base-conversion'
     | '/tools/base64'
@@ -435,11 +481,13 @@ export interface FileRouteTypes {
     | '/tools/case-converter'
     | '/tools/cipher'
     | '/tools/color-converter'
+    | '/tools/color-palette'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
     | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
+    | '/tools/hmac'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/http-status'
@@ -460,10 +508,12 @@ export interface FileRouteTypes {
     | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
+    | '/tools/slug-generator'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/text-tools'
     | '/tools/timestamp'
+    | '/tools/unit-converter'
     | '/tools/url-encode'
     | '/tools/url-parser'
     | '/tools/user-agent-parser'
@@ -475,6 +525,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/tools'
+    | '/tools/ascii-art'
     | '/tools/backslash-escape'
     | '/tools/base-conversion'
     | '/tools/base64'
@@ -482,11 +533,13 @@ export interface FileRouteTypes {
     | '/tools/case-converter'
     | '/tools/cipher'
     | '/tools/color-converter'
+    | '/tools/color-palette'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
     | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
+    | '/tools/hmac'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/http-status'
@@ -507,10 +560,12 @@ export interface FileRouteTypes {
     | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
+    | '/tools/slug-generator'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/text-tools'
     | '/tools/timestamp'
+    | '/tools/unit-converter'
     | '/tools/url-encode'
     | '/tools/url-parser'
     | '/tools/user-agent-parser'
@@ -522,6 +577,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/tools'
+    | '/tools/ascii-art'
     | '/tools/backslash-escape'
     | '/tools/base-conversion'
     | '/tools/base64'
@@ -529,11 +585,13 @@ export interface FileRouteTypes {
     | '/tools/case-converter'
     | '/tools/cipher'
     | '/tools/color-converter'
+    | '/tools/color-palette'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
     | '/tools/csv-json'
     | '/tools/diff'
     | '/tools/hash'
+    | '/tools/hmac'
     | '/tools/html-entity'
     | '/tools/html-formatter'
     | '/tools/http-status'
@@ -554,10 +612,12 @@ export interface FileRouteTypes {
     | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
+    | '/tools/slug-generator'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/text-tools'
     | '/tools/timestamp'
+    | '/tools/unit-converter'
     | '/tools/url-encode'
     | '/tools/url-parser'
     | '/tools/user-agent-parser'
@@ -637,6 +697,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsUrlEncodeRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/unit-converter': {
+      id: '/tools/unit-converter'
+      path: '/unit-converter'
+      fullPath: '/tools/unit-converter'
+      preLoaderRoute: typeof ToolsUnitConverterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/timestamp': {
       id: '/tools/timestamp'
       path: '/timestamp'
@@ -663,6 +730,13 @@ declare module '@tanstack/react-router' {
       path: '/sql-formatter'
       fullPath: '/tools/sql-formatter'
       preLoaderRoute: typeof ToolsSqlFormatterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/slug-generator': {
+      id: '/tools/slug-generator'
+      path: '/slug-generator'
+      fullPath: '/tools/slug-generator'
+      preLoaderRoute: typeof ToolsSlugGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/regex-tester': {
@@ -805,6 +879,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsHtmlEntityRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/hmac': {
+      id: '/tools/hmac'
+      path: '/hmac'
+      fullPath: '/tools/hmac'
+      preLoaderRoute: typeof ToolsHmacRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/hash': {
       id: '/tools/hash'
       path: '/hash'
@@ -838,6 +919,13 @@ declare module '@tanstack/react-router' {
       path: '/cron-parser'
       fullPath: '/tools/cron-parser'
       preLoaderRoute: typeof ToolsCronParserRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/color-palette': {
+      id: '/tools/color-palette'
+      path: '/color-palette'
+      fullPath: '/tools/color-palette'
+      preLoaderRoute: typeof ToolsColorPaletteRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/color-converter': {
@@ -889,10 +977,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsBackslashEscapeRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/ascii-art': {
+      id: '/tools/ascii-art'
+      path: '/ascii-art'
+      fullPath: '/tools/ascii-art'
+      preLoaderRoute: typeof ToolsAsciiArtRouteImport
+      parentRoute: typeof ToolsRoute
+    }
   }
 }
 
 interface ToolsRouteChildren {
+  ToolsAsciiArtRoute: typeof ToolsAsciiArtRoute
   ToolsBackslashEscapeRoute: typeof ToolsBackslashEscapeRoute
   ToolsBaseConversionRoute: typeof ToolsBaseConversionRoute
   ToolsBase64Route: typeof ToolsBase64Route
@@ -900,11 +996,13 @@ interface ToolsRouteChildren {
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
   ToolsCipherRoute: typeof ToolsCipherRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
+  ToolsColorPaletteRoute: typeof ToolsColorPaletteRoute
   ToolsCronParserRoute: typeof ToolsCronParserRoute
   ToolsCssMinifierRoute: typeof ToolsCssMinifierRoute
   ToolsCsvJsonRoute: typeof ToolsCsvJsonRoute
   ToolsDiffRoute: typeof ToolsDiffRoute
   ToolsHashRoute: typeof ToolsHashRoute
+  ToolsHmacRoute: typeof ToolsHmacRoute
   ToolsHtmlEntityRoute: typeof ToolsHtmlEntityRoute
   ToolsHtmlFormatterRoute: typeof ToolsHtmlFormatterRoute
   ToolsHttpStatusRoute: typeof ToolsHttpStatusRoute
@@ -925,10 +1023,12 @@ interface ToolsRouteChildren {
   ToolsQrScannerRoute: typeof ToolsQrScannerRoute
   ToolsRandomDataRoute: typeof ToolsRandomDataRoute
   ToolsRegexTesterRoute: typeof ToolsRegexTesterRoute
+  ToolsSlugGeneratorRoute: typeof ToolsSlugGeneratorRoute
   ToolsSqlFormatterRoute: typeof ToolsSqlFormatterRoute
   ToolsStringCounterRoute: typeof ToolsStringCounterRoute
   ToolsTextToolsRoute: typeof ToolsTextToolsRoute
   ToolsTimestampRoute: typeof ToolsTimestampRoute
+  ToolsUnitConverterRoute: typeof ToolsUnitConverterRoute
   ToolsUrlEncodeRoute: typeof ToolsUrlEncodeRoute
   ToolsUrlParserRoute: typeof ToolsUrlParserRoute
   ToolsUserAgentParserRoute: typeof ToolsUserAgentParserRoute
@@ -939,6 +1039,7 @@ interface ToolsRouteChildren {
 }
 
 const ToolsRouteChildren: ToolsRouteChildren = {
+  ToolsAsciiArtRoute: ToolsAsciiArtRoute,
   ToolsBackslashEscapeRoute: ToolsBackslashEscapeRoute,
   ToolsBaseConversionRoute: ToolsBaseConversionRoute,
   ToolsBase64Route: ToolsBase64Route,
@@ -946,11 +1047,13 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
   ToolsCipherRoute: ToolsCipherRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,
+  ToolsColorPaletteRoute: ToolsColorPaletteRoute,
   ToolsCronParserRoute: ToolsCronParserRoute,
   ToolsCssMinifierRoute: ToolsCssMinifierRoute,
   ToolsCsvJsonRoute: ToolsCsvJsonRoute,
   ToolsDiffRoute: ToolsDiffRoute,
   ToolsHashRoute: ToolsHashRoute,
+  ToolsHmacRoute: ToolsHmacRoute,
   ToolsHtmlEntityRoute: ToolsHtmlEntityRoute,
   ToolsHtmlFormatterRoute: ToolsHtmlFormatterRoute,
   ToolsHttpStatusRoute: ToolsHttpStatusRoute,
@@ -971,10 +1074,12 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsQrScannerRoute: ToolsQrScannerRoute,
   ToolsRandomDataRoute: ToolsRandomDataRoute,
   ToolsRegexTesterRoute: ToolsRegexTesterRoute,
+  ToolsSlugGeneratorRoute: ToolsSlugGeneratorRoute,
   ToolsSqlFormatterRoute: ToolsSqlFormatterRoute,
   ToolsStringCounterRoute: ToolsStringCounterRoute,
   ToolsTextToolsRoute: ToolsTextToolsRoute,
   ToolsTimestampRoute: ToolsTimestampRoute,
+  ToolsUnitConverterRoute: ToolsUnitConverterRoute,
   ToolsUrlEncodeRoute: ToolsUrlEncodeRoute,
   ToolsUrlParserRoute: ToolsUrlParserRoute,
   ToolsUserAgentParserRoute: ToolsUserAgentParserRoute,

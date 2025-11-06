@@ -38,6 +38,9 @@ import {
   Radio,
   Shield,
   ShieldCheck,
+  Key,
+  Ruler,
+  Sparkles,
 } from "lucide-react";
 import {
   Sidebar,
@@ -102,6 +105,12 @@ const tools = [
     title: "Base64 Image",
     icon: Image,
     href: "/tools/base64-image",
+    category: "Converters",
+  },
+  {
+    title: "Unit Converter",
+    icon: Ruler,
+    href: "/tools/unit-converter",
     category: "Converters",
   },
   {
@@ -207,6 +216,12 @@ const tools = [
     category: "Crypto",
   },
   {
+    title: "HMAC Generator",
+    icon: Key,
+    href: "/tools/hmac",
+    category: "Crypto",
+  },
+  {
     title: "UUID Generator",
     icon: Fingerprint,
     href: "/tools/uuid",
@@ -228,6 +243,18 @@ const tools = [
     title: "Mock Data",
     icon: Users,
     href: "/tools/mock-data",
+    category: "Generators",
+  },
+  {
+    title: "Slug Generator",
+    icon: Type,
+    href: "/tools/slug-generator",
+    category: "Generators",
+  },
+  {
+    title: "Color Palette",
+    icon: Palette,
+    href: "/tools/color-palette",
     category: "Generators",
   },
   {
@@ -264,6 +291,12 @@ const tools = [
     title: "Text Tools",
     icon: WrapText,
     href: "/tools/text-tools",
+    category: "Text Tools",
+  },
+  {
+    title: "ASCII Art",
+    icon: Sparkles,
+    href: "/tools/ascii-art",
     category: "Text Tools",
   },
   {
