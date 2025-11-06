@@ -63,6 +63,12 @@ import {
   Minimize2,
   BarChart3,
   Hexagon,
+  Share2,
+  Package,
+  FileCode2,
+  Map,
+  Server,
+  ArrowRightLeft,
 } from "lucide-react";
 import {
   Sidebar,
@@ -178,6 +184,12 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "SQL → JSON",
+    icon: Database,
+    href: "/tools/sql-to-json",
+    category: "Converters",
+  },
+  {
     title: "URL Encode",
     icon: Link2,
     href: "/tools/url-encode",
@@ -253,6 +265,12 @@ const tools = [
     title: "JSON Diff",
     icon: GitCompare,
     href: "/tools/json-diff",
+    category: "Formatters",
+  },
+  {
+    title: "GraphQL Formatter",
+    icon: Code2,
+    href: "/tools/graphql-formatter",
     category: "Formatters",
   },
   {
@@ -400,6 +418,24 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Open Graph Preview",
+    icon: Share2,
+    href: "/tools/open-graph-preview",
+    category: "Generators",
+  },
+  {
+    title: "Manifest Generator",
+    icon: FileCode2,
+    href: "/tools/manifest-generator",
+    category: "Generators",
+  },
+  {
+    title: "Sitemap Generator",
+    icon: Map,
+    href: "/tools/sitemap-generator",
+    category: "Generators",
+  },
+  {
     title: "Security.txt Generator",
     icon: ShieldAlert,
     href: "/tools/security-txt",
@@ -517,6 +553,12 @@ const tools = [
     title: "JavaScript Minifier",
     icon: Minimize2,
     href: "/tools/js-minifier",
+    category: "Dev Tools",
+  },
+  {
+    title: "Package.json Analyzer",
+    icon: Package,
+    href: "/tools/package-json-analyzer",
     category: "Dev Tools",
   },
   {

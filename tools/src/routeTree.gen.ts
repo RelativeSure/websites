@@ -28,8 +28,10 @@ import { Route as ToolsTextStatisticsRouteImport } from './routes/tools/text-sta
 import { Route as ToolsSvgOptimizerRouteImport } from './routes/tools/svg-optimizer'
 import { Route as ToolsStringEscapeRouteImport } from './routes/tools/string-escape'
 import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-counter'
+import { Route as ToolsSqlToJsonRouteImport } from './routes/tools/sql-to-json'
 import { Route as ToolsSqlFormatterRouteImport } from './routes/tools/sql-formatter'
 import { Route as ToolsSlugGeneratorRouteImport } from './routes/tools/slug-generator'
+import { Route as ToolsSitemapGeneratorRouteImport } from './routes/tools/sitemap-generator'
 import { Route as ToolsSecurityTxtRouteImport } from './routes/tools/security-txt'
 import { Route as ToolsSecretsGeneratorRouteImport } from './routes/tools/secrets-generator'
 import { Route as ToolsRobotsTxtRouteImport } from './routes/tools/robots-txt'
@@ -39,12 +41,15 @@ import { Route as ToolsQrScannerRouteImport } from './routes/tools/qr-scanner'
 import { Route as ToolsQrCodeRouteImport } from './routes/tools/qr-code'
 import { Route as ToolsPercentageCalculatorRouteImport } from './routes/tools/percentage-calculator'
 import { Route as ToolsPasswordGeneratorRouteImport } from './routes/tools/password-generator'
+import { Route as ToolsPackageJsonAnalyzerRouteImport } from './routes/tools/package-json-analyzer'
+import { Route as ToolsOpenGraphPreviewRouteImport } from './routes/tools/open-graph-preview'
 import { Route as ToolsNumberBaseRouteImport } from './routes/tools/number-base'
 import { Route as ToolsMorseCodeRouteImport } from './routes/tools/morse-code'
 import { Route as ToolsMockDataRouteImport } from './routes/tools/mock-data'
 import { Route as ToolsMetaTagGeneratorRouteImport } from './routes/tools/meta-tag-generator'
 import { Route as ToolsMarkdownToHtmlRouteImport } from './routes/tools/markdown-to-html'
 import { Route as ToolsMarkdownPreviewRouteImport } from './routes/tools/markdown-preview'
+import { Route as ToolsManifestGeneratorRouteImport } from './routes/tools/manifest-generator'
 import { Route as ToolsLoremIpsumRouteImport } from './routes/tools/lorem-ipsum'
 import { Route as ToolsLevenshteinRouteImport } from './routes/tools/levenshtein'
 import { Route as ToolsJwtVerifierRouteImport } from './routes/tools/jwt-verifier'
@@ -69,6 +74,7 @@ import { Route as ToolsHtmlEntityRouteImport } from './routes/tools/html-entity'
 import { Route as ToolsHtaccessGeneratorRouteImport } from './routes/tools/htaccess-generator'
 import { Route as ToolsHmacRouteImport } from './routes/tools/hmac'
 import { Route as ToolsHashRouteImport } from './routes/tools/hash'
+import { Route as ToolsGraphqlFormatterRouteImport } from './routes/tools/graphql-formatter'
 import { Route as ToolsFaviconGeneratorRouteImport } from './routes/tools/favicon-generator'
 import { Route as ToolsExpressionEvaluatorRouteImport } from './routes/tools/expression-evaluator'
 import { Route as ToolsDiffCheckerRouteImport } from './routes/tools/diff-checker'
@@ -191,6 +197,11 @@ const ToolsStringCounterRoute = ToolsStringCounterRouteImport.update({
   path: '/string-counter',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsSqlToJsonRoute = ToolsSqlToJsonRouteImport.update({
+  id: '/sql-to-json',
+  path: '/sql-to-json',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsSqlFormatterRoute = ToolsSqlFormatterRouteImport.update({
   id: '/sql-formatter',
   path: '/sql-formatter',
@@ -199,6 +210,11 @@ const ToolsSqlFormatterRoute = ToolsSqlFormatterRouteImport.update({
 const ToolsSlugGeneratorRoute = ToolsSlugGeneratorRouteImport.update({
   id: '/slug-generator',
   path: '/slug-generator',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsSitemapGeneratorRoute = ToolsSitemapGeneratorRouteImport.update({
+  id: '/sitemap-generator',
+  path: '/sitemap-generator',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsSecurityTxtRoute = ToolsSecurityTxtRouteImport.update({
@@ -247,6 +263,17 @@ const ToolsPasswordGeneratorRoute = ToolsPasswordGeneratorRouteImport.update({
   path: '/password-generator',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsPackageJsonAnalyzerRoute =
+  ToolsPackageJsonAnalyzerRouteImport.update({
+    id: '/package-json-analyzer',
+    path: '/package-json-analyzer',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsOpenGraphPreviewRoute = ToolsOpenGraphPreviewRouteImport.update({
+  id: '/open-graph-preview',
+  path: '/open-graph-preview',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsNumberBaseRoute = ToolsNumberBaseRouteImport.update({
   id: '/number-base',
   path: '/number-base',
@@ -275,6 +302,11 @@ const ToolsMarkdownToHtmlRoute = ToolsMarkdownToHtmlRouteImport.update({
 const ToolsMarkdownPreviewRoute = ToolsMarkdownPreviewRouteImport.update({
   id: '/markdown-preview',
   path: '/markdown-preview',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsManifestGeneratorRoute = ToolsManifestGeneratorRouteImport.update({
+  id: '/manifest-generator',
+  path: '/manifest-generator',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsLoremIpsumRoute = ToolsLoremIpsumRouteImport.update({
@@ -396,6 +428,11 @@ const ToolsHmacRoute = ToolsHmacRouteImport.update({
 const ToolsHashRoute = ToolsHashRouteImport.update({
   id: '/hash',
   path: '/hash',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsGraphqlFormatterRoute = ToolsGraphqlFormatterRouteImport.update({
+  id: '/graphql-formatter',
+  path: '/graphql-formatter',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsFaviconGeneratorRoute = ToolsFaviconGeneratorRouteImport.update({
@@ -559,6 +596,7 @@ export interface FileRoutesByFullPath {
   '/tools/diff-checker': typeof ToolsDiffCheckerRoute
   '/tools/expression-evaluator': typeof ToolsExpressionEvaluatorRoute
   '/tools/favicon-generator': typeof ToolsFaviconGeneratorRoute
+  '/tools/graphql-formatter': typeof ToolsGraphqlFormatterRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/hmac': typeof ToolsHmacRoute
   '/tools/htaccess-generator': typeof ToolsHtaccessGeneratorRoute
@@ -583,12 +621,15 @@ export interface FileRoutesByFullPath {
   '/tools/jwt-verifier': typeof ToolsJwtVerifierRoute
   '/tools/levenshtein': typeof ToolsLevenshteinRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
+  '/tools/manifest-generator': typeof ToolsManifestGeneratorRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/markdown-to-html': typeof ToolsMarkdownToHtmlRoute
   '/tools/meta-tag-generator': typeof ToolsMetaTagGeneratorRoute
   '/tools/mock-data': typeof ToolsMockDataRoute
   '/tools/morse-code': typeof ToolsMorseCodeRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
+  '/tools/open-graph-preview': typeof ToolsOpenGraphPreviewRoute
+  '/tools/package-json-analyzer': typeof ToolsPackageJsonAnalyzerRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/percentage-calculator': typeof ToolsPercentageCalculatorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
@@ -598,8 +639,10 @@ export interface FileRoutesByFullPath {
   '/tools/robots-txt': typeof ToolsRobotsTxtRoute
   '/tools/secrets-generator': typeof ToolsSecretsGeneratorRoute
   '/tools/security-txt': typeof ToolsSecurityTxtRoute
+  '/tools/sitemap-generator': typeof ToolsSitemapGeneratorRoute
   '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
+  '/tools/sql-to-json': typeof ToolsSqlToJsonRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/string-escape': typeof ToolsStringEscapeRoute
   '/tools/svg-optimizer': typeof ToolsSvgOptimizerRoute
@@ -647,6 +690,7 @@ export interface FileRoutesByTo {
   '/tools/diff-checker': typeof ToolsDiffCheckerRoute
   '/tools/expression-evaluator': typeof ToolsExpressionEvaluatorRoute
   '/tools/favicon-generator': typeof ToolsFaviconGeneratorRoute
+  '/tools/graphql-formatter': typeof ToolsGraphqlFormatterRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/hmac': typeof ToolsHmacRoute
   '/tools/htaccess-generator': typeof ToolsHtaccessGeneratorRoute
@@ -671,12 +715,15 @@ export interface FileRoutesByTo {
   '/tools/jwt-verifier': typeof ToolsJwtVerifierRoute
   '/tools/levenshtein': typeof ToolsLevenshteinRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
+  '/tools/manifest-generator': typeof ToolsManifestGeneratorRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/markdown-to-html': typeof ToolsMarkdownToHtmlRoute
   '/tools/meta-tag-generator': typeof ToolsMetaTagGeneratorRoute
   '/tools/mock-data': typeof ToolsMockDataRoute
   '/tools/morse-code': typeof ToolsMorseCodeRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
+  '/tools/open-graph-preview': typeof ToolsOpenGraphPreviewRoute
+  '/tools/package-json-analyzer': typeof ToolsPackageJsonAnalyzerRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/percentage-calculator': typeof ToolsPercentageCalculatorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
@@ -686,8 +733,10 @@ export interface FileRoutesByTo {
   '/tools/robots-txt': typeof ToolsRobotsTxtRoute
   '/tools/secrets-generator': typeof ToolsSecretsGeneratorRoute
   '/tools/security-txt': typeof ToolsSecurityTxtRoute
+  '/tools/sitemap-generator': typeof ToolsSitemapGeneratorRoute
   '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
+  '/tools/sql-to-json': typeof ToolsSqlToJsonRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/string-escape': typeof ToolsStringEscapeRoute
   '/tools/svg-optimizer': typeof ToolsSvgOptimizerRoute
@@ -736,6 +785,7 @@ export interface FileRoutesById {
   '/tools/diff-checker': typeof ToolsDiffCheckerRoute
   '/tools/expression-evaluator': typeof ToolsExpressionEvaluatorRoute
   '/tools/favicon-generator': typeof ToolsFaviconGeneratorRoute
+  '/tools/graphql-formatter': typeof ToolsGraphqlFormatterRoute
   '/tools/hash': typeof ToolsHashRoute
   '/tools/hmac': typeof ToolsHmacRoute
   '/tools/htaccess-generator': typeof ToolsHtaccessGeneratorRoute
@@ -760,12 +810,15 @@ export interface FileRoutesById {
   '/tools/jwt-verifier': typeof ToolsJwtVerifierRoute
   '/tools/levenshtein': typeof ToolsLevenshteinRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
+  '/tools/manifest-generator': typeof ToolsManifestGeneratorRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
   '/tools/markdown-to-html': typeof ToolsMarkdownToHtmlRoute
   '/tools/meta-tag-generator': typeof ToolsMetaTagGeneratorRoute
   '/tools/mock-data': typeof ToolsMockDataRoute
   '/tools/morse-code': typeof ToolsMorseCodeRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
+  '/tools/open-graph-preview': typeof ToolsOpenGraphPreviewRoute
+  '/tools/package-json-analyzer': typeof ToolsPackageJsonAnalyzerRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/percentage-calculator': typeof ToolsPercentageCalculatorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
@@ -775,8 +828,10 @@ export interface FileRoutesById {
   '/tools/robots-txt': typeof ToolsRobotsTxtRoute
   '/tools/secrets-generator': typeof ToolsSecretsGeneratorRoute
   '/tools/security-txt': typeof ToolsSecurityTxtRoute
+  '/tools/sitemap-generator': typeof ToolsSitemapGeneratorRoute
   '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
+  '/tools/sql-to-json': typeof ToolsSqlToJsonRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/string-escape': typeof ToolsStringEscapeRoute
   '/tools/svg-optimizer': typeof ToolsSvgOptimizerRoute
@@ -826,6 +881,7 @@ export interface FileRouteTypes {
     | '/tools/diff-checker'
     | '/tools/expression-evaluator'
     | '/tools/favicon-generator'
+    | '/tools/graphql-formatter'
     | '/tools/hash'
     | '/tools/hmac'
     | '/tools/htaccess-generator'
@@ -850,12 +906,15 @@ export interface FileRouteTypes {
     | '/tools/jwt-verifier'
     | '/tools/levenshtein'
     | '/tools/lorem-ipsum'
+    | '/tools/manifest-generator'
     | '/tools/markdown-preview'
     | '/tools/markdown-to-html'
     | '/tools/meta-tag-generator'
     | '/tools/mock-data'
     | '/tools/morse-code'
     | '/tools/number-base'
+    | '/tools/open-graph-preview'
+    | '/tools/package-json-analyzer'
     | '/tools/password-generator'
     | '/tools/percentage-calculator'
     | '/tools/qr-code'
@@ -865,8 +924,10 @@ export interface FileRouteTypes {
     | '/tools/robots-txt'
     | '/tools/secrets-generator'
     | '/tools/security-txt'
+    | '/tools/sitemap-generator'
     | '/tools/slug-generator'
     | '/tools/sql-formatter'
+    | '/tools/sql-to-json'
     | '/tools/string-counter'
     | '/tools/string-escape'
     | '/tools/svg-optimizer'
@@ -914,6 +975,7 @@ export interface FileRouteTypes {
     | '/tools/diff-checker'
     | '/tools/expression-evaluator'
     | '/tools/favicon-generator'
+    | '/tools/graphql-formatter'
     | '/tools/hash'
     | '/tools/hmac'
     | '/tools/htaccess-generator'
@@ -938,12 +1000,15 @@ export interface FileRouteTypes {
     | '/tools/jwt-verifier'
     | '/tools/levenshtein'
     | '/tools/lorem-ipsum'
+    | '/tools/manifest-generator'
     | '/tools/markdown-preview'
     | '/tools/markdown-to-html'
     | '/tools/meta-tag-generator'
     | '/tools/mock-data'
     | '/tools/morse-code'
     | '/tools/number-base'
+    | '/tools/open-graph-preview'
+    | '/tools/package-json-analyzer'
     | '/tools/password-generator'
     | '/tools/percentage-calculator'
     | '/tools/qr-code'
@@ -953,8 +1018,10 @@ export interface FileRouteTypes {
     | '/tools/robots-txt'
     | '/tools/secrets-generator'
     | '/tools/security-txt'
+    | '/tools/sitemap-generator'
     | '/tools/slug-generator'
     | '/tools/sql-formatter'
+    | '/tools/sql-to-json'
     | '/tools/string-counter'
     | '/tools/string-escape'
     | '/tools/svg-optimizer'
@@ -1002,6 +1069,7 @@ export interface FileRouteTypes {
     | '/tools/diff-checker'
     | '/tools/expression-evaluator'
     | '/tools/favicon-generator'
+    | '/tools/graphql-formatter'
     | '/tools/hash'
     | '/tools/hmac'
     | '/tools/htaccess-generator'
@@ -1026,12 +1094,15 @@ export interface FileRouteTypes {
     | '/tools/jwt-verifier'
     | '/tools/levenshtein'
     | '/tools/lorem-ipsum'
+    | '/tools/manifest-generator'
     | '/tools/markdown-preview'
     | '/tools/markdown-to-html'
     | '/tools/meta-tag-generator'
     | '/tools/mock-data'
     | '/tools/morse-code'
     | '/tools/number-base'
+    | '/tools/open-graph-preview'
+    | '/tools/package-json-analyzer'
     | '/tools/password-generator'
     | '/tools/percentage-calculator'
     | '/tools/qr-code'
@@ -1041,8 +1112,10 @@ export interface FileRouteTypes {
     | '/tools/robots-txt'
     | '/tools/secrets-generator'
     | '/tools/security-txt'
+    | '/tools/sitemap-generator'
     | '/tools/slug-generator'
     | '/tools/sql-formatter'
+    | '/tools/sql-to-json'
     | '/tools/string-counter'
     | '/tools/string-escape'
     | '/tools/svg-optimizer'
@@ -1202,6 +1275,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsStringCounterRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/sql-to-json': {
+      id: '/tools/sql-to-json'
+      path: '/sql-to-json'
+      fullPath: '/tools/sql-to-json'
+      preLoaderRoute: typeof ToolsSqlToJsonRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/sql-formatter': {
       id: '/tools/sql-formatter'
       path: '/sql-formatter'
@@ -1214,6 +1294,13 @@ declare module '@tanstack/react-router' {
       path: '/slug-generator'
       fullPath: '/tools/slug-generator'
       preLoaderRoute: typeof ToolsSlugGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/sitemap-generator': {
+      id: '/tools/sitemap-generator'
+      path: '/sitemap-generator'
+      fullPath: '/tools/sitemap-generator'
+      preLoaderRoute: typeof ToolsSitemapGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/security-txt': {
@@ -1279,6 +1366,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsPasswordGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/package-json-analyzer': {
+      id: '/tools/package-json-analyzer'
+      path: '/package-json-analyzer'
+      fullPath: '/tools/package-json-analyzer'
+      preLoaderRoute: typeof ToolsPackageJsonAnalyzerRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/open-graph-preview': {
+      id: '/tools/open-graph-preview'
+      path: '/open-graph-preview'
+      fullPath: '/tools/open-graph-preview'
+      preLoaderRoute: typeof ToolsOpenGraphPreviewRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/number-base': {
       id: '/tools/number-base'
       path: '/number-base'
@@ -1319,6 +1420,13 @@ declare module '@tanstack/react-router' {
       path: '/markdown-preview'
       fullPath: '/tools/markdown-preview'
       preLoaderRoute: typeof ToolsMarkdownPreviewRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/manifest-generator': {
+      id: '/tools/manifest-generator'
+      path: '/manifest-generator'
+      fullPath: '/tools/manifest-generator'
+      preLoaderRoute: typeof ToolsManifestGeneratorRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/lorem-ipsum': {
@@ -1487,6 +1595,13 @@ declare module '@tanstack/react-router' {
       path: '/hash'
       fullPath: '/tools/hash'
       preLoaderRoute: typeof ToolsHashRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/graphql-formatter': {
+      id: '/tools/graphql-formatter'
+      path: '/graphql-formatter'
+      fullPath: '/tools/graphql-formatter'
+      preLoaderRoute: typeof ToolsGraphqlFormatterRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/favicon-generator': {
@@ -1701,6 +1816,7 @@ interface ToolsRouteChildren {
   ToolsDiffCheckerRoute: typeof ToolsDiffCheckerRoute
   ToolsExpressionEvaluatorRoute: typeof ToolsExpressionEvaluatorRoute
   ToolsFaviconGeneratorRoute: typeof ToolsFaviconGeneratorRoute
+  ToolsGraphqlFormatterRoute: typeof ToolsGraphqlFormatterRoute
   ToolsHashRoute: typeof ToolsHashRoute
   ToolsHmacRoute: typeof ToolsHmacRoute
   ToolsHtaccessGeneratorRoute: typeof ToolsHtaccessGeneratorRoute
@@ -1725,12 +1841,15 @@ interface ToolsRouteChildren {
   ToolsJwtVerifierRoute: typeof ToolsJwtVerifierRoute
   ToolsLevenshteinRoute: typeof ToolsLevenshteinRoute
   ToolsLoremIpsumRoute: typeof ToolsLoremIpsumRoute
+  ToolsManifestGeneratorRoute: typeof ToolsManifestGeneratorRoute
   ToolsMarkdownPreviewRoute: typeof ToolsMarkdownPreviewRoute
   ToolsMarkdownToHtmlRoute: typeof ToolsMarkdownToHtmlRoute
   ToolsMetaTagGeneratorRoute: typeof ToolsMetaTagGeneratorRoute
   ToolsMockDataRoute: typeof ToolsMockDataRoute
   ToolsMorseCodeRoute: typeof ToolsMorseCodeRoute
   ToolsNumberBaseRoute: typeof ToolsNumberBaseRoute
+  ToolsOpenGraphPreviewRoute: typeof ToolsOpenGraphPreviewRoute
+  ToolsPackageJsonAnalyzerRoute: typeof ToolsPackageJsonAnalyzerRoute
   ToolsPasswordGeneratorRoute: typeof ToolsPasswordGeneratorRoute
   ToolsPercentageCalculatorRoute: typeof ToolsPercentageCalculatorRoute
   ToolsQrCodeRoute: typeof ToolsQrCodeRoute
@@ -1740,8 +1859,10 @@ interface ToolsRouteChildren {
   ToolsRobotsTxtRoute: typeof ToolsRobotsTxtRoute
   ToolsSecretsGeneratorRoute: typeof ToolsSecretsGeneratorRoute
   ToolsSecurityTxtRoute: typeof ToolsSecurityTxtRoute
+  ToolsSitemapGeneratorRoute: typeof ToolsSitemapGeneratorRoute
   ToolsSlugGeneratorRoute: typeof ToolsSlugGeneratorRoute
   ToolsSqlFormatterRoute: typeof ToolsSqlFormatterRoute
+  ToolsSqlToJsonRoute: typeof ToolsSqlToJsonRoute
   ToolsStringCounterRoute: typeof ToolsStringCounterRoute
   ToolsStringEscapeRoute: typeof ToolsStringEscapeRoute
   ToolsSvgOptimizerRoute: typeof ToolsSvgOptimizerRoute
@@ -1788,6 +1909,7 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsDiffCheckerRoute: ToolsDiffCheckerRoute,
   ToolsExpressionEvaluatorRoute: ToolsExpressionEvaluatorRoute,
   ToolsFaviconGeneratorRoute: ToolsFaviconGeneratorRoute,
+  ToolsGraphqlFormatterRoute: ToolsGraphqlFormatterRoute,
   ToolsHashRoute: ToolsHashRoute,
   ToolsHmacRoute: ToolsHmacRoute,
   ToolsHtaccessGeneratorRoute: ToolsHtaccessGeneratorRoute,
@@ -1812,12 +1934,15 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsJwtVerifierRoute: ToolsJwtVerifierRoute,
   ToolsLevenshteinRoute: ToolsLevenshteinRoute,
   ToolsLoremIpsumRoute: ToolsLoremIpsumRoute,
+  ToolsManifestGeneratorRoute: ToolsManifestGeneratorRoute,
   ToolsMarkdownPreviewRoute: ToolsMarkdownPreviewRoute,
   ToolsMarkdownToHtmlRoute: ToolsMarkdownToHtmlRoute,
   ToolsMetaTagGeneratorRoute: ToolsMetaTagGeneratorRoute,
   ToolsMockDataRoute: ToolsMockDataRoute,
   ToolsMorseCodeRoute: ToolsMorseCodeRoute,
   ToolsNumberBaseRoute: ToolsNumberBaseRoute,
+  ToolsOpenGraphPreviewRoute: ToolsOpenGraphPreviewRoute,
+  ToolsPackageJsonAnalyzerRoute: ToolsPackageJsonAnalyzerRoute,
   ToolsPasswordGeneratorRoute: ToolsPasswordGeneratorRoute,
   ToolsPercentageCalculatorRoute: ToolsPercentageCalculatorRoute,
   ToolsQrCodeRoute: ToolsQrCodeRoute,
@@ -1827,8 +1952,10 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsRobotsTxtRoute: ToolsRobotsTxtRoute,
   ToolsSecretsGeneratorRoute: ToolsSecretsGeneratorRoute,
   ToolsSecurityTxtRoute: ToolsSecurityTxtRoute,
+  ToolsSitemapGeneratorRoute: ToolsSitemapGeneratorRoute,
   ToolsSlugGeneratorRoute: ToolsSlugGeneratorRoute,
   ToolsSqlFormatterRoute: ToolsSqlFormatterRoute,
+  ToolsSqlToJsonRoute: ToolsSqlToJsonRoute,
   ToolsStringCounterRoute: ToolsStringCounterRoute,
   ToolsStringEscapeRoute: ToolsStringEscapeRoute,
   ToolsSvgOptimizerRoute: ToolsSvgOptimizerRoute,
