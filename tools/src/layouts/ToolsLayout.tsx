@@ -61,6 +61,8 @@ import {
   Bot,
   Award,
   Minimize2,
+  BarChart3,
+  Hexagon,
 } from "lucide-react";
 import {
   Sidebar,
@@ -170,6 +172,12 @@ const tools = [
     category: "Converters",
   },
   {
+    title: "XML → YAML",
+    icon: ArrowRightLeft,
+    href: "/tools/xml-to-yaml",
+    category: "Converters",
+  },
+  {
     title: "URL Encode",
     icon: Link2,
     href: "/tools/url-encode",
@@ -266,6 +274,12 @@ const tools = [
     category: "Validators",
   },
   {
+    title: "JSON Schema Validator",
+    icon: CheckCircle,
+    href: "/tools/json-schema-validator",
+    category: "Validators",
+  },
+  {
     title: "Hash Generator",
     icon: Hash,
     href: "/tools/hash",
@@ -305,6 +319,12 @@ const tools = [
     title: "Certificate Decoder",
     icon: Award,
     href: "/tools/certificate-decoder",
+    category: "Crypto",
+  },
+  {
+    title: "AES Encrypt/Decrypt",
+    icon: Lock,
+    href: "/tools/aes-encrypt",
     category: "Crypto",
   },
   {
@@ -392,6 +412,12 @@ const tools = [
     category: "Generators",
   },
   {
+    title: ".htaccess Generator",
+    icon: Server,
+    href: "/tools/htaccess-generator",
+    category: "Generators",
+  },
+  {
     title: "Text Diff",
     icon: FileText,
     href: "/tools/diff",
@@ -437,6 +463,12 @@ const tools = [
     title: "Levenshtein Distance",
     icon: Scale,
     href: "/tools/levenshtein",
+    category: "Text Tools",
+  },
+  {
+    title: "Text Statistics",
+    icon: BarChart3,
+    href: "/tools/text-statistics",
     category: "Text Tools",
   },
   {
@@ -527,6 +559,12 @@ const tools = [
     title: "Image Resizer",
     icon: Maximize2,
     href: "/tools/image-resizer",
+    category: "Media",
+  },
+  {
+    title: "Favicon Generator",
+    icon: Hexagon,
+    href: "/tools/favicon-generator",
     category: "Media",
   },
   {

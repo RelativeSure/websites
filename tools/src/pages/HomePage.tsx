@@ -60,6 +60,9 @@ import {
   Maximize2,
   Bot,
   Award,
+  BarChart3,
+  Hexagon,
+  Server,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -86,6 +89,7 @@ const tools = [
   { title: "CSV → JSON", icon: ArrowLeftRight, href: "/tools/csv-to-json", category: "Converters" },
   { title: "Timezone", icon: Globe, href: "/tools/timezone-converter", category: "Converters" },
   { title: "MD → HTML", icon: FileCode, href: "/tools/markdown-to-html", category: "Converters" },
+  { title: "XML → YAML", icon: ArrowRightLeft, href: "/tools/xml-to-yaml", category: "Converters" },
   { title: "URL Encode", icon: Link2, href: "/tools/url-encode", category: "Encoders" },
   { title: "HTML Entity", icon: Code2, href: "/tools/html-entity", category: "Encoders" },
   { title: "Backslash Escape", icon: Slash, href: "/tools/backslash-escape", category: "Encoders" },
@@ -101,6 +105,7 @@ const tools = [
   { title: "JSON Valid", icon: CheckCircle, href: "/tools/json-validator", category: "Validators" },
   { title: "YAML Valid", icon: CheckCircle, href: "/tools/yaml-validator", category: "Validators" },
   { title: "Validator", icon: ShieldCheck, href: "/tools/validator", category: "Validators" },
+  { title: "JSON Schema", icon: CheckCircle, href: "/tools/json-schema-validator", category: "Validators" },
   { title: "Hash Gen", icon: Hash, href: "/tools/hash", category: "Crypto" },
   { title: "JWT Gen", icon: KeyRound, href: "/tools/jwt-generator", category: "Crypto" },
   { title: "HMAC Gen", icon: Key, href: "/tools/hmac", category: "Crypto" },
@@ -108,6 +113,7 @@ const tools = [
   { title: "Bcrypt Hash", icon: Lock, href: "/tools/bcrypt", category: "Crypto" },
   { title: "JWT Verify", icon: ShieldCheck, href: "/tools/jwt-verifier", category: "Crypto" },
   { title: "Cert Decoder", icon: Award, href: "/tools/certificate-decoder", category: "Crypto" },
+  { title: "AES Encrypt", icon: Lock, href: "/tools/aes-encrypt", category: "Crypto" },
   { title: "UUID Gen", icon: Fingerprint, href: "/tools/uuid", category: "Generators" },
   { title: "Password", icon: Lock, href: "/tools/password-generator", category: "Generators" },
   { title: "Lorem Ipsum", icon: Type, href: "/tools/lorem-ipsum", category: "Generators" },
@@ -122,12 +128,14 @@ const tools = [
   { title: "Meta Tags", icon: Tag, href: "/tools/meta-tag-generator", category: "Generators" },
   { title: "Security.txt", icon: ShieldAlert, href: "/tools/security-txt", category: "Generators" },
   { title: "robots.txt", icon: Bot, href: "/tools/robots-txt", category: "Generators" },
+  { title: ".htaccess", icon: Server, href: "/tools/htaccess-generator", category: "Generators" },
   { title: "Text Diff", icon: FileText, href: "/tools/diff", category: "Text Tools" },
   { title: "Case Convert", icon: Code2, href: "/tools/case-converter", category: "Text Tools" },
   { title: "Text Tools", icon: WrapText, href: "/tools/text-tools", category: "Text Tools" },
   { title: "ASCII Art", icon: Sparkles, href: "/tools/ascii-art", category: "Text Tools" },
   { title: "Regex Test", icon: TestTube, href: "/tools/regex-tester", category: "Text Tools" },
   { title: "Levenshtein", icon: Scale, href: "/tools/levenshtein", category: "Text Tools" },
+  { title: "Text Stats", icon: BarChart3, href: "/tools/text-statistics", category: "Text Tools" },
   { title: "Text Analyze", icon: LineChart, href: "/tools/text-analyzer", category: "Text Tools" },
   { title: "Markdown", icon: FileType, href: "/tools/markdown-preview", category: "Dev Tools" },
   { title: "Cron Parser", icon: Timer, href: "/tools/cron-parser", category: "Dev Tools" },
@@ -147,6 +155,7 @@ const tools = [
   { title: "Img Compress", icon: Image, href: "/tools/image-compressor", category: "Media" },
   { title: "SVG Optimizer", icon: FileImage, href: "/tools/svg-optimizer", category: "Media" },
   { title: "Img Resizer", icon: Maximize2, href: "/tools/image-resizer", category: "Media" },
+  { title: "Favicon Gen", icon: Hexagon, href: "/tools/favicon-generator", category: "Media" },
   { title: "HTTP Status", icon: Info, href: "/tools/http-status", category: "Reference" },
 ];
 
