@@ -13,11 +13,13 @@ import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ToolsYamlValidatorRouteImport } from './routes/tools/yaml-validator'
 import { Route as ToolsXmlJsonRouteImport } from './routes/tools/xml-json'
+import { Route as ToolsValidatorRouteImport } from './routes/tools/validator'
 import { Route as ToolsUuidRouteImport } from './routes/tools/uuid'
 import { Route as ToolsUserAgentParserRouteImport } from './routes/tools/user-agent-parser'
 import { Route as ToolsUrlParserRouteImport } from './routes/tools/url-parser'
 import { Route as ToolsUrlEncodeRouteImport } from './routes/tools/url-encode'
 import { Route as ToolsTimestampRouteImport } from './routes/tools/timestamp'
+import { Route as ToolsTextToolsRouteImport } from './routes/tools/text-tools'
 import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-counter'
 import { Route as ToolsSqlFormatterRouteImport } from './routes/tools/sql-formatter'
 import { Route as ToolsRegexTesterRouteImport } from './routes/tools/regex-tester'
@@ -26,6 +28,8 @@ import { Route as ToolsQrScannerRouteImport } from './routes/tools/qr-scanner'
 import { Route as ToolsQrCodeRouteImport } from './routes/tools/qr-code'
 import { Route as ToolsPasswordGeneratorRouteImport } from './routes/tools/password-generator'
 import { Route as ToolsNumberBaseRouteImport } from './routes/tools/number-base'
+import { Route as ToolsMorseCodeRouteImport } from './routes/tools/morse-code'
+import { Route as ToolsMockDataRouteImport } from './routes/tools/mock-data'
 import { Route as ToolsMarkdownPreviewRouteImport } from './routes/tools/markdown-preview'
 import { Route as ToolsLoremIpsumRouteImport } from './routes/tools/lorem-ipsum'
 import { Route as ToolsJwtGeneratorRouteImport } from './routes/tools/jwt-generator'
@@ -44,6 +48,7 @@ import { Route as ToolsCsvJsonRouteImport } from './routes/tools/csv-json'
 import { Route as ToolsCssMinifierRouteImport } from './routes/tools/css-minifier'
 import { Route as ToolsCronParserRouteImport } from './routes/tools/cron-parser'
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
+import { Route as ToolsCipherRouteImport } from './routes/tools/cipher'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
 import { Route as ToolsBase64ImageRouteImport } from './routes/tools/base64-image'
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
@@ -70,6 +75,11 @@ const ToolsXmlJsonRoute = ToolsXmlJsonRouteImport.update({
   path: '/xml-json',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsValidatorRoute = ToolsValidatorRouteImport.update({
+  id: '/validator',
+  path: '/validator',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsUuidRoute = ToolsUuidRouteImport.update({
   id: '/uuid',
   path: '/uuid',
@@ -93,6 +103,11 @@ const ToolsUrlEncodeRoute = ToolsUrlEncodeRouteImport.update({
 const ToolsTimestampRoute = ToolsTimestampRouteImport.update({
   id: '/timestamp',
   path: '/timestamp',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsTextToolsRoute = ToolsTextToolsRouteImport.update({
+  id: '/text-tools',
+  path: '/text-tools',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsStringCounterRoute = ToolsStringCounterRouteImport.update({
@@ -133,6 +148,16 @@ const ToolsPasswordGeneratorRoute = ToolsPasswordGeneratorRouteImport.update({
 const ToolsNumberBaseRoute = ToolsNumberBaseRouteImport.update({
   id: '/number-base',
   path: '/number-base',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsMorseCodeRoute = ToolsMorseCodeRouteImport.update({
+  id: '/morse-code',
+  path: '/morse-code',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsMockDataRoute = ToolsMockDataRouteImport.update({
+  id: '/mock-data',
+  path: '/mock-data',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsMarkdownPreviewRoute = ToolsMarkdownPreviewRouteImport.update({
@@ -225,6 +250,11 @@ const ToolsColorConverterRoute = ToolsColorConverterRouteImport.update({
   path: '/color-converter',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsCipherRoute = ToolsCipherRouteImport.update({
+  id: '/cipher',
+  path: '/cipher',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsCaseConverterRoute = ToolsCaseConverterRouteImport.update({
   id: '/case-converter',
   path: '/case-converter',
@@ -259,6 +289,7 @@ export interface FileRoutesByFullPath {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
@@ -277,6 +308,8 @@ export interface FileRoutesByFullPath {
   '/tools/jwt-generator': typeof ToolsJwtGeneratorRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
+  '/tools/mock-data': typeof ToolsMockDataRoute
+  '/tools/morse-code': typeof ToolsMorseCodeRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
@@ -285,11 +318,13 @@ export interface FileRoutesByFullPath {
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
+  '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
+  '/tools/validator': typeof ToolsValidatorRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
 }
@@ -301,6 +336,7 @@ export interface FileRoutesByTo {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
@@ -319,6 +355,8 @@ export interface FileRoutesByTo {
   '/tools/jwt-generator': typeof ToolsJwtGeneratorRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
+  '/tools/mock-data': typeof ToolsMockDataRoute
+  '/tools/morse-code': typeof ToolsMorseCodeRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
@@ -327,11 +365,13 @@ export interface FileRoutesByTo {
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
+  '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
+  '/tools/validator': typeof ToolsValidatorRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
 }
@@ -344,6 +384,7 @@ export interface FileRoutesById {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
   '/tools/cron-parser': typeof ToolsCronParserRoute
   '/tools/css-minifier': typeof ToolsCssMinifierRoute
@@ -362,6 +403,8 @@ export interface FileRoutesById {
   '/tools/jwt-generator': typeof ToolsJwtGeneratorRoute
   '/tools/lorem-ipsum': typeof ToolsLoremIpsumRoute
   '/tools/markdown-preview': typeof ToolsMarkdownPreviewRoute
+  '/tools/mock-data': typeof ToolsMockDataRoute
+  '/tools/morse-code': typeof ToolsMorseCodeRoute
   '/tools/number-base': typeof ToolsNumberBaseRoute
   '/tools/password-generator': typeof ToolsPasswordGeneratorRoute
   '/tools/qr-code': typeof ToolsQrCodeRoute
@@ -370,11 +413,13 @@ export interface FileRoutesById {
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
+  '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/url-encode': typeof ToolsUrlEncodeRoute
   '/tools/url-parser': typeof ToolsUrlParserRoute
   '/tools/user-agent-parser': typeof ToolsUserAgentParserRoute
   '/tools/uuid': typeof ToolsUuidRoute
+  '/tools/validator': typeof ToolsValidatorRoute
   '/tools/xml-json': typeof ToolsXmlJsonRoute
   '/tools/yaml-validator': typeof ToolsYamlValidatorRoute
 }
@@ -388,6 +433,7 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/base64-image'
     | '/tools/case-converter'
+    | '/tools/cipher'
     | '/tools/color-converter'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
@@ -406,6 +452,8 @@ export interface FileRouteTypes {
     | '/tools/jwt-generator'
     | '/tools/lorem-ipsum'
     | '/tools/markdown-preview'
+    | '/tools/mock-data'
+    | '/tools/morse-code'
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
@@ -414,11 +462,13 @@ export interface FileRouteTypes {
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
+    | '/tools/text-tools'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/url-parser'
     | '/tools/user-agent-parser'
     | '/tools/uuid'
+    | '/tools/validator'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
   fileRoutesByTo: FileRoutesByTo
@@ -430,6 +480,7 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/base64-image'
     | '/tools/case-converter'
+    | '/tools/cipher'
     | '/tools/color-converter'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
@@ -448,6 +499,8 @@ export interface FileRouteTypes {
     | '/tools/jwt-generator'
     | '/tools/lorem-ipsum'
     | '/tools/markdown-preview'
+    | '/tools/mock-data'
+    | '/tools/morse-code'
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
@@ -456,11 +509,13 @@ export interface FileRouteTypes {
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
+    | '/tools/text-tools'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/url-parser'
     | '/tools/user-agent-parser'
     | '/tools/uuid'
+    | '/tools/validator'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
   id:
@@ -472,6 +527,7 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/base64-image'
     | '/tools/case-converter'
+    | '/tools/cipher'
     | '/tools/color-converter'
     | '/tools/cron-parser'
     | '/tools/css-minifier'
@@ -490,6 +546,8 @@ export interface FileRouteTypes {
     | '/tools/jwt-generator'
     | '/tools/lorem-ipsum'
     | '/tools/markdown-preview'
+    | '/tools/mock-data'
+    | '/tools/morse-code'
     | '/tools/number-base'
     | '/tools/password-generator'
     | '/tools/qr-code'
@@ -498,11 +556,13 @@ export interface FileRouteTypes {
     | '/tools/regex-tester'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
+    | '/tools/text-tools'
     | '/tools/timestamp'
     | '/tools/url-encode'
     | '/tools/url-parser'
     | '/tools/user-agent-parser'
     | '/tools/uuid'
+    | '/tools/validator'
     | '/tools/xml-json'
     | '/tools/yaml-validator'
   fileRoutesById: FileRoutesById
@@ -542,6 +602,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsXmlJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/validator': {
+      id: '/tools/validator'
+      path: '/validator'
+      fullPath: '/tools/validator'
+      preLoaderRoute: typeof ToolsValidatorRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/uuid': {
       id: '/tools/uuid'
       path: '/uuid'
@@ -575,6 +642,13 @@ declare module '@tanstack/react-router' {
       path: '/timestamp'
       fullPath: '/tools/timestamp'
       preLoaderRoute: typeof ToolsTimestampRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/text-tools': {
+      id: '/tools/text-tools'
+      path: '/text-tools'
+      fullPath: '/tools/text-tools'
+      preLoaderRoute: typeof ToolsTextToolsRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/string-counter': {
@@ -631,6 +705,20 @@ declare module '@tanstack/react-router' {
       path: '/number-base'
       fullPath: '/tools/number-base'
       preLoaderRoute: typeof ToolsNumberBaseRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/morse-code': {
+      id: '/tools/morse-code'
+      path: '/morse-code'
+      fullPath: '/tools/morse-code'
+      preLoaderRoute: typeof ToolsMorseCodeRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/mock-data': {
+      id: '/tools/mock-data'
+      path: '/mock-data'
+      fullPath: '/tools/mock-data'
+      preLoaderRoute: typeof ToolsMockDataRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/markdown-preview': {
@@ -759,6 +847,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsColorConverterRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/cipher': {
+      id: '/tools/cipher'
+      path: '/cipher'
+      fullPath: '/tools/cipher'
+      preLoaderRoute: typeof ToolsCipherRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/case-converter': {
       id: '/tools/case-converter'
       path: '/case-converter'
@@ -803,6 +898,7 @@ interface ToolsRouteChildren {
   ToolsBase64Route: typeof ToolsBase64Route
   ToolsBase64ImageRoute: typeof ToolsBase64ImageRoute
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
+  ToolsCipherRoute: typeof ToolsCipherRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
   ToolsCronParserRoute: typeof ToolsCronParserRoute
   ToolsCssMinifierRoute: typeof ToolsCssMinifierRoute
@@ -821,6 +917,8 @@ interface ToolsRouteChildren {
   ToolsJwtGeneratorRoute: typeof ToolsJwtGeneratorRoute
   ToolsLoremIpsumRoute: typeof ToolsLoremIpsumRoute
   ToolsMarkdownPreviewRoute: typeof ToolsMarkdownPreviewRoute
+  ToolsMockDataRoute: typeof ToolsMockDataRoute
+  ToolsMorseCodeRoute: typeof ToolsMorseCodeRoute
   ToolsNumberBaseRoute: typeof ToolsNumberBaseRoute
   ToolsPasswordGeneratorRoute: typeof ToolsPasswordGeneratorRoute
   ToolsQrCodeRoute: typeof ToolsQrCodeRoute
@@ -829,11 +927,13 @@ interface ToolsRouteChildren {
   ToolsRegexTesterRoute: typeof ToolsRegexTesterRoute
   ToolsSqlFormatterRoute: typeof ToolsSqlFormatterRoute
   ToolsStringCounterRoute: typeof ToolsStringCounterRoute
+  ToolsTextToolsRoute: typeof ToolsTextToolsRoute
   ToolsTimestampRoute: typeof ToolsTimestampRoute
   ToolsUrlEncodeRoute: typeof ToolsUrlEncodeRoute
   ToolsUrlParserRoute: typeof ToolsUrlParserRoute
   ToolsUserAgentParserRoute: typeof ToolsUserAgentParserRoute
   ToolsUuidRoute: typeof ToolsUuidRoute
+  ToolsValidatorRoute: typeof ToolsValidatorRoute
   ToolsXmlJsonRoute: typeof ToolsXmlJsonRoute
   ToolsYamlValidatorRoute: typeof ToolsYamlValidatorRoute
 }
@@ -844,6 +944,7 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsBase64Route: ToolsBase64Route,
   ToolsBase64ImageRoute: ToolsBase64ImageRoute,
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
+  ToolsCipherRoute: ToolsCipherRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,
   ToolsCronParserRoute: ToolsCronParserRoute,
   ToolsCssMinifierRoute: ToolsCssMinifierRoute,
@@ -862,6 +963,8 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsJwtGeneratorRoute: ToolsJwtGeneratorRoute,
   ToolsLoremIpsumRoute: ToolsLoremIpsumRoute,
   ToolsMarkdownPreviewRoute: ToolsMarkdownPreviewRoute,
+  ToolsMockDataRoute: ToolsMockDataRoute,
+  ToolsMorseCodeRoute: ToolsMorseCodeRoute,
   ToolsNumberBaseRoute: ToolsNumberBaseRoute,
   ToolsPasswordGeneratorRoute: ToolsPasswordGeneratorRoute,
   ToolsQrCodeRoute: ToolsQrCodeRoute,
@@ -870,11 +973,13 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsRegexTesterRoute: ToolsRegexTesterRoute,
   ToolsSqlFormatterRoute: ToolsSqlFormatterRoute,
   ToolsStringCounterRoute: ToolsStringCounterRoute,
+  ToolsTextToolsRoute: ToolsTextToolsRoute,
   ToolsTimestampRoute: ToolsTimestampRoute,
   ToolsUrlEncodeRoute: ToolsUrlEncodeRoute,
   ToolsUrlParserRoute: ToolsUrlParserRoute,
   ToolsUserAgentParserRoute: ToolsUserAgentParserRoute,
   ToolsUuidRoute: ToolsUuidRoute,
+  ToolsValidatorRoute: ToolsValidatorRoute,
   ToolsXmlJsonRoute: ToolsXmlJsonRoute,
   ToolsYamlValidatorRoute: ToolsYamlValidatorRoute,
 }

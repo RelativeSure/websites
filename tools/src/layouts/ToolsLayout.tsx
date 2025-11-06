@@ -33,6 +33,11 @@ import {
   Smartphone,
   Slash,
   ScanLine,
+  Users,
+  WrapText,
+  Radio,
+  Shield,
+  ShieldCheck,
 } from "lucide-react";
 import {
   Sidebar,
@@ -124,6 +129,18 @@ const tools = [
     category: "Encoders",
   },
   {
+    title: "Morse Code",
+    icon: Radio,
+    href: "/tools/morse-code",
+    category: "Encoders",
+  },
+  {
+    title: "Cipher (ROT13/Caesar)",
+    icon: Shield,
+    href: "/tools/cipher",
+    category: "Encoders",
+  },
+  {
     title: "Image → Base64",
     icon: Image,
     href: "/tools/image-to-base64",
@@ -172,6 +189,12 @@ const tools = [
     category: "Validators",
   },
   {
+    title: "Email/IP/Domain Validator",
+    icon: ShieldCheck,
+    href: "/tools/validator",
+    category: "Validators",
+  },
+  {
     title: "Hash Generator",
     icon: Hash,
     href: "/tools/hash",
@@ -202,6 +225,12 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Mock Data",
+    icon: Users,
+    href: "/tools/mock-data",
+    category: "Generators",
+  },
+  {
     title: "QR Code",
     icon: QrCode,
     href: "/tools/qr-code",
@@ -229,6 +258,12 @@ const tools = [
     title: "Text Analyzer",
     icon: AlignLeft,
     href: "/tools/string-counter",
+    category: "Text Tools",
+  },
+  {
+    title: "Text Tools",
+    icon: WrapText,
+    href: "/tools/text-tools",
     category: "Text Tools",
   },
   {
