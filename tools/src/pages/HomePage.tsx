@@ -53,6 +53,9 @@ import {
   Globe,
   Percent,
   KeySquare,
+  Calendar,
+  Tag,
+  Scale,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -84,6 +87,7 @@ const tools = [
   { title: "Backslash Escape", icon: Slash, href: "/tools/backslash-escape", category: "Encoders" },
   { title: "Morse Code", icon: Radio, href: "/tools/morse-code", category: "Encoders" },
   { title: "Cipher", icon: Shield, href: "/tools/cipher", category: "Encoders" },
+  { title: "String Escape", icon: Code2, href: "/tools/string-escape", category: "Encoders" },
   { title: "Image → Base64", icon: Image, href: "/tools/image-to-base64", category: "Encoders" },
   { title: "JWT Decoder", icon: KeyRound, href: "/tools/jwt-decoder", category: "Decoders" },
   { title: "JSON Format", icon: Braces, href: "/tools/json-formatter", category: "Formatters" },
@@ -110,11 +114,14 @@ const tools = [
   { title: "Random Data", icon: Shuffle, href: "/tools/random-data", category: "Generators" },
   { title: "Data URI Gen", icon: FileType, href: "/tools/data-uri", category: "Generators" },
   { title: "Secrets Gen", icon: KeySquare, href: "/tools/secrets-generator", category: "Generators" },
+  { title: "Meta Tags", icon: Tag, href: "/tools/meta-tag-generator", category: "Generators" },
+  { title: "Security.txt", icon: ShieldAlert, href: "/tools/security-txt", category: "Generators" },
   { title: "Text Diff", icon: FileText, href: "/tools/diff", category: "Text Tools" },
   { title: "Case Convert", icon: Code2, href: "/tools/case-converter", category: "Text Tools" },
   { title: "Text Tools", icon: WrapText, href: "/tools/text-tools", category: "Text Tools" },
   { title: "ASCII Art", icon: Sparkles, href: "/tools/ascii-art", category: "Text Tools" },
   { title: "Regex Test", icon: TestTube, href: "/tools/regex-tester", category: "Text Tools" },
+  { title: "Levenshtein", icon: Scale, href: "/tools/levenshtein", category: "Text Tools" },
   { title: "Text Analyze", icon: LineChart, href: "/tools/text-analyzer", category: "Text Tools" },
   { title: "Markdown", icon: FileType, href: "/tools/markdown-preview", category: "Dev Tools" },
   { title: "Cron Parser", icon: Timer, href: "/tools/cron-parser", category: "Dev Tools" },
@@ -125,8 +132,11 @@ const tools = [
   { title: "CSS Minify", icon: Minimize2, href: "/tools/css-minifier", category: "Dev Tools" },
   { title: "URL Parser", icon: LinkIcon, href: "/tools/url-parser", category: "Dev Tools" },
   { title: "User Agent", icon: Smartphone, href: "/tools/user-agent-parser", category: "Dev Tools" },
+  { title: "JSON Path", icon: Search, href: "/tools/json-path-tester", category: "Dev Tools" },
   { title: "Expr Eval", icon: Calculator, href: "/tools/expression-evaluator", category: "Math" },
   { title: "Percentage", icon: Percent, href: "/tools/percentage-calculator", category: "Math" },
+  { title: "Date Calc", icon: Calendar, href: "/tools/date-calculator", category: "Math" },
+  { title: "Img Compress", icon: Image, href: "/tools/image-compressor", category: "Media" },
   { title: "HTTP Status", icon: Info, href: "/tools/http-status", category: "Reference" },
 ];
 

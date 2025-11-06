@@ -52,6 +52,10 @@ import {
   Globe,
   Percent,
   KeySquare,
+  Search,
+  Calendar,
+  Tag,
+  Scale,
 } from "lucide-react";
 import {
   Sidebar,
@@ -188,6 +192,12 @@ const tools = [
     title: "Cipher (ROT13/Caesar)",
     icon: Shield,
     href: "/tools/cipher",
+    category: "Encoders",
+  },
+  {
+    title: "String Escape/Unescape",
+    icon: Code2,
+    href: "/tools/string-escape",
     category: "Encoders",
   },
   {
@@ -353,6 +363,18 @@ const tools = [
     category: "Generators",
   },
   {
+    title: "Meta Tag Generator",
+    icon: Tag,
+    href: "/tools/meta-tag-generator",
+    category: "Generators",
+  },
+  {
+    title: "Security.txt Generator",
+    icon: ShieldAlert,
+    href: "/tools/security-txt",
+    category: "Generators",
+  },
+  {
     title: "Text Diff",
     icon: FileText,
     href: "/tools/diff",
@@ -395,6 +417,12 @@ const tools = [
     category: "Text Tools",
   },
   {
+    title: "Levenshtein Distance",
+    icon: Scale,
+    href: "/tools/levenshtein",
+    category: "Text Tools",
+  },
+  {
     title: "Cron Parser",
     icon: CalendarClock,
     href: "/tools/cron-parser",
@@ -431,6 +459,12 @@ const tools = [
     category: "Dev Tools",
   },
   {
+    title: "JSON Path Tester",
+    icon: Search,
+    href: "/tools/json-path-tester",
+    category: "Dev Tools",
+  },
+  {
     title: "Expression Evaluator",
     icon: Calculator,
     href: "/tools/expression-evaluator",
@@ -441,6 +475,18 @@ const tools = [
     icon: Percent,
     href: "/tools/percentage-calculator",
     category: "Math",
+  },
+  {
+    title: "Date Calculator",
+    icon: Calendar,
+    href: "/tools/date-calculator",
+    category: "Math",
+  },
+  {
+    title: "Image Compressor",
+    icon: Image,
+    href: "/tools/image-compressor",
+    category: "Media",
   },
   {
     title: "HTTP Status Codes",
