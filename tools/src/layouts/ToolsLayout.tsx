@@ -56,6 +56,11 @@ import {
   Calendar,
   Tag,
   Scale,
+  FileImage,
+  Maximize2,
+  Bot,
+  Award,
+  Minimize2,
 } from "lucide-react";
 import {
   Sidebar,
@@ -297,6 +302,12 @@ const tools = [
     category: "Crypto",
   },
   {
+    title: "Certificate Decoder",
+    icon: Award,
+    href: "/tools/certificate-decoder",
+    category: "Crypto",
+  },
+  {
     title: "UUID Generator",
     icon: Fingerprint,
     href: "/tools/uuid",
@@ -372,6 +383,12 @@ const tools = [
     title: "Security.txt Generator",
     icon: ShieldAlert,
     href: "/tools/security-txt",
+    category: "Generators",
+  },
+  {
+    title: "robots.txt Generator",
+    icon: Bot,
+    href: "/tools/robots-txt",
     category: "Generators",
   },
   {
@@ -465,6 +482,12 @@ const tools = [
     category: "Dev Tools",
   },
   {
+    title: "JavaScript Minifier",
+    icon: Minimize2,
+    href: "/tools/js-minifier",
+    category: "Dev Tools",
+  },
+  {
     title: "Expression Evaluator",
     icon: Calculator,
     href: "/tools/expression-evaluator",
@@ -483,9 +506,27 @@ const tools = [
     category: "Math",
   },
   {
+    title: "Binary Calculator",
+    icon: Binary,
+    href: "/tools/binary-calculator",
+    category: "Math",
+  },
+  {
     title: "Image Compressor",
     icon: Image,
     href: "/tools/image-compressor",
+    category: "Media",
+  },
+  {
+    title: "SVG Optimizer",
+    icon: FileImage,
+    href: "/tools/svg-optimizer",
+    category: "Media",
+  },
+  {
+    title: "Image Resizer",
+    icon: Maximize2,
+    href: "/tools/image-resizer",
     category: "Media",
   },
   {

@@ -56,6 +56,10 @@ import {
   Calendar,
   Tag,
   Scale,
+  FileImage,
+  Maximize2,
+  Bot,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -103,6 +107,7 @@ const tools = [
   { title: "TOTP Gen", icon: ShieldAlert, href: "/tools/totp", category: "Crypto" },
   { title: "Bcrypt Hash", icon: Lock, href: "/tools/bcrypt", category: "Crypto" },
   { title: "JWT Verify", icon: ShieldCheck, href: "/tools/jwt-verifier", category: "Crypto" },
+  { title: "Cert Decoder", icon: Award, href: "/tools/certificate-decoder", category: "Crypto" },
   { title: "UUID Gen", icon: Fingerprint, href: "/tools/uuid", category: "Generators" },
   { title: "Password", icon: Lock, href: "/tools/password-generator", category: "Generators" },
   { title: "Lorem Ipsum", icon: Type, href: "/tools/lorem-ipsum", category: "Generators" },
@@ -116,6 +121,7 @@ const tools = [
   { title: "Secrets Gen", icon: KeySquare, href: "/tools/secrets-generator", category: "Generators" },
   { title: "Meta Tags", icon: Tag, href: "/tools/meta-tag-generator", category: "Generators" },
   { title: "Security.txt", icon: ShieldAlert, href: "/tools/security-txt", category: "Generators" },
+  { title: "robots.txt", icon: Bot, href: "/tools/robots-txt", category: "Generators" },
   { title: "Text Diff", icon: FileText, href: "/tools/diff", category: "Text Tools" },
   { title: "Case Convert", icon: Code2, href: "/tools/case-converter", category: "Text Tools" },
   { title: "Text Tools", icon: WrapText, href: "/tools/text-tools", category: "Text Tools" },
@@ -133,10 +139,14 @@ const tools = [
   { title: "URL Parser", icon: LinkIcon, href: "/tools/url-parser", category: "Dev Tools" },
   { title: "User Agent", icon: Smartphone, href: "/tools/user-agent-parser", category: "Dev Tools" },
   { title: "JSON Path", icon: Search, href: "/tools/json-path-tester", category: "Dev Tools" },
+  { title: "JS Minifier", icon: Minimize2, href: "/tools/js-minifier", category: "Dev Tools" },
   { title: "Expr Eval", icon: Calculator, href: "/tools/expression-evaluator", category: "Math" },
   { title: "Percentage", icon: Percent, href: "/tools/percentage-calculator", category: "Math" },
   { title: "Date Calc", icon: Calendar, href: "/tools/date-calculator", category: "Math" },
+  { title: "Binary Calc", icon: Binary, href: "/tools/binary-calculator", category: "Math" },
   { title: "Img Compress", icon: Image, href: "/tools/image-compressor", category: "Media" },
+  { title: "SVG Optimizer", icon: FileImage, href: "/tools/svg-optimizer", category: "Media" },
+  { title: "Img Resizer", icon: Maximize2, href: "/tools/image-resizer", category: "Media" },
   { title: "HTTP Status", icon: Info, href: "/tools/http-status", category: "Reference" },
 ];
 

@@ -23,12 +23,14 @@ import { Route as ToolsTotpRouteImport } from './routes/tools/totp'
 import { Route as ToolsTimezoneConverterRouteImport } from './routes/tools/timezone-converter'
 import { Route as ToolsTimestampRouteImport } from './routes/tools/timestamp'
 import { Route as ToolsTextToolsRouteImport } from './routes/tools/text-tools'
+import { Route as ToolsSvgOptimizerRouteImport } from './routes/tools/svg-optimizer'
 import { Route as ToolsStringEscapeRouteImport } from './routes/tools/string-escape'
 import { Route as ToolsStringCounterRouteImport } from './routes/tools/string-counter'
 import { Route as ToolsSqlFormatterRouteImport } from './routes/tools/sql-formatter'
 import { Route as ToolsSlugGeneratorRouteImport } from './routes/tools/slug-generator'
 import { Route as ToolsSecurityTxtRouteImport } from './routes/tools/security-txt'
 import { Route as ToolsSecretsGeneratorRouteImport } from './routes/tools/secrets-generator'
+import { Route as ToolsRobotsTxtRouteImport } from './routes/tools/robots-txt'
 import { Route as ToolsRegexTesterRouteImport } from './routes/tools/regex-tester'
 import { Route as ToolsRandomDataRouteImport } from './routes/tools/random-data'
 import { Route as ToolsQrScannerRouteImport } from './routes/tools/qr-scanner'
@@ -53,8 +55,10 @@ import { Route as ToolsJsonToCsvRouteImport } from './routes/tools/json-to-csv'
 import { Route as ToolsJsonPathTesterRouteImport } from './routes/tools/json-path-tester'
 import { Route as ToolsJsonFormatterRouteImport } from './routes/tools/json-formatter'
 import { Route as ToolsJsonDiffRouteImport } from './routes/tools/json-diff'
+import { Route as ToolsJsMinifierRouteImport } from './routes/tools/js-minifier'
 import { Route as ToolsIpSubnetRouteImport } from './routes/tools/ip-subnet'
 import { Route as ToolsImageToBase64RouteImport } from './routes/tools/image-to-base64'
+import { Route as ToolsImageResizerRouteImport } from './routes/tools/image-resizer'
 import { Route as ToolsImageCompressorRouteImport } from './routes/tools/image-compressor'
 import { Route as ToolsHttpStatusRouteImport } from './routes/tools/http-status'
 import { Route as ToolsHtmlFormatterRouteImport } from './routes/tools/html-formatter'
@@ -76,7 +80,9 @@ import { Route as ToolsColorPaletteRouteImport } from './routes/tools/color-pale
 import { Route as ToolsColorConverterRouteImport } from './routes/tools/color-converter'
 import { Route as ToolsCipherRouteImport } from './routes/tools/cipher'
 import { Route as ToolsChmodRouteImport } from './routes/tools/chmod'
+import { Route as ToolsCertificateDecoderRouteImport } from './routes/tools/certificate-decoder'
 import { Route as ToolsCaseConverterRouteImport } from './routes/tools/case-converter'
+import { Route as ToolsBinaryCalculatorRouteImport } from './routes/tools/binary-calculator'
 import { Route as ToolsBcryptRouteImport } from './routes/tools/bcrypt'
 import { Route as ToolsBase64ImageRouteImport } from './routes/tools/base64-image'
 import { Route as ToolsBase64RouteImport } from './routes/tools/base64'
@@ -154,6 +160,11 @@ const ToolsTextToolsRoute = ToolsTextToolsRouteImport.update({
   path: '/text-tools',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsSvgOptimizerRoute = ToolsSvgOptimizerRouteImport.update({
+  id: '/svg-optimizer',
+  path: '/svg-optimizer',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsStringEscapeRoute = ToolsStringEscapeRouteImport.update({
   id: '/string-escape',
   path: '/string-escape',
@@ -182,6 +193,11 @@ const ToolsSecurityTxtRoute = ToolsSecurityTxtRouteImport.update({
 const ToolsSecretsGeneratorRoute = ToolsSecretsGeneratorRouteImport.update({
   id: '/secrets-generator',
   path: '/secrets-generator',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsRobotsTxtRoute = ToolsRobotsTxtRouteImport.update({
+  id: '/robots-txt',
+  path: '/robots-txt',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsRegexTesterRoute = ToolsRegexTesterRouteImport.update({
@@ -305,6 +321,11 @@ const ToolsJsonDiffRoute = ToolsJsonDiffRouteImport.update({
   path: '/json-diff',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsJsMinifierRoute = ToolsJsMinifierRouteImport.update({
+  id: '/js-minifier',
+  path: '/js-minifier',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsIpSubnetRoute = ToolsIpSubnetRouteImport.update({
   id: '/ip-subnet',
   path: '/ip-subnet',
@@ -313,6 +334,11 @@ const ToolsIpSubnetRoute = ToolsIpSubnetRouteImport.update({
 const ToolsImageToBase64Route = ToolsImageToBase64RouteImport.update({
   id: '/image-to-base64',
   path: '/image-to-base64',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsImageResizerRoute = ToolsImageResizerRouteImport.update({
+  id: '/image-resizer',
+  path: '/image-resizer',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsImageCompressorRoute = ToolsImageCompressorRouteImport.update({
@@ -421,9 +447,19 @@ const ToolsChmodRoute = ToolsChmodRouteImport.update({
   path: '/chmod',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsCertificateDecoderRoute = ToolsCertificateDecoderRouteImport.update({
+  id: '/certificate-decoder',
+  path: '/certificate-decoder',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsCaseConverterRoute = ToolsCaseConverterRouteImport.update({
   id: '/case-converter',
   path: '/case-converter',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsBinaryCalculatorRoute = ToolsBinaryCalculatorRouteImport.update({
+  id: '/binary-calculator',
+  path: '/binary-calculator',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsBcryptRoute = ToolsBcryptRouteImport.update({
@@ -466,7 +502,9 @@ export interface FileRoutesByFullPath {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/bcrypt': typeof ToolsBcryptRoute
+  '/tools/binary-calculator': typeof ToolsBinaryCalculatorRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/certificate-decoder': typeof ToolsCertificateDecoderRoute
   '/tools/chmod': typeof ToolsChmodRoute
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -488,8 +526,10 @@ export interface FileRoutesByFullPath {
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
   '/tools/image-compressor': typeof ToolsImageCompressorRoute
+  '/tools/image-resizer': typeof ToolsImageResizerRoute
   '/tools/image-to-base64': typeof ToolsImageToBase64Route
   '/tools/ip-subnet': typeof ToolsIpSubnetRoute
+  '/tools/js-minifier': typeof ToolsJsMinifierRoute
   '/tools/json-diff': typeof ToolsJsonDiffRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-path-tester': typeof ToolsJsonPathTesterRoute
@@ -514,12 +554,14 @@ export interface FileRoutesByFullPath {
   '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/robots-txt': typeof ToolsRobotsTxtRoute
   '/tools/secrets-generator': typeof ToolsSecretsGeneratorRoute
   '/tools/security-txt': typeof ToolsSecurityTxtRoute
   '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/string-escape': typeof ToolsStringEscapeRoute
+  '/tools/svg-optimizer': typeof ToolsSvgOptimizerRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/timezone-converter': typeof ToolsTimezoneConverterRoute
@@ -542,7 +584,9 @@ export interface FileRoutesByTo {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/bcrypt': typeof ToolsBcryptRoute
+  '/tools/binary-calculator': typeof ToolsBinaryCalculatorRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/certificate-decoder': typeof ToolsCertificateDecoderRoute
   '/tools/chmod': typeof ToolsChmodRoute
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -564,8 +608,10 @@ export interface FileRoutesByTo {
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
   '/tools/image-compressor': typeof ToolsImageCompressorRoute
+  '/tools/image-resizer': typeof ToolsImageResizerRoute
   '/tools/image-to-base64': typeof ToolsImageToBase64Route
   '/tools/ip-subnet': typeof ToolsIpSubnetRoute
+  '/tools/js-minifier': typeof ToolsJsMinifierRoute
   '/tools/json-diff': typeof ToolsJsonDiffRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-path-tester': typeof ToolsJsonPathTesterRoute
@@ -590,12 +636,14 @@ export interface FileRoutesByTo {
   '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/robots-txt': typeof ToolsRobotsTxtRoute
   '/tools/secrets-generator': typeof ToolsSecretsGeneratorRoute
   '/tools/security-txt': typeof ToolsSecurityTxtRoute
   '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/string-escape': typeof ToolsStringEscapeRoute
+  '/tools/svg-optimizer': typeof ToolsSvgOptimizerRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/timezone-converter': typeof ToolsTimezoneConverterRoute
@@ -619,7 +667,9 @@ export interface FileRoutesById {
   '/tools/base64': typeof ToolsBase64Route
   '/tools/base64-image': typeof ToolsBase64ImageRoute
   '/tools/bcrypt': typeof ToolsBcryptRoute
+  '/tools/binary-calculator': typeof ToolsBinaryCalculatorRoute
   '/tools/case-converter': typeof ToolsCaseConverterRoute
+  '/tools/certificate-decoder': typeof ToolsCertificateDecoderRoute
   '/tools/chmod': typeof ToolsChmodRoute
   '/tools/cipher': typeof ToolsCipherRoute
   '/tools/color-converter': typeof ToolsColorConverterRoute
@@ -641,8 +691,10 @@ export interface FileRoutesById {
   '/tools/html-formatter': typeof ToolsHtmlFormatterRoute
   '/tools/http-status': typeof ToolsHttpStatusRoute
   '/tools/image-compressor': typeof ToolsImageCompressorRoute
+  '/tools/image-resizer': typeof ToolsImageResizerRoute
   '/tools/image-to-base64': typeof ToolsImageToBase64Route
   '/tools/ip-subnet': typeof ToolsIpSubnetRoute
+  '/tools/js-minifier': typeof ToolsJsMinifierRoute
   '/tools/json-diff': typeof ToolsJsonDiffRoute
   '/tools/json-formatter': typeof ToolsJsonFormatterRoute
   '/tools/json-path-tester': typeof ToolsJsonPathTesterRoute
@@ -667,12 +719,14 @@ export interface FileRoutesById {
   '/tools/qr-scanner': typeof ToolsQrScannerRoute
   '/tools/random-data': typeof ToolsRandomDataRoute
   '/tools/regex-tester': typeof ToolsRegexTesterRoute
+  '/tools/robots-txt': typeof ToolsRobotsTxtRoute
   '/tools/secrets-generator': typeof ToolsSecretsGeneratorRoute
   '/tools/security-txt': typeof ToolsSecurityTxtRoute
   '/tools/slug-generator': typeof ToolsSlugGeneratorRoute
   '/tools/sql-formatter': typeof ToolsSqlFormatterRoute
   '/tools/string-counter': typeof ToolsStringCounterRoute
   '/tools/string-escape': typeof ToolsStringEscapeRoute
+  '/tools/svg-optimizer': typeof ToolsSvgOptimizerRoute
   '/tools/text-tools': typeof ToolsTextToolsRoute
   '/tools/timestamp': typeof ToolsTimestampRoute
   '/tools/timezone-converter': typeof ToolsTimezoneConverterRoute
@@ -697,7 +751,9 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/base64-image'
     | '/tools/bcrypt'
+    | '/tools/binary-calculator'
     | '/tools/case-converter'
+    | '/tools/certificate-decoder'
     | '/tools/chmod'
     | '/tools/cipher'
     | '/tools/color-converter'
@@ -719,8 +775,10 @@ export interface FileRouteTypes {
     | '/tools/html-formatter'
     | '/tools/http-status'
     | '/tools/image-compressor'
+    | '/tools/image-resizer'
     | '/tools/image-to-base64'
     | '/tools/ip-subnet'
+    | '/tools/js-minifier'
     | '/tools/json-diff'
     | '/tools/json-formatter'
     | '/tools/json-path-tester'
@@ -745,12 +803,14 @@ export interface FileRouteTypes {
     | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
+    | '/tools/robots-txt'
     | '/tools/secrets-generator'
     | '/tools/security-txt'
     | '/tools/slug-generator'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/string-escape'
+    | '/tools/svg-optimizer'
     | '/tools/text-tools'
     | '/tools/timestamp'
     | '/tools/timezone-converter'
@@ -773,7 +833,9 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/base64-image'
     | '/tools/bcrypt'
+    | '/tools/binary-calculator'
     | '/tools/case-converter'
+    | '/tools/certificate-decoder'
     | '/tools/chmod'
     | '/tools/cipher'
     | '/tools/color-converter'
@@ -795,8 +857,10 @@ export interface FileRouteTypes {
     | '/tools/html-formatter'
     | '/tools/http-status'
     | '/tools/image-compressor'
+    | '/tools/image-resizer'
     | '/tools/image-to-base64'
     | '/tools/ip-subnet'
+    | '/tools/js-minifier'
     | '/tools/json-diff'
     | '/tools/json-formatter'
     | '/tools/json-path-tester'
@@ -821,12 +885,14 @@ export interface FileRouteTypes {
     | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
+    | '/tools/robots-txt'
     | '/tools/secrets-generator'
     | '/tools/security-txt'
     | '/tools/slug-generator'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/string-escape'
+    | '/tools/svg-optimizer'
     | '/tools/text-tools'
     | '/tools/timestamp'
     | '/tools/timezone-converter'
@@ -849,7 +915,9 @@ export interface FileRouteTypes {
     | '/tools/base64'
     | '/tools/base64-image'
     | '/tools/bcrypt'
+    | '/tools/binary-calculator'
     | '/tools/case-converter'
+    | '/tools/certificate-decoder'
     | '/tools/chmod'
     | '/tools/cipher'
     | '/tools/color-converter'
@@ -871,8 +939,10 @@ export interface FileRouteTypes {
     | '/tools/html-formatter'
     | '/tools/http-status'
     | '/tools/image-compressor'
+    | '/tools/image-resizer'
     | '/tools/image-to-base64'
     | '/tools/ip-subnet'
+    | '/tools/js-minifier'
     | '/tools/json-diff'
     | '/tools/json-formatter'
     | '/tools/json-path-tester'
@@ -897,12 +967,14 @@ export interface FileRouteTypes {
     | '/tools/qr-scanner'
     | '/tools/random-data'
     | '/tools/regex-tester'
+    | '/tools/robots-txt'
     | '/tools/secrets-generator'
     | '/tools/security-txt'
     | '/tools/slug-generator'
     | '/tools/sql-formatter'
     | '/tools/string-counter'
     | '/tools/string-escape'
+    | '/tools/svg-optimizer'
     | '/tools/text-tools'
     | '/tools/timestamp'
     | '/tools/timezone-converter'
@@ -1022,6 +1094,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsTextToolsRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/svg-optimizer': {
+      id: '/tools/svg-optimizer'
+      path: '/svg-optimizer'
+      fullPath: '/tools/svg-optimizer'
+      preLoaderRoute: typeof ToolsSvgOptimizerRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/string-escape': {
       id: '/tools/string-escape'
       path: '/string-escape'
@@ -1062,6 +1141,13 @@ declare module '@tanstack/react-router' {
       path: '/secrets-generator'
       fullPath: '/tools/secrets-generator'
       preLoaderRoute: typeof ToolsSecretsGeneratorRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/robots-txt': {
+      id: '/tools/robots-txt'
+      path: '/robots-txt'
+      fullPath: '/tools/robots-txt'
+      preLoaderRoute: typeof ToolsRobotsTxtRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/regex-tester': {
@@ -1232,6 +1318,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsJsonDiffRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/js-minifier': {
+      id: '/tools/js-minifier'
+      path: '/js-minifier'
+      fullPath: '/tools/js-minifier'
+      preLoaderRoute: typeof ToolsJsMinifierRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/ip-subnet': {
       id: '/tools/ip-subnet'
       path: '/ip-subnet'
@@ -1244,6 +1337,13 @@ declare module '@tanstack/react-router' {
       path: '/image-to-base64'
       fullPath: '/tools/image-to-base64'
       preLoaderRoute: typeof ToolsImageToBase64RouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/image-resizer': {
+      id: '/tools/image-resizer'
+      path: '/image-resizer'
+      fullPath: '/tools/image-resizer'
+      preLoaderRoute: typeof ToolsImageResizerRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/image-compressor': {
@@ -1393,11 +1493,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsChmodRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/tools/certificate-decoder': {
+      id: '/tools/certificate-decoder'
+      path: '/certificate-decoder'
+      fullPath: '/tools/certificate-decoder'
+      preLoaderRoute: typeof ToolsCertificateDecoderRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/tools/case-converter': {
       id: '/tools/case-converter'
       path: '/case-converter'
       fullPath: '/tools/case-converter'
       preLoaderRoute: typeof ToolsCaseConverterRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/tools/binary-calculator': {
+      id: '/tools/binary-calculator'
+      path: '/binary-calculator'
+      fullPath: '/tools/binary-calculator'
+      preLoaderRoute: typeof ToolsBinaryCalculatorRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/tools/bcrypt': {
@@ -1452,7 +1566,9 @@ interface ToolsRouteChildren {
   ToolsBase64Route: typeof ToolsBase64Route
   ToolsBase64ImageRoute: typeof ToolsBase64ImageRoute
   ToolsBcryptRoute: typeof ToolsBcryptRoute
+  ToolsBinaryCalculatorRoute: typeof ToolsBinaryCalculatorRoute
   ToolsCaseConverterRoute: typeof ToolsCaseConverterRoute
+  ToolsCertificateDecoderRoute: typeof ToolsCertificateDecoderRoute
   ToolsChmodRoute: typeof ToolsChmodRoute
   ToolsCipherRoute: typeof ToolsCipherRoute
   ToolsColorConverterRoute: typeof ToolsColorConverterRoute
@@ -1474,8 +1590,10 @@ interface ToolsRouteChildren {
   ToolsHtmlFormatterRoute: typeof ToolsHtmlFormatterRoute
   ToolsHttpStatusRoute: typeof ToolsHttpStatusRoute
   ToolsImageCompressorRoute: typeof ToolsImageCompressorRoute
+  ToolsImageResizerRoute: typeof ToolsImageResizerRoute
   ToolsImageToBase64Route: typeof ToolsImageToBase64Route
   ToolsIpSubnetRoute: typeof ToolsIpSubnetRoute
+  ToolsJsMinifierRoute: typeof ToolsJsMinifierRoute
   ToolsJsonDiffRoute: typeof ToolsJsonDiffRoute
   ToolsJsonFormatterRoute: typeof ToolsJsonFormatterRoute
   ToolsJsonPathTesterRoute: typeof ToolsJsonPathTesterRoute
@@ -1500,12 +1618,14 @@ interface ToolsRouteChildren {
   ToolsQrScannerRoute: typeof ToolsQrScannerRoute
   ToolsRandomDataRoute: typeof ToolsRandomDataRoute
   ToolsRegexTesterRoute: typeof ToolsRegexTesterRoute
+  ToolsRobotsTxtRoute: typeof ToolsRobotsTxtRoute
   ToolsSecretsGeneratorRoute: typeof ToolsSecretsGeneratorRoute
   ToolsSecurityTxtRoute: typeof ToolsSecurityTxtRoute
   ToolsSlugGeneratorRoute: typeof ToolsSlugGeneratorRoute
   ToolsSqlFormatterRoute: typeof ToolsSqlFormatterRoute
   ToolsStringCounterRoute: typeof ToolsStringCounterRoute
   ToolsStringEscapeRoute: typeof ToolsStringEscapeRoute
+  ToolsSvgOptimizerRoute: typeof ToolsSvgOptimizerRoute
   ToolsTextToolsRoute: typeof ToolsTextToolsRoute
   ToolsTimestampRoute: typeof ToolsTimestampRoute
   ToolsTimezoneConverterRoute: typeof ToolsTimezoneConverterRoute
@@ -1527,7 +1647,9 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsBase64Route: ToolsBase64Route,
   ToolsBase64ImageRoute: ToolsBase64ImageRoute,
   ToolsBcryptRoute: ToolsBcryptRoute,
+  ToolsBinaryCalculatorRoute: ToolsBinaryCalculatorRoute,
   ToolsCaseConverterRoute: ToolsCaseConverterRoute,
+  ToolsCertificateDecoderRoute: ToolsCertificateDecoderRoute,
   ToolsChmodRoute: ToolsChmodRoute,
   ToolsCipherRoute: ToolsCipherRoute,
   ToolsColorConverterRoute: ToolsColorConverterRoute,
@@ -1549,8 +1671,10 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsHtmlFormatterRoute: ToolsHtmlFormatterRoute,
   ToolsHttpStatusRoute: ToolsHttpStatusRoute,
   ToolsImageCompressorRoute: ToolsImageCompressorRoute,
+  ToolsImageResizerRoute: ToolsImageResizerRoute,
   ToolsImageToBase64Route: ToolsImageToBase64Route,
   ToolsIpSubnetRoute: ToolsIpSubnetRoute,
+  ToolsJsMinifierRoute: ToolsJsMinifierRoute,
   ToolsJsonDiffRoute: ToolsJsonDiffRoute,
   ToolsJsonFormatterRoute: ToolsJsonFormatterRoute,
   ToolsJsonPathTesterRoute: ToolsJsonPathTesterRoute,
@@ -1575,12 +1699,14 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsQrScannerRoute: ToolsQrScannerRoute,
   ToolsRandomDataRoute: ToolsRandomDataRoute,
   ToolsRegexTesterRoute: ToolsRegexTesterRoute,
+  ToolsRobotsTxtRoute: ToolsRobotsTxtRoute,
   ToolsSecretsGeneratorRoute: ToolsSecretsGeneratorRoute,
   ToolsSecurityTxtRoute: ToolsSecurityTxtRoute,
   ToolsSlugGeneratorRoute: ToolsSlugGeneratorRoute,
   ToolsSqlFormatterRoute: ToolsSqlFormatterRoute,
   ToolsStringCounterRoute: ToolsStringCounterRoute,
   ToolsStringEscapeRoute: ToolsStringEscapeRoute,
+  ToolsSvgOptimizerRoute: ToolsSvgOptimizerRoute,
   ToolsTextToolsRoute: ToolsTextToolsRoute,
   ToolsTimestampRoute: ToolsTimestampRoute,
   ToolsTimezoneConverterRoute: ToolsTimezoneConverterRoute,
