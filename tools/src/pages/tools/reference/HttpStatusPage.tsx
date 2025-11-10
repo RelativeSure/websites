@@ -59,7 +59,7 @@ const statusCodes = [
   { code: 415, message: "Unsupported Media Type", category: "4xx Client Error" },
   { code: 416, message: "Range Not Satisfiable", category: "4xx Client Error" },
   { code: 417, message: "Expectation Failed", category: "4xx Client Error" },
-  { code: 418, message: "I'm a teapot", category: "4xx Client Error" },
+  { code: 418, message: "I'm a teapot 🫖", category: "4xx Client Error" },
   { code: 421, message: "Misdirected Request", category: "4xx Client Error" },
   { code: 422, message: "Unprocessable Entity", category: "4xx Client Error" },
   { code: 423, message: "Locked", category: "4xx Client Error" },
