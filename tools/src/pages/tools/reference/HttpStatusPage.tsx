@@ -71,6 +71,23 @@ const statusCodes = [
   { code: 431, message: "Request Header Fields Too Large", category: "4xx Client Error" },
   { code: 451, message: "Unavailable For Legal Reasons", category: "4xx Client Error" },
 
+  // Unofficial 4xx codes (commonly used)
+  { code: 419, message: "Page Expired (Laravel)", category: "4xx Client Error (Unofficial)" },
+  { code: 420, message: "Enhance Your Calm (Twitter) 😎", category: "4xx Client Error (Unofficial)" },
+  { code: 430, message: "Request Header Fields Too Large (Shopify)", category: "4xx Client Error (Unofficial)" },
+  { code: 440, message: "Login Time-out (IIS)", category: "4xx Client Error (Unofficial)" },
+  { code: 444, message: "No Response (nginx)", category: "4xx Client Error (Unofficial)" },
+  { code: 449, message: "Retry With (IIS)", category: "4xx Client Error (Unofficial)" },
+  { code: 450, message: "Blocked by Windows Parental Controls", category: "4xx Client Error (Unofficial)" },
+  { code: 460, message: "Client Closed Connection (AWS ELB)", category: "4xx Client Error (Unofficial)" },
+  { code: 463, message: "Too Many IP Addresses (AWS ELB)", category: "4xx Client Error (Unofficial)" },
+  { code: 494, message: "Request Header Too Large (nginx)", category: "4xx Client Error (Unofficial)" },
+  { code: 495, message: "SSL Certificate Error (nginx)", category: "4xx Client Error (Unofficial)" },
+  { code: 496, message: "SSL Certificate Required (nginx)", category: "4xx Client Error (Unofficial)" },
+  { code: 497, message: "HTTP Request Sent to HTTPS Port (nginx)", category: "4xx Client Error (Unofficial)" },
+  { code: 498, message: "Invalid Token (Esri)", category: "4xx Client Error (Unofficial)" },
+  { code: 499, message: "Client Closed Request (nginx)", category: "4xx Client Error (Unofficial)" },
+
   // 5xx Server Error
   { code: 500, message: "Internal Server Error", category: "5xx Server Error" },
   { code: 501, message: "Not Implemented", category: "5xx Server Error" },
@@ -83,6 +100,22 @@ const statusCodes = [
   { code: 508, message: "Loop Detected", category: "5xx Server Error" },
   { code: 510, message: "Not Extended", category: "5xx Server Error" },
   { code: 511, message: "Network Authentication Required", category: "5xx Server Error" },
+
+  // Unofficial 5xx codes (commonly used)
+  { code: 509, message: "Bandwidth Limit Exceeded (Apache/cPanel)", category: "5xx Server Error (Unofficial)" },
+  { code: 520, message: "Web Server Returned an Unknown Error (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 521, message: "Web Server Is Down (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 522, message: "Connection Timed Out (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 523, message: "Origin Is Unreachable (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 524, message: "A Timeout Occurred (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 525, message: "SSL Handshake Failed (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 526, message: "Invalid SSL Certificate (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 527, message: "Railgun Error (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  { code: 529, message: "Site is Overloaded (Qualys)", category: "5xx Server Error (Unofficial)" },
+  { code: 530, message: "Site is Frozen (Pantheon)", category: "5xx Server Error (Unofficial)" },
+  { code: 561, message: "Unauthorized (AWS ELB)", category: "5xx Server Error (Unofficial)" },
+  { code: 598, message: "Network Read Timeout Error", category: "5xx Server Error (Unofficial)" },
+  { code: 599, message: "Network Connect Timeout Error", category: "5xx Server Error (Unofficial)" },
 ];
 
 export default function HttpStatusCodes() {
@@ -109,7 +142,16 @@ export default function HttpStatusCodes() {
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">HTTP Status Codes</h1>
         <p className="text-muted-foreground">
-          Reference guide for HTTP status codes
+          Reference guide for HTTP status codes. Tip: Visit{" "}
+          <a
+            href="https://http.cat"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            http.cat
+          </a>
+          {" "}for visual representations
         </p>
       </div>
 
