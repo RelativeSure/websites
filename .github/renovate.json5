@@ -2,22 +2,8 @@
     $schema: 'https://docs.renovatebot.com/renovate-schema.json',
     extends: [
         'config:recommended',
-        ':dependencyDashboard',
-        ':semanticCommits',
-        ':enablePreCommit',
-        'group:monorepos',
-        'group:recommended',
-        'workarounds:all',
     ],
-    timezone: 'Europe/Copenhagen',
-    schedule: [
-        'before 6am on monday',
-    ],
-    prConcurrentLimit: 10,
-    prHourlyLimit: 0,
     rebaseWhen: 'behind-base-branch',
-    separateMajorMinor: true,
-    separateMinorPatch: true,
     lockFileMaintenance: {
         enabled: true,
         automerge: true,
@@ -131,32 +117,6 @@
     labels: [
         'dependencies',
     ],
-    assignees: [
-        '@RelativeSure',
-    ],
-    reviewers: [],
-    semanticCommits: 'enabled',
-    commitMessagePrefix: 'chore(deps):',
-    commitMessageAction: 'update',
-    commitMessageTopic: '{{depName}}',
-    commitMessageExtra: ' to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}',
-    prBodyDefinitions: {
-        Package: '{{#if packageUrl}}[{{depName}}]({{packageUrl}}){{else}}`{{depName}}`{{/if}}',
-        Change: '`{{updateType}}`',
-        'New value': '{{#if displayTo}}`{{{displayTo}}}`{{else}}{{#if newValue}}`{{{newValue}}}`{{else}}`{{{newDigestShort}}}`{{/if}}{{/if}}',
-        References: '{{#if references}}{{references}}{{else}}N/A{{/if}}',
-    },
-    prBodyColumns: [
-        'Package',
-        'Change',
-        'New value',
-        'References',
-    ],
-    prBodyNotes: [
-        '{{#if isMajor}}:warning: This is a **major** update and may contain breaking changes.{{/if}}',
-    ],
     dependencyDashboard: true,
     dependencyDashboardTitle: '🤖 Dependency Dashboard',
-    dependencyDashboardHeader: 'This dashboard provides an overview of all detected dependencies and their update status.',
-    dependencyDashboardFooter: 'Configure Renovate in `.github/renovate.json5`',
 }
