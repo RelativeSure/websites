@@ -1,0 +1,529 @@
+---
+title: Kubernetes Pod Security Bindings
+description: Complete list of Kubernetes pod security context bindings and configurations
+---
+
+# Kubernetes Pod Security Bindings
+
+Comprehensive reference for all Kubernetes security bindings that control pod behavior, privilege levels, and access controls.
+
+## Pod Security Standards
+
+### privileged
+Unrestricted policy allowing all capabilities and host access for workloads requiring maximum privileges.
+
+```yaml title="privileged-pod.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: privileged-pod
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+spec:
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      privileged: true
+```
+
+### baseline
+Minimally restrictive policy preventing known privilege escalations while allowing common container patterns.
+
+```yaml title="baseline-namespace.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: baseline-ns
+  labels:
+    pod-security.kubernetes.io/enforce: baseline
+    pod-security.kubernetes.io/audit: baseline
+    pod-security.kubernetes.io/warn: baseline
+```
+
+### restricted
+Heavily restricted policy following current pod hardening best practices for security-critical workloads.
+
+```yaml title="restricted-namespace.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: restricted-ns
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: latest
+```
+
+## SecurityContext Bindings
+
+### runAsUser
+Specifies the UID to run container processes, preventing root execution when set to non-zero values.
+
+```yaml title="run-as-user.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-demo
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      runAsUser: 2000
+```
+
+### runAsGroup
+Sets the primary GID for all processes in containers, controlling group-level file system access.
+
+```yaml title="run-as-group.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: group-context
+spec:
+  securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+  containers:
+  - name: app
+    image: nginx
+```
+
+### fsGroup
+Defines the supplementary group ID for volume ownership, making mounted volumes writable by that group.
+
+```yaml title="fs-group.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fs-group-demo
+spec:
+  securityContext:
+    fsGroup: 2000
+  containers:
+  - name: app
+    image: nginx
+    volumeMounts:
+    - name: data
+      mountPath: /data
+  volumes:
+  - name: data
+    emptyDir: {}
+```
+
+### capabilities (add/drop)
+Grants or removes Linux capabilities from containers, allowing fine-grained privilege control beyond root/non-root.
+
+```yaml title="capabilities.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: capabilities-demo
+spec:
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      capabilities:
+        drop:
+        - ALL
+        add:
+        - NET_BIND_SERVICE
+        - CHOWN
+```
+
+### readOnlyRootFilesystem
+Forces the container's root filesystem to be read-only, preventing runtime modifications and improving security.
+
+```yaml title="readonly-root.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: readonly-root
+spec:
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      readOnlyRootFilesystem: true
+    volumeMounts:
+    - name: cache
+      mountPath: /var/cache/nginx
+  volumes:
+  - name: cache
+    emptyDir: {}
+```
+
+### allowPrivilegeEscalation
+Controls whether a process can gain more privileges than its parent, blocking setuid binaries when false.
+
+```yaml title="no-privilege-escalation.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: no-escalation
+spec:
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      allowPrivilegeEscalation: false
+```
+
+### privileged
+Gives the container root-equivalent access to the host, removing all security boundaries and container isolation.
+
+```yaml title="privileged-container.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: privileged-container
+spec:
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      privileged: true
+```
+
+### runAsNonRoot
+Enforces that the container must run as a non-root user, failing to start if the image specifies UID 0.
+
+```yaml title="non-root.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: non-root
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+  containers:
+  - name: app
+    image: nginx
+```
+
+### seccompProfile
+Applies Seccomp (secure computing mode) profiles to restrict system calls available to containers.
+
+```yaml title="seccomp.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: seccomp-demo
+spec:
+  securityContext:
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - name: app
+    image: nginx
+```
+
+### seLinuxOptions
+Configures SELinux labels for containers when SELinux is enabled on the host system.
+
+```yaml title="selinux.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: selinux-demo
+spec:
+  securityContext:
+    seLinuxOptions:
+      level: "s0:c123,c456"
+      role: "spc_t"
+      type: "container_t"
+      user: "system_u"
+  containers:
+  - name: app
+    image: nginx
+```
+
+### windowsOptions
+Sets Windows-specific security context including user, group, and credential specs for Windows containers.
+
+```yaml title="windows-options.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: windows-demo
+spec:
+  os:
+    name: windows
+  securityContext:
+    windowsOptions:
+      runAsUserName: "ContainerUser"
+      gmsaCredentialSpecName: "gmsa-webapp"
+  containers:
+  - name: app
+    image: mcr.microsoft.com/windows/servercore:ltsc2022
+```
+
+## Pod Security Admission
+
+### enforce
+Blocks pod creation if it violates the specified security standard level.
+
+```yaml title="enforce-mode.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: enforce-restricted
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+    pod-security.kubernetes.io/enforce-version: v1.28
+```
+
+### audit
+Logs violations to audit logs without blocking pod creation, useful for monitoring compliance.
+
+```yaml title="audit-mode.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: audit-monitoring
+  labels:
+    pod-security.kubernetes.io/audit: baseline
+    pod-security.kubernetes.io/audit-version: latest
+```
+
+### warn
+Returns warning messages to the user when violations occur but doesn't block or log to audit.
+
+```yaml title="warn-mode.yaml"
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: warn-namespace
+  labels:
+    pod-security.kubernetes.io/warn: baseline
+    pod-security.kubernetes.io/warn-version: latest
+```
+
+## PodSecurityPolicy Bindings (Deprecated)
+
+PodSecurityPolicy was deprecated in Kubernetes v1.21 and removed in v1.25. Use Pod Security Admission instead.
+
+### privileged
+Determines if pods can run in privileged mode with access to host resources.
+
+```yaml title="psp-privileged.yaml"
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: privileged-psp
+spec:
+  privileged: true
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+  - '*'
+  volumes:
+  - '*'
+  hostNetwork: true
+  hostPorts:
+  - min: 0
+    max: 65535
+  hostIPC: true
+  hostPID: true
+  runAsUser:
+    rule: 'RunAsAny'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+```
+
+### allowPrivilegeEscalation
+Controls if containers can request privilege escalation through setuid binaries or other means.
+
+```yaml title="psp-no-escalation.yaml"
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: restricted-psp
+spec:
+  privileged: false
+  allowPrivilegeEscalation: false
+  requiredDropCapabilities:
+  - ALL
+  volumes:
+  - 'configMap'
+  - 'emptyDir'
+  - 'projected'
+  - 'secret'
+  - 'downwardAPI'
+  - 'persistentVolumeClaim'
+  hostNetwork: false
+  hostIPC: false
+  hostPID: false
+  runAsUser:
+    rule: 'MustRunAsNonRoot'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+  readOnlyRootFilesystem: true
+```
+
+### allowedCapabilities
+Whitelist of Linux capabilities that can be added to containers beyond the default set.
+
+```yaml title="psp-capabilities.yaml"
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: capabilities-psp
+spec:
+  privileged: false
+  allowedCapabilities:
+  - NET_BIND_SERVICE
+  - CHOWN
+  requiredDropCapabilities:
+  - ALL
+  runAsUser:
+    rule: 'MustRunAsNonRoot'
+```
+
+### volumes
+Restricts which volume types pods can use, preventing potentially unsafe volume mounts.
+
+```yaml title="psp-volumes.yaml"
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: volume-restricted
+spec:
+  volumes:
+  - 'configMap'
+  - 'emptyDir'
+  - 'projected'
+  - 'secret'
+  - 'downwardAPI'
+  - 'persistentVolumeClaim'
+  runAsUser:
+    rule: 'RunAsAny'
+```
+
+### hostNetwork
+Allows pods to use the host's network namespace, giving them access to host network interfaces.
+
+```yaml title="psp-host-network.yaml"
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: host-network
+spec:
+  hostNetwork: true
+  hostPorts:
+  - min: 8000
+    max: 9000
+  runAsUser:
+    rule: 'RunAsAny'
+```
+
+### hostPID / hostIPC
+Permits pods to use the host's PID or IPC namespace, enabling interaction with host processes.
+
+```yaml title="psp-host-namespaces.yaml"
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: host-namespaces
+spec:
+  hostPID: true
+  hostIPC: true
+  runAsUser:
+    rule: 'RunAsAny'
+```
+
+### runAsUser
+Defines constraints on which user IDs containers can run as through MustRunAs, MustRunAsNonRoot, or RunAsAny rules.
+
+```yaml title="psp-run-as-user.yaml"
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: restricted-user
+spec:
+  runAsUser:
+    rule: 'MustRunAsNonRoot'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+```
+
+## Additional Security Bindings
+
+### appArmorProfile
+Applies AppArmor profiles to containers for mandatory access control and security policy enforcement.
+
+```yaml title="apparmor.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: apparmor-demo
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/app: runtime/default
+spec:
+  containers:
+  - name: app
+    image: nginx
+```
+
+### supplementalGroups
+Adds additional group IDs to the container process for extended file system access permissions.
+
+```yaml title="supplemental-groups.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: supplemental-groups
+spec:
+  securityContext:
+    supplementalGroups: [4000, 5000]
+  containers:
+  - name: app
+    image: nginx
+```
+
+### procMount
+Controls how /proc is mounted in the container, with "Default" or "Unmasked" options affecting visibility.
+
+```yaml title="proc-mount.yaml"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: proc-mount
+spec:
+  containers:
+  - name: app
+    image: nginx
+    securityContext:
+      procMount: Default
+```
+
+## Best Practices
+
+1. **Always drop ALL capabilities** and only add specific ones needed
+2. **Use runAsNonRoot: true** whenever possible to prevent root execution
+3. **Enable readOnlyRootFilesystem** and mount writable volumes only where needed
+4. **Set allowPrivilegeEscalation: false** to prevent privilege escalation attacks
+5. **Apply the Restricted standard** for production workloads when feasible
+6. **Use Seccomp RuntimeDefault profile** as a baseline security measure
+7. **Avoid privileged: true** unless absolutely necessary for system-level operations
+8. **Implement Pod Security Admission** at the namespace level for consistent policy enforcement
+
+## References
+
+- [Kubernetes Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
+- [Pod Security Admission](https://kubernetes.io/docs/concepts/security/pod-security-admission/)
+- [Configure a Security Context](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/)
+- [Linux Capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html)
