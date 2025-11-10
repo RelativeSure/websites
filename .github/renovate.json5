@@ -3,7 +3,7 @@
     extends: [
         'config:recommended',
     ],
-    rebaseWhen: 'behind-base-branch',
+    rebaseWhen: 'conflicted',
     lockFileMaintenance: {
         enabled: true,
         automerge: true,
