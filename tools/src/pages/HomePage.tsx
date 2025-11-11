@@ -167,6 +167,19 @@ const tools = [
   { title: "Img Resizer", icon: Maximize2, href: "/media/image-resizer", category: "Media" },
   { title: "Favicon Gen", icon: Hexagon, href: "/media/favicon-generator", category: "Media" },
   { title: "HTTP Status", icon: Info, href: "/reference/http-status", category: "Reference" },
+  { title: "HTTP Headers", icon: Globe, href: "/reference/http-headers", category: "Reference" },
+  { title: "HTTP Methods", icon: ArrowRightLeft, href: "/reference/http-methods", category: "Reference" },
+  { title: "ASCII Table", icon: Type, href: "/reference/ascii-table", category: "Reference" },
+  { title: "RegEx", icon: Search, href: "/reference/regex-patterns", category: "Reference" },
+  { title: "HTML Entities", icon: Code2, href: "/reference/html-entities", category: "Reference" },
+  { title: "Port Numbers", icon: Server, href: "/reference/port-numbers", category: "Reference" },
+  { title: "MIME Types", icon: FileType, href: "/reference/mime-types", category: "Reference" },
+  { title: "Git Commands", icon: GitCompare, href: "/reference/git-commands", category: "Reference" },
+  { title: "CSS Props", icon: Palette, href: "/reference/css-properties", category: "Reference" },
+  { title: "JWT Claims", icon: KeySquare, href: "/reference/jwt-claims", category: "Reference" },
+  { title: "Color Names", icon: Palette, href: "/reference/color-names", category: "Reference" },
+  { title: "Markdown", icon: FileText, href: "/reference/markdown-syntax", category: "Reference" },
+  { title: "IP Ranges", icon: Network, href: "/reference/ip-address-ranges", category: "Reference" },
 ];
 
 export default function HomePage() {
