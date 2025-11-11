@@ -616,6 +616,84 @@ const tools = [
     href: "/reference/http-status",
     category: "Reference",
   },
+  {
+    title: "HTTP Headers",
+    icon: Globe,
+    href: "/reference/http-headers",
+    category: "Reference",
+  },
+  {
+    title: "HTTP Methods",
+    icon: ArrowRightLeft,
+    href: "/reference/http-methods",
+    category: "Reference",
+  },
+  {
+    title: "ASCII & Unicode Table",
+    icon: Type,
+    href: "/reference/ascii-table",
+    category: "Reference",
+  },
+  {
+    title: "RegEx Patterns",
+    icon: Search,
+    href: "/reference/regex-patterns",
+    category: "Reference",
+  },
+  {
+    title: "HTML Entities",
+    icon: Code2,
+    href: "/reference/html-entities",
+    category: "Reference",
+  },
+  {
+    title: "Port Numbers",
+    icon: Server,
+    href: "/reference/port-numbers",
+    category: "Reference",
+  },
+  {
+    title: "MIME Types",
+    icon: FileType,
+    href: "/reference/mime-types",
+    category: "Reference",
+  },
+  {
+    title: "Git Commands",
+    icon: GitCompare,
+    href: "/reference/git-commands",
+    category: "Reference",
+  },
+  {
+    title: "CSS Properties",
+    icon: Paintbrush,
+    href: "/reference/css-properties",
+    category: "Reference",
+  },
+  {
+    title: "JWT Claims",
+    icon: KeySquare,
+    href: "/reference/jwt-claims",
+    category: "Reference",
+  },
+  {
+    title: "Color Names",
+    icon: Palette,
+    href: "/reference/color-names",
+    category: "Reference",
+  },
+  {
+    title: "Markdown Syntax",
+    icon: FileText,
+    href: "/reference/markdown-syntax",
+    category: "Reference",
+  },
+  {
+    title: "IP Address Ranges",
+    icon: Network,
+    href: "/reference/ip-address-ranges",
+    category: "Reference",
+  },
 ];
 
 export default function ToolsLayout({ children }: { children: React.ReactNode }) {

@@ -26,18 +26,18 @@
     "@radix-ui/react-tabs": "^1.1.1",
     "@radix-ui/react-toast": "^1.2.2",
     "@radix-ui/react-tooltip": "^1.1.4",
-    "@tanstack/react-form": "^0.35.0",
+    "@tanstack/react-form": "^1.0.0",
     "@tanstack/react-router": "^1.134.12",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "js-yaml": "^4.1.0",
     "jsqr": "^1.4.0",
-    "lucide-react": "^0.454.0",
-    "marked": "^16.4.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.5",
+    "lucide-react": "^0.553.0",
+    "marked": "^17.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.0",
     "tailwindcss-animated": "^2.0.0"
   },
   "devDependencies": {
@@ -57,5 +57,5 @@
     "vite": "^7.2.0",
     "wrangler": "^4.0.0"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.21.0"
 }

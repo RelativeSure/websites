@@ -24,7 +24,20 @@ import { Route as ToolsTextToolsLevenshteinRouteImport } from './routes/_tools/t
 import { Route as ToolsTextToolsDiffRouteImport } from './routes/_tools/text-tools/diff'
 import { Route as ToolsTextToolsCaseConverterRouteImport } from './routes/_tools/text-tools/case-converter'
 import { Route as ToolsTextToolsAsciiArtRouteImport } from './routes/_tools/text-tools/ascii-art'
+import { Route as ToolsReferenceRegexPatternsRouteImport } from './routes/_tools/reference/regex-patterns'
+import { Route as ToolsReferencePortNumbersRouteImport } from './routes/_tools/reference/port-numbers'
+import { Route as ToolsReferenceMimeTypesRouteImport } from './routes/_tools/reference/mime-types'
+import { Route as ToolsReferenceMarkdownSyntaxRouteImport } from './routes/_tools/reference/markdown-syntax'
+import { Route as ToolsReferenceJwtClaimsRouteImport } from './routes/_tools/reference/jwt-claims'
+import { Route as ToolsReferenceIpAddressRangesRouteImport } from './routes/_tools/reference/ip-address-ranges'
 import { Route as ToolsReferenceHttpStatusRouteImport } from './routes/_tools/reference/http-status'
+import { Route as ToolsReferenceHttpMethodsRouteImport } from './routes/_tools/reference/http-methods'
+import { Route as ToolsReferenceHttpHeadersRouteImport } from './routes/_tools/reference/http-headers'
+import { Route as ToolsReferenceHtmlEntitiesRouteImport } from './routes/_tools/reference/html-entities'
+import { Route as ToolsReferenceGitCommandsRouteImport } from './routes/_tools/reference/git-commands'
+import { Route as ToolsReferenceCssPropertiesRouteImport } from './routes/_tools/reference/css-properties'
+import { Route as ToolsReferenceColorNamesRouteImport } from './routes/_tools/reference/color-names'
+import { Route as ToolsReferenceAsciiTableRouteImport } from './routes/_tools/reference/ascii-table'
 import { Route as ToolsMediaSvgOptimizerRouteImport } from './routes/_tools/media/svg-optimizer'
 import { Route as ToolsMediaImageResizerRouteImport } from './routes/_tools/media/image-resizer'
 import { Route as ToolsMediaImageCompressorRouteImport } from './routes/_tools/media/image-compressor'
@@ -184,10 +197,86 @@ const ToolsTextToolsAsciiArtRoute = ToolsTextToolsAsciiArtRouteImport.update({
   path: '/text-tools/ascii-art',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsReferenceRegexPatternsRoute =
+  ToolsReferenceRegexPatternsRouteImport.update({
+    id: '/reference/regex-patterns',
+    path: '/reference/regex-patterns',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferencePortNumbersRoute =
+  ToolsReferencePortNumbersRouteImport.update({
+    id: '/reference/port-numbers',
+    path: '/reference/port-numbers',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceMimeTypesRoute = ToolsReferenceMimeTypesRouteImport.update({
+  id: '/reference/mime-types',
+  path: '/reference/mime-types',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsReferenceMarkdownSyntaxRoute =
+  ToolsReferenceMarkdownSyntaxRouteImport.update({
+    id: '/reference/markdown-syntax',
+    path: '/reference/markdown-syntax',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceJwtClaimsRoute = ToolsReferenceJwtClaimsRouteImport.update({
+  id: '/reference/jwt-claims',
+  path: '/reference/jwt-claims',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsReferenceIpAddressRangesRoute =
+  ToolsReferenceIpAddressRangesRouteImport.update({
+    id: '/reference/ip-address-ranges',
+    path: '/reference/ip-address-ranges',
+    getParentRoute: () => ToolsRoute,
+  } as any)
 const ToolsReferenceHttpStatusRoute =
   ToolsReferenceHttpStatusRouteImport.update({
     id: '/reference/http-status',
     path: '/reference/http-status',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceHttpMethodsRoute =
+  ToolsReferenceHttpMethodsRouteImport.update({
+    id: '/reference/http-methods',
+    path: '/reference/http-methods',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceHttpHeadersRoute =
+  ToolsReferenceHttpHeadersRouteImport.update({
+    id: '/reference/http-headers',
+    path: '/reference/http-headers',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceHtmlEntitiesRoute =
+  ToolsReferenceHtmlEntitiesRouteImport.update({
+    id: '/reference/html-entities',
+    path: '/reference/html-entities',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceGitCommandsRoute =
+  ToolsReferenceGitCommandsRouteImport.update({
+    id: '/reference/git-commands',
+    path: '/reference/git-commands',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceCssPropertiesRoute =
+  ToolsReferenceCssPropertiesRouteImport.update({
+    id: '/reference/css-properties',
+    path: '/reference/css-properties',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceColorNamesRoute =
+  ToolsReferenceColorNamesRouteImport.update({
+    id: '/reference/color-names',
+    path: '/reference/color-names',
+    getParentRoute: () => ToolsRoute,
+  } as any)
+const ToolsReferenceAsciiTableRoute =
+  ToolsReferenceAsciiTableRouteImport.update({
+    id: '/reference/ascii-table',
+    path: '/reference/ascii-table',
     getParentRoute: () => ToolsRoute,
   } as any)
 const ToolsMediaSvgOptimizerRoute = ToolsMediaSvgOptimizerRouteImport.update({
@@ -682,7 +771,20 @@ export interface FileRoutesByFullPath {
   '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
   '/media/image-resizer': typeof ToolsMediaImageResizerRoute
   '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/reference/ascii-table': typeof ToolsReferenceAsciiTableRoute
+  '/reference/color-names': typeof ToolsReferenceColorNamesRoute
+  '/reference/css-properties': typeof ToolsReferenceCssPropertiesRoute
+  '/reference/git-commands': typeof ToolsReferenceGitCommandsRoute
+  '/reference/html-entities': typeof ToolsReferenceHtmlEntitiesRoute
+  '/reference/http-headers': typeof ToolsReferenceHttpHeadersRoute
+  '/reference/http-methods': typeof ToolsReferenceHttpMethodsRoute
   '/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/reference/ip-address-ranges': typeof ToolsReferenceIpAddressRangesRoute
+  '/reference/jwt-claims': typeof ToolsReferenceJwtClaimsRoute
+  '/reference/markdown-syntax': typeof ToolsReferenceMarkdownSyntaxRoute
+  '/reference/mime-types': typeof ToolsReferenceMimeTypesRoute
+  '/reference/port-numbers': typeof ToolsReferencePortNumbersRoute
+  '/reference/regex-patterns': typeof ToolsReferenceRegexPatternsRoute
   '/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
   '/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
   '/text-tools/diff': typeof ToolsTextToolsDiffRoute
@@ -773,7 +875,20 @@ export interface FileRoutesByTo {
   '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
   '/media/image-resizer': typeof ToolsMediaImageResizerRoute
   '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/reference/ascii-table': typeof ToolsReferenceAsciiTableRoute
+  '/reference/color-names': typeof ToolsReferenceColorNamesRoute
+  '/reference/css-properties': typeof ToolsReferenceCssPropertiesRoute
+  '/reference/git-commands': typeof ToolsReferenceGitCommandsRoute
+  '/reference/html-entities': typeof ToolsReferenceHtmlEntitiesRoute
+  '/reference/http-headers': typeof ToolsReferenceHttpHeadersRoute
+  '/reference/http-methods': typeof ToolsReferenceHttpMethodsRoute
   '/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/reference/ip-address-ranges': typeof ToolsReferenceIpAddressRangesRoute
+  '/reference/jwt-claims': typeof ToolsReferenceJwtClaimsRoute
+  '/reference/markdown-syntax': typeof ToolsReferenceMarkdownSyntaxRoute
+  '/reference/mime-types': typeof ToolsReferenceMimeTypesRoute
+  '/reference/port-numbers': typeof ToolsReferencePortNumbersRoute
+  '/reference/regex-patterns': typeof ToolsReferenceRegexPatternsRoute
   '/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
   '/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
   '/text-tools/diff': typeof ToolsTextToolsDiffRoute
@@ -866,7 +981,20 @@ export interface FileRoutesById {
   '/_tools/media/image-compressor': typeof ToolsMediaImageCompressorRoute
   '/_tools/media/image-resizer': typeof ToolsMediaImageResizerRoute
   '/_tools/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/_tools/reference/ascii-table': typeof ToolsReferenceAsciiTableRoute
+  '/_tools/reference/color-names': typeof ToolsReferenceColorNamesRoute
+  '/_tools/reference/css-properties': typeof ToolsReferenceCssPropertiesRoute
+  '/_tools/reference/git-commands': typeof ToolsReferenceGitCommandsRoute
+  '/_tools/reference/html-entities': typeof ToolsReferenceHtmlEntitiesRoute
+  '/_tools/reference/http-headers': typeof ToolsReferenceHttpHeadersRoute
+  '/_tools/reference/http-methods': typeof ToolsReferenceHttpMethodsRoute
   '/_tools/reference/http-status': typeof ToolsReferenceHttpStatusRoute
+  '/_tools/reference/ip-address-ranges': typeof ToolsReferenceIpAddressRangesRoute
+  '/_tools/reference/jwt-claims': typeof ToolsReferenceJwtClaimsRoute
+  '/_tools/reference/markdown-syntax': typeof ToolsReferenceMarkdownSyntaxRoute
+  '/_tools/reference/mime-types': typeof ToolsReferenceMimeTypesRoute
+  '/_tools/reference/port-numbers': typeof ToolsReferencePortNumbersRoute
+  '/_tools/reference/regex-patterns': typeof ToolsReferenceRegexPatternsRoute
   '/_tools/text-tools/ascii-art': typeof ToolsTextToolsAsciiArtRoute
   '/_tools/text-tools/case-converter': typeof ToolsTextToolsCaseConverterRoute
   '/_tools/text-tools/diff': typeof ToolsTextToolsDiffRoute
@@ -959,7 +1087,20 @@ export interface FileRouteTypes {
     | '/media/image-compressor'
     | '/media/image-resizer'
     | '/media/svg-optimizer'
+    | '/reference/ascii-table'
+    | '/reference/color-names'
+    | '/reference/css-properties'
+    | '/reference/git-commands'
+    | '/reference/html-entities'
+    | '/reference/http-headers'
+    | '/reference/http-methods'
     | '/reference/http-status'
+    | '/reference/ip-address-ranges'
+    | '/reference/jwt-claims'
+    | '/reference/markdown-syntax'
+    | '/reference/mime-types'
+    | '/reference/port-numbers'
+    | '/reference/regex-patterns'
     | '/text-tools/ascii-art'
     | '/text-tools/case-converter'
     | '/text-tools/diff'
@@ -1050,7 +1191,20 @@ export interface FileRouteTypes {
     | '/media/image-compressor'
     | '/media/image-resizer'
     | '/media/svg-optimizer'
+    | '/reference/ascii-table'
+    | '/reference/color-names'
+    | '/reference/css-properties'
+    | '/reference/git-commands'
+    | '/reference/html-entities'
+    | '/reference/http-headers'
+    | '/reference/http-methods'
     | '/reference/http-status'
+    | '/reference/ip-address-ranges'
+    | '/reference/jwt-claims'
+    | '/reference/markdown-syntax'
+    | '/reference/mime-types'
+    | '/reference/port-numbers'
+    | '/reference/regex-patterns'
     | '/text-tools/ascii-art'
     | '/text-tools/case-converter'
     | '/text-tools/diff'
@@ -1142,7 +1296,20 @@ export interface FileRouteTypes {
     | '/_tools/media/image-compressor'
     | '/_tools/media/image-resizer'
     | '/_tools/media/svg-optimizer'
+    | '/_tools/reference/ascii-table'
+    | '/_tools/reference/color-names'
+    | '/_tools/reference/css-properties'
+    | '/_tools/reference/git-commands'
+    | '/_tools/reference/html-entities'
+    | '/_tools/reference/http-headers'
+    | '/_tools/reference/http-methods'
     | '/_tools/reference/http-status'
+    | '/_tools/reference/ip-address-ranges'
+    | '/_tools/reference/jwt-claims'
+    | '/_tools/reference/markdown-syntax'
+    | '/_tools/reference/mime-types'
+    | '/_tools/reference/port-numbers'
+    | '/_tools/reference/regex-patterns'
     | '/_tools/text-tools/ascii-art'
     | '/_tools/text-tools/case-converter'
     | '/_tools/text-tools/diff'
@@ -1270,11 +1437,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsTextToolsAsciiArtRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/_tools/reference/regex-patterns': {
+      id: '/_tools/reference/regex-patterns'
+      path: '/reference/regex-patterns'
+      fullPath: '/reference/regex-patterns'
+      preLoaderRoute: typeof ToolsReferenceRegexPatternsRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/port-numbers': {
+      id: '/_tools/reference/port-numbers'
+      path: '/reference/port-numbers'
+      fullPath: '/reference/port-numbers'
+      preLoaderRoute: typeof ToolsReferencePortNumbersRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/mime-types': {
+      id: '/_tools/reference/mime-types'
+      path: '/reference/mime-types'
+      fullPath: '/reference/mime-types'
+      preLoaderRoute: typeof ToolsReferenceMimeTypesRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/markdown-syntax': {
+      id: '/_tools/reference/markdown-syntax'
+      path: '/reference/markdown-syntax'
+      fullPath: '/reference/markdown-syntax'
+      preLoaderRoute: typeof ToolsReferenceMarkdownSyntaxRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/jwt-claims': {
+      id: '/_tools/reference/jwt-claims'
+      path: '/reference/jwt-claims'
+      fullPath: '/reference/jwt-claims'
+      preLoaderRoute: typeof ToolsReferenceJwtClaimsRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/ip-address-ranges': {
+      id: '/_tools/reference/ip-address-ranges'
+      path: '/reference/ip-address-ranges'
+      fullPath: '/reference/ip-address-ranges'
+      preLoaderRoute: typeof ToolsReferenceIpAddressRangesRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/_tools/reference/http-status': {
       id: '/_tools/reference/http-status'
       path: '/reference/http-status'
       fullPath: '/reference/http-status'
       preLoaderRoute: typeof ToolsReferenceHttpStatusRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/http-methods': {
+      id: '/_tools/reference/http-methods'
+      path: '/reference/http-methods'
+      fullPath: '/reference/http-methods'
+      preLoaderRoute: typeof ToolsReferenceHttpMethodsRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/http-headers': {
+      id: '/_tools/reference/http-headers'
+      path: '/reference/http-headers'
+      fullPath: '/reference/http-headers'
+      preLoaderRoute: typeof ToolsReferenceHttpHeadersRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/html-entities': {
+      id: '/_tools/reference/html-entities'
+      path: '/reference/html-entities'
+      fullPath: '/reference/html-entities'
+      preLoaderRoute: typeof ToolsReferenceHtmlEntitiesRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/git-commands': {
+      id: '/_tools/reference/git-commands'
+      path: '/reference/git-commands'
+      fullPath: '/reference/git-commands'
+      preLoaderRoute: typeof ToolsReferenceGitCommandsRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/css-properties': {
+      id: '/_tools/reference/css-properties'
+      path: '/reference/css-properties'
+      fullPath: '/reference/css-properties'
+      preLoaderRoute: typeof ToolsReferenceCssPropertiesRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/color-names': {
+      id: '/_tools/reference/color-names'
+      path: '/reference/color-names'
+      fullPath: '/reference/color-names'
+      preLoaderRoute: typeof ToolsReferenceColorNamesRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/reference/ascii-table': {
+      id: '/_tools/reference/ascii-table'
+      path: '/reference/ascii-table'
+      fullPath: '/reference/ascii-table'
+      preLoaderRoute: typeof ToolsReferenceAsciiTableRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/_tools/media/svg-optimizer': {
@@ -1873,7 +2131,20 @@ interface ToolsRouteChildren {
   ToolsMediaImageCompressorRoute: typeof ToolsMediaImageCompressorRoute
   ToolsMediaImageResizerRoute: typeof ToolsMediaImageResizerRoute
   ToolsMediaSvgOptimizerRoute: typeof ToolsMediaSvgOptimizerRoute
+  ToolsReferenceAsciiTableRoute: typeof ToolsReferenceAsciiTableRoute
+  ToolsReferenceColorNamesRoute: typeof ToolsReferenceColorNamesRoute
+  ToolsReferenceCssPropertiesRoute: typeof ToolsReferenceCssPropertiesRoute
+  ToolsReferenceGitCommandsRoute: typeof ToolsReferenceGitCommandsRoute
+  ToolsReferenceHtmlEntitiesRoute: typeof ToolsReferenceHtmlEntitiesRoute
+  ToolsReferenceHttpHeadersRoute: typeof ToolsReferenceHttpHeadersRoute
+  ToolsReferenceHttpMethodsRoute: typeof ToolsReferenceHttpMethodsRoute
   ToolsReferenceHttpStatusRoute: typeof ToolsReferenceHttpStatusRoute
+  ToolsReferenceIpAddressRangesRoute: typeof ToolsReferenceIpAddressRangesRoute
+  ToolsReferenceJwtClaimsRoute: typeof ToolsReferenceJwtClaimsRoute
+  ToolsReferenceMarkdownSyntaxRoute: typeof ToolsReferenceMarkdownSyntaxRoute
+  ToolsReferenceMimeTypesRoute: typeof ToolsReferenceMimeTypesRoute
+  ToolsReferencePortNumbersRoute: typeof ToolsReferencePortNumbersRoute
+  ToolsReferenceRegexPatternsRoute: typeof ToolsReferenceRegexPatternsRoute
   ToolsTextToolsAsciiArtRoute: typeof ToolsTextToolsAsciiArtRoute
   ToolsTextToolsCaseConverterRoute: typeof ToolsTextToolsCaseConverterRoute
   ToolsTextToolsDiffRoute: typeof ToolsTextToolsDiffRoute
@@ -1964,7 +2235,20 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsMediaImageCompressorRoute: ToolsMediaImageCompressorRoute,
   ToolsMediaImageResizerRoute: ToolsMediaImageResizerRoute,
   ToolsMediaSvgOptimizerRoute: ToolsMediaSvgOptimizerRoute,
+  ToolsReferenceAsciiTableRoute: ToolsReferenceAsciiTableRoute,
+  ToolsReferenceColorNamesRoute: ToolsReferenceColorNamesRoute,
+  ToolsReferenceCssPropertiesRoute: ToolsReferenceCssPropertiesRoute,
+  ToolsReferenceGitCommandsRoute: ToolsReferenceGitCommandsRoute,
+  ToolsReferenceHtmlEntitiesRoute: ToolsReferenceHtmlEntitiesRoute,
+  ToolsReferenceHttpHeadersRoute: ToolsReferenceHttpHeadersRoute,
+  ToolsReferenceHttpMethodsRoute: ToolsReferenceHttpMethodsRoute,
   ToolsReferenceHttpStatusRoute: ToolsReferenceHttpStatusRoute,
+  ToolsReferenceIpAddressRangesRoute: ToolsReferenceIpAddressRangesRoute,
+  ToolsReferenceJwtClaimsRoute: ToolsReferenceJwtClaimsRoute,
+  ToolsReferenceMarkdownSyntaxRoute: ToolsReferenceMarkdownSyntaxRoute,
+  ToolsReferenceMimeTypesRoute: ToolsReferenceMimeTypesRoute,
+  ToolsReferencePortNumbersRoute: ToolsReferencePortNumbersRoute,
+  ToolsReferenceRegexPatternsRoute: ToolsReferenceRegexPatternsRoute,
   ToolsTextToolsAsciiArtRoute: ToolsTextToolsAsciiArtRoute,
   ToolsTextToolsCaseConverterRoute: ToolsTextToolsCaseConverterRoute,
   ToolsTextToolsDiffRoute: ToolsTextToolsDiffRoute,
