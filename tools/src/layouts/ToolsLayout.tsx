@@ -66,7 +66,6 @@ import {
   Hexagon,
   Share2,
   Package,
-  FileCode2,
   Map,
   Server,
   ArrowRightLeft,

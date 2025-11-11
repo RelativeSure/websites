@@ -44,4 +44,35 @@
     color: hsl(var(--foreground));
     font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace);
   }
+
+  /* Custom scrollbar styling for dark tech theme */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.3) hsl(var(--sidebar-accent));
+  }
+
+  /* Webkit scrollbar styling (Chrome, Safari, Edge) */
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: hsl(var(--sidebar-accent));
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  *::-webkit-scrollbar-thumb:active {
+    background: hsl(var(--primary) / 0.7);
+  }
 }
