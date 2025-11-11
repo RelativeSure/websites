@@ -4,21 +4,6 @@ compatibility_date = "2025-10-25"
 [assets]
 directory = "./out"
 
-# Watch paths for monorepo - only rebuild when these files change
-watch_paths = [
-  "src/**",
-  "content/**",
-  "public/**",
-  "next.config.mjs",
-  "source.config.ts",
-  "tsconfig.json",
-  "postcss.config.mjs",
-  "biome.json",
-  "package.json",
-  "pnpm-lock.yaml",
-  "wrangler.toml"
-]
-
 [vars]
 NODE_VERSION = "v24"
 PNPM_VERSION = "10"

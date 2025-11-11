@@ -7,22 +7,6 @@ compatibility_date = "2024-11-01"
 directory = "dist"
 binding = "ASSETS"
 
-# Watch paths for monorepo - only rebuild when these files change
-watch_paths = [
-  "src/**",
-  "app/**",
-  "lib/**",
-  "hooks/**",
-  "index.html",
-  "vite.config.ts",
-  "tsconfig.json",
-  "tailwind.config.ts",
-  "postcss.config.mjs",
-  "package.json",
-  "pnpm-lock.yaml",
-  "wrangler.toml"
-]
-
 [vars]
 NODE_VERSION = "v24"
 PNPM_VERSION = "10"
