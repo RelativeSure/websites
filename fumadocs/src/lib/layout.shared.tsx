@@ -25,6 +25,11 @@ export function baseOptions(): BaseLayoutProps {
                 url: "https://www.linkedin.com/in/rasmusbroeggerjoergensen/",
                 external: true,
             },
+            {
+                text: "OneTimeSecret",
+                url: "https://ots.broegger.dk",
+                external: true,
+            },
         ],
     };
 }

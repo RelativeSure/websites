@@ -73,10 +73,24 @@ export default function HomePage() {
                         <h3 className="text-xl font-semibold">About Me</h3>
                     </div>
                     <p className="mb-6 text-muted-foreground">
-                        Experienced DevOps Engineer with a strong focus on
-                        automating infrastructure and streamlining development
-                        workflows. Passionate about implementing efficient CI/CD
-                        pipelines and maintaining robust cloud infrastructure.
+                        A highly motivated Platform Engineer with a strong
+                        foundation in Linux administration and Open-Source,
+                        passionate about building robust and scalable solutions
+                        using modern infrastructure technologies. I specialize
+                        in leveraging Kubernetes, Docker, and
+                        Infrastructure-as-Code (IaC) principles to automate
+                        deployments, optimize resource utilization, and ensure
+                        system reliability. I’ve implemented GitOps workflows
+                        for automating Terraform operations on repositories and
+                        utilize Renovate to streamline dependency updates.
+                        Furthermore, I develop Helm Charts to facilitate
+                        customer onboarding onto our Kubernetes platform via
+                        Rancher. I have passion to solve complex problems and
+                        contribute to open-source projects, continuously seeking
+                        opportunities to learn and implement innovative
+                        approaches within cloud-native environments. My focus is
+                        on automation and creating efficient, maintainable
+                        systems that deliver exceptional performance and value.
                     </p>
 
                     <div className="mb-6 p-4 bg-accent rounded-lg">
