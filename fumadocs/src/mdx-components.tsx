@@ -6,6 +6,7 @@ import { Card, Cards } from "fumadocs-ui/components/card";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import { File, Folder, Files } from "fumadocs-ui/components/files";
 import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Bookmark } from "@/components/bookmark";
 
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
     return {
@@ -22,6 +23,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
         Files,
         Step,
         Steps,
+        Bookmark,
         ...components,
     };
 }
