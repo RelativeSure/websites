@@ -19,6 +19,36 @@ repos:
     hooks:
       - id: gitleaks
 
+  # TypeScript type checking - fumadocs
+  - repo: local
+    hooks:
+      - id: typescript-check-fumadocs
+        name: TypeScript type check (fumadocs)
+        entry: bash -c 'cd fumadocs && npx tsc --noEmit'
+        language: system
+        files: ^fumadocs/.*\.(ts|tsx)$
+        pass_filenames: false
+
+  # Astro type checking - starlight
+  - repo: local
+    hooks:
+      - id: astro-check
+        name: Astro check (starlight)
+        entry: bash -c 'cd starlight && npx astro check'
+        language: system
+        files: ^starlight/.*\.(astro|ts|tsx|js|jsx)$
+        pass_filenames: false
+
+  # TypeScript type checking - tools
+  - repo: local
+    hooks:
+      - id: typescript-check-tools
+        name: TypeScript type check (tools)
+        entry: bash -c 'cd tools && npx tsc --noEmit'
+        language: system
+        files: ^tools/.*\.(ts|tsx)$
+        pass_filenames: false
+
   # Commit message linting (commit-msg stage)
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
     rev: v9.23.0

@@ -92,4 +92,5 @@ jobs:
             - Biome for linting and formatting
             - TypeScript for type safety
             - Conventional commits (enforced by commitlint)
-            - Pre-commit hooks in each project directory
+            - Pre-commit hooks configured at repository root
+            - Cloudflare Pages for deployment (builds happen there, not in CI)
