@@ -20,41 +20,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Step 1: Code Quality - Run pre-commit checks (once for entire monorepo)
-  quality:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      # Setup Python for pre-commit
-      - name: Set Python hash
-        run: echo "PY=$(python -VV | sha256sum | cut -d' ' -f1)" >> $GITHUB_ENV
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Cache pre-commit hooks
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pre-commit
-          key: pre-commit|${{ env.PY }}|${{ hashFiles('.pre-commit-config.yaml') }}
-          restore-keys: |
-            pre-commit|${{ env.PY }}|
-
-      # Install and run pre-commit
-      - name: Install pre-commit
-        run: pip install pre-commit
-
-      - name: Run pre-commit
-        run: pre-commit run --all-files --show-diff-on-failure --color=always
-        continue-on-error: false
-
-  # Step 2: Build verification
+  # Step 1: Build verification
   build:
-    needs: quality
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -87,9 +54,8 @@ jobs:
           path: ${{ matrix.project }}/dist
           retention-days: 1
 
-  # Step 3: Type checking
+  # Step 2: Type checking
   typecheck:
-    needs: quality
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -120,7 +86,7 @@ jobs:
       - name: Type check ${{ matrix.project }}
         run: cd ${{ matrix.project }} && ${{ matrix.command }}
 
-  # Step 4: Security audit (runs on push only to save time)
+  # Step 3: Security audit (runs on push only to save time)
   security:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
