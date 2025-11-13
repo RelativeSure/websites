@@ -10,11 +10,13 @@ export function Bookmark({ url, title, description }: BookmarkProps) {
   const isExternal = url.startsWith('http://') || url.startsWith('https://');
 
   return (
-    <Card
-      title={title}
-      href={url}
-      description={description}
-      external={isExternal}
-    />
+    <div className="mb-4">
+      <Card
+        title={title}
+        href={url}
+        description={description}
+        external={isExternal}
+      />
+    </div>
   );
 }
