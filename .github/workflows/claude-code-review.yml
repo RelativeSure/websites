@@ -1,0 +1,95 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    # Run on changes to source files in all projects
+    paths:
+      - 'fumadocs/**/*.{ts,tsx,js,jsx,astro,json}'
+      - 'starlight/**/*.{ts,tsx,js,jsx,astro,json}'
+      - 'tools/**/*.{ts,tsx,js,jsx,json}'
+
+jobs:
+  claude-review:
+    # Remove author filter to work for all contributors
+    # Add back if needed: github.event.pull_request.user.login == 'username'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write # Changed to write for commenting
+      issues: read
+      id-token: write
+      actions: read # Read CI results
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for better context
+
+      - name: Run Claude Code Review
+        id: claude-review
+        uses: anthropics/claude-code-action@beta
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          additional_permissions: |
+            actions: read
+
+          # Optional: Specify model (defaults to Claude Sonnet 4, uncomment for Claude Opus 4)
+          # model: "claude-opus-4-20250514"
+
+          # Direct prompt for automated review
+          direct_prompt: |
+            Please review this pull request focusing on:
+
+            **Code Quality:**
+            - Best practices for the specific framework (Next.js, Astro, or React+Vite)
+            - TypeScript type safety and proper typing
+            - Code organization and maintainability
+
+            **Pre-commit Compliance:**
+            - Check if Biome linting rules are followed
+            - Verify conventional commit message format
+            - Note any issues that pre-commit hooks should have caught
+
+            **Performance & Security:**
+            - Performance optimizations opportunities
+            - Security vulnerabilities (XSS, injection, etc.)
+            - Proper error handling
+
+            **Testing & Documentation:**
+            - Test coverage for new functionality
+            - Documentation updates needed
+            - Breaking changes that need communication
+
+            **Build & CI:**
+            - Reference any CI failures from the CI Pipeline workflow
+            - Identify potential build or type errors
+
+            Be constructive, specific, and provide actionable feedback. Reference specific files and line numbers.
+
+          # Use sticky comments to update same comment on subsequent pushes
+          use_sticky_comment: true
+
+          # Allow Claude to run development tools
+          allowed_tools: |
+            Bash(pnpm *),
+            Bash(npx *),
+            Bash(git status),
+            Bash(git diff*),
+            Bash(git log*),
+            bash
+
+          # Custom instructions for the monorepo
+          custom_instructions: |
+            This is a monorepo with three independent projects:
+            - fumadocs/: Next.js documentation site
+            - starlight/: Astro documentation site
+            - tools/: React+Vite utility application
+
+            All projects use:
+            - pnpm as package manager
+            - Biome for linting and formatting
+            - TypeScript for type safety
+            - Conventional commits (enforced by commitlint)
+            - Pre-commit hooks in each project directory
