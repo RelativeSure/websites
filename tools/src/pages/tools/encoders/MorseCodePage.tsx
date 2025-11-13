@@ -1,33 +1,69 @@
+import { ArrowRightLeft } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { ArrowRightLeft } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 const morseCode: Record<string, string> = {
-  'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.',
-  'G': '--.', 'H': '....', 'I': '..', 'J': '.---', 'K': '-.-', 'L': '.-..',
-  'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.',
-  'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-',
-  'Y': '-.--', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
-  '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
-  '8': '---..', '9': '----.', '.': '.-.-.-', ',': '--..--', '?': '..--..',
-  "'": '.----.', '!': '-.-.--', '/': '-..-.', '(': '-.--.', ')': '-.--.-',
-  '&': '.-...', ':': '---...', ';': '-.-.-.', '=': '-...-', '+': '.-.-.',
-  '-': '-....-', '_': '..--.-', '"': '.-..-.', '$': '...-..-', '@': '.--.-.',
-  ' ': '/'
+  A: ".-",
+  B: "-...",
+  C: "-.-.",
+  D: "-..",
+  E: ".",
+  F: "..-.",
+  G: "--.",
+  H: "....",
+  I: "..",
+  J: ".---",
+  K: "-.-",
+  L: ".-..",
+  M: "--",
+  N: "-.",
+  O: "---",
+  P: ".--.",
+  Q: "--.-",
+  R: ".-.",
+  S: "...",
+  T: "-",
+  U: "..-",
+  V: "...-",
+  W: ".--",
+  X: "-..-",
+  Y: "-.--",
+  Z: "--..",
+  "0": "-----",
+  "1": ".----",
+  "2": "..---",
+  "3": "...--",
+  "4": "....-",
+  "5": ".....",
+  "6": "-....",
+  "7": "--...",
+  "8": "---..",
+  "9": "----.",
+  ".": ".-.-.-",
+  ",": "--..--",
+  "?": "..--..",
+  "'": ".----.",
+  "!": "-.-.--",
+  "/": "-..-.",
+  "(": "-.--.",
+  ")": "-.--.-",
+  "&": ".-...",
+  ":": "---...",
+  ";": "-.-.-.",
+  "=": "-...-",
+  "+": ".-.-.",
+  "-": "-....-",
+  _: "..--.-",
+  '"': ".-..-.",
+  $: "...-..-",
+  "@": ".--.-.",
+  " ": "/",
 };
 
-const reverseMorse = Object.fromEntries(
-  Object.entries(morseCode).map(([k, v]) => [v, k])
-);
+const reverseMorse = Object.fromEntries(Object.entries(morseCode).map(([k, v]) => [v, k]));
 
 export default function MorseCodePage() {
   const [textInput, setTextInput] = useState("");
@@ -40,7 +76,7 @@ export default function MorseCodePage() {
       const morse = textInput
         .toUpperCase()
         .split("")
-        .map(char => morseCode[char] || char)
+        .map((char) => morseCode[char] || char)
         .join(" ");
       setMorseInput(morse);
     } catch (err) {
@@ -53,7 +89,7 @@ export default function MorseCodePage() {
       setError("");
       const text = morseInput
         .split(" ")
-        .map(code => reverseMorse[code] || "?")
+        .map((code) => reverseMorse[code] || "?")
         .join("");
       setTextInput(text);
     } catch (err) {
@@ -65,9 +101,7 @@ export default function MorseCodePage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Morse Code Translator</h1>
-        <p className="text-muted-foreground">
-          Convert text to Morse code and back
-        </p>
+        <p className="text-muted-foreground">Convert text to Morse code and back</p>
       </div>
 
       {error && (
@@ -120,12 +154,14 @@ export default function MorseCodePage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 text-sm font-mono">
-            {Object.entries(morseCode).slice(0, 26).map(([char, code]) => (
-              <div key={char} className="p-2 bg-muted rounded text-center">
-                <div className="font-bold">{char}</div>
-                <div className="text-xs text-muted-foreground">{code}</div>
-              </div>
-            ))}
+            {Object.entries(morseCode)
+              .slice(0, 26)
+              .map(([char, code]) => (
+                <div key={char} className="p-2 bg-muted rounded text-center">
+                  <div className="font-bold">{char}</div>
+                  <div className="text-xs text-muted-foreground">{code}</div>
+                </div>
+              ))}
           </div>
         </CardContent>
       </Card>

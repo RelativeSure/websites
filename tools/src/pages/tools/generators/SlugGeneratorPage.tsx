@@ -1,15 +1,9 @@
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check } from "lucide-react";
 
 export default function SlugGeneratorPage() {
   const [text, setText] = useState("");
@@ -33,7 +27,7 @@ export default function SlugGeneratorPage() {
       .replace(/[^a-zA-Z0-9\s-]/g, "") // Remove special chars
       .replace(/\s+/g, separator) // Replace spaces with separator
       .replace(/-+/g, separator) // Replace multiple separators with single
-      .replace(new RegExp(`^${separator}+|${separator}+$`, 'g'), ""); // Trim separators
+      .replace(new RegExp(`^${separator}+|${separator}+$`, "g"), ""); // Trim separators
 
     setSlug(result);
   };
@@ -58,9 +52,7 @@ export default function SlugGeneratorPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Slug Generator</h1>
-        <p className="text-muted-foreground">
-          Convert text to URL-friendly slugs
-        </p>
+        <p className="text-muted-foreground">Convert text to URL-friendly slugs</p>
       </div>
 
       <Card className="mb-6">

@@ -1,16 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function CipherPage() {
   const [text, setText] = useState("");
@@ -20,7 +14,7 @@ export default function CipherPage() {
 
   const rot13Transform = () => {
     const result = text.replace(/[a-zA-Z]/g, (char) => {
-      const start = char <= 'Z' ? 65 : 97;
+      const start = char <= "Z" ? 65 : 97;
       return String.fromCharCode(((char.charCodeAt(0) - start + 13) % 26) + start);
     });
     setRot13Result(result);
@@ -29,7 +23,7 @@ export default function CipherPage() {
   const caesarTransform = (direction: "encode" | "decode") => {
     const shift = direction === "encode" ? caesarShift : -caesarShift;
     const result = text.replace(/[a-zA-Z]/g, (char) => {
-      const start = char <= 'Z' ? 65 : 97;
+      const start = char <= "Z" ? 65 : 97;
       return String.fromCharCode(((char.charCodeAt(0) - start + shift + 26) % 26) + start);
     });
     setCaesarResult(result);
@@ -37,7 +31,7 @@ export default function CipherPage() {
 
   const atbashTransform = () => {
     const result = text.replace(/[a-zA-Z]/g, (char) => {
-      const start = char <= 'Z' ? 65 : 97;
+      const start = char <= "Z" ? 65 : 97;
       return String.fromCharCode(start + (25 - (char.charCodeAt(0) - start)));
     });
     setRot13Result(result);
@@ -47,9 +41,7 @@ export default function CipherPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Cipher Tools</h1>
-        <p className="text-muted-foreground">
-          Simple substitution ciphers: ROT13, Caesar, and Atbash
-        </p>
+        <p className="text-muted-foreground">Simple substitution ciphers: ROT13, Caesar, and Atbash</p>
       </div>
 
       <Tabs defaultValue="rot13" className="w-full">
@@ -63,9 +55,7 @@ export default function CipherPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>ROT13</CardTitle>
-              <CardDescription>
-                Rotate each letter 13 positions (encode = decode)
-              </CardDescription>
+              <CardDescription>Rotate each letter 13 positions (encode = decode)</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -100,16 +90,14 @@ export default function CipherPage() {
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <p>
-                ROT13 is a simple letter substitution cipher that replaces a letter with
-                the letter 13 positions after it in the alphabet.
+                ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 positions after
+                it in the alphabet.
               </p>
               <p>
-                Since there are 26 letters, applying ROT13 twice returns the original text.
-                It's commonly used to hide spoilers or puzzle solutions.
+                Since there are 26 letters, applying ROT13 twice returns the original text. It's commonly used to hide
+                spoilers or puzzle solutions.
               </p>
-              <p className="font-mono text-xs">
-                Example: "HELLO" → "URYYB"
-              </p>
+              <p className="font-mono text-xs">Example: "HELLO" → "URYYB"</p>
             </CardContent>
           </Card>
         </TabsContent>
@@ -118,9 +106,7 @@ export default function CipherPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Caesar Cipher</CardTitle>
-              <CardDescription>
-                Shift letters by a custom amount
-              </CardDescription>
+              <CardDescription>Shift letters by a custom amount</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -177,12 +163,10 @@ export default function CipherPage() {
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <p>
-                The Caesar cipher is one of the earliest known encryption techniques.
-                Each letter is replaced by a letter a fixed number of positions down the alphabet.
+                The Caesar cipher is one of the earliest known encryption techniques. Each letter is replaced by a
+                letter a fixed number of positions down the alphabet.
               </p>
-              <p className="font-mono text-xs">
-                Example with shift 3: "HELLO" → "KHOOR"
-              </p>
+              <p className="font-mono text-xs">Example with shift 3: "HELLO" → "KHOOR"</p>
             </CardContent>
           </Card>
         </TabsContent>
@@ -191,9 +175,7 @@ export default function CipherPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Atbash Cipher</CardTitle>
-              <CardDescription>
-                Reverse the alphabet (A↔Z, B↔Y, etc.)
-              </CardDescription>
+              <CardDescription>Reverse the alphabet (A↔Z, B↔Y, etc.)</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -228,12 +210,10 @@ export default function CipherPage() {
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <p>
-                Atbash is a monoalphabetic substitution cipher originally used for the Hebrew alphabet.
-                Each letter is replaced with its reverse: A↔Z, B↔Y, C↔X, and so on.
+                Atbash is a monoalphabetic substitution cipher originally used for the Hebrew alphabet. Each letter is
+                replaced with its reverse: A↔Z, B↔Y, C↔X, and so on.
               </p>
-              <p className="font-mono text-xs">
-                Example: "HELLO" → "SVOOL"
-              </p>
+              <p className="font-mono text-xs">Example: "HELLO" → "SVOOL"</p>
             </CardContent>
           </Card>
         </TabsContent>

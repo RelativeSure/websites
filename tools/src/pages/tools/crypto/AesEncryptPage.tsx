@@ -1,22 +1,11 @@
+import { AlertCircle, Check, Copy, Key, Lock, Unlock } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
-import { Lock, Unlock, Key, Copy, Check, AlertCircle } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function AesEncryptPage() {
   const [mode, setMode] = useState<"encrypt" | "decrypt">("encrypt");
@@ -32,19 +21,13 @@ export default function AesEncryptPage() {
     const passwordBuffer = encoder.encode(password);
 
     // Import password as key material
-    const keyMaterial = await crypto.subtle.importKey(
-      "raw",
-      passwordBuffer,
-      { name: "PBKDF2" },
-      false,
-      ["deriveKey"]
-    );
+    const keyMaterial = await crypto.subtle.importKey("raw", passwordBuffer, { name: "PBKDF2" }, false, ["deriveKey"]);
 
     // Derive AES key using PBKDF2
     return await crypto.subtle.deriveKey(
       {
         name: "PBKDF2",
-        salt: salt,
+        salt: salt as BufferSource,
         iterations: 100000,
         hash: "SHA-256",
       },
@@ -76,16 +59,10 @@ export default function AesEncryptPage() {
       const key = await deriveKey(password, salt);
 
       // Encrypt the data
-      const encryptedData = await crypto.subtle.encrypt(
-        { name: "AES-GCM", iv: iv },
-        key,
-        data
-      );
+      const encryptedData = await crypto.subtle.encrypt({ name: "AES-GCM", iv: iv }, key, data);
 
       // Combine salt + iv + encrypted data
-      const combined = new Uint8Array(
-        salt.length + iv.length + encryptedData.byteLength
-      );
+      const combined = new Uint8Array(salt.length + iv.length + encryptedData.byteLength);
       combined.set(salt, 0);
       combined.set(iv, salt.length);
       combined.set(new Uint8Array(encryptedData), salt.length + iv.length);
@@ -120,20 +97,14 @@ export default function AesEncryptPage() {
       const key = await deriveKey(password, salt);
 
       // Decrypt the data
-      const decryptedData = await crypto.subtle.decrypt(
-        { name: "AES-GCM", iv: iv },
-        key,
-        encryptedData
-      );
+      const decryptedData = await crypto.subtle.decrypt({ name: "AES-GCM", iv: iv }, key, encryptedData);
 
       // Convert decrypted data to string
       const decoder = new TextDecoder();
       const plaintext = decoder.decode(decryptedData);
       setOutput(plaintext);
     } catch (err) {
-      setError(
-        "Decryption failed. Make sure the password is correct and the ciphertext is valid."
-      );
+      setError("Decryption failed. Make sure the password is correct and the ciphertext is valid.");
     }
   };
 
@@ -148,8 +119,7 @@ export default function AesEncryptPage() {
   };
 
   const generatePassword = () => {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
     const length = 24;
     let password = "";
     const randomValues = crypto.getRandomValues(new Uint8Array(length));
@@ -163,9 +133,7 @@ export default function AesEncryptPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">AES Encryption/Decryption</h1>
-        <p className="text-muted-foreground">
-          Encrypt and decrypt text using AES-256-GCM encryption
-        </p>
+        <p className="text-muted-foreground">Encrypt and decrypt text using AES-256-GCM encryption</p>
       </div>
 
       <Card className="mb-6">
@@ -174,9 +142,7 @@ export default function AesEncryptPage() {
             <Key className="h-5 w-5" />
             Password
           </CardTitle>
-          <CardDescription>
-            Enter a strong password for encryption/decryption
-          </CardDescription>
+          <CardDescription>Enter a strong password for encryption/decryption</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -195,8 +161,7 @@ export default function AesEncryptPage() {
               </Button>
             </div>
             <div className="text-xs text-muted-foreground">
-              Use a strong, unique password. The same password must be used for
-              encryption and decryption.
+              Use a strong, unique password. The same password must be used for encryption and decryption.
             </div>
           </div>
         </CardContent>
@@ -218,9 +183,7 @@ export default function AesEncryptPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Plaintext</CardTitle>
-              <CardDescription>
-                Enter the text you want to encrypt
-              </CardDescription>
+              <CardDescription>Enter the text you want to encrypt</CardDescription>
             </CardHeader>
             <CardContent>
               <Textarea
@@ -242,9 +205,7 @@ export default function AesEncryptPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Ciphertext</CardTitle>
-              <CardDescription>
-                Enter the encrypted text (base64)
-              </CardDescription>
+              <CardDescription>Enter the encrypted text (base64)</CardDescription>
             </CardHeader>
             <CardContent>
               <Textarea
@@ -275,13 +236,9 @@ export default function AesEncryptPage() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>
-                  {mode === "encrypt" ? "Encrypted Text" : "Decrypted Text"}
-                </CardTitle>
+                <CardTitle>{mode === "encrypt" ? "Encrypted Text" : "Decrypted Text"}</CardTitle>
                 <CardDescription>
-                  {mode === "encrypt"
-                    ? "Base64-encoded ciphertext"
-                    : "Original plaintext"}
+                  {mode === "encrypt" ? "Base64-encoded ciphertext" : "Original plaintext"}
                 </CardDescription>
               </div>
               <Button variant="ghost" size="sm" onClick={handleCopy}>
@@ -303,9 +260,7 @@ export default function AesEncryptPage() {
             <Textarea
               value={output}
               readOnly
-              className={`${
-                mode === "encrypt" ? "font-mono text-xs" : ""
-              } min-h-[200px] bg-muted`}
+              className={`${mode === "encrypt" ? "font-mono text-xs" : ""} min-h-[200px] bg-muted`}
             />
           </CardContent>
         </Card>
@@ -317,9 +272,8 @@ export default function AesEncryptPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            <strong>AES-256-GCM</strong> (Advanced Encryption Standard with Galois/Counter
-            Mode) is a secure symmetric encryption algorithm that provides both
-            confidentiality and authentication.
+            <strong>AES-256-GCM</strong> (Advanced Encryption Standard with Galois/Counter Mode) is a secure symmetric
+            encryption algorithm that provides both confidentiality and authentication.
           </p>
           <div>
             <strong>How it works:</strong>
@@ -331,14 +285,13 @@ export default function AesEncryptPage() {
             </ul>
           </div>
           <p>
-            <strong>Security note:</strong> All encryption happens in your browser using
-            the Web Crypto API. Your password and data never leave your device. However,
-            this tool is for educational purposes - for production use, consult security
-            experts.
+            <strong>Security note:</strong> All encryption happens in your browser using the Web Crypto API. Your
+            password and data never leave your device. However, this tool is for educational purposes - for production
+            use, consult security experts.
           </p>
           <p>
-            <strong>Password tips:</strong> Use a long, random password with mixed
-            characters. The "Generate" button creates a cryptographically secure password.
+            <strong>Password tips:</strong> Use a long, random password with mixed characters. The "Generate" button
+            creates a cryptographically secure password.
           </p>
         </CardContent>
       </Card>

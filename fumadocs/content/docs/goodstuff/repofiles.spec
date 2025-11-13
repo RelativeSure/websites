@@ -1,5 +1,5 @@
 ---
-title: Repo files 
+title: Repo files
 description: Making of specfiles
 ---
 

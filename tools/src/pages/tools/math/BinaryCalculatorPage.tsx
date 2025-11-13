@@ -1,22 +1,10 @@
+import { AlertCircle, Binary } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Binary, AlertCircle } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function BinaryCalculatorPage() {
   const [num1, setNum1] = useState("1010");
@@ -126,7 +114,7 @@ export default function BinaryCalculatorPage() {
     { num1: "0011", num2: "10", op: "<<", desc: "Left shift" },
   ];
 
-  const loadExample = (example: typeof examples[0]) => {
+  const loadExample = (example: (typeof examples)[0]) => {
     setNum1(example.num1);
     setNum2(example.num2);
     setOperation(example.op);
@@ -148,9 +136,7 @@ export default function BinaryCalculatorPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Binary Calculator</h1>
-        <p className="text-muted-foreground">
-          Perform arithmetic and bitwise operations on binary numbers
-        </p>
+        <p className="text-muted-foreground">Perform arithmetic and bitwise operations on binary numbers</p>
       </div>
 
       <Card className="mb-6">
@@ -159,9 +145,7 @@ export default function BinaryCalculatorPage() {
             <Binary className="h-5 w-5" />
             Binary Calculation
           </CardTitle>
-          <CardDescription>
-            Enter binary numbers (0 and 1 only) and select an operation
-          </CardDescription>
+          <CardDescription>Enter binary numbers (0 and 1 only) and select an operation</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -174,11 +158,7 @@ export default function BinaryCalculatorPage() {
                 placeholder="1010"
                 className="font-mono text-lg"
               />
-              {validateBinary(num1) && (
-                <div className="text-xs text-muted-foreground">
-                  Decimal: {toDecimal(num1)}
-                </div>
-              )}
+              {validateBinary(num1) && <div className="text-xs text-muted-foreground">Decimal: {toDecimal(num1)}</div>}
             </div>
 
             <div className="space-y-2">
@@ -190,11 +170,7 @@ export default function BinaryCalculatorPage() {
                 placeholder="0110"
                 className="font-mono text-lg"
               />
-              {validateBinary(num2) && (
-                <div className="text-xs text-muted-foreground">
-                  Decimal: {toDecimal(num2)}
-                </div>
-              )}
+              {validateBinary(num2) && <div className="text-xs text-muted-foreground">Decimal: {toDecimal(num2)}</div>}
             </div>
           </div>
 
@@ -235,9 +211,7 @@ export default function BinaryCalculatorPage() {
                 <div className="space-y-2">
                   <div className="text-3xl font-bold font-mono">{result}</div>
                   {validateBinary(result.split(" ")[0]) && (
-                    <div className="text-muted-foreground">
-                      Decimal: {toDecimal(result.split(" ")[0])}
-                    </div>
+                    <div className="text-muted-foreground">Decimal: {toDecimal(result.split(" ")[0])}</div>
                   )}
                 </div>
               </CardContent>
@@ -249,20 +223,12 @@ export default function BinaryCalculatorPage() {
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Quick Examples</CardTitle>
-          <CardDescription>
-            Click to load an example calculation
-          </CardDescription>
+          <CardDescription>Click to load an example calculation</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {examples.map((ex, idx) => (
-              <Button
-                key={idx}
-                variant="outline"
-                size="sm"
-                onClick={() => loadExample(ex)}
-                className="justify-start"
-              >
+              <Button key={idx} variant="outline" size="sm" onClick={() => loadExample(ex)} className="justify-start">
                 <div className="text-left">
                   <div className="font-mono text-xs">
                     {ex.num1} {ex.op} {ex.num2}
@@ -296,12 +262,7 @@ export default function BinaryCalculatorPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="dec-output">Binary Result</Label>
-              <Input
-                id="dec-output"
-                readOnly
-                placeholder="Result..."
-                className="font-mono bg-muted"
-              />
+              <Input id="dec-output" readOnly placeholder="Result..." className="font-mono bg-muted" />
             </div>
           </CardContent>
         </Card>
@@ -326,12 +287,7 @@ export default function BinaryCalculatorPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="bin-output">Decimal Result</Label>
-              <Input
-                id="bin-output"
-                readOnly
-                placeholder="Result..."
-                className="bg-muted"
-              />
+              <Input id="bin-output" readOnly placeholder="Result..." className="bg-muted" />
             </div>
           </CardContent>
         </Card>
@@ -383,8 +339,8 @@ export default function BinaryCalculatorPage() {
             </ul>
           </div>
           <p className="text-muted-foreground">
-            <strong>Note:</strong> All operations are performed on unsigned integers.
-            Negative results are shown in two's complement notation.
+            <strong>Note:</strong> All operations are performed on unsigned integers. Negative results are shown in
+            two's complement notation.
           </p>
         </CardContent>
       </Card>

@@ -1,23 +1,11 @@
+import { Download, Image as ImageIcon, Upload } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Image as ImageIcon, Download, Upload } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function ImageResizerPage() {
   const [originalImage, setOriginalImage] = useState<string | null>(null);
@@ -128,9 +116,7 @@ export default function ImageResizerPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Image Resizer</h1>
-        <p className="text-muted-foreground">
-          Resize images to custom dimensions or presets
-        </p>
+        <p className="text-muted-foreground">Resize images to custom dimensions or presets</p>
       </div>
 
       <Card className="mb-6">
@@ -139,21 +125,14 @@ export default function ImageResizerPage() {
             <ImageIcon className="h-5 w-5" />
             Upload Image
           </CardTitle>
-          <CardDescription>
-            Select an image to resize
-          </CardDescription>
+          <CardDescription>Select an image to resize</CardDescription>
         </CardHeader>
         <CardContent>
           <Button variant="outline" asChild>
             <label>
               <Upload className="h-4 w-4 mr-2" />
               Choose Image
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
+              <input type="file" accept="image/*" onChange={handleFileUpload} className="hidden" />
             </label>
           </Button>
         </CardContent>
@@ -170,20 +149,14 @@ export default function ImageResizerPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <img
-                  src={originalImage}
-                  alt="Original"
-                  className="max-w-full h-auto border rounded"
-                />
+                <img src={originalImage} alt="Original" className="max-w-full h-auto border rounded" />
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
                 <CardTitle>Resize Settings</CardTitle>
-                <CardDescription>
-                  Configure new dimensions and format
-                </CardDescription>
+                <CardDescription>Configure new dimensions and format</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
@@ -236,9 +209,7 @@ export default function ImageResizerPage() {
 
                 {format === "image/jpeg" && (
                   <div className="space-y-2">
-                    <Label htmlFor="quality">
-                      Quality: {(parseFloat(quality) * 100).toFixed(0)}%
-                    </Label>
+                    <Label htmlFor="quality">Quality: {(parseFloat(quality) * 100).toFixed(0)}%</Label>
                     <Input
                       id="quality"
                       type="range"
@@ -262,19 +233,12 @@ export default function ImageResizerPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Presets</CardTitle>
-              <CardDescription>
-                Quick dimension presets for common use cases
-              </CardDescription>
+              <CardDescription>Quick dimension presets for common use cases</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
                 {presets.map((preset, idx) => (
-                  <Button
-                    key={idx}
-                    variant="outline"
-                    size="sm"
-                    onClick={() => applyPreset(preset)}
-                  >
+                  <Button key={idx} variant="outline" size="sm" onClick={() => applyPreset(preset)}>
                     {preset.name}
                   </Button>
                 ))}
@@ -299,11 +263,7 @@ export default function ImageResizerPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <img
-                  src={resizedImage}
-                  alt="Resized"
-                  className="max-w-full h-auto border rounded"
-                />
+                <img src={resizedImage} alt="Resized" className="max-w-full h-auto border rounded" />
               </CardContent>
             </Card>
           )}
@@ -316,16 +276,15 @@ export default function ImageResizerPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            All image resizing is done locally in your browser using the HTML5
-            Canvas API. Your images are never uploaded to any server.
+            All image resizing is done locally in your browser using the HTML5 Canvas API. Your images are never
+            uploaded to any server.
           </p>
           <p>
-            <strong>Supported formats:</strong> JPEG, PNG, WebP, GIF, BMP, and more.
-            Output formats: JPEG, PNG, WebP.
+            <strong>Supported formats:</strong> JPEG, PNG, WebP, GIF, BMP, and more. Output formats: JPEG, PNG, WebP.
           </p>
           <p>
-            <strong>Tips:</strong> JPEG is best for photos, PNG for graphics with
-            transparency, and WebP for modern browsers with better compression.
+            <strong>Tips:</strong> JPEG is best for photos, PNG for graphics with transparency, and WebP for modern
+            browsers with better compression.
           </p>
         </CardContent>
       </Card>

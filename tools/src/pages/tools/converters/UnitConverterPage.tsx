@@ -1,20 +1,8 @@
 import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function UnitConverterPage() {
@@ -75,12 +63,12 @@ export default function UnitConverterPage() {
 
     let celsius: number;
     if (tempFrom === "c") celsius = val;
-    else if (tempFrom === "f") celsius = (val - 32) * 5 / 9;
+    else if (tempFrom === "f") celsius = ((val - 32) * 5) / 9;
     else celsius = val - 273.15; // kelvin
 
     let result: number;
     if (tempTo === "c") result = celsius;
-    else if (tempTo === "f") result = (celsius * 9 / 5) + 32;
+    else if (tempTo === "f") result = (celsius * 9) / 5 + 32;
     else result = celsius + 273.15; // kelvin
 
     return result.toFixed(2);
@@ -90,9 +78,7 @@ export default function UnitConverterPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Unit Converter</h1>
-        <p className="text-muted-foreground">
-          Convert between different units of measurement
-        </p>
+        <p className="text-muted-foreground">Convert between different units of measurement</p>
       </div>
 
       <Tabs defaultValue="length" className="w-full">

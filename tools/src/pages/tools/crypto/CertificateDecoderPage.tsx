@@ -1,15 +1,9 @@
+import { AlertCircle, ShieldCheck } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { ShieldCheck, AlertCircle } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 interface CertInfo {
   version: string;
@@ -46,7 +40,7 @@ export default function CertificateDecoderPage() {
 
     try {
       // Remove header/footer and whitespace
-      let certData = input
+      const certData = input
         .replace(/-----BEGIN CERTIFICATE-----/g, "")
         .replace(/-----END CERTIFICATE-----/g, "")
         .replace(/\s/g, "");
@@ -171,9 +165,7 @@ R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Certificate Decoder</h1>
-        <p className="text-muted-foreground">
-          Decode and inspect X.509 SSL/TLS certificates (PEM format)
-        </p>
+        <p className="text-muted-foreground">Decode and inspect X.509 SSL/TLS certificates (PEM format)</p>
       </div>
 
       <Card className="mb-6">
@@ -182,9 +174,7 @@ R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp
             <ShieldCheck className="h-5 w-5" />
             Certificate Input
           </CardTitle>
-          <CardDescription>
-            Paste a PEM-encoded certificate (with BEGIN/END lines)
-          </CardDescription>
+          <CardDescription>Paste a PEM-encoded certificate (with BEGIN/END lines)</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -203,10 +193,7 @@ R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp
               <ShieldCheck className="h-4 w-4 mr-2" />
               Decode Certificate
             </Button>
-            <Button
-              variant="outline"
-              onClick={() => setInput(exampleCert)}
-            >
+            <Button variant="outline" onClick={() => setInput(exampleCert)}>
               Load Example
             </Button>
           </div>
@@ -237,9 +224,7 @@ R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp
                   <div className="font-mono text-xs break-all">{certInfo.serialNumber}</div>
                 </div>
                 <div>
-                  <div className="font-semibold text-muted-foreground">
-                    Signature Algorithm
-                  </div>
+                  <div className="font-semibold text-muted-foreground">Signature Algorithm</div>
                   <div className="font-mono">{certInfo.signatureAlgorithm}</div>
                 </div>
               </CardContent>
@@ -252,15 +237,11 @@ R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp
               <CardContent className="space-y-3 text-sm">
                 <div>
                   <div className="font-semibold text-muted-foreground">Not Before</div>
-                  <div className="font-mono text-xs">
-                    {new Date(certInfo.validFrom).toLocaleString()}
-                  </div>
+                  <div className="font-mono text-xs">{new Date(certInfo.validFrom).toLocaleString()}</div>
                 </div>
                 <div>
                   <div className="font-semibold text-muted-foreground">Not After</div>
-                  <div className="font-mono text-xs">
-                    {new Date(certInfo.validTo).toLocaleString()}
-                  </div>
+                  <div className="font-mono text-xs">{new Date(certInfo.validTo).toLocaleString()}</div>
                 </div>
                 <div>
                   <div className="font-semibold text-muted-foreground">Status</div>
@@ -346,21 +327,21 @@ R9I4LtD+gdwyah617jzV/OeBHRnDJELqYzmp
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            This is a <strong>simplified certificate decoder</strong> for educational
-            purposes. Full X.509 certificate parsing requires complex ASN.1/DER
-            decoding which is challenging to implement in JavaScript.
+            This is a <strong>simplified certificate decoder</strong> for educational purposes. Full X.509 certificate
+            parsing requires complex ASN.1/DER decoding which is challenging to implement in JavaScript.
           </p>
-          <p>
-            For production use or detailed certificate inspection, use tools like:
-          </p>
+          <p>For production use or detailed certificate inspection, use tools like:</p>
           <ul className="list-disc list-inside ml-4 space-y-1">
-            <li>OpenSSL: <code className="text-xs bg-muted px-1 py-0.5 rounded">openssl x509 -in cert.pem -text -noout</code></li>
+            <li>
+              OpenSSL:{" "}
+              <code className="text-xs bg-muted px-1 py-0.5 rounded">openssl x509 -in cert.pem -text -noout</code>
+            </li>
             <li>Online tools with full ASN.1 parsers</li>
             <li>Browser developer tools (Security tab)</li>
           </ul>
           <p>
-            <strong>Privacy note:</strong> Certificate parsing is done entirely in your
-            browser. No data is sent to any server.
+            <strong>Privacy note:</strong> Certificate parsing is done entirely in your browser. No data is sent to any
+            server.
           </p>
         </CardContent>
       </Card>

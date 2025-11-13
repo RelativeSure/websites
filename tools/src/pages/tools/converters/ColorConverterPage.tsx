@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
-import { Copy, Check } from "lucide-react";
+import { Check, Copy } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 type Color = {
   hex: string;
@@ -40,11 +34,7 @@ export default function ColorConverter() {
     return "#" + [r, g, b].map((x) => x.toString(16).padStart(2, "0")).join("");
   };
 
-  const rgbToHsl = (
-    r: number,
-    g: number,
-    b: number
-  ): { h: number; s: number; l: number } => {
+  const rgbToHsl = (r: number, g: number, b: number): { h: number; s: number; l: number } => {
     r /= 255;
     g /= 255;
     b /= 255;
@@ -79,11 +69,7 @@ export default function ColorConverter() {
     };
   };
 
-  const hslToRgb = (
-    h: number,
-    s: number,
-    l: number
-  ): { r: number; g: number; b: number } => {
+  const hslToRgb = (h: number, s: number, l: number): { r: number; g: number; b: number } => {
     h /= 360;
     s /= 100;
     l /= 100;
@@ -147,9 +133,7 @@ export default function ColorConverter() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Color Converter</h1>
-        <p className="text-muted-foreground">
-          Convert between HEX, RGB, and HSL color formats
-        </p>
+        <p className="text-muted-foreground">Convert between HEX, RGB, and HSL color formats</p>
       </div>
 
       <Card className="mb-6">
@@ -157,10 +141,7 @@ export default function ColorConverter() {
           <CardTitle>Color Preview</CardTitle>
         </CardHeader>
         <CardContent>
-          <div
-            className="w-full h-32 rounded-md border-2 border-border"
-            style={{ backgroundColor: color.hex }}
-          />
+          <div className="w-full h-32 rounded-md border-2 border-border" style={{ backgroundColor: color.hex }} />
         </CardContent>
       </Card>
 
@@ -178,16 +159,8 @@ export default function ColorConverter() {
                 className="font-mono flex-1"
                 placeholder="#000000"
               />
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={() => copyToClipboard(color.hex, "hex")}
-              >
-                {copied === "hex" ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
+              <Button size="icon" variant="outline" onClick={() => copyToClipboard(color.hex, "hex")}>
+                {copied === "hex" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
           </CardContent>
@@ -208,13 +181,7 @@ export default function ColorConverter() {
                   min="0"
                   max="255"
                   value={color.rgb.r}
-                  onChange={(e) =>
-                    updateFromRgb(
-                      parseInt(e.target.value) || 0,
-                      color.rgb.g,
-                      color.rgb.b
-                    )
-                  }
+                  onChange={(e) => updateFromRgb(parseInt(e.target.value) || 0, color.rgb.g, color.rgb.b)}
                   className="font-mono"
                 />
               </div>
@@ -226,13 +193,7 @@ export default function ColorConverter() {
                   min="0"
                   max="255"
                   value={color.rgb.g}
-                  onChange={(e) =>
-                    updateFromRgb(
-                      color.rgb.r,
-                      parseInt(e.target.value) || 0,
-                      color.rgb.b
-                    )
-                  }
+                  onChange={(e) => updateFromRgb(color.rgb.r, parseInt(e.target.value) || 0, color.rgb.b)}
                   className="font-mono"
                 />
               </div>
@@ -244,13 +205,7 @@ export default function ColorConverter() {
                   min="0"
                   max="255"
                   value={color.rgb.b}
-                  onChange={(e) =>
-                    updateFromRgb(
-                      color.rgb.r,
-                      color.rgb.g,
-                      parseInt(e.target.value) || 0
-                    )
-                  }
+                  onChange={(e) => updateFromRgb(color.rgb.r, color.rgb.g, parseInt(e.target.value) || 0)}
                   className="font-mono"
                 />
               </div>
@@ -264,18 +219,9 @@ export default function ColorConverter() {
               <Button
                 size="icon"
                 variant="outline"
-                onClick={() =>
-                  copyToClipboard(
-                    `rgb(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b})`,
-                    "rgb"
-                  )
-                }
+                onClick={() => copyToClipboard(`rgb(${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b})`, "rgb")}
               >
-                {copied === "rgb" ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
+                {copied === "rgb" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
           </CardContent>
@@ -296,13 +242,7 @@ export default function ColorConverter() {
                   min="0"
                   max="360"
                   value={color.hsl.h}
-                  onChange={(e) =>
-                    updateFromHsl(
-                      parseInt(e.target.value) || 0,
-                      color.hsl.s,
-                      color.hsl.l
-                    )
-                  }
+                  onChange={(e) => updateFromHsl(parseInt(e.target.value) || 0, color.hsl.s, color.hsl.l)}
                   className="font-mono"
                 />
               </div>
@@ -314,13 +254,7 @@ export default function ColorConverter() {
                   min="0"
                   max="100"
                   value={color.hsl.s}
-                  onChange={(e) =>
-                    updateFromHsl(
-                      color.hsl.h,
-                      parseInt(e.target.value) || 0,
-                      color.hsl.l
-                    )
-                  }
+                  onChange={(e) => updateFromHsl(color.hsl.h, parseInt(e.target.value) || 0, color.hsl.l)}
                   className="font-mono"
                 />
               </div>
@@ -332,13 +266,7 @@ export default function ColorConverter() {
                   min="0"
                   max="100"
                   value={color.hsl.l}
-                  onChange={(e) =>
-                    updateFromHsl(
-                      color.hsl.h,
-                      color.hsl.s,
-                      parseInt(e.target.value) || 0
-                    )
-                  }
+                  onChange={(e) => updateFromHsl(color.hsl.h, color.hsl.s, parseInt(e.target.value) || 0)}
                   className="font-mono"
                 />
               </div>
@@ -352,18 +280,9 @@ export default function ColorConverter() {
               <Button
                 size="icon"
                 variant="outline"
-                onClick={() =>
-                  copyToClipboard(
-                    `hsl(${color.hsl.h}, ${color.hsl.s}%, ${color.hsl.l}%)`,
-                    "hsl"
-                  )
-                }
+                onClick={() => copyToClipboard(`hsl(${color.hsl.h}, ${color.hsl.s}%, ${color.hsl.l}%)`, "hsl")}
               >
-                {copied === "hsl" ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
+                {copied === "hsl" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
           </CardContent>

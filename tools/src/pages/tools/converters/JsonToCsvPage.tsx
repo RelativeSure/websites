@@ -1,16 +1,10 @@
+import { ArrowLeftRight, Check, Copy, Download } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check, Download, ArrowLeftRight } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
 
 export default function JsonToCsvPage() {
   const [jsonInput, setJsonInput] = useState("");
@@ -126,18 +120,14 @@ export default function JsonToCsvPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JSON to CSV Converter</h1>
-        <p className="text-muted-foreground">
-          Convert JSON data to CSV format
-        </p>
+        <p className="text-muted-foreground">Convert JSON data to CSV format</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <Card>
           <CardHeader>
             <CardTitle>JSON Input</CardTitle>
-            <CardDescription>
-              Enter your JSON array or object
-            </CardDescription>
+            <CardDescription>Enter your JSON array or object</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -146,12 +136,7 @@ export default function JsonToCsvPage() {
               placeholder={exampleJSON}
               className="min-h-[400px] font-mono text-sm"
             />
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setJsonInput(exampleJSON)}
-              className="w-full"
-            >
+            <Button variant="outline" size="sm" onClick={() => setJsonInput(exampleJSON)} className="w-full">
               Load Example
             </Button>
           </CardContent>
@@ -160,9 +145,7 @@ export default function JsonToCsvPage() {
         <Card>
           <CardHeader>
             <CardTitle>CSV Output</CardTitle>
-            <CardDescription>
-              Converted CSV data
-            </CardDescription>
+            <CardDescription>Converted CSV data</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -254,18 +237,10 @@ export default function JsonToCsvPage() {
           <CardTitle>Notes</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>
-            • JSON input must be an array of objects or a single object
-          </p>
-          <p>
-            • All objects in the array should have the same structure
-          </p>
-          <p>
-            • Nested objects will be converted to JSON strings
-          </p>
-          <p>
-            • Values containing delimiters, quotes, or newlines are automatically escaped
-          </p>
+          <p>• JSON input must be an array of objects or a single object</p>
+          <p>• All objects in the array should have the same structure</p>
+          <p>• Nested objects will be converted to JSON strings</p>
+          <p>• Values containing delimiters, quotes, or newlines are automatically escaped</p>
         </CardContent>
       </Card>
     </div>

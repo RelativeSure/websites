@@ -1,8 +1,8 @@
+import { Check, Code2, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Code2, Copy, Check } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function GraphqlFormatterPage() {
   const [input, setInput] = useState("");
@@ -23,13 +23,15 @@ export default function GraphqlFormatterPage() {
       // Fix indentation
       const lines = formatted.split("\n");
       let indent = 0;
-      formatted = lines.map(line => {
-        line = line.trim();
-        if (line.includes("}")) indent--;
-        const result = "  ".repeat(Math.max(0, indent)) + line;
-        if (line.includes("{")) indent++;
-        return result;
-      }).join("\n");
+      formatted = lines
+        .map((line) => {
+          line = line.trim();
+          if (line.includes("}")) indent--;
+          const result = "  ".repeat(Math.max(0, indent)) + line;
+          if (line.includes("{")) indent++;
+          return result;
+        })
+        .join("\n");
       setOutput(formatted);
     } catch (err) {
       setOutput("Error formatting GraphQL");
@@ -42,7 +44,7 @@ export default function GraphqlFormatterPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const example = 'query{user(id:123){name email posts{title body comments{author text}}}}';
+  const example = "query{user(id:123){name email posts{title body comments{author text}}}}";
 
   return (
     <div className="container mx-auto p-6 max-w-6xl">
@@ -51,10 +53,19 @@ export default function GraphqlFormatterPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
-          <CardHeader><CardTitle>Input</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle>Input</CardTitle>
+          </CardHeader>
           <CardContent className="space-y-4">
-            <Textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Paste GraphQL here..." className="font-mono text-sm min-h-[400px]" />
-            <Button variant="outline" size="sm" onClick={() => setInput(example)}>Load Example</Button>
+            <Textarea
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Paste GraphQL here..."
+              className="font-mono text-sm min-h-[400px]"
+            />
+            <Button variant="outline" size="sm" onClick={() => setInput(example)}>
+              Load Example
+            </Button>
           </CardContent>
         </Card>
 
@@ -62,17 +73,39 @@ export default function GraphqlFormatterPage() {
           <CardHeader>
             <div className="flex justify-between">
               <CardTitle>Formatted Output</CardTitle>
-              {output && <Button variant="ghost" size="sm" onClick={handleCopy}>{copied ? <><Check className="h-4 w-4 mr-1" />Copied</> : <><Copy className="h-4 w-4 mr-1" />Copy</>}</Button>}
+              {output && (
+                <Button variant="ghost" size="sm" onClick={handleCopy}>
+                  {copied ? (
+                    <>
+                      <Check className="h-4 w-4 mr-1" />
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="h-4 w-4 mr-1" />
+                      Copy
+                    </>
+                  )}
+                </Button>
+              )}
             </div>
           </CardHeader>
           <CardContent>
-            <Textarea value={output} readOnly placeholder="Formatted GraphQL..." className="font-mono text-sm min-h-[400px] bg-muted" />
+            <Textarea
+              value={output}
+              readOnly
+              placeholder="Formatted GraphQL..."
+              className="font-mono text-sm min-h-[400px] bg-muted"
+            />
           </CardContent>
         </Card>
       </div>
 
       <div className="mt-6">
-        <Button onClick={formatGraphQL} size="lg"><Code2 className="h-4 w-4 mr-2" />Format GraphQL</Button>
+        <Button onClick={formatGraphQL} size="lg">
+          <Code2 className="h-4 w-4 mr-2" />
+          Format GraphQL
+        </Button>
       </div>
     </div>
   );

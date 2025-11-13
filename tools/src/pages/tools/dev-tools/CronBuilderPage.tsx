@@ -1,22 +1,10 @@
-import { useState, useEffect } from "react";
+import { Check, Clock, Copy } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Copy, Check, Clock } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function CronBuilderPage() {
@@ -68,7 +56,10 @@ export default function CronBuilderPage() {
     if (month !== "*") {
       const monthNames = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       if (month.includes(",")) {
-        const months = month.split(",").map(m => monthNames[parseInt(m)]).join(", ");
+        const months = month
+          .split(",")
+          .map((m) => monthNames[parseInt(m)])
+          .join(", ");
         parts.push(`in ${months}`);
       } else {
         parts.push(`in ${monthNames[parseInt(month)]}`);
@@ -79,7 +70,10 @@ export default function CronBuilderPage() {
     if (dayOfWeek !== "*") {
       const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       if (dayOfWeek.includes(",")) {
-        const days = dayOfWeek.split(",").map(d => dayNames[parseInt(d)]).join(", ");
+        const days = dayOfWeek
+          .split(",")
+          .map((d) => dayNames[parseInt(d)])
+          .join(", ");
         parts.push(`on ${days}`);
       } else {
         parts.push(`on ${dayNames[parseInt(dayOfWeek)]}`);
@@ -117,9 +111,7 @@ export default function CronBuilderPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Cron Expression Builder</h1>
-        <p className="text-muted-foreground">
-          Build cron schedules with an intuitive visual interface
-        </p>
+        <p className="text-muted-foreground">Build cron schedules with an intuitive visual interface</p>
       </div>
 
       <Card className="mb-6">
@@ -127,9 +119,7 @@ export default function CronBuilderPage() {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle>Cron Expression</CardTitle>
-              <CardDescription className="mt-2">
-                {getDescription()}
-              </CardDescription>
+              <CardDescription className="mt-2">{getDescription()}</CardDescription>
             </div>
             <Button variant="ghost" size="sm" onClick={handleCopy}>
               {copied ? (
@@ -147,9 +137,7 @@ export default function CronBuilderPage() {
           </div>
         </CardHeader>
         <CardContent>
-          <div className="p-4 bg-muted rounded-md font-mono text-lg text-center">
-            {cronExpression}
-          </div>
+          <div className="p-4 bg-muted rounded-md font-mono text-lg text-center">{cronExpression}</div>
         </CardContent>
       </Card>
 
@@ -206,9 +194,7 @@ export default function CronBuilderPage() {
                     placeholder="* or 1-31"
                     className="font-mono"
                   />
-                  <p className="text-xs text-muted-foreground">
-                    Examples: * (every), 1 (first), 1,15 (1st and 15th)
-                  </p>
+                  <p className="text-xs text-muted-foreground">Examples: * (every), 1 (first), 1,15 (1st and 15th)</p>
                 </div>
 
                 <div className="space-y-2">
@@ -261,9 +247,7 @@ export default function CronBuilderPage() {
                 <h4 className="font-semibold text-sm mb-2">Cron Format</h4>
                 <div className="text-sm text-muted-foreground space-y-1">
                   <div className="font-mono">minute hour day month day-of-week</div>
-                  <div>
-                    * = every | */n = every n | a,b,c = specific values | a-b = range
-                  </div>
+                  <div>* = every | */n = every n | a,b,c = specific values | a-b = range</div>
                 </div>
               </div>
             </CardContent>
@@ -274,9 +258,7 @@ export default function CronBuilderPage() {
           <Card>
             <CardHeader>
               <CardTitle>Common Schedules</CardTitle>
-              <CardDescription>
-                Click to use a preset cron expression
-              </CardDescription>
+              <CardDescription>Click to use a preset cron expression</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -290,9 +272,7 @@ export default function CronBuilderPage() {
                       <Clock className="h-4 w-4 text-primary" />
                       <span className="font-semibold text-sm">{preset.name}</span>
                     </div>
-                    <div className="text-xs text-muted-foreground font-mono">
-                      {preset.value}
-                    </div>
+                    <div className="text-xs text-muted-foreground font-mono">{preset.value}</div>
                   </button>
                 ))}
               </div>

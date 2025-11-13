@@ -1,15 +1,9 @@
-import { useState, useRef } from "react";
 import jsQR from "jsqr";
-import { Upload, Camera, X } from "lucide-react";
+import { Camera, Upload, X } from "lucide-react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function QrScannerPage() {
@@ -141,9 +135,7 @@ export default function QrScannerPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">QR Code Scanner</h1>
-        <p className="text-muted-foreground">
-          Scan QR codes from images or your camera
-        </p>
+        <p className="text-muted-foreground">Scan QR codes from images or your camera</p>
       </div>
 
       {error && (
@@ -162,11 +154,7 @@ export default function QrScannerPage() {
               <p className="font-mono text-sm break-all">{result}</p>
             </div>
             {result.startsWith("http") && (
-              <Button
-                variant="outline"
-                className="mt-4"
-                onClick={() => window.open(result, "_blank")}
-              >
+              <Button variant="outline" className="mt-4" onClick={() => window.open(result, "_blank")}>
                 Open Link
               </Button>
             )}
@@ -184,9 +172,7 @@ export default function QrScannerPage() {
           <Card>
             <CardHeader>
               <CardTitle>Upload QR Code Image</CardTitle>
-              <CardDescription>
-                Select an image file containing a QR code
-              </CardDescription>
+              <CardDescription>Select an image file containing a QR code</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -200,19 +186,12 @@ export default function QrScannerPage() {
                     onChange={handleFileUpload}
                     className="hidden"
                   />
-                  <Button
-                    onClick={() => fileInputRef.current?.click()}
-                    className="w-full"
-                  >
+                  <Button onClick={() => fileInputRef.current?.click()} className="w-full">
                     <Upload className="mr-2 h-4 w-4" />
                     Select Image
                   </Button>
                   {imagePreview && (
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      onClick={handleClearImage}
-                    >
+                    <Button variant="outline" size="icon" onClick={handleClearImage}>
                       <X className="h-4 w-4" />
                     </Button>
                   )}
@@ -221,11 +200,7 @@ export default function QrScannerPage() {
 
               {imagePreview && (
                 <div className="flex items-center justify-center p-4 bg-muted rounded-md">
-                  <img
-                    src={imagePreview}
-                    alt="Uploaded QR Code"
-                    className="max-w-full h-auto max-h-96"
-                  />
+                  <img src={imagePreview} alt="Uploaded QR Code" className="max-w-full h-auto max-h-96" />
                 </div>
               )}
             </CardContent>
@@ -236,9 +211,7 @@ export default function QrScannerPage() {
           <Card>
             <CardHeader>
               <CardTitle>Scan with Camera</CardTitle>
-              <CardDescription>
-                Use your device camera to scan QR codes in real-time
-              </CardDescription>
+              <CardDescription>Use your device camera to scan QR codes in real-time</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               {!isScanning ? (
@@ -249,23 +222,13 @@ export default function QrScannerPage() {
               ) : (
                 <>
                   <div className="relative bg-black rounded-md overflow-hidden">
-                    <video
-                      ref={videoRef}
-                      className="w-full h-auto"
-                      playsInline
-                    />
+                    <video ref={videoRef} className="w-full h-auto" playsInline />
                     <canvas ref={canvasRef} className="hidden" />
                   </div>
-                  <Button
-                    onClick={stopCamera}
-                    variant="outline"
-                    className="w-full"
-                  >
+                  <Button onClick={stopCamera} variant="outline" className="w-full">
                     Stop Camera
                   </Button>
-                  <p className="text-sm text-muted-foreground text-center">
-                    Point your camera at a QR code to scan
-                  </p>
+                  <p className="text-sm text-muted-foreground text-center">Point your camera at a QR code to scan</p>
                 </>
               )}
             </CardContent>
@@ -279,12 +242,10 @@ export default function QrScannerPage() {
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
-            <strong>Upload Image:</strong> Select an image file containing a QR
-            code from your device.
+            <strong>Upload Image:</strong> Select an image file containing a QR code from your device.
           </p>
           <p>
-            <strong>Use Camera:</strong> Grant camera permission and point it
-            at a QR code for instant scanning.
+            <strong>Use Camera:</strong> Grant camera permission and point it at a QR code for instant scanning.
           </p>
           <p>All scanning is done locally in your browser - no data is sent to any server.</p>
         </CardContent>

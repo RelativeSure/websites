@@ -1,12 +1,6 @@
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 type DiffLine = {
   type: "added" | "removed" | "unchanged";
@@ -28,7 +22,8 @@ export default function TextDiff() {
     // Simple line-by-line diff using LCS approach
     const lcs = computeLCS(lines1, lines2);
 
-    let i = 0, j = 0;
+    let i = 0,
+      j = 0;
     for (const line of lcs) {
       // Add removed lines
       while (i < lines1.length && lines1[i] !== line) {
@@ -66,7 +61,9 @@ export default function TextDiff() {
   const computeLCS = (arr1: string[], arr2: string[]): string[] => {
     const m = arr1.length;
     const n = arr2.length;
-    const dp: number[][] = Array(m + 1).fill(0).map(() => Array(n + 1).fill(0));
+    const dp: number[][] = Array(m + 1)
+      .fill(0)
+      .map(() => Array(n + 1).fill(0));
 
     for (let i = 1; i <= m; i++) {
       for (let j = 1; j <= n; j++) {
@@ -79,7 +76,8 @@ export default function TextDiff() {
     }
 
     const lcs: string[] = [];
-    let i = m, j = n;
+    let i = m,
+      j = n;
     while (i > 0 && j > 0) {
       if (arr1[i - 1] === arr2[j - 1]) {
         lcs.unshift(arr1[i - 1]);
@@ -99,9 +97,7 @@ export default function TextDiff() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Text Diff Checker</h1>
-        <p className="text-muted-foreground">
-          Compare two text blocks and see the differences (+ added, - removed)
-        </p>
+        <p className="text-muted-foreground">Compare two text blocks and see the differences (+ added, - removed)</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 mb-6">
@@ -140,9 +136,7 @@ export default function TextDiff() {
         <Card>
           <CardHeader>
             <CardTitle>Differences</CardTitle>
-            <CardDescription>
-              Lines prefixed with - are removed, + are added
-            </CardDescription>
+            <CardDescription>Lines prefixed with - are removed, + are added</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="font-mono text-sm bg-muted p-4 rounded-md overflow-x-auto max-h-[500px] overflow-y-auto">
@@ -153,8 +147,8 @@ export default function TextDiff() {
                     line.type === "added"
                       ? "text-green-600 dark:text-green-400 bg-green-500/10"
                       : line.type === "removed"
-                      ? "text-red-600 dark:text-red-400 bg-red-500/10"
-                      : "text-foreground"
+                        ? "text-red-600 dark:text-red-400 bg-red-500/10"
+                        : "text-foreground"
                   } px-2 py-0.5`}
                 >
                   <span className="select-none mr-2">

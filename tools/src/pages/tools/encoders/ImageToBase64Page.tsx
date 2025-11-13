@@ -1,15 +1,9 @@
+import { Check, Copy, Upload } from "lucide-react";
 import { useState } from "react";
-import { Upload, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ImageToBase64() {
   const [base64, setBase64] = useState("");
@@ -39,9 +33,7 @@ export default function ImageToBase64() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Image to Base64</h1>
-        <p className="text-muted-foreground">
-          Convert images to Base64 encoded strings
-        </p>
+        <p className="text-muted-foreground">Convert images to Base64 encoded strings</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -86,12 +78,7 @@ export default function ImageToBase64() {
               className="font-mono flex-1 resize-none text-xs"
             />
 
-            <Button
-              onClick={copyToClipboard}
-              disabled={!base64}
-              variant="outline"
-              className="w-full"
-            >
+            <Button onClick={copyToClipboard} disabled={!base64} variant="outline" className="w-full">
               {copied ? (
                 <>
                   <Check className="mr-2 w-4 h-4" />

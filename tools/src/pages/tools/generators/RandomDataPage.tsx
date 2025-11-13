@@ -1,8 +1,7 @@
+import { Check, ChevronDown, Copy, RefreshCw } from "lucide-react";
 import { useState } from "react";
-import { RefreshCw, Copy, Check, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,13 +9,8 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function RandomDataGenerator() {
   const [type, setType] = useState<string>("number");
@@ -51,7 +45,10 @@ export default function RandomDataGenerator() {
   };
 
   const generateMAC = () => {
-    const hex = () => Math.floor(Math.random() * 256).toString(16).padStart(2, "0");
+    const hex = () =>
+      Math.floor(Math.random() * 256)
+        .toString(16)
+        .padStart(2, "0");
     return `${hex()}:${hex()}:${hex()}:${hex()}:${hex()}:${hex()}`.toUpperCase();
   };
 
@@ -107,9 +104,7 @@ export default function RandomDataGenerator() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Random Data Generator</h1>
-        <p className="text-muted-foreground">
-          Generate random test data for development
-        </p>
+        <p className="text-muted-foreground">Generate random test data for development</p>
       </div>
 
       <Card>
@@ -181,11 +176,7 @@ export default function RandomDataGenerator() {
                 />
               </div>
 
-              <Button
-                onClick={copyToClipboard}
-                variant="outline"
-                className="w-full"
-              >
+              <Button onClick={copyToClipboard} variant="outline" className="w-full">
                 {copied ? (
                   <>
                     <Check className="mr-2 w-4 h-4" />

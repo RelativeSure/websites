@@ -1,90 +1,90 @@
-import * as React from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import {
-  ArrowLeftRight,
-  Binary,
-  Link2,
-  Hash,
-  Clock,
-  Fingerprint,
-  Braces,
-  FileText,
-  Code2,
-  Home,
-  CheckCircle,
-  Database,
-  FileCode,
-  KeyRound,
-  Palette,
-  Calculator,
-  Type,
-  Lock,
-  TestTube,
-  FileCode2,
-  QrCode,
-  Eye,
-  FileJson2,
-  CalendarClock,
-  Paintbrush,
-  LinkIcon,
   AlignLeft,
+  ArrowLeftRight,
+  ArrowRightLeft,
+  Award,
+  BarChart3,
+  Binary,
+  Bot,
+  Braces,
+  Calculator,
+  Calendar,
+  CalendarClock,
+  CalendarCog,
+  CheckCircle,
+  Clock,
+  Code2,
+  Database,
+  Download,
+  Eye,
+  FileCode,
+  FileCode2,
+  FileImage,
+  FileJson2,
+  FileText,
+  FileType,
+  Fingerprint,
+  GitCompare,
+  Globe,
+  Hash,
+  Hexagon,
+  Home,
   Image,
-  Shuffle,
   Info,
-  Smartphone,
-  Slash,
+  Key,
+  KeyRound,
+  KeySquare,
+  Link2,
+  LinkIcon,
+  Lock,
+  Map,
+  Maximize2,
+  Minimize2,
+  MonitorSmartphone,
+  Network,
+  Package,
+  Paintbrush,
+  Palette,
+  Percent,
+  QrCode,
+  Radio,
+  Ruler,
+  Scale,
   ScanLine,
+  Search,
+  Server,
+  Share2,
+  Shield,
+  ShieldAlert,
+  ShieldCheck,
+  Shuffle,
+  Slash,
+  Smartphone,
+  Sparkles,
+  Tag,
+  Terminal,
+  TestTube,
+  Type,
   Users,
   WrapText,
-  Radio,
-  Shield,
-  ShieldCheck,
-  Key,
-  Ruler,
-  Sparkles,
-  GitCompare,
-  CalendarCog,
-  Network,
-  FileType,
-  ShieldAlert,
-  Download,
-  Terminal,
-  MonitorSmartphone,
-  Globe,
-  Percent,
-  KeySquare,
-  Search,
-  Calendar,
-  Tag,
-  Scale,
-  FileImage,
-  Maximize2,
-  Bot,
-  Award,
-  Minimize2,
-  BarChart3,
-  Hexagon,
-  Share2,
-  Package,
-  Map,
-  Server,
-  ArrowRightLeft,
 } from "lucide-react";
+import * as React from "react";
+import { Separator } from "@/components/ui/separator";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
+  SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-  SidebarInset,
   SidebarTrigger,
-  SidebarHeader,
 } from "@/components/ui/sidebar";
-import { Separator } from "@/components/ui/separator";
 
 const tools = [
   {
@@ -711,8 +711,8 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
       scrollPositionRef.current = contentEl.scrollTop;
     };
 
-    contentEl.addEventListener('scroll', handleScroll);
-    return () => contentEl.removeEventListener('scroll', handleScroll);
+    contentEl.addEventListener("scroll", handleScroll);
+    return () => contentEl.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Restore scroll position after navigation
@@ -727,7 +727,10 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
     <SidebarProvider defaultOpen={true}>
       <Sidebar>
         <SidebarHeader className="border-b">
-          <Link to="/" className="flex items-center gap-2 px-2 py-2 hover:bg-sidebar-accent rounded-md transition-colors">
+          <Link
+            to="/"
+            className="flex items-center gap-2 px-2 py-2 hover:bg-sidebar-accent rounded-md transition-colors"
+          >
             <Home className="w-5 h-5" />
             <div className="flex flex-col">
               <span className="font-semibold text-sm">Developer Tools</span>
@@ -747,11 +750,7 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
                       const Icon = tool.icon;
                       return (
                         <SidebarMenuItem key={tool.href}>
-                          <SidebarMenuButton
-                            asChild
-                            isActive={pathname === tool.href}
-                            tooltip={tool.title}
-                          >
+                          <SidebarMenuButton asChild isActive={pathname === tool.href} tooltip={tool.title}>
                             <Link to={tool.href}>
                               <Icon />
                               <span>{tool.title}</span>
@@ -770,9 +769,7 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
         <header className="flex h-14 shrink-0 items-center gap-2 border-b border-primary/20 px-4 bg-card/50 backdrop-blur-sm">
           <SidebarTrigger className="hover:bg-primary/10 hover:text-primary transition-colors" />
         </header>
-        <div className="flex-1 overflow-auto">
-          {children}
-        </div>
+        <div className="flex-1 overflow-auto">{children}</div>
       </SidebarInset>
     </SidebarProvider>
   );

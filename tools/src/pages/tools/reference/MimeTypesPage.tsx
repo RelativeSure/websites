@@ -1,13 +1,7 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const mimeTypes = [
   // Text
@@ -28,11 +22,31 @@ const mimeTypes = [
   { extension: ".rar", mimeType: "application/vnd.rar", description: "RAR archive", category: "Application" },
   { extension: ".7z", mimeType: "application/x-7z-compressed", description: "7-Zip archive", category: "Application" },
   { extension: ".doc", mimeType: "application/msword", description: "Microsoft Word", category: "Application" },
-  { extension: ".docx", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document", description: "Microsoft Word (OpenXML)", category: "Application" },
+  {
+    extension: ".docx",
+    mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    description: "Microsoft Word (OpenXML)",
+    category: "Application",
+  },
   { extension: ".xls", mimeType: "application/vnd.ms-excel", description: "Microsoft Excel", category: "Application" },
-  { extension: ".xlsx", mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", description: "Microsoft Excel (OpenXML)", category: "Application" },
-  { extension: ".ppt", mimeType: "application/vnd.ms-powerpoint", description: "Microsoft PowerPoint", category: "Application" },
-  { extension: ".pptx", mimeType: "application/vnd.openxmlformats-officedocument.presentationml.presentation", description: "Microsoft PowerPoint (OpenXML)", category: "Application" },
+  {
+    extension: ".xlsx",
+    mimeType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    description: "Microsoft Excel (OpenXML)",
+    category: "Application",
+  },
+  {
+    extension: ".ppt",
+    mimeType: "application/vnd.ms-powerpoint",
+    description: "Microsoft PowerPoint",
+    category: "Application",
+  },
+  {
+    extension: ".pptx",
+    mimeType: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    description: "Microsoft PowerPoint (OpenXML)",
+    category: "Application",
+  },
   { extension: ".wasm", mimeType: "application/wasm", description: "WebAssembly binary", category: "Application" },
 
   // Images
@@ -80,10 +94,25 @@ const mimeTypes = [
 
   // Binary/Executable
   { extension: ".bin", mimeType: "application/octet-stream", description: "Binary data", category: "Binary" },
-  { extension: ".exe", mimeType: "application/vnd.microsoft.portable-executable", description: "Windows executable", category: "Binary" },
-  { extension: ".dll", mimeType: "application/vnd.microsoft.portable-executable", description: "Windows DLL", category: "Binary" },
+  {
+    extension: ".exe",
+    mimeType: "application/vnd.microsoft.portable-executable",
+    description: "Windows executable",
+    category: "Binary",
+  },
+  {
+    extension: ".dll",
+    mimeType: "application/vnd.microsoft.portable-executable",
+    description: "Windows DLL",
+    category: "Binary",
+  },
   { extension: ".dmg", mimeType: "application/x-apple-diskimage", description: "macOS disk image", category: "Binary" },
-  { extension: ".deb", mimeType: "application/vnd.debian.binary-package", description: "Debian package", category: "Binary" },
+  {
+    extension: ".deb",
+    mimeType: "application/vnd.debian.binary-package",
+    description: "Debian package",
+    category: "Binary",
+  },
   { extension: ".rpm", mimeType: "application/x-rpm", description: "RPM package", category: "Binary" },
 ];
 
@@ -107,9 +136,7 @@ export default function MimeTypesPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">MIME Types Reference</h1>
-        <p className="text-muted-foreground">
-          Media type / content type reference
-        </p>
+        <p className="text-muted-foreground">Media type / content type reference</p>
       </div>
 
       <Card className="mb-6">

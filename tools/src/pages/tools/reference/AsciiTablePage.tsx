@@ -1,13 +1,7 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 // ASCII printable characters (32-126)
@@ -15,11 +9,11 @@ const asciiChars = Array.from({ length: 95 }, (_, i) => {
   const code = i + 32;
   return {
     decimal: code,
-    hex: code.toString(16).toUpperCase().padStart(2, '0'),
-    binary: code.toString(2).padStart(8, '0'),
+    hex: code.toString(16).toUpperCase().padStart(2, "0"),
+    binary: code.toString(2).padStart(8, "0"),
     char: String.fromCharCode(code),
     description: getAsciiDescription(code),
-    category: "Printable"
+    category: "Printable",
   };
 });
 
@@ -79,15 +73,39 @@ function getAsciiDescription(code: number): string {
   if (code >= 65 && code <= 90) return "Uppercase Letter";
   if (code >= 97 && code <= 122) return "Lowercase Letter";
   const special: Record<number, string> = {
-    32: "Space", 33: "Exclamation Mark", 34: "Quotation Mark", 35: "Number Sign",
-    36: "Dollar Sign", 37: "Percent Sign", 38: "Ampersand", 39: "Apostrophe",
-    40: "Left Parenthesis", 41: "Right Parenthesis", 42: "Asterisk", 43: "Plus Sign",
-    44: "Comma", 45: "Hyphen", 46: "Period", 47: "Slash",
-    58: "Colon", 59: "Semicolon", 60: "Less-Than", 61: "Equals",
-    62: "Greater-Than", 63: "Question Mark", 64: "At Sign",
-    91: "Left Bracket", 92: "Backslash", 93: "Right Bracket", 94: "Caret",
-    95: "Underscore", 96: "Grave Accent",
-    123: "Left Brace", 124: "Vertical Bar", 125: "Right Brace", 126: "Tilde"
+    32: "Space",
+    33: "Exclamation Mark",
+    34: "Quotation Mark",
+    35: "Number Sign",
+    36: "Dollar Sign",
+    37: "Percent Sign",
+    38: "Ampersand",
+    39: "Apostrophe",
+    40: "Left Parenthesis",
+    41: "Right Parenthesis",
+    42: "Asterisk",
+    43: "Plus Sign",
+    44: "Comma",
+    45: "Hyphen",
+    46: "Period",
+    47: "Slash",
+    58: "Colon",
+    59: "Semicolon",
+    60: "Less-Than",
+    61: "Equals",
+    62: "Greater-Than",
+    63: "Question Mark",
+    64: "At Sign",
+    91: "Left Bracket",
+    92: "Backslash",
+    93: "Right Bracket",
+    94: "Caret",
+    95: "Underscore",
+    96: "Grave Accent",
+    123: "Left Brace",
+    124: "Vertical Bar",
+    125: "Right Brace",
+    126: "Tilde",
   };
   return special[code] || "Special Character";
 }
@@ -124,9 +142,7 @@ export default function AsciiTablePage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">ASCII & Unicode Reference</h1>
-        <p className="text-muted-foreground">
-          Character encoding reference table
-        </p>
+        <p className="text-muted-foreground">Character encoding reference table</p>
       </div>
 
       <Card className="mb-6">

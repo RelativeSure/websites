@@ -1,15 +1,9 @@
+import { Check, Copy, RefreshCw } from "lucide-react";
 import { useState } from "react";
-import { RefreshCw, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function PasswordGenerator() {
   const [password, setPassword] = useState("");
@@ -75,9 +69,7 @@ export default function PasswordGenerator() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Password Generator</h1>
-        <p className="text-muted-foreground">
-          Generate secure random passwords
-        </p>
+        <p className="text-muted-foreground">Generate secure random passwords</p>
       </div>
 
       <Card>
@@ -156,28 +148,13 @@ export default function PasswordGenerator() {
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Generated Password</Label>
                   {strength.label && (
-                    <span className={`text-sm font-semibold ${strength.color}`}>
-                      {strength.label}
-                    </span>
+                    <span className={`text-sm font-semibold ${strength.color}`}>{strength.label}</span>
                   )}
                 </div>
                 <div className="flex gap-2">
-                  <Input
-                    id="password"
-                    value={password}
-                    readOnly
-                    className="font-mono flex-1 text-lg"
-                  />
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    onClick={copyToClipboard}
-                  >
-                    {copied ? (
-                      <Check className="w-4 h-4" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
+                  <Input id="password" value={password} readOnly className="font-mono flex-1 text-lg" />
+                  <Button size="icon" variant="outline" onClick={copyToClipboard}>
+                    {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                   </Button>
                 </div>
               </div>

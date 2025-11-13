@@ -1,25 +1,21 @@
+import { Check, Copy, Eye, FileCode } from "lucide-react";
+import { marked } from "marked";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check, FileCode, Eye } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { marked } from "marked";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function MarkdownToHtmlPage() {
-  const [markdown, setMarkdown] = useState("# Hello World\n\nThis is **bold** and this is *italic*.\n\n- Item 1\n- Item 2\n- Item 3\n\n```javascript\nconsole.log('Hello!');\n```");
+  const [markdown, setMarkdown] = useState(
+    "# Hello World\n\nThis is **bold** and this is *italic*.\n\n- Item 1\n- Item 2\n- Item 3\n\n```javascript\nconsole.log('Hello!');\n```"
+  );
   const [html, setHtml] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const convertToHtml = () => {
+  const convertToHtml = async () => {
     try {
-      const converted = marked(markdown);
+      const converted = await marked(markdown);
       setHtml(converted);
     } catch (err) {
       console.error("Conversion failed:", err);
@@ -40,9 +36,7 @@ export default function MarkdownToHtmlPage() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Markdown to HTML Converter</h1>
-        <p className="text-muted-foreground">
-          Convert Markdown to HTML with live preview
-        </p>
+        <p className="text-muted-foreground">Convert Markdown to HTML with live preview</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -88,7 +82,9 @@ export default function MarkdownToHtmlPage() {
               <TabsContent value="preview" className="mt-4">
                 <div
                   className="prose dark:prose-invert max-w-none p-4 border rounded-md min-h-[450px] overflow-auto bg-muted/30"
-                  dangerouslySetInnerHTML={{ __html: html || "<p class='text-muted-foreground'>Preview will appear here...</p>" }}
+                  dangerouslySetInnerHTML={{
+                    __html: html || "<p class='text-muted-foreground'>Preview will appear here...</p>",
+                  }}
                 />
               </TabsContent>
 
@@ -101,12 +97,7 @@ export default function MarkdownToHtmlPage() {
                     className="min-h-[450px] font-mono text-xs"
                   />
                   {html && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={handleCopy}
-                      className="absolute top-2 right-2"
-                    >
+                    <Button variant="outline" size="sm" onClick={handleCopy} className="absolute top-2 right-2">
                       {copied ? (
                         <>
                           <Check className="h-4 w-4 mr-1" />
@@ -134,21 +125,31 @@ export default function MarkdownToHtmlPage() {
         <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
             <h4 className="font-semibold mb-2">Headings</h4>
-            <code className="block p-2 bg-muted rounded mb-2"># H1<br/>## H2<br/>### H3</code>
+            <code className="block p-2 bg-muted rounded mb-2">
+              # H1
+              <br />
+              ## H2
+              <br />
+              ### H3
+            </code>
 
             <h4 className="font-semibold mb-2 mt-4">Emphasis</h4>
             <code className="block p-2 bg-muted rounded mb-2">
-              *italic* or _italic_<br/>
-              **bold** or __bold__<br/>
+              *italic* or _italic_
+              <br />
+              **bold** or __bold__
+              <br />
               ~~strikethrough~~
             </code>
 
             <h4 className="font-semibold mb-2 mt-4">Lists</h4>
             <code className="block p-2 bg-muted rounded">
-              - Unordered item<br/>
-              - Another item<br/>
-              <br/>
-              1. Ordered item<br/>
+              - Unordered item
+              <br />- Another item
+              <br />
+              <br />
+              1. Ordered item
+              <br />
               2. Another item
             </code>
           </div>
@@ -156,23 +157,28 @@ export default function MarkdownToHtmlPage() {
           <div>
             <h4 className="font-semibold mb-2">Links & Images</h4>
             <code className="block p-2 bg-muted rounded mb-2">
-              [Link text](url)<br/>
+              [Link text](url)
+              <br />
               ![Alt text](image-url)
             </code>
 
             <h4 className="font-semibold mb-2 mt-4">Code</h4>
             <code className="block p-2 bg-muted rounded mb-2">
-              `inline code`<br/>
-              <br/>
-              ```language<br/>
-              code block<br/>
+              `inline code`
+              <br />
+              <br />
+              ```language
+              <br />
+              code block
+              <br />
               ```
             </code>
 
             <h4 className="font-semibold mb-2 mt-4">Quote & Horizontal Rule</h4>
             <code className="block p-2 bg-muted rounded">
-              &gt; Blockquote<br/>
-              <br/>
+              &gt; Blockquote
+              <br />
+              <br />
               ---
             </code>
           </div>

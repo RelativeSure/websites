@@ -1,13 +1,7 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const methods = [
   {
@@ -17,7 +11,7 @@ const methods = [
     safe: true,
     idempotent: true,
     cacheable: true,
-    category: "Common Methods"
+    category: "Common Methods",
   },
   {
     method: "POST",
@@ -26,7 +20,7 @@ const methods = [
     safe: false,
     idempotent: false,
     cacheable: false,
-    category: "Common Methods"
+    category: "Common Methods",
   },
   {
     method: "PUT",
@@ -35,7 +29,7 @@ const methods = [
     safe: false,
     idempotent: true,
     cacheable: false,
-    category: "Common Methods"
+    category: "Common Methods",
   },
   {
     method: "PATCH",
@@ -44,7 +38,7 @@ const methods = [
     safe: false,
     idempotent: false,
     cacheable: false,
-    category: "Common Methods"
+    category: "Common Methods",
   },
   {
     method: "DELETE",
@@ -53,7 +47,7 @@ const methods = [
     safe: false,
     idempotent: true,
     cacheable: false,
-    category: "Common Methods"
+    category: "Common Methods",
   },
   {
     method: "HEAD",
@@ -62,7 +56,7 @@ const methods = [
     safe: true,
     idempotent: true,
     cacheable: true,
-    category: "Common Methods"
+    category: "Common Methods",
   },
   {
     method: "OPTIONS",
@@ -71,7 +65,7 @@ const methods = [
     safe: true,
     idempotent: true,
     cacheable: false,
-    category: "Less Common Methods"
+    category: "Less Common Methods",
   },
   {
     method: "CONNECT",
@@ -80,7 +74,7 @@ const methods = [
     safe: false,
     idempotent: false,
     cacheable: false,
-    category: "Less Common Methods"
+    category: "Less Common Methods",
   },
   {
     method: "TRACE",
@@ -89,7 +83,7 @@ const methods = [
     safe: true,
     idempotent: true,
     cacheable: false,
-    category: "Less Common Methods"
+    category: "Less Common Methods",
   },
 ];
 
@@ -107,12 +101,18 @@ export default function HttpMethodsPage() {
 
   const getColor = (method: string) => {
     switch (method) {
-      case "GET": return "text-blue-600 dark:text-blue-400";
-      case "POST": return "text-green-600 dark:text-green-400";
-      case "PUT": return "text-yellow-600 dark:text-yellow-400";
-      case "PATCH": return "text-orange-600 dark:text-orange-400";
-      case "DELETE": return "text-red-600 dark:text-red-400";
-      default: return "text-purple-600 dark:text-purple-400";
+      case "GET":
+        return "text-blue-600 dark:text-blue-400";
+      case "POST":
+        return "text-green-600 dark:text-green-400";
+      case "PUT":
+        return "text-yellow-600 dark:text-yellow-400";
+      case "PATCH":
+        return "text-orange-600 dark:text-orange-400";
+      case "DELETE":
+        return "text-red-600 dark:text-red-400";
+      default:
+        return "text-purple-600 dark:text-purple-400";
     }
   };
 
@@ -120,9 +120,7 @@ export default function HttpMethodsPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">HTTP Methods Reference</h1>
-        <p className="text-muted-foreground">
-          Complete guide to HTTP request methods
-        </p>
+        <p className="text-muted-foreground">Complete guide to HTTP request methods</p>
       </div>
 
       <Card className="mb-6">
@@ -165,17 +163,25 @@ export default function HttpMethodsPage() {
                       </div>
                       <div className="flex-1">
                         <div className="font-semibold mb-1">{method.description}</div>
-                        <div className="text-sm text-muted-foreground mb-2">
-                          {method.details}
-                        </div>
+                        <div className="text-sm text-muted-foreground mb-2">{method.details}</div>
                         <div className="flex gap-4 text-xs">
-                          <span className={method.safe ? "text-green-600 dark:text-green-400" : "text-muted-foreground"}>
+                          <span
+                            className={method.safe ? "text-green-600 dark:text-green-400" : "text-muted-foreground"}
+                          >
                             {method.safe ? "✓" : "✗"} Safe
                           </span>
-                          <span className={method.idempotent ? "text-green-600 dark:text-green-400" : "text-muted-foreground"}>
+                          <span
+                            className={
+                              method.idempotent ? "text-green-600 dark:text-green-400" : "text-muted-foreground"
+                            }
+                          >
                             {method.idempotent ? "✓" : "✗"} Idempotent
                           </span>
-                          <span className={method.cacheable ? "text-green-600 dark:text-green-400" : "text-muted-foreground"}>
+                          <span
+                            className={
+                              method.cacheable ? "text-green-600 dark:text-green-400" : "text-muted-foreground"
+                            }
+                          >
                             {method.cacheable ? "✓" : "✗"} Cacheable
                           </span>
                         </div>

@@ -1,17 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { Type } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function CaseConverter() {
   const [input, setInput] = useState("");
@@ -19,17 +13,13 @@ export default function CaseConverter() {
 
   const toCamelCase = () => {
     const result = input
-      .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) =>
-        index === 0 ? word.toLowerCase() : word.toUpperCase()
-      )
+      .replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => (index === 0 ? word.toLowerCase() : word.toUpperCase()))
       .replace(/\s+/g, "");
     setOutput(result);
   };
 
   const toPascalCase = () => {
-    const result = input
-      .replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => word.toUpperCase())
-      .replace(/\s+/g, "");
+    const result = input.replace(/(?:^\w|[A-Z]|\b\w)/g, (word) => word.toUpperCase()).replace(/\s+/g, "");
     setOutput(result);
   };
 
@@ -70,9 +60,7 @@ export default function CaseConverter() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Case Converter</h1>
-        <p className="text-muted-foreground">
-          Convert text between different case formats
-        </p>
+        <p className="text-muted-foreground">Convert text between different case formats</p>
       </div>
 
       <Card className="mb-6">
@@ -120,11 +108,7 @@ export default function CaseConverter() {
             <CardTitle>Output</CardTitle>
           </CardHeader>
           <CardContent>
-            <Textarea
-              value={output}
-              readOnly
-              className="min-h-[150px] font-mono"
-            />
+            <Textarea value={output} readOnly className="min-h-[150px] font-mono" />
           </CardContent>
         </Card>
       )}

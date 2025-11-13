@@ -1,23 +1,11 @@
+import { Check, Copy, Download, KeyRound, Plus, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Copy, Check, Download, Plus, Trash2, KeyRound } from "lucide-react";
 
 interface SecretItem {
   key: string;
@@ -54,10 +42,11 @@ export default function SecretsGeneratorPage() {
       case "hex":
         return generateRandomString(length, "0123456789abcdef");
 
-      case "base64":
+      case "base64": {
         const bytes = new Uint8Array(length);
         crypto.getRandomValues(bytes);
         return btoa(String.fromCharCode(...bytes)).slice(0, length);
+      }
 
       case "uuid":
         return crypto.randomUUID();
@@ -91,10 +80,7 @@ export default function SecretsGeneratorPage() {
   };
 
   const addSecret = () => {
-    setSecrets([
-      ...secrets,
-      { key: `NEW_SECRET_${secrets.length + 1}`, value: "", type: "random", length: 32 },
-    ]);
+    setSecrets([...secrets, { key: `NEW_SECRET_${secrets.length + 1}`, value: "", type: "random", length: 32 }]);
   };
 
   const removeSecret = (index: number) => {
@@ -136,9 +122,7 @@ export default function SecretsGeneratorPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Secrets Generator</h1>
-        <p className="text-muted-foreground">
-          Generate secure environment variables and secret files
-        </p>
+        <p className="text-muted-foreground">Generate secure environment variables and secret files</p>
       </div>
 
       <Card className="mb-6">
@@ -149,9 +133,7 @@ export default function SecretsGeneratorPage() {
                 <KeyRound className="h-5 w-5" />
                 Secret Variables
               </CardTitle>
-              <CardDescription>
-                Configure your environment variables and secrets
-              </CardDescription>
+              <CardDescription>Configure your environment variables and secrets</CardDescription>
             </div>
             <Button onClick={addSecret} size="sm">
               <Plus className="h-4 w-4 mr-1" />
@@ -176,10 +158,7 @@ export default function SecretsGeneratorPage() {
 
                   <div className="space-y-2">
                     <Label>Type</Label>
-                    <Select
-                      value={secret.type}
-                      onValueChange={(value) => updateSecret(index, "type", value)}
-                    >
+                    <Select value={secret.type} onValueChange={(value) => updateSecret(index, "type", value)}>
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
@@ -199,9 +178,7 @@ export default function SecretsGeneratorPage() {
                       <Input
                         type="number"
                         value={secret.length || 32}
-                        onChange={(e) =>
-                          updateSecret(index, "length", parseInt(e.target.value))
-                        }
+                        onChange={(e) => updateSecret(index, "length", parseInt(e.target.value))}
                         min={8}
                         max={128}
                       />
@@ -223,21 +200,12 @@ export default function SecretsGeneratorPage() {
                   {secret.type !== "custom" && (
                     <div className="space-y-2">
                       <Label>Generated Value</Label>
-                      <Input
-                        value={secret.value || "[Not generated]"}
-                        readOnly
-                        className="font-mono text-xs"
-                      />
+                      <Input value={secret.value || "[Not generated]"} readOnly className="font-mono text-xs" />
                     </div>
                   )}
                 </div>
 
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => removeSecret(index)}
-                  className="mt-8"
-                >
+                <Button variant="ghost" size="icon" onClick={() => removeSecret(index)} className="mt-8">
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </div>
@@ -279,9 +247,7 @@ export default function SecretsGeneratorPage() {
               )}
             </div>
           </div>
-          <CardDescription>
-            Ready-to-use environment file format
-          </CardDescription>
+          <CardDescription>Ready-to-use environment file format</CardDescription>
         </CardHeader>
         <CardContent>
           <Textarea
@@ -299,21 +265,13 @@ export default function SecretsGeneratorPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <div className="p-3 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-md">
-            <strong className="text-red-800 dark:text-red-300">Important:</strong>{" "}
-            All secrets are generated locally in your browser using cryptographically secure random functions. Never commit .env files to version control!
+            <strong className="text-red-800 dark:text-red-300">Important:</strong> All secrets are generated locally in
+            your browser using cryptographically secure random functions. Never commit .env files to version control!
           </div>
-          <p>
-            • Use strong random secrets for production applications
-          </p>
-          <p>
-            • Store secrets in environment variables, not in code
-          </p>
-          <p>
-            • Rotate secrets regularly for better security
-          </p>
-          <p>
-            • Use different secrets for different environments (dev/staging/prod)
-          </p>
+          <p>• Use strong random secrets for production applications</p>
+          <p>• Store secrets in environment variables, not in code</p>
+          <p>• Rotate secrets regularly for better security</p>
+          <p>• Use different secrets for different environments (dev/staging/prod)</p>
         </CardContent>
       </Card>
     </div>

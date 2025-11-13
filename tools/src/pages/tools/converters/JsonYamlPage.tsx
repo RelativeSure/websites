@@ -1,16 +1,10 @@
-import { useState } from "react";
-import { ArrowLeftRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import yaml from "js-yaml";
+import { ArrowLeftRight } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function JsonYamlConverter() {
   const [jsonInput, setJsonInput] = useState("");
@@ -49,9 +43,7 @@ export default function JsonYamlConverter() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JSON ⟷ YAML Converter</h1>
-        <p className="text-muted-foreground">
-          Convert between JSON and YAML formats with syntax validation
-        </p>
+        <p className="text-muted-foreground">Convert between JSON and YAML formats with syntax validation</p>
       </div>
 
       {error && (

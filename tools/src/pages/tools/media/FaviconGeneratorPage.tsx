@@ -1,15 +1,9 @@
+import { Check, Download, Image as ImageIcon, Upload } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Image as ImageIcon, Upload, Download, Check } from "lucide-react";
 
 interface FaviconSize {
   size: number;
@@ -49,9 +43,7 @@ export default function FaviconGeneratorPage() {
   };
 
   const toggleSize = (size: number) => {
-    setSelectedSizes((prev) =>
-      prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size]
-    );
+    setSelectedSizes((prev) => (prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size]));
   };
 
   const generateFavicons = () => {
@@ -148,9 +140,7 @@ export default function FaviconGeneratorPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Favicon Generator</h1>
-        <p className="text-muted-foreground">
-          Generate favicons in multiple sizes from a single image
-        </p>
+        <p className="text-muted-foreground">Generate favicons in multiple sizes from a single image</p>
       </div>
 
       <Card className="mb-6">
@@ -159,32 +149,21 @@ export default function FaviconGeneratorPage() {
             <ImageIcon className="h-5 w-5" />
             Upload Image
           </CardTitle>
-          <CardDescription>
-            Upload a square image (PNG recommended, at least 512x512px)
-          </CardDescription>
+          <CardDescription>Upload a square image (PNG recommended, at least 512x512px)</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <Button variant="outline" asChild>
             <label>
               <Upload className="h-4 w-4 mr-2" />
               Choose Image
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
+              <input type="file" accept="image/*" onChange={handleFileUpload} className="hidden" />
             </label>
           </Button>
 
           {originalImage && (
             <div className="border rounded p-4">
               <div className="text-sm font-semibold mb-2">Preview:</div>
-              <img
-                src={originalImage}
-                alt="Original"
-                className="max-w-[200px] max-h-[200px] border rounded"
-              />
+              <img src={originalImage} alt="Original" className="max-w-[200px] max-h-[200px] border rounded" />
             </div>
           )}
         </CardContent>
@@ -197,30 +176,16 @@ export default function FaviconGeneratorPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle>Select Sizes</CardTitle>
-                  <CardDescription>
-                    Choose which favicon sizes to generate
-                  </CardDescription>
+                  <CardDescription>Choose which favicon sizes to generate</CardDescription>
                 </div>
                 <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => selectPreset("minimal")}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => selectPreset("minimal")}>
                     Minimal
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => selectPreset("standard")}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => selectPreset("standard")}>
                     Standard
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => selectPreset("complete")}
-                  >
+                  <Button variant="outline" size="sm" onClick={() => selectPreset("complete")}>
                     Complete
                   </Button>
                 </div>
@@ -235,16 +200,11 @@ export default function FaviconGeneratorPage() {
                       checked={selectedSizes.includes(favicon.size)}
                       onCheckedChange={() => toggleSize(favicon.size)}
                     />
-                    <Label
-                      htmlFor={`size-${favicon.size}`}
-                      className="cursor-pointer leading-tight"
-                    >
+                    <Label htmlFor={`size-${favicon.size}`} className="cursor-pointer leading-tight">
                       <div className="font-semibold">
                         {favicon.size}×{favicon.size}
                       </div>
-                      <div className="text-xs text-muted-foreground">
-                        {favicon.description}
-                      </div>
+                      <div className="text-xs text-muted-foreground">{favicon.description}</div>
                     </Label>
                   </div>
                 ))}
@@ -269,8 +229,7 @@ export default function FaviconGeneratorPage() {
                 <div>
                   <CardTitle>Generated Favicons</CardTitle>
                   <CardDescription>
-                    {generatedFavicons.size} favicon{generatedFavicons.size !== 1 ? "s" : ""}{" "}
-                    generated
+                    {generatedFavicons.size} favicon{generatedFavicons.size !== 1 ? "s" : ""} generated
                   </CardDescription>
                 </div>
                 <Button onClick={downloadAll}>
@@ -313,9 +272,7 @@ export default function FaviconGeneratorPage() {
           <Card>
             <CardHeader>
               <CardTitle>HTML Code</CardTitle>
-              <CardDescription>
-                Add these tags to your HTML &lt;head&gt; section
-              </CardDescription>
+              <CardDescription>Add these tags to your HTML &lt;head&gt; section</CardDescription>
             </CardHeader>
             <CardContent>
               <pre className="bg-muted p-4 rounded text-xs overflow-x-auto">
@@ -332,8 +289,7 @@ export default function FaviconGeneratorPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            Favicons are small icons that represent your website in browser tabs,
-            bookmarks, and mobile home screens.
+            Favicons are small icons that represent your website in browser tabs, bookmarks, and mobile home screens.
           </p>
           <div>
             <strong>Recommended sizes:</strong>
@@ -350,9 +306,8 @@ export default function FaviconGeneratorPage() {
             </ul>
           </div>
           <p>
-            <strong>Best practices:</strong> Use a square image with a simple,
-            recognizable design. PNG format with transparency works best. The tool
-            will automatically scale your image to all selected sizes.
+            <strong>Best practices:</strong> Use a square image with a simple, recognizable design. PNG format with
+            transparency works best. The tool will automatically scale your image to all selected sizes.
           </p>
         </CardContent>
       </Card>

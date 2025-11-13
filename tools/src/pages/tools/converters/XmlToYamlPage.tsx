@@ -1,15 +1,9 @@
+import { ArrowRightLeft, Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { ArrowRightLeft, Copy, Check } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function XmlToYamlPage() {
   const [xml, setXml] = useState("");
@@ -39,9 +33,7 @@ export default function XmlToYamlPage() {
 
       // Handle child nodes
       const children = Array.from(node.childNodes);
-      const textNodes = children.filter(
-        (child) => child.nodeType === Node.TEXT_NODE && child.textContent?.trim()
-      );
+      const textNodes = children.filter((child) => child.nodeType === Node.TEXT_NODE && child.textContent?.trim());
       const elementNodes = children.filter((child) => child.nodeType === Node.ELEMENT_NODE);
 
       // If only text content
@@ -178,18 +170,14 @@ export default function XmlToYamlPage() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">XML to YAML Converter</h1>
-        <p className="text-muted-foreground">
-          Convert XML data to YAML format
-        </p>
+        <p className="text-muted-foreground">Convert XML data to YAML format</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <Card>
           <CardHeader>
             <CardTitle>XML Input</CardTitle>
-            <CardDescription>
-              Enter your XML data
-            </CardDescription>
+            <CardDescription>Enter your XML data</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -198,11 +186,7 @@ export default function XmlToYamlPage() {
               placeholder="<?xml version='1.0'?>&#10;<root>...</root>"
               className="font-mono text-sm min-h-[400px]"
             />
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setXml(exampleXml)}
-            >
+            <Button variant="outline" size="sm" onClick={() => setXml(exampleXml)}>
               Load Example
             </Button>
           </CardContent>
@@ -213,9 +197,7 @@ export default function XmlToYamlPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>YAML Output</CardTitle>
-                <CardDescription>
-                  Converted YAML data
-                </CardDescription>
+                <CardDescription>Converted YAML data</CardDescription>
               </div>
               {yaml && (
                 <Button variant="ghost" size="sm" onClick={handleCopy}>
@@ -265,10 +247,7 @@ export default function XmlToYamlPage() {
           <CardTitle>Conversion Notes</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>
-            This tool converts XML documents to YAML format while preserving structure
-            and data.
-          </p>
+          <p>This tool converts XML documents to YAML format while preserving structure and data.</p>
           <div>
             <strong>Conversion rules:</strong>
             <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
@@ -280,8 +259,8 @@ export default function XmlToYamlPage() {
             </ul>
           </div>
           <p>
-            <strong>Use cases:</strong> Configuration file conversion, data migration,
-            API response transformation, and format standardization.
+            <strong>Use cases:</strong> Configuration file conversion, data migration, API response transformation, and
+            format standardization.
           </p>
         </CardContent>
       </Card>

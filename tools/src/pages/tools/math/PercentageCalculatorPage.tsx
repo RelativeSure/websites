@@ -1,15 +1,9 @@
+import { Calculator, Percent, TrendingDown, TrendingUp } from "lucide-react";
 import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Percent, TrendingUp, TrendingDown, Calculator } from "lucide-react";
 
 export default function PercentageCalculatorPage() {
   // What is X% of Y
@@ -44,9 +38,7 @@ export default function PercentageCalculatorPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Percentage Calculator</h1>
-        <p className="text-muted-foreground">
-          Calculate percentages, percentage changes, and more
-        </p>
+        <p className="text-muted-foreground">Calculate percentages, percentage changes, and more</p>
       </div>
 
       <Tabs defaultValue="basic" className="mb-6">
@@ -73,9 +65,7 @@ export default function PercentageCalculatorPage() {
           <Card>
             <CardHeader>
               <CardTitle>What is X% of Y?</CardTitle>
-              <CardDescription>
-                Calculate a percentage of a given value
-              </CardDescription>
+              <CardDescription>Calculate a percentage of a given value</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -106,9 +96,7 @@ export default function PercentageCalculatorPage() {
 
                 <div className="p-6 bg-primary/10 border-2 border-primary rounded-md text-center">
                   <div className="text-sm text-muted-foreground mb-2">Result</div>
-                  <div className="text-5xl font-bold text-primary">
-                    {formatNumber(result1)}
-                  </div>
+                  <div className="text-5xl font-bold text-primary">{formatNumber(result1)}</div>
                   <div className="text-sm text-muted-foreground mt-2">
                     {percent1}% of {value1} equals {formatNumber(result1)}
                   </div>
@@ -122,9 +110,7 @@ export default function PercentageCalculatorPage() {
           <Card>
             <CardHeader>
               <CardTitle>X is what % of Y?</CardTitle>
-              <CardDescription>
-                Find what percentage one number is of another
-              </CardDescription>
+              <CardDescription>Find what percentage one number is of another</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -155,9 +141,7 @@ export default function PercentageCalculatorPage() {
 
                 <div className="p-6 bg-primary/10 border-2 border-primary rounded-md text-center">
                   <div className="text-sm text-muted-foreground mb-2">Result</div>
-                  <div className="text-5xl font-bold text-primary">
-                    {formatNumber(result2)}%
-                  </div>
+                  <div className="text-5xl font-bold text-primary">{formatNumber(result2)}%</div>
                   <div className="text-sm text-muted-foreground mt-2">
                     {value2a} is {formatNumber(result2)}% of {value2b}
                   </div>
@@ -171,9 +155,7 @@ export default function PercentageCalculatorPage() {
           <Card>
             <CardHeader>
               <CardTitle>Percentage Change</CardTitle>
-              <CardDescription>
-                Calculate the percentage increase or decrease between two values
-              </CardDescription>
+              <CardDescription>Calculate the percentage increase or decrease between two values</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -202,25 +184,25 @@ export default function PercentageCalculatorPage() {
                   </div>
                 </div>
 
-                <div className={`p-6 border-2 rounded-md text-center ${
-                  isIncrease
-                    ? "bg-green-50 dark:bg-green-950/30 border-green-500"
-                    : "bg-red-50 dark:bg-red-950/30 border-red-500"
-                }`}>
-                  <div className="text-sm text-muted-foreground mb-2">
-                    {isIncrease ? "Increase" : "Decrease"}
-                  </div>
-                  <div className={`text-5xl font-bold ${
-                    isIncrease ? "text-green-600" : "text-red-600"
-                  }`}>
-                    {isIncrease ? "+" : ""}{formatNumber(percentChange)}%
+                <div
+                  className={`p-6 border-2 rounded-md text-center ${
+                    isIncrease
+                      ? "bg-green-50 dark:bg-green-950/30 border-green-500"
+                      : "bg-red-50 dark:bg-red-950/30 border-red-500"
+                  }`}
+                >
+                  <div className="text-sm text-muted-foreground mb-2">{isIncrease ? "Increase" : "Decrease"}</div>
+                  <div className={`text-5xl font-bold ${isIncrease ? "text-green-600" : "text-red-600"}`}>
+                    {isIncrease ? "+" : ""}
+                    {formatNumber(percentChange)}%
                   </div>
                   <div className="text-sm text-muted-foreground mt-2">
                     Change from {oldValue} to {newValue}
                   </div>
                   <div className="mt-3 pt-3 border-t">
                     <div className="text-sm">
-                      Absolute change: {isIncrease ? "+" : ""}{formatNumber(change)}
+                      Absolute change: {isIncrease ? "+" : ""}
+                      {formatNumber(change)}
                     </div>
                   </div>
                 </div>
@@ -233,9 +215,7 @@ export default function PercentageCalculatorPage() {
           <Card>
             <CardHeader>
               <CardTitle>Increase/Decrease by Percentage</CardTitle>
-              <CardDescription>
-                Add or subtract a percentage from a value
-              </CardDescription>
+              <CardDescription>Add or subtract a percentage from a value</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -266,24 +246,16 @@ export default function PercentageCalculatorPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="p-6 bg-green-50 dark:bg-green-950/30 border-2 border-green-500 rounded-md text-center">
-                    <div className="text-sm text-muted-foreground mb-2">
-                      Increase by {changePercent}%
-                    </div>
-                    <div className="text-4xl font-bold text-green-600">
-                      {formatNumber(increaseResult)}
-                    </div>
+                    <div className="text-sm text-muted-foreground mb-2">Increase by {changePercent}%</div>
+                    <div className="text-4xl font-bold text-green-600">{formatNumber(increaseResult)}</div>
                     <div className="text-sm text-muted-foreground mt-2">
                       +{formatNumber(increaseResult - parseFloat(baseValue))}
                     </div>
                   </div>
 
                   <div className="p-6 bg-red-50 dark:bg-red-950/30 border-2 border-red-500 rounded-md text-center">
-                    <div className="text-sm text-muted-foreground mb-2">
-                      Decrease by {changePercent}%
-                    </div>
-                    <div className="text-4xl font-bold text-red-600">
-                      {formatNumber(decreaseResult)}
-                    </div>
+                    <div className="text-sm text-muted-foreground mb-2">Decrease by {changePercent}%</div>
+                    <div className="text-4xl font-bold text-red-600">{formatNumber(decreaseResult)}</div>
                     <div className="text-sm text-muted-foreground mt-2">
                       -{formatNumber(parseFloat(baseValue) - decreaseResult)}
                     </div>
@@ -302,42 +274,26 @@ export default function PercentageCalculatorPage() {
         <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
           <div>
             <h4 className="font-semibold mb-2">Basic Percentage</h4>
-            <code className="block p-2 bg-muted rounded mb-1">
-              (Percentage / 100) × Value
-            </code>
-            <p className="text-muted-foreground text-xs">
-              Example: 25% of 200 = (25/100) × 200 = 50
-            </p>
+            <code className="block p-2 bg-muted rounded mb-1">(Percentage / 100) × Value</code>
+            <p className="text-muted-foreground text-xs">Example: 25% of 200 = (25/100) × 200 = 50</p>
           </div>
 
           <div>
             <h4 className="font-semibold mb-2">Reverse Percentage</h4>
-            <code className="block p-2 bg-muted rounded mb-1">
-              (Value / Total) × 100
-            </code>
-            <p className="text-muted-foreground text-xs">
-              Example: 50 is what % of 200? = (50/200) × 100 = 25%
-            </p>
+            <code className="block p-2 bg-muted rounded mb-1">(Value / Total) × 100</code>
+            <p className="text-muted-foreground text-xs">Example: 50 is what % of 200? = (50/200) × 100 = 25%</p>
           </div>
 
           <div>
             <h4 className="font-semibold mb-2">Percentage Change</h4>
-            <code className="block p-2 bg-muted rounded mb-1">
-              ((New - Old) / Old) × 100
-            </code>
-            <p className="text-muted-foreground text-xs">
-              Example: 100 to 150 = ((150-100)/100) × 100 = 50% increase
-            </p>
+            <code className="block p-2 bg-muted rounded mb-1">((New - Old) / Old) × 100</code>
+            <p className="text-muted-foreground text-xs">Example: 100 to 150 = ((150-100)/100) × 100 = 50% increase</p>
           </div>
 
           <div>
             <h4 className="font-semibold mb-2">Apply Percentage</h4>
-            <code className="block p-2 bg-muted rounded mb-1">
-              Value × (1 ± Percentage/100)
-            </code>
-            <p className="text-muted-foreground text-xs">
-              Example: 100 + 10% = 100 × (1 + 10/100) = 110
-            </p>
+            <code className="block p-2 bg-muted rounded mb-1">Value × (1 ± Percentage/100)</code>
+            <p className="text-muted-foreground text-xs">Example: 100 + 10% = 100 × (1 + 10/100) = 110</p>
           </div>
         </CardContent>
       </Card>

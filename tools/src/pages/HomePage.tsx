@@ -1,81 +1,75 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   ArrowLeftRight,
-  Binary,
-  Link2,
-  Hash,
-  Clock,
-  Fingerprint,
-  Braces,
-  FileText,
-  Code2,
-  CheckCircle,
-  Database,
-  FileCode,
-  KeyRound,
-  Palette,
-  Calculator,
-  Type,
-  Lock,
-  TestTube,
-  FileCode2,
-  Search,
-  Image,
-  Shuffle,
-  Info,
-  Smartphone,
-  Slash,
-  QrCode,
-  FileType,
-  Code,
-  Timer,
-  LineChart,
-  FileJson,
-  Minimize2,
-  Link as LinkIcon,
-  ScanLine,
-  Users,
-  WrapText,
-  Radio,
-  Shield,
-  ShieldCheck,
-  Key,
-  Ruler,
-  Sparkles,
-  GitCompare,
-  CalendarCog,
-  Network,
-  ShieldAlert,
-  Download,
-  Terminal,
-  MonitorSmartphone,
-  Globe,
-  Percent,
-  KeySquare,
-  Calendar,
-  Tag,
-  Scale,
-  FileImage,
-  Maximize2,
-  Bot,
+  ArrowRightLeft,
   Award,
   BarChart3,
+  Binary,
+  Bot,
+  Braces,
+  Calculator,
+  Calendar,
+  CalendarCog,
+  CheckCircle,
+  Clock,
+  Code,
+  Code2,
+  Database,
+  Download,
+  FileCode,
+  FileCode2,
+  FileImage,
+  FileJson,
+  FileText,
+  FileType,
+  Fingerprint,
+  GitCompare,
+  Globe,
+  Hash,
   Hexagon,
+  Image,
+  Info,
+  Key,
+  KeyRound,
+  KeySquare,
+  LineChart,
+  Link2,
+  Link as LinkIcon,
+  Lock,
+  Map,
+  Maximize2,
+  Minimize2,
+  MonitorSmartphone,
+  Network,
+  Package,
+  Palette,
+  Percent,
+  QrCode,
+  Radio,
+  Ruler,
+  Scale,
+  ScanLine,
+  Search,
   Server,
   Share2,
-  Package,
-  Map,
-  ArrowRightLeft,
+  Shield,
+  ShieldAlert,
+  ShieldCheck,
+  Shuffle,
+  Slash,
+  Smartphone,
+  Sparkles,
+  Tag,
+  Terminal,
+  TestTube,
+  Timer,
+  Type,
+  Users,
+  WrapText,
 } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
 const tools = [
@@ -186,9 +180,10 @@ export default function HomePage() {
   const [search, setSearch] = useState("");
   const categories = Array.from(new Set(tools.map((t) => t.category)));
 
-  const filteredTools = tools.filter((tool) =>
-    tool.title.toLowerCase().includes(search.toLowerCase()) ||
-    tool.category.toLowerCase().includes(search.toLowerCase())
+  const filteredTools = tools.filter(
+    (tool) =>
+      tool.title.toLowerCase().includes(search.toLowerCase()) ||
+      tool.category.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -206,7 +201,7 @@ export default function HomePage() {
           <div className="mb-8">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-primary text-2xl md:text-3xl font-bold animate-pulse">{'>'}</span>
+                <span className="text-primary text-2xl md:text-3xl font-bold animate-pulse">{">"}</span>
                 <h1 className="text-2xl md:text-4xl font-bold tracking-tight bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-gradient">
                   tools.rasmusj.dk
                 </h1>
@@ -236,9 +231,7 @@ export default function HomePage() {
           {search ? (
             // Filtered view
             <div className="mb-8">
-              <h2 className="text-sm font-bold mb-3 text-primary">
-                {filteredTools.length} results
-              </h2>
+              <h2 className="text-sm font-bold mb-3 text-primary">{filteredTools.length} results</h2>
               <div className="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                 {filteredTools.map((tool, index) => {
                   const Icon = tool.icon;

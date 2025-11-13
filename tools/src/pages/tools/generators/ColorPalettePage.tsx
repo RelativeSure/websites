@@ -1,13 +1,7 @@
+import { Check, Copy, RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { RefreshCw, Copy, Check } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function ColorPalettePage() {
   const [palettes, setPalettes] = useState<string[][]>([]);
@@ -36,22 +30,22 @@ export default function ColorPalettePage() {
       const hue2rgb = (p: number, q: number, t: number) => {
         if (t < 0) t += 1;
         if (t > 1) t -= 1;
-        if (t < 1/6) return p + (q - p) * 6 * t;
-        if (t < 1/2) return q;
-        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        if (t < 1 / 6) return p + (q - p) * 6 * t;
+        if (t < 1 / 2) return q;
+        if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
         return p;
       };
 
       const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
       const p = 2 * l - q;
-      r = hue2rgb(p, q, h + 1/3);
+      r = hue2rgb(p, q, h + 1 / 3);
       g = hue2rgb(p, q, h);
-      b = hue2rgb(p, q, h - 1/3);
+      b = hue2rgb(p, q, h - 1 / 3);
     }
 
     const toHex = (x: number) => {
       const hex = Math.round(x * 255).toString(16);
-      return hex.length === 1 ? '0' + hex : hex;
+      return hex.length === 1 ? "0" + hex : hex;
     };
 
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
@@ -151,17 +145,13 @@ export default function ColorPalettePage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Color Palette Generator</h1>
-        <p className="text-muted-foreground">
-          Generate beautiful color palettes instantly
-        </p>
+        <p className="text-muted-foreground">Generate beautiful color palettes instantly</p>
       </div>
 
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Generate Palettes</CardTitle>
-          <CardDescription>
-            Click to generate color schemes based on color theory
-          </CardDescription>
+          <CardDescription>Click to generate color schemes based on color theory</CardDescription>
         </CardHeader>
         <CardContent>
           <Button onClick={generatePalettes} className="w-full">

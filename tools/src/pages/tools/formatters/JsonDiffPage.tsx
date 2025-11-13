@@ -1,16 +1,10 @@
+import { GitCompare } from "lucide-react";
 import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { GitCompare } from "lucide-react";
 
 interface DiffResult {
   path: string;
@@ -29,10 +23,7 @@ export default function JsonDiffPage() {
     const results: DiffResult[] = [];
 
     // Get all unique keys from both objects
-    const allKeys = new Set([
-      ...Object.keys(obj1 || {}),
-      ...Object.keys(obj2 || {}),
-    ]);
+    const allKeys = new Set([...Object.keys(obj1 || {}), ...Object.keys(obj2 || {})]);
 
     allKeys.forEach((key) => {
       const newPath = path ? `${path}.${key}` : key;
@@ -125,9 +116,7 @@ export default function JsonDiffPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JSON Diff</h1>
-        <p className="text-muted-foreground">
-          Compare two JSON objects and visualize differences
-        </p>
+        <p className="text-muted-foreground">Compare two JSON objects and visualize differences</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
@@ -182,21 +171,15 @@ export default function JsonDiffPage() {
             <CardContent>
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-2xl font-bold text-green-600">
-                    +{stats.added}
-                  </div>
+                  <div className="text-2xl font-bold text-green-600">+{stats.added}</div>
                   <div className="text-sm text-muted-foreground">Added</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-red-600">
-                    -{stats.removed}
-                  </div>
+                  <div className="text-2xl font-bold text-red-600">-{stats.removed}</div>
                   <div className="text-sm text-muted-foreground">Removed</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-yellow-600">
-                    ±{stats.changed}
-                  </div>
+                  <div className="text-2xl font-bold text-yellow-600">±{stats.changed}</div>
                   <div className="text-sm text-muted-foreground">Changed</div>
                 </div>
               </div>
@@ -206,9 +189,7 @@ export default function JsonDiffPage() {
           <Card>
             <CardHeader>
               <CardTitle>Differences ({diffs.length})</CardTitle>
-              <CardDescription>
-                Green = added, Red = removed, Yellow = changed
-              </CardDescription>
+              <CardDescription>Green = added, Red = removed, Yellow = changed</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
@@ -219,38 +200,28 @@ export default function JsonDiffPage() {
                       diff.type === "added"
                         ? "bg-green-50 dark:bg-green-950/30 border-green-500"
                         : diff.type === "removed"
-                        ? "bg-red-50 dark:bg-red-950/30 border-red-500"
-                        : "bg-yellow-50 dark:bg-yellow-950/30 border-yellow-500"
+                          ? "bg-red-50 dark:bg-red-950/30 border-red-500"
+                          : "bg-yellow-50 dark:bg-yellow-950/30 border-yellow-500"
                     }`}
                   >
                     <div className="flex items-center gap-2 mb-2">
-                      <Badge className={getTypeColor(diff.type)}>
-                        {diff.type.toUpperCase()}
-                      </Badge>
+                      <Badge className={getTypeColor(diff.type)}>{diff.type.toUpperCase()}</Badge>
                       <code className="text-sm font-mono">{diff.path}</code>
                     </div>
                     {diff.type === "removed" && (
                       <div className="font-mono text-sm">
-                        <span className="text-red-600 dark:text-red-400">
-                          - {formatValue(diff.oldValue)}
-                        </span>
+                        <span className="text-red-600 dark:text-red-400">- {formatValue(diff.oldValue)}</span>
                       </div>
                     )}
                     {diff.type === "added" && (
                       <div className="font-mono text-sm">
-                        <span className="text-green-600 dark:text-green-400">
-                          + {formatValue(diff.newValue)}
-                        </span>
+                        <span className="text-green-600 dark:text-green-400">+ {formatValue(diff.newValue)}</span>
                       </div>
                     )}
                     {diff.type === "changed" && (
                       <div className="font-mono text-sm space-y-1">
-                        <div className="text-red-600 dark:text-red-400">
-                          - {formatValue(diff.oldValue)}
-                        </div>
-                        <div className="text-green-600 dark:text-green-400">
-                          + {formatValue(diff.newValue)}
-                        </div>
+                        <div className="text-red-600 dark:text-red-400">- {formatValue(diff.oldValue)}</div>
+                        <div className="text-green-600 dark:text-green-400">+ {formatValue(diff.newValue)}</div>
                       </div>
                     )}
                   </div>
@@ -264,9 +235,7 @@ export default function JsonDiffPage() {
       {diffs.length === 0 && !error && (
         <Card>
           <CardContent className="p-12 text-center text-muted-foreground">
-            {json1 && json2
-              ? "No differences found"
-              : 'Enter JSON in both fields and click "Compare"'}
+            {json1 && json2 ? "No differences found" : 'Enter JSON in both fields and click "Compare"'}
           </CardContent>
         </Card>
       )}

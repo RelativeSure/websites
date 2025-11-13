@@ -1,15 +1,9 @@
+import { AlertCircle, CheckCircle, FileJson } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { CheckCircle, AlertCircle, FileJson } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 interface ValidationError {
   path: string;
@@ -55,20 +49,12 @@ export default function JsonSchemaValidatorPage() {
     }
   };
 
-  const validateAgainstSchema = (
-    data: any,
-    schema: any,
-    path: string
-  ): ValidationError[] => {
+  const validateAgainstSchema = (data: any, schema: any, path: string): ValidationError[] => {
     const errors: ValidationError[] = [];
 
     // Type validation
     if (schema.type) {
-      const actualType = Array.isArray(data)
-        ? "array"
-        : data === null
-        ? "null"
-        : typeof data;
+      const actualType = Array.isArray(data) ? "array" : data === null ? "null" : typeof data;
 
       const expectedTypes = Array.isArray(schema.type) ? schema.type : [schema.type];
 
@@ -99,11 +85,7 @@ export default function JsonSchemaValidatorPage() {
     if (schema.properties && typeof data === "object" && !Array.isArray(data)) {
       Object.keys(schema.properties).forEach((prop) => {
         if (prop in data) {
-          const propErrors = validateAgainstSchema(
-            data[prop],
-            schema.properties[prop],
-            `${path}.${prop}`
-          );
+          const propErrors = validateAgainstSchema(data[prop], schema.properties[prop], `${path}.${prop}`);
           errors.push(...propErrors);
         }
       });
@@ -187,11 +169,7 @@ export default function JsonSchemaValidatorPage() {
       }
       if (schema.items) {
         data.forEach((item, index) => {
-          const itemErrors = validateAgainstSchema(
-            item,
-            schema.items,
-            `${path}[${index}]`
-          );
+          const itemErrors = validateAgainstSchema(item, schema.items, `${path}[${index}]`);
           errors.push(...itemErrors);
         });
       }
@@ -249,18 +227,14 @@ export default function JsonSchemaValidatorPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JSON Schema Validator</h1>
-        <p className="text-muted-foreground">
-          Validate JSON data against a JSON Schema
-        </p>
+        <p className="text-muted-foreground">Validate JSON data against a JSON Schema</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <Card>
           <CardHeader>
             <CardTitle>JSON Schema</CardTitle>
-            <CardDescription>
-              Enter your JSON Schema definition
-            </CardDescription>
+            <CardDescription>Enter your JSON Schema definition</CardDescription>
           </CardHeader>
           <CardContent>
             <Textarea
@@ -275,9 +249,7 @@ export default function JsonSchemaValidatorPage() {
         <Card>
           <CardHeader>
             <CardTitle>JSON Data</CardTitle>
-            <CardDescription>
-              Enter the JSON data to validate
-            </CardDescription>
+            <CardDescription>Enter the JSON data to validate</CardDescription>
           </CardHeader>
           <CardContent>
             <Textarea
@@ -326,10 +298,7 @@ export default function JsonSchemaValidatorPage() {
             <CardContent>
               <div className="space-y-3">
                 {errors.map((error, index) => (
-                  <div
-                    key={index}
-                    className="border border-destructive/20 rounded p-3 bg-destructive/5"
-                  >
+                  <div key={index} className="border border-destructive/20 rounded p-3 bg-destructive/5">
                     <div className="flex items-start gap-2">
                       <AlertCircle className="h-4 w-4 text-destructive mt-0.5" />
                       <div className="flex-1">
@@ -356,9 +325,8 @@ export default function JsonSchemaValidatorPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            JSON Schema is a vocabulary that allows you to annotate and validate JSON
-            documents. It provides a way to describe the structure, constraints, and
-            data types of JSON data.
+            JSON Schema is a vocabulary that allows you to annotate and validate JSON documents. It provides a way to
+            describe the structure, constraints, and data types of JSON data.
           </p>
           <div>
             <strong>Supported validations:</strong>
@@ -381,9 +349,8 @@ export default function JsonSchemaValidatorPage() {
             </ul>
           </div>
           <p>
-            <strong>Note:</strong> This is a simplified validator covering common use cases.
-            For full JSON Schema Draft 7 support with advanced features (oneOf, anyOf,
-            allOf, $ref, etc.), use a complete library like Ajv.
+            <strong>Note:</strong> This is a simplified validator covering common use cases. For full JSON Schema Draft
+            7 support with advanced features (oneOf, anyOf, allOf, $ref, etc.), use a complete library like Ajv.
           </p>
         </CardContent>
       </Card>

@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
-import { Copy, Check, ChevronDown } from "lucide-react";
+import { Check, ChevronDown, Copy } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,13 +9,9 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 type HashAlgorithm = "SHA-1" | "SHA-256" | "SHA-384" | "SHA-512";
 
@@ -62,9 +56,7 @@ export default function HashGenerator() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Hash Generator</h1>
-        <p className="text-muted-foreground">
-          Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from your text
-        </p>
+        <p className="text-muted-foreground">Generate SHA-1, SHA-256, SHA-384, and SHA-512 hashes from your text</p>
       </div>
 
       <Card>
@@ -83,7 +75,10 @@ export default function HashGenerator() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-full">
-                <DropdownMenuRadioGroup value={algorithm} onValueChange={(value) => setAlgorithm(value as HashAlgorithm)}>
+                <DropdownMenuRadioGroup
+                  value={algorithm}
+                  onValueChange={(value) => setAlgorithm(value as HashAlgorithm)}
+                >
                   <DropdownMenuRadioItem value="SHA-1">SHA-1</DropdownMenuRadioItem>
                   <DropdownMenuRadioItem value="SHA-256">SHA-256</DropdownMenuRadioItem>
                   <DropdownMenuRadioItem value="SHA-384">SHA-384</DropdownMenuRadioItem>
@@ -109,16 +104,8 @@ export default function HashGenerator() {
               <Label htmlFor="hash">{algorithm} Hash</Label>
               <div className="flex gap-2">
                 <Input id="hash" value={hash} readOnly className="font-mono text-sm" />
-                <Button
-                  size="icon"
-                  variant="outline"
-                  onClick={() => copyToClipboard(hash)}
-                >
-                  {copied ? (
-                    <Check className="w-4 h-4" />
-                  ) : (
-                    <Copy className="w-4 h-4" />
-                  )}
+                <Button size="icon" variant="outline" onClick={() => copyToClipboard(hash)}>
+                  {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 </Button>
               </div>
             </div>

@@ -1,16 +1,10 @@
+import { ArrowLeftRight, Check, Copy, Download } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check, Download, ArrowLeftRight } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
 
 export default function CsvToJsonPage() {
   const [csvInput, setCsvInput] = useState("");
@@ -144,18 +138,14 @@ Bob Johnson,bob@example.com,35,Chicago`;
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">CSV to JSON Converter</h1>
-        <p className="text-muted-foreground">
-          Convert CSV data to JSON format
-        </p>
+        <p className="text-muted-foreground">Convert CSV data to JSON format</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <Card>
           <CardHeader>
             <CardTitle>CSV Input</CardTitle>
-            <CardDescription>
-              Enter your CSV data
-            </CardDescription>
+            <CardDescription>Enter your CSV data</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -164,12 +154,7 @@ Bob Johnson,bob@example.com,35,Chicago`;
               placeholder={exampleCSV}
               className="min-h-[400px] font-mono text-sm"
             />
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCsvInput(exampleCSV)}
-              className="w-full"
-            >
+            <Button variant="outline" size="sm" onClick={() => setCsvInput(exampleCSV)} className="w-full">
               Load Example
             </Button>
           </CardContent>
@@ -178,9 +163,7 @@ Bob Johnson,bob@example.com,35,Chicago`;
         <Card>
           <CardHeader>
             <CardTitle>JSON Output</CardTitle>
-            <CardDescription>
-              Converted JSON array
-            </CardDescription>
+            <CardDescription>Converted JSON array</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -226,11 +209,7 @@ Bob Johnson,bob@example.com,35,Chicago`;
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex items-center space-x-2">
-            <Checkbox
-              id="headers"
-              checked={hasHeaders}
-              onCheckedChange={(checked) => setHasHeaders(!!checked)}
-            />
+            <Checkbox id="headers" checked={hasHeaders} onCheckedChange={(checked) => setHasHeaders(!!checked)} />
             <label
               htmlFor="headers"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -272,18 +251,10 @@ Bob Johnson,bob@example.com,35,Chicago`;
           <CardTitle>Notes</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>
-            • CSV must have consistent column count in all rows
-          </p>
-          <p>
-            • Values with commas, quotes, or newlines should be enclosed in double quotes
-          </p>
-          <p>
-            • Double quotes inside values should be escaped as "" (two double quotes)
-          </p>
-          <p>
-            • If "First row contains headers" is unchecked, columns will be named col1, col2, etc.
-          </p>
+          <p>• CSV must have consistent column count in all rows</p>
+          <p>• Values with commas, quotes, or newlines should be enclosed in double quotes</p>
+          <p>• Double quotes inside values should be escaped as "" (two double quotes)</p>
+          <p>• If "First row contains headers" is unchecked, columns will be named col1, col2, etc.</p>
         </CardContent>
       </Card>
     </div>

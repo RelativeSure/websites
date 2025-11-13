@@ -26,9 +26,7 @@ const { links, gridTitle } = Astro.props;
 if (!links || !Array.isArray(links)) {
   // In a real app, you might throw an error or render a message.
   // For Starlight, a build error for missing props is often sufficient.
-  console.warn(
-    "MyLinkGrid component requires a 'links' prop (array of LinkItem)."
-  );
+  console.warn("MyLinkGrid component requires a 'links' prop (array of LinkItem).");
   // Optionally, render nothing or an error message if links are not provided
   // return null; // Or <p>Error: Links data not provided.</p>
 }
@@ -58,4 +56,3 @@ if (!links || !Array.isArray(links)) {
     <p>No links to display.</p>
   )
 }
-

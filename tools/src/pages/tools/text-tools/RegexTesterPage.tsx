@@ -1,14 +1,8 @@
 import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function RegexTester() {
   const [pattern, setPattern] = useState("");
@@ -84,9 +78,7 @@ export default function RegexTester() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Regex Tester</h1>
-        <p className="text-muted-foreground">
-          Test and debug regular expressions
-        </p>
+        <p className="text-muted-foreground">Test and debug regular expressions</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -155,14 +147,7 @@ export default function RegexTester() {
               <div className="p-4 bg-muted rounded-md min-h-[200px] font-mono text-sm whitespace-pre-wrap break-words">
                 {Array.isArray(parts) ? (
                   parts.map((part, i) => (
-                    <span
-                      key={i}
-                      className={
-                        part.isMatch
-                          ? "bg-primary/30 text-primary-foreground px-1 rounded"
-                          : ""
-                      }
-                    >
+                    <span key={i} className={part.isMatch ? "bg-primary/30 text-primary-foreground px-1 rounded" : ""}>
                       {part.text}
                     </span>
                   ))
@@ -187,9 +172,7 @@ export default function RegexTester() {
                           <span className="text-muted-foreground">Match {i + 1}:</span>{" "}
                           <span className="text-primary">{match[0]}</span>
                         </div>
-                        <div className="text-xs text-muted-foreground">
-                          Index: {match.index}
-                        </div>
+                        <div className="text-xs text-muted-foreground">Index: {match.index}</div>
                         {match.length > 1 && (
                           <div className="text-xs">
                             <span className="text-muted-foreground">Groups:</span>{" "}

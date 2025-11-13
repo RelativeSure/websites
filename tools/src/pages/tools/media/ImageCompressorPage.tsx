@@ -1,15 +1,9 @@
+import { Download, Image as ImageIcon, Upload } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Upload, Download, Image as ImageIcon } from "lucide-react";
+import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 
 export default function ImageCompressorPage() {
@@ -91,20 +85,16 @@ export default function ImageCompressorPage() {
     const k = 1024;
     const sizes = ["B", "KB", "MB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return `${(bytes / Math.pow(k, i)).toFixed(2)} ${sizes[i]}`;
+    return `${(bytes / k ** i).toFixed(2)} ${sizes[i]}`;
   };
 
-  const compressionRatio = originalSize > 0
-    ? ((1 - compressedSize / originalSize) * 100).toFixed(1)
-    : "0";
+  const compressionRatio = originalSize > 0 ? ((1 - compressedSize / originalSize) * 100).toFixed(1) : "0";
 
   return (
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Image Compressor</h1>
-        <p className="text-muted-foreground">
-          Compress images while maintaining quality
-        </p>
+        <p className="text-muted-foreground">Compress images while maintaining quality</p>
       </div>
 
       <Card className="mb-6">
@@ -113,27 +103,15 @@ export default function ImageCompressorPage() {
             <Upload className="h-5 w-5" />
             Upload Image
           </CardTitle>
-          <CardDescription>
-            Select an image to compress (JPG, PNG, WebP)
-          </CardDescription>
+          <CardDescription>Select an image to compress (JPG, PNG, WebP)</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            <Button
-              onClick={() => document.getElementById("file-upload")?.click()}
-              className="w-full"
-              size="lg"
-            >
+            <Button onClick={() => document.getElementById("file-upload")?.click()} className="w-full" size="lg">
               <Upload className="mr-2 h-4 w-4" />
               Select Image
             </Button>
-            <input
-              id="file-upload"
-              type="file"
-              accept="image/*"
-              onChange={handleFileSelect}
-              className="hidden"
-            />
+            <input id="file-upload" type="file" accept="image/*" onChange={handleFileSelect} className="hidden" />
 
             {originalFile && (
               <div className="p-4 bg-muted rounded-md">
@@ -154,17 +132,13 @@ export default function ImageCompressorPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Quality Settings</CardTitle>
-              <CardDescription>
-                Adjust compression quality (lower = smaller file size)
-              </CardDescription>
+              <CardDescription>Adjust compression quality (lower = smaller file size)</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label>Quality: {quality[0]}%</Label>
-                  <div className="text-sm text-muted-foreground">
-                    Compression: {compressionRatio}%
-                  </div>
+                  <div className="text-sm text-muted-foreground">Compression: {compressionRatio}%</div>
                 </div>
                 <Slider
                   value={quality}
@@ -182,9 +156,7 @@ export default function ImageCompressorPage() {
                   <div className="text-sm text-muted-foreground">Original</div>
                 </div>
                 <div className="p-4 bg-primary/10 border-2 border-primary rounded-md">
-                  <div className="text-2xl font-bold text-primary">
-                    {formatSize(compressedSize)}
-                  </div>
+                  <div className="text-2xl font-bold text-primary">{formatSize(compressedSize)}</div>
                   <div className="text-sm text-muted-foreground">Compressed</div>
                 </div>
               </div>
@@ -203,11 +175,7 @@ export default function ImageCompressorPage() {
               </CardHeader>
               <CardContent>
                 <div className="border rounded-md overflow-hidden bg-muted flex items-center justify-center min-h-[300px]">
-                  <img
-                    src={originalPreview}
-                    alt="Original"
-                    className="max-w-full max-h-[500px] object-contain"
-                  />
+                  <img src={originalPreview} alt="Original" className="max-w-full max-h-[500px] object-contain" />
                 </div>
               </CardContent>
             </Card>
@@ -219,15 +187,9 @@ export default function ImageCompressorPage() {
               <CardContent>
                 <div className="border rounded-md overflow-hidden bg-muted flex items-center justify-center min-h-[300px]">
                   {compressedPreview ? (
-                    <img
-                      src={compressedPreview}
-                      alt="Compressed"
-                      className="max-w-full max-h-[500px] object-contain"
-                    />
+                    <img src={compressedPreview} alt="Compressed" className="max-w-full max-h-[500px] object-contain" />
                   ) : (
-                    <div className="text-center text-muted-foreground p-8">
-                      Compressing...
-                    </div>
+                    <div className="text-center text-muted-foreground p-8">Compressing...</div>
                   )}
                 </div>
               </CardContent>
@@ -250,21 +212,11 @@ export default function ImageCompressorPage() {
           <CardTitle>About Image Compression</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>
-            • Compression is done entirely in your browser - images never leave your device
-          </p>
-          <p>
-            • JPEG format is used for compression with adjustable quality
-          </p>
-          <p>
-            • Lower quality = smaller file size but visible artifacts may appear
-          </p>
-          <p>
-            • Recommended: 70-85% quality for good balance of size and quality
-          </p>
-          <p>
-            • Original image dimensions are preserved
-          </p>
+          <p>• Compression is done entirely in your browser - images never leave your device</p>
+          <p>• JPEG format is used for compression with adjustable quality</p>
+          <p>• Lower quality = smaller file size but visible artifacts may appear</p>
+          <p>• Recommended: 70-85% quality for good balance of size and quality</p>
+          <p>• Original image dimensions are preserved</p>
         </CardContent>
       </Card>
     </div>

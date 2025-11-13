@@ -1,26 +1,20 @@
-import Link from "next/link";
 import {
   ArrowLeftRight,
   Binary,
-  Lock,
-  Link2,
+  Braces,
   Clock,
   Code,
-  Hash,
-  FileJson,
-  Fingerprint,
   Code2,
+  FileJson,
   FileText,
-  Braces,
+  Fingerprint,
+  Hash,
+  Link2,
+  Lock,
 } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const tools = [
   {
@@ -97,12 +91,9 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-              Developer Tools
-            </h1>
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Developer Tools</h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive collection of tools for developers. Convert, encode, hash,
-              and format your data with ease.
+              A comprehensive collection of tools for developers. Convert, encode, hash, and format your data with ease.
             </p>
           </div>
 
@@ -127,14 +118,10 @@ export default function HomePage() {
                                 <div className="p-2 rounded-lg bg-primary/10">
                                   <Icon className="w-5 h-5 text-primary" />
                                 </div>
-                                <CardTitle className="text-lg">
-                                  {tool.title}
-                                </CardTitle>
+                                <CardTitle className="text-lg">{tool.title}</CardTitle>
                               </div>
                             </div>
-                            <CardDescription className="mt-3">
-                              {tool.description}
-                            </CardDescription>
+                            <CardDescription className="mt-3">{tool.description}</CardDescription>
                           </CardHeader>
                         </Card>
                       </Link>

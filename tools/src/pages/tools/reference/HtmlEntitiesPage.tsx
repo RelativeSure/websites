@@ -1,13 +1,7 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const entities = [
   // Reserved Characters
@@ -109,9 +103,7 @@ export default function HtmlEntitiesPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">HTML Entities Reference</h1>
-        <p className="text-muted-foreground">
-          HTML character entity references
-        </p>
+        <p className="text-muted-foreground">HTML character entity references</p>
       </div>
 
       <Card className="mb-6">

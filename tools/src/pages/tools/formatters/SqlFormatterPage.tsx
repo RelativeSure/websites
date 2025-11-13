@@ -1,14 +1,8 @@
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function SqlFormatter() {
   const [input, setInput] = useState("");
@@ -19,14 +13,52 @@ export default function SqlFormatter() {
     if (!sql.trim()) return "";
 
     const keywords = [
-      "SELECT", "FROM", "WHERE", "AND", "OR", "ORDER BY", "GROUP BY",
-      "HAVING", "LIMIT", "OFFSET", "JOIN", "LEFT JOIN", "RIGHT JOIN",
-      "INNER JOIN", "OUTER JOIN", "ON", "AS", "INSERT INTO", "VALUES",
-      "UPDATE", "SET", "DELETE", "CREATE TABLE", "ALTER TABLE", "DROP TABLE",
-      "PRIMARY KEY", "FOREIGN KEY", "REFERENCES", "NOT NULL", "UNIQUE",
-      "DEFAULT", "CHECK", "INDEX", "VIEW", "UNION", "DISTINCT", "CASE",
-      "WHEN", "THEN", "ELSE", "END", "IN", "BETWEEN", "LIKE", "IS NULL",
-      "IS NOT NULL"
+      "SELECT",
+      "FROM",
+      "WHERE",
+      "AND",
+      "OR",
+      "ORDER BY",
+      "GROUP BY",
+      "HAVING",
+      "LIMIT",
+      "OFFSET",
+      "JOIN",
+      "LEFT JOIN",
+      "RIGHT JOIN",
+      "INNER JOIN",
+      "OUTER JOIN",
+      "ON",
+      "AS",
+      "INSERT INTO",
+      "VALUES",
+      "UPDATE",
+      "SET",
+      "DELETE",
+      "CREATE TABLE",
+      "ALTER TABLE",
+      "DROP TABLE",
+      "PRIMARY KEY",
+      "FOREIGN KEY",
+      "REFERENCES",
+      "NOT NULL",
+      "UNIQUE",
+      "DEFAULT",
+      "CHECK",
+      "INDEX",
+      "VIEW",
+      "UNION",
+      "DISTINCT",
+      "CASE",
+      "WHEN",
+      "THEN",
+      "ELSE",
+      "END",
+      "IN",
+      "BETWEEN",
+      "LIKE",
+      "IS NULL",
+      "IS NOT NULL",
     ];
 
     let formatted = sql;
@@ -36,19 +68,19 @@ export default function SqlFormatter() {
 
     // Add newlines before major keywords
     const majorKeywords = ["SELECT", "FROM", "WHERE", "ORDER BY", "GROUP BY", "HAVING", "LIMIT"];
-    majorKeywords.forEach(keyword => {
+    majorKeywords.forEach((keyword) => {
       const regex = new RegExp(`\\b${keyword}\\b`, "gi");
       formatted = formatted.replace(regex, `\n${keyword}`);
     });
 
     // Add newlines for JOIN clauses
-    ["JOIN", "LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "OUTER JOIN"].forEach(join => {
+    ["JOIN", "LEFT JOIN", "RIGHT JOIN", "INNER JOIN", "OUTER JOIN"].forEach((join) => {
       const regex = new RegExp(`\\b${join}\\b`, "gi");
       formatted = formatted.replace(regex, `\n${join}`);
     });
 
     // Capitalize keywords
-    keywords.forEach(keyword => {
+    keywords.forEach((keyword) => {
       const regex = new RegExp(`\\b${keyword}\\b`, "gi");
       formatted = formatted.replace(regex, keyword.toUpperCase());
     });
@@ -58,13 +90,24 @@ export default function SqlFormatter() {
     const indented = lines.map((line, index) => {
       line = line.trim();
       if (index === 0) return line;
-      if (line.startsWith("SELECT") || line.startsWith("FROM") || line.startsWith("WHERE") ||
-          line.startsWith("GROUP BY") || line.startsWith("ORDER BY") || line.startsWith("HAVING") ||
-          line.startsWith("LIMIT")) {
+      if (
+        line.startsWith("SELECT") ||
+        line.startsWith("FROM") ||
+        line.startsWith("WHERE") ||
+        line.startsWith("GROUP BY") ||
+        line.startsWith("ORDER BY") ||
+        line.startsWith("HAVING") ||
+        line.startsWith("LIMIT")
+      ) {
         return line;
       }
-      if (line.startsWith("JOIN") || line.startsWith("LEFT JOIN") || line.startsWith("RIGHT JOIN") ||
-          line.startsWith("INNER JOIN") || line.startsWith("OUTER JOIN")) {
+      if (
+        line.startsWith("JOIN") ||
+        line.startsWith("LEFT JOIN") ||
+        line.startsWith("RIGHT JOIN") ||
+        line.startsWith("INNER JOIN") ||
+        line.startsWith("OUTER JOIN")
+      ) {
         return "  " + line;
       }
       if (line.startsWith("AND") || line.startsWith("OR")) {
@@ -90,9 +133,7 @@ export default function SqlFormatter() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">SQL Formatter</h1>
-        <p className="text-muted-foreground">
-          Format and beautify SQL queries
-        </p>
+        <p className="text-muted-foreground">Format and beautify SQL queries</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 h-[calc(100vh-16rem)]">
@@ -126,12 +167,7 @@ export default function SqlFormatter() {
               readOnly
               className="font-mono flex-1 resize-none text-sm"
             />
-            <Button
-              onClick={copyToClipboard}
-              disabled={!output}
-              variant="outline"
-              className="w-full"
-            >
+            <Button onClick={copyToClipboard} disabled={!output} variant="outline" className="w-full">
               {copied ? (
                 <>
                   <Check className="mr-2 w-4 h-4" />

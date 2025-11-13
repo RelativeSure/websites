@@ -1,23 +1,11 @@
+import { Calendar, Clock, Minus, Plus } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Plus, Minus, Clock } from "lucide-react";
 
 export default function DateCalculatorPage() {
   // Duration between dates
@@ -101,16 +89,14 @@ export default function DateCalculatorPage() {
 
   const setToNow = (setter: (val: string) => void) => {
     const now = new Date();
-    setter(now.toISOString().split('T')[0]);
+    setter(now.toISOString().split("T")[0]);
   };
 
   return (
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Date Calculator</h1>
-        <p className="text-muted-foreground">
-          Calculate duration between dates or add/subtract time
-        </p>
+        <p className="text-muted-foreground">Calculate duration between dates or add/subtract time</p>
       </div>
 
       <Tabs defaultValue="duration">
@@ -129,9 +115,7 @@ export default function DateCalculatorPage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Calculate Duration Between Dates</CardTitle>
-              <CardDescription>
-                Find the time difference between two dates
-              </CardDescription>
+              <CardDescription>Find the time difference between two dates</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -154,19 +138,10 @@ export default function DateCalculatorPage() {
                   {includeTime1 && (
                     <div className="space-y-2">
                       <Label htmlFor="time1">Time</Label>
-                      <Input
-                        id="time1"
-                        type="time"
-                        value={time1}
-                        onChange={(e) => setTime1(e.target.value)}
-                      />
+                      <Input id="time1" type="time" value={time1} onChange={(e) => setTime1(e.target.value)} />
                     </div>
                   )}
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setIncludeTime1(!includeTime1)}
-                  >
+                  <Button variant="ghost" size="sm" onClick={() => setIncludeTime1(!includeTime1)}>
                     {includeTime1 ? "Remove" : "Add"} Time
                   </Button>
                 </div>
@@ -190,19 +165,10 @@ export default function DateCalculatorPage() {
                   {includeTime2 && (
                     <div className="space-y-2">
                       <Label htmlFor="time2">Time</Label>
-                      <Input
-                        id="time2"
-                        type="time"
-                        value={time2}
-                        onChange={(e) => setTime2(e.target.value)}
-                      />
+                      <Input id="time2" type="time" value={time2} onChange={(e) => setTime2(e.target.value)} />
                     </div>
                   )}
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setIncludeTime2(!includeTime2)}
-                  >
+                  <Button variant="ghost" size="sm" onClick={() => setIncludeTime2(!includeTime2)}>
                     {includeTime2 ? "Remove" : "Add"} Time
                   </Button>
                 </div>
@@ -212,27 +178,19 @@ export default function DateCalculatorPage() {
                 <div className="space-y-4 pt-4 border-t">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="p-4 bg-primary/10 rounded-md text-center">
-                      <div className="text-3xl font-bold text-primary">
-                        {duration.breakdown.days}
-                      </div>
+                      <div className="text-3xl font-bold text-primary">{duration.breakdown.days}</div>
                       <div className="text-sm text-muted-foreground">Days</div>
                     </div>
                     <div className="p-4 bg-muted rounded-md text-center">
-                      <div className="text-3xl font-bold">
-                        {duration.breakdown.hours}
-                      </div>
+                      <div className="text-3xl font-bold">{duration.breakdown.hours}</div>
                       <div className="text-sm text-muted-foreground">Hours</div>
                     </div>
                     <div className="p-4 bg-muted rounded-md text-center">
-                      <div className="text-3xl font-bold">
-                        {duration.breakdown.minutes}
-                      </div>
+                      <div className="text-3xl font-bold">{duration.breakdown.minutes}</div>
                       <div className="text-sm text-muted-foreground">Minutes</div>
                     </div>
                     <div className="p-4 bg-muted rounded-md text-center">
-                      <div className="text-3xl font-bold">
-                        {duration.breakdown.seconds}
-                      </div>
+                      <div className="text-3xl font-bold">{duration.breakdown.seconds}</div>
                       <div className="text-sm text-muted-foreground">Seconds</div>
                     </div>
                   </div>
@@ -261,9 +219,7 @@ export default function DateCalculatorPage() {
           <Card>
             <CardHeader>
               <CardTitle>Add or Subtract Time</CardTitle>
-              <CardDescription>
-                Calculate a new date by adding or subtracting time
-              </CardDescription>
+              <CardDescription>Calculate a new date by adding or subtracting time</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -309,13 +265,7 @@ export default function DateCalculatorPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="amount">Amount</Label>
-                  <Input
-                    id="amount"
-                    type="number"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                    min="0"
-                  />
+                  <Input id="amount" type="number" value={amount} onChange={(e) => setAmount(e.target.value)} min="0" />
                 </div>
 
                 <div className="space-y-2">
@@ -339,15 +289,9 @@ export default function DateCalculatorPage() {
               {modifiedDate && (
                 <div className="p-6 bg-primary/10 border-2 border-primary rounded-md text-center">
                   <div className="text-sm text-muted-foreground mb-2">Result</div>
-                  <div className="text-4xl font-bold text-primary mb-2">
-                    {modifiedDate.toLocaleDateString()}
-                  </div>
-                  <div className="text-lg text-muted-foreground">
-                    {modifiedDate.toLocaleTimeString()}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-2">
-                    {modifiedDate.toISOString()}
-                  </div>
+                  <div className="text-4xl font-bold text-primary mb-2">{modifiedDate.toLocaleDateString()}</div>
+                  <div className="text-lg text-muted-foreground">{modifiedDate.toLocaleTimeString()}</div>
+                  <div className="text-sm text-muted-foreground mt-2">{modifiedDate.toISOString()}</div>
                 </div>
               )}
             </CardContent>

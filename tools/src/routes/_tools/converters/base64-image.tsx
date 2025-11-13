@@ -1,6 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
-import Base64ImagePage from '../../../pages/tools/converters/Base64ImagePage'
+import { createFileRoute } from "@tanstack/react-router";
+import Base64ImagePage from "../../../pages/tools/converters/Base64ImagePage";
 
-export const Route = createFileRoute('/_tools/converters/base64-image')({
+export const Route = createFileRoute("/_tools/converters/base64-image")({
   component: Base64ImagePage,
-})
+});

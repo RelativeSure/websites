@@ -1,14 +1,8 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const statusCodes = [
   // 1xx Informational
@@ -103,7 +97,11 @@ const statusCodes = [
 
   // Unofficial 5xx codes (commonly used)
   { code: 509, message: "Bandwidth Limit Exceeded (Apache/cPanel)", category: "5xx Server Error (Unofficial)" },
-  { code: 520, message: "Web Server Returned an Unknown Error (Cloudflare)", category: "5xx Server Error (Unofficial)" },
+  {
+    code: 520,
+    message: "Web Server Returned an Unknown Error (Cloudflare)",
+    category: "5xx Server Error (Unofficial)",
+  },
   { code: 521, message: "Web Server Is Down (Cloudflare)", category: "5xx Server Error (Unofficial)" },
   { code: 522, message: "Connection Timed Out (Cloudflare)", category: "5xx Server Error (Unofficial)" },
   { code: 523, message: "Origin Is Unreachable (Cloudflare)", category: "5xx Server Error (Unofficial)" },
@@ -122,9 +120,7 @@ export default function HttpStatusCodes() {
   const [search, setSearch] = useState("");
 
   const filtered = statusCodes.filter(
-    (s) =>
-      s.code.toString().includes(search) ||
-      s.message.toLowerCase().includes(search.toLowerCase())
+    (s) => s.code.toString().includes(search) || s.message.toLowerCase().includes(search.toLowerCase())
   );
 
   const categories = Array.from(new Set(statusCodes.map((s) => s.category)));
@@ -143,15 +139,10 @@ export default function HttpStatusCodes() {
         <h1 className="text-3xl font-bold mb-2">HTTP Status Codes</h1>
         <p className="text-muted-foreground">
           Reference guide for HTTP status codes. Tip: Visit{" "}
-          <a
-            href="https://http.cat"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline"
-          >
+          <a href="https://http.cat" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
             http.cat
-          </a>
-          {" "}for visual representations
+          </a>{" "}
+          for visual representations
         </p>
       </div>
 

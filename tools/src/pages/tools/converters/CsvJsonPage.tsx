@@ -1,14 +1,8 @@
+import { ArrowRight, Check, Copy } from "lucide-react";
 import { useState } from "react";
-import { ArrowRight, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function CsvJsonConverter() {
   const [csv, setCsv] = useState("");
@@ -102,9 +96,7 @@ export default function CsvJsonConverter() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">CSV to JSON Converter</h1>
-        <p className="text-muted-foreground">
-          Convert CSV data to JSON format
-        </p>
+        <p className="text-muted-foreground">Convert CSV data to JSON format</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 h-[calc(100vh-16rem)]">
@@ -144,12 +136,7 @@ export default function CsvJsonConverter() {
               readOnly
               className="font-mono flex-1 resize-none"
             />
-            <Button
-              onClick={copyToClipboard}
-              disabled={!json}
-              variant="outline"
-              className="w-full"
-            >
+            <Button onClick={copyToClipboard} disabled={!json} variant="outline" className="w-full">
               {copied ? (
                 <>
                   <Check className="mr-2 w-4 h-4" />

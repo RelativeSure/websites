@@ -1,34 +1,23 @@
 "use client";
 
+import { ArrowLeftRight, Binary, Braces, Clock, Code2, FileText, Fingerprint, Hash, Home, Link2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  ArrowLeftRight,
-  Binary,
-  Link2,
-  Hash,
-  Clock,
-  Fingerprint,
-  Braces,
-  FileText,
-  Code2,
-  Home,
-} from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
+  SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-  SidebarInset,
   SidebarTrigger,
-  SidebarHeader,
 } from "@/components/ui/sidebar";
-import { Separator } from "@/components/ui/separator";
 
 const tools = [
   {
@@ -87,11 +76,7 @@ const tools = [
   },
 ];
 
-export default function ToolsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ToolsLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const categories = Array.from(new Set(tools.map((t) => t.category)));
 
@@ -99,7 +84,10 @@ export default function ToolsLayout({
     <SidebarProvider defaultOpen={true}>
       <Sidebar>
         <SidebarHeader className="border-b">
-          <Link href="/" className="flex items-center gap-2 px-2 py-2 hover:bg-sidebar-accent rounded-md transition-colors">
+          <Link
+            href="/"
+            className="flex items-center gap-2 px-2 py-2 hover:bg-sidebar-accent rounded-md transition-colors"
+          >
             <Home className="w-5 h-5" />
             <div className="flex flex-col">
               <span className="font-semibold text-sm">Developer Tools</span>
@@ -119,11 +107,7 @@ export default function ToolsLayout({
                       const Icon = tool.icon;
                       return (
                         <SidebarMenuItem key={tool.href}>
-                          <SidebarMenuButton
-                            asChild
-                            isActive={pathname === tool.href}
-                            tooltip={tool.title}
-                          >
+                          <SidebarMenuButton asChild isActive={pathname === tool.href} tooltip={tool.title}>
                             <Link href={tool.href}>
                               <Icon />
                               <span>{tool.title}</span>

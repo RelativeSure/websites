@@ -1,6 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
-import ImageResizerPage from '../../../pages/tools/media/ImageResizerPage'
+import { createFileRoute } from "@tanstack/react-router";
+import ImageResizerPage from "../../../pages/tools/media/ImageResizerPage";
 
-export const Route = createFileRoute('/_tools/media/image-resizer')({
+export const Route = createFileRoute("/_tools/media/image-resizer")({
   component: ImageResizerPage,
-})
+});

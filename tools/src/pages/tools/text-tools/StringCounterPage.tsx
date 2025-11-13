@@ -1,13 +1,7 @@
-import { useState, useEffect } from "react";
-import { Textarea } from "@/components/ui/textarea";
+import { useEffect, useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function StringCounter() {
   const [text, setText] = useState("");
@@ -23,10 +17,13 @@ export default function StringCounter() {
   useEffect(() => {
     const trimmed = text;
     const withoutSpaces = text.replace(/\s/g, "");
-    const words = text.trim().split(/\s+/).filter(w => w.length > 0);
+    const words = text
+      .trim()
+      .split(/\s+/)
+      .filter((w) => w.length > 0);
     const lines = text.split("\n");
-    const paragraphs = text.split(/\n\n+/).filter(p => p.trim().length > 0);
-    const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+    const paragraphs = text.split(/\n\n+/).filter((p) => p.trim().length > 0);
+    const sentences = text.split(/[.!?]+/).filter((s) => s.trim().length > 0);
 
     setStats({
       characters: trimmed.length,
@@ -50,9 +47,7 @@ export default function StringCounter() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Text Analyzer</h1>
-        <p className="text-muted-foreground">
-          Count characters, words, lines, and more
-        </p>
+        <p className="text-muted-foreground">Count characters, words, lines, and more</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
@@ -80,36 +75,16 @@ export default function StringCounter() {
               <CardDescription>Real-time text analysis</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
-              <StatCard
-                label="Characters"
-                value={stats.characters}
-                description="Total characters"
-              />
+              <StatCard label="Characters" value={stats.characters} description="Total characters" />
               <StatCard
                 label="Characters (no spaces)"
                 value={stats.charactersNoSpaces}
                 description="Without whitespace"
               />
-              <StatCard
-                label="Words"
-                value={stats.words}
-                description="Space-separated"
-              />
-              <StatCard
-                label="Lines"
-                value={stats.lines}
-                description="Line breaks"
-              />
-              <StatCard
-                label="Paragraphs"
-                value={stats.paragraphs}
-                description="Double line breaks"
-              />
-              <StatCard
-                label="Sentences"
-                value={stats.sentences}
-                description="Period/exclamation/question"
-              />
+              <StatCard label="Words" value={stats.words} description="Space-separated" />
+              <StatCard label="Lines" value={stats.lines} description="Line breaks" />
+              <StatCard label="Paragraphs" value={stats.paragraphs} description="Double line breaks" />
+              <StatCard label="Sentences" value={stats.sentences} description="Period/exclamation/question" />
             </CardContent>
           </Card>
         </div>
