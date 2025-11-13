@@ -10,8 +10,7 @@
     "lint": "biome check",
     "format": "biome format --write",
     "typecheck": "tsc --noEmit",
-    "check": "biome check && tsc --noEmit",
-    "prepare": "cd .. && pre-commit install --hook-type pre-commit --hook-type commit-msg -C tools"
+    "check": "biome check && tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",

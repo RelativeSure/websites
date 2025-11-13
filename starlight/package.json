@@ -18,8 +18,7 @@
     "typecheck": "astro check",
     "serve:lhci": "pnpm run preview",
     "cfpreview": "wrangler dev",
-    "cfdeploy": "wrangler deploy",
-    "prepare": "cd .. && pre-commit install --hook-type pre-commit --hook-type commit-msg -C starlight"
+    "cfdeploy": "wrangler deploy"
   },
   "dependencies": {
     "@astrojs/check": "0.9.5",

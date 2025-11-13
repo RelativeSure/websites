@@ -1,0 +1,8 @@
+{
+  "name": "websites-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prepare": "if [ -z \"$CI\" ]; then pre-commit install --hook-type pre-commit --hook-type commit-msg; fi"
+  }
+}

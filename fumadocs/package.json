@@ -10,8 +10,7 @@
     "lint": "biome check",
     "format": "biome format --write",
     "typecheck": "tsc --noEmit",
-    "check": "biome check && tsc --noEmit",
-    "prepare": "cd .. && pre-commit install --hook-type pre-commit --hook-type commit-msg -C fumadocs"
+    "check": "biome check && tsc --noEmit"
   },
   "dependencies": {
     "fumadocs-core": "16.0.11",
