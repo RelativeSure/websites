@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Ruler, Copy, Check } from "lucide-react";
+import { Check, Copy, Ruler } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface UnitValues {
   px: string;
@@ -150,9 +144,7 @@ export default function CssUnitPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">CSS Unit Converter</h1>
-        <p className="text-muted-foreground">
-          Convert between CSS length units (px, em, rem, vh, vw, and more)
-        </p>
+        <p className="text-muted-foreground">Convert between CSS length units (px, em, rem, vh, vw, and more)</p>
       </div>
 
       <Card className="mb-6">
@@ -161,9 +153,7 @@ export default function CssUnitPage() {
             <Ruler className="h-5 w-5" />
             Input Value
           </CardTitle>
-          <CardDescription>
-            Enter a value and select its unit to see conversions
-          </CardDescription>
+          <CardDescription>Enter a value and select its unit to see conversions</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -214,9 +204,7 @@ export default function CssUnitPage() {
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Context Settings</CardTitle>
-          <CardDescription>
-            These values affect relative and viewport unit calculations
-          </CardDescription>
+          <CardDescription>These values affect relative and viewport unit calculations</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -240,21 +228,11 @@ export default function CssUnitPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="vw">Viewport Width (px)</Label>
-              <Input
-                id="vw"
-                type="number"
-                value={viewportWidth}
-                onChange={(e) => setViewportWidth(e.target.value)}
-              />
+              <Input id="vw" type="number" value={viewportWidth} onChange={(e) => setViewportWidth(e.target.value)} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="vh">Viewport Height (px)</Label>
-              <Input
-                id="vh"
-                type="number"
-                value={viewportHeight}
-                onChange={(e) => setViewportHeight(e.target.value)}
-              />
+              <Input id="vh" type="number" value={viewportHeight} onChange={(e) => setViewportHeight(e.target.value)} />
             </div>
           </div>
         </CardContent>
@@ -270,22 +248,14 @@ export default function CssUnitPage() {
               {units
                 .filter((u) => u.category === category)
                 .map((unit) => (
-                  <div
-                    key={unit.key}
-                    className="p-4 border rounded-md bg-muted/30 hover:bg-muted/50 transition-colors"
-                  >
+                  <div key={unit.key} className="p-4 border rounded-md bg-muted/30 hover:bg-muted/50 transition-colors">
                     <div className="flex items-center justify-between mb-2">
                       <div className="font-semibold">{unit.name}</div>
                       <Button
                         variant="ghost"
                         size="icon"
                         className="h-8 w-8"
-                        onClick={() =>
-                          handleCopy(
-                            unit.key === "percent" ? "%" : unit.key,
-                            values[unit.key]
-                          )
-                        }
+                        onClick={() => handleCopy(unit.key === "percent" ? "%" : unit.key, values[unit.key])}
                       >
                         {copied === (unit.key === "percent" ? "%" : unit.key) ? (
                           <Check className="h-4 w-4" />

@@ -1,17 +1,11 @@
 "use client";
 
+import { Check, Maximize2, Minimize2, X } from "lucide-react";
 import { useState } from "react";
-import { Check, X, Minimize2, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function JsonFormatter() {
   const [input, setInput] = useState("");
@@ -67,9 +61,7 @@ export default function JsonFormatter() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JSON Formatter & Validator</h1>
-        <p className="text-muted-foreground">
-          Format, validate, and minify JSON data
-        </p>
+        <p className="text-muted-foreground">Format, validate, and minify JSON data</p>
       </div>
 
       {error && (

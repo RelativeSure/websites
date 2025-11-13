@@ -1,15 +1,9 @@
+import { AlertCircle, ArrowRightLeft, Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { ArrowRightLeft, Copy, Check, AlertCircle } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function SqlToJsonPage() {
   const [sql, setSql] = useState("");
@@ -80,8 +74,7 @@ export default function SqlToJsonPage() {
         let value = valueSet[index];
 
         // Remove quotes
-        if ((value.startsWith("'") && value.endsWith("'")) ||
-            (value.startsWith('"') && value.endsWith('"'))) {
+        if ((value.startsWith("'") && value.endsWith("'")) || (value.startsWith('"') && value.endsWith('"'))) {
           value = value.slice(1, -1);
         }
 
@@ -146,18 +139,14 @@ export default function SqlToJsonPage() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">SQL to JSON Converter</h1>
-        <p className="text-muted-foreground">
-          Convert SQL INSERT statements to JSON format
-        </p>
+        <p className="text-muted-foreground">Convert SQL INSERT statements to JSON format</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <Card>
           <CardHeader>
             <CardTitle>SQL Input</CardTitle>
-            <CardDescription>
-              Enter your SQL INSERT statement
-            </CardDescription>
+            <CardDescription>Enter your SQL INSERT statement</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -166,11 +155,7 @@ export default function SqlToJsonPage() {
               placeholder="INSERT INTO table (col1, col2) VALUES (val1, val2);"
               className="font-mono text-sm min-h-[400px]"
             />
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setSql(exampleSql)}
-            >
+            <Button variant="outline" size="sm" onClick={() => setSql(exampleSql)}>
               Load Example
             </Button>
           </CardContent>
@@ -181,9 +166,7 @@ export default function SqlToJsonPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>JSON Output</CardTitle>
-                <CardDescription>
-                  Converted JSON data
-                </CardDescription>
+                <CardDescription>Converted JSON data</CardDescription>
               </div>
               {json && (
                 <Button variant="ghost" size="sm" onClick={handleCopy}>
@@ -233,8 +216,8 @@ export default function SqlToJsonPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            This tool converts SQL INSERT statements into JSON format, making it easy
-            to use SQL data in JavaScript applications or APIs.
+            This tool converts SQL INSERT statements into JSON format, making it easy to use SQL data in JavaScript
+            applications or APIs.
           </p>
           <div>
             <strong>Supported features:</strong>
@@ -248,8 +231,8 @@ export default function SqlToJsonPage() {
             </ul>
           </div>
           <p>
-            <strong>Note:</strong> This is a simplified parser for basic INSERT statements.
-            Complex SQL with nested queries, functions, or special syntax may not be supported.
+            <strong>Note:</strong> This is a simplified parser for basic INSERT statements. Complex SQL with nested
+            queries, functions, or special syntax may not be supported.
           </p>
         </CardContent>
       </Card>

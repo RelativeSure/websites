@@ -28,6 +28,7 @@ export default {
         'deps',
         'ci',
         'config',
+        'pre-commit',
       ],
     ],
     'scope-empty': [1, 'never'], // Warn if scope is missing

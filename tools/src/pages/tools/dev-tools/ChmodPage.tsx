@@ -1,16 +1,10 @@
-import { useState, useEffect } from "react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Terminal, Copy, Check } from "lucide-react";
+import { Check, Copy, Terminal } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface Permissions {
   owner: { read: boolean; write: boolean; execute: boolean };
@@ -34,36 +28,23 @@ export default function ChmodPage() {
 
   const updateFromCheckboxes = () => {
     const ownerValue =
-      (permissions.owner.read ? 4 : 0) +
-      (permissions.owner.write ? 2 : 0) +
-      (permissions.owner.execute ? 1 : 0);
+      (permissions.owner.read ? 4 : 0) + (permissions.owner.write ? 2 : 0) + (permissions.owner.execute ? 1 : 0);
 
     const groupValue =
-      (permissions.group.read ? 4 : 0) +
-      (permissions.group.write ? 2 : 0) +
-      (permissions.group.execute ? 1 : 0);
+      (permissions.group.read ? 4 : 0) + (permissions.group.write ? 2 : 0) + (permissions.group.execute ? 1 : 0);
 
     const othersValue =
-      (permissions.others.read ? 4 : 0) +
-      (permissions.others.write ? 2 : 0) +
-      (permissions.others.execute ? 1 : 0);
+      (permissions.others.read ? 4 : 0) + (permissions.others.write ? 2 : 0) + (permissions.others.execute ? 1 : 0);
 
     const numeric = `${ownerValue}${groupValue}${othersValue}`;
     setNumericValue(numeric);
 
-    const symbolic =
-      getSymbolic(permissions.owner) +
-      getSymbolic(permissions.group) +
-      getSymbolic(permissions.others);
+    const symbolic = getSymbolic(permissions.owner) + getSymbolic(permissions.group) + getSymbolic(permissions.others);
     setSymbolicValue(symbolic);
   };
 
   const getSymbolic = (perms: { read: boolean; write: boolean; execute: boolean }): string => {
-    return (
-      (perms.read ? "r" : "-") +
-      (perms.write ? "w" : "-") +
-      (perms.execute ? "x" : "-")
-    );
+    return (perms.read ? "r" : "-") + (perms.write ? "w" : "-") + (perms.execute ? "x" : "-");
   };
 
   const updateFromNumeric = (value: string) => {
@@ -92,10 +73,7 @@ export default function ChmodPage() {
     });
   };
 
-  const togglePermission = (
-    category: "owner" | "group" | "others",
-    type: "read" | "write" | "execute"
-  ) => {
+  const togglePermission = (category: "owner" | "group" | "others", type: "read" | "write" | "execute") => {
     setPermissions((prev) => ({
       ...prev,
       [category]: {
@@ -130,9 +108,7 @@ export default function ChmodPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Unix Chmod Calculator</h1>
-        <p className="text-muted-foreground">
-          Calculate Unix file permissions (chmod values)
-        </p>
+        <p className="text-muted-foreground">Calculate Unix file permissions (chmod values)</p>
       </div>
 
       <Card className="mb-6">
@@ -141,9 +117,7 @@ export default function ChmodPage() {
             <Terminal className="h-5 w-5" />
             Permission Values
           </CardTitle>
-          <CardDescription>
-            Current chmod value in different formats
-          </CardDescription>
+          <CardDescription>Current chmod value in different formats</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -157,11 +131,7 @@ export default function ChmodPage() {
                   className="font-mono text-2xl text-center font-bold"
                   maxLength={3}
                 />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleCopy(numericValue)}
-                >
+                <Button variant="ghost" size="icon" onClick={() => handleCopy(numericValue)}>
                   {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                 </Button>
               </div>
@@ -170,16 +140,8 @@ export default function ChmodPage() {
             <div className="space-y-2">
               <Label>Symbolic</Label>
               <div className="flex gap-2">
-                <Input
-                  value={symbolicValue}
-                  readOnly
-                  className="font-mono text-xl text-center"
-                />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleCopy(symbolicValue)}
-                >
+                <Input value={symbolicValue} readOnly className="font-mono text-xl text-center" />
+                <Button variant="ghost" size="icon" onClick={() => handleCopy(symbolicValue)}>
                   <Copy className="h-4 w-4" />
                 </Button>
               </div>
@@ -188,16 +150,8 @@ export default function ChmodPage() {
             <div className="space-y-2">
               <Label>Command</Label>
               <div className="flex gap-2">
-                <Input
-                  value={`chmod ${numericValue} file`}
-                  readOnly
-                  className="font-mono text-sm"
-                />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleCopy(`chmod ${numericValue} file`)}
-                >
+                <Input value={`chmod ${numericValue} file`} readOnly className="font-mono text-sm" />
+                <Button variant="ghost" size="icon" onClick={() => handleCopy(`chmod ${numericValue} file`)}>
                   <Copy className="h-4 w-4" />
                 </Button>
               </div>
@@ -209,20 +163,14 @@ export default function ChmodPage() {
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Set Permissions</CardTitle>
-          <CardDescription>
-            Check boxes to set permissions for each group
-          </CardDescription>
+          <CardDescription>Check boxes to set permissions for each group</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-6">
             {(["owner", "group", "others"] as const).map((category) => (
               <div key={category} className="border-b pb-4 last:border-b-0">
                 <h3 className="font-semibold text-lg mb-3 capitalize">
-                  {category === "owner"
-                    ? "Owner (User)"
-                    : category === "group"
-                    ? "Group"
-                    : "Others (World)"}
+                  {category === "owner" ? "Owner (User)" : category === "group" ? "Group" : "Others (World)"}
                 </h3>
                 <div className="grid grid-cols-3 gap-6">
                   {(["read", "write", "execute"] as const).map((type) => (
@@ -262,9 +210,7 @@ export default function ChmodPage() {
               >
                 <div className="flex items-center gap-3 mb-1">
                   <span className="font-bold font-mono text-lg">{perm.name}</span>
-                  <span className="font-mono text-sm text-muted-foreground">
-                    {perm.desc}
-                  </span>
+                  <span className="font-mono text-sm text-muted-foreground">{perm.desc}</span>
                 </div>
                 <div className="text-xs text-muted-foreground">{perm.use}</div>
               </button>
@@ -302,9 +248,8 @@ export default function ChmodPage() {
             </ul>
           </div>
           <div className="p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-md">
-            <strong className="text-blue-800 dark:text-blue-300">Example:</strong>{" "}
-            chmod 755 means: Owner can read/write/execute (7), Group can
-            read/execute (5), Others can read/execute (5)
+            <strong className="text-blue-800 dark:text-blue-300">Example:</strong> chmod 755 means: Owner can
+            read/write/execute (7), Group can read/execute (5), Others can read/execute (5)
           </div>
         </CardContent>
       </Card>

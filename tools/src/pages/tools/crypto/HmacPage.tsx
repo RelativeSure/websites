@@ -1,23 +1,11 @@
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Copy, Check } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 type Algorithm = "SHA-1" | "SHA-256" | "SHA-384" | "SHA-512";
 
@@ -39,18 +27,14 @@ export default function HmacPage() {
       const keyData = encoder.encode(secret);
       const messageData = encoder.encode(message);
 
-      const cryptoKey = await crypto.subtle.importKey(
-        "raw",
-        keyData,
-        { name: "HMAC", hash: algorithm },
-        false,
-        ["sign"]
-      );
+      const cryptoKey = await crypto.subtle.importKey("raw", keyData, { name: "HMAC", hash: algorithm }, false, [
+        "sign",
+      ]);
 
       const signature = await crypto.subtle.sign("HMAC", cryptoKey, messageData);
 
       const hashArray = Array.from(new Uint8Array(signature));
-      const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+      const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
 
       setOutput(hashHex);
     } catch (err) {
@@ -73,9 +57,7 @@ export default function HmacPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">HMAC Generator</h1>
-        <p className="text-muted-foreground">
-          Generate Hash-based Message Authentication Codes
-        </p>
+        <p className="text-muted-foreground">Generate Hash-based Message Authentication Codes</p>
       </div>
 
       <Card className="mb-6">
@@ -86,10 +68,7 @@ export default function HmacPage() {
         <CardContent className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="algorithm">Hash Algorithm</Label>
-            <Select
-              value={algorithm}
-              onValueChange={(value) => setAlgorithm(value as Algorithm)}
-            >
+            <Select value={algorithm} onValueChange={(value) => setAlgorithm(value as Algorithm)}>
               <SelectTrigger id="algorithm">
                 <SelectValue />
               </SelectTrigger>
@@ -167,16 +146,13 @@ export default function HmacPage() {
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
-            HMAC (Hash-based Message Authentication Code) is a mechanism for
-            calculating a message authentication code using a cryptographic hash
-            function combined with a secret key.
+            HMAC (Hash-based Message Authentication Code) is a mechanism for calculating a message authentication code
+            using a cryptographic hash function combined with a secret key.
           </p>
+          <p>It can be used to verify both the data integrity and authenticity of a message.</p>
           <p>
-            It can be used to verify both the data integrity and authenticity of a message.
-          </p>
-          <p>
-            <strong>Common Uses:</strong> API authentication, webhook verification,
-            JWT signatures, secure token generation.
+            <strong>Common Uses:</strong> API authentication, webhook verification, JWT signatures, secure token
+            generation.
           </p>
         </CardContent>
       </Card>

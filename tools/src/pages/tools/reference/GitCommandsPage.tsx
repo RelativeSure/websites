@@ -1,18 +1,12 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const commands = [
   // Setup & Config
-  { command: "git config --global user.name \"name\"", description: "Set your username", category: "Setup & Config" },
-  { command: "git config --global user.email \"email\"", description: "Set your email", category: "Setup & Config" },
+  { command: 'git config --global user.name "name"', description: "Set your username", category: "Setup & Config" },
+  { command: 'git config --global user.email "email"', description: "Set your email", category: "Setup & Config" },
   { command: "git config --list", description: "List all configuration", category: "Setup & Config" },
   { command: "git init", description: "Initialize a new repository", category: "Setup & Config" },
   { command: "git clone <url>", description: "Clone a repository", category: "Setup & Config" },
@@ -21,8 +15,8 @@ const commands = [
   { command: "git status", description: "Check status of working directory", category: "Basic Workflow" },
   { command: "git add <file>", description: "Stage a file", category: "Basic Workflow" },
   { command: "git add .", description: "Stage all changes", category: "Basic Workflow" },
-  { command: "git commit -m \"message\"", description: "Commit staged changes", category: "Basic Workflow" },
-  { command: "git commit -am \"message\"", description: "Stage and commit all changes", category: "Basic Workflow" },
+  { command: 'git commit -m "message"', description: "Commit staged changes", category: "Basic Workflow" },
+  { command: 'git commit -am "message"', description: "Stage and commit all changes", category: "Basic Workflow" },
   { command: "git diff", description: "Show unstaged changes", category: "Basic Workflow" },
   { command: "git diff --staged", description: "Show staged changes", category: "Basic Workflow" },
 
@@ -54,7 +48,7 @@ const commands = [
   { command: "git log --oneline", description: "Show condensed history", category: "History" },
   { command: "git log --graph", description: "Show history as graph", category: "History" },
   { command: "git log -p", description: "Show history with patches", category: "History" },
-  { command: "git log --author=\"name\"", description: "Filter by author", category: "History" },
+  { command: 'git log --author="name"', description: "Filter by author", category: "History" },
   { command: "git show <commit>", description: "Show commit details", category: "History" },
   { command: "git blame <file>", description: "Show who changed each line", category: "History" },
 
@@ -70,7 +64,7 @@ const commands = [
 
   // Stashing
   { command: "git stash", description: "Stash changes", category: "Stashing" },
-  { command: "git stash save \"message\"", description: "Stash with message", category: "Stashing" },
+  { command: 'git stash save "message"', description: "Stash with message", category: "Stashing" },
   { command: "git stash list", description: "List stashes", category: "Stashing" },
   { command: "git stash pop", description: "Apply and remove latest stash", category: "Stashing" },
   { command: "git stash apply", description: "Apply latest stash", category: "Stashing" },
@@ -80,7 +74,7 @@ const commands = [
   // Tagging
   { command: "git tag", description: "List tags", category: "Tagging" },
   { command: "git tag <name>", description: "Create lightweight tag", category: "Tagging" },
-  { command: "git tag -a <name> -m \"msg\"", description: "Create annotated tag", category: "Tagging" },
+  { command: 'git tag -a <name> -m "msg"', description: "Create annotated tag", category: "Tagging" },
   { command: "git push origin <tag>", description: "Push a tag", category: "Tagging" },
   { command: "git push origin --tags", description: "Push all tags", category: "Tagging" },
   { command: "git tag -d <name>", description: "Delete a tag", category: "Tagging" },
@@ -115,9 +109,7 @@ export default function GitCommandsPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Git Commands Reference</h1>
-        <p className="text-muted-foreground">
-          Essential Git commands for version control
-        </p>
+        <p className="text-muted-foreground">Essential Git commands for version control</p>
       </div>
 
       <Card className="mb-6">
@@ -150,10 +142,7 @@ export default function GitCommandsPage() {
             <CardContent>
               <div className="space-y-3">
                 {items.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-md border border-border hover:bg-muted transition-colors"
-                  >
+                  <div key={idx} className="p-4 rounded-md border border-border hover:bg-muted transition-colors">
                     <div className="flex items-start justify-between gap-4 mb-2">
                       <div className="font-mono text-sm bg-muted px-3 py-1 rounded flex-1 overflow-x-auto">
                         {item.command}
@@ -165,9 +154,7 @@ export default function GitCommandsPage() {
                         Copy
                       </button>
                     </div>
-                    <div className="text-sm text-muted-foreground">
-                      {item.description}
-                    </div>
+                    <div className="text-sm text-muted-foreground">{item.description}</div>
                   </div>
                 ))}
               </div>

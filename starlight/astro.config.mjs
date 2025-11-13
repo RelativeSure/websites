@@ -1,9 +1,9 @@
-import { defineConfig } from "astro/config";
-import starlight from "@astrojs/starlight";
 import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
-import robotsTxt from "astro-robots-txt";
+import starlight from "@astrojs/starlight";
 import tailwindcss from "@tailwindcss/vite";
+import { defineConfig } from "astro/config";
+import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,8 +20,7 @@ export default defineConfig({
         src: "./src/assets/favicon.svg",
       },
       editLink: {
-        baseUrl:
-          "https://github.com/RelativeSure/websites/edit/master/starlight/",
+        baseUrl: "https://github.com/RelativeSure/websites/edit/master/starlight/",
       },
       components: {
         ThemeSelect: "./src/components/starlight/ThemeSelect.astro",

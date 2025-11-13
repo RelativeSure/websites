@@ -1,32 +1,18 @@
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Copy, Check } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 type Algorithm = "HS256" | "HS384" | "HS512";
 
 export default function JwtGeneratorPage() {
   const [algorithm, setAlgorithm] = useState<Algorithm>("HS256");
   const [secret, setSecret] = useState("your-256-bit-secret");
-  const [header, setHeader] = useState(
-    JSON.stringify({ alg: "HS256", typ: "JWT" }, null, 2)
-  );
+  const [header, setHeader] = useState(JSON.stringify({ alg: "HS256", typ: "JWT" }, null, 2));
   const [payload, setPayload] = useState(
     JSON.stringify(
       {
@@ -171,9 +157,7 @@ export default function JwtGeneratorPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JWT Generator</h1>
-        <p className="text-muted-foreground">
-          Generate JSON Web Tokens with custom claims and signatures
-        </p>
+        <p className="text-muted-foreground">Generate JSON Web Tokens with custom claims and signatures</p>
       </div>
 
       {error && (
@@ -191,10 +175,7 @@ export default function JwtGeneratorPage() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="algorithm">Algorithm</Label>
-                <Select
-                  value={algorithm}
-                  onValueChange={(value) => handleAlgorithmChange(value as Algorithm)}
-                >
+                <Select value={algorithm} onValueChange={(value) => handleAlgorithmChange(value as Algorithm)}>
                   <SelectTrigger id="algorithm">
                     <SelectValue />
                   </SelectTrigger>
@@ -295,35 +276,27 @@ export default function JwtGeneratorPage() {
                     <div>
                       <Label className="text-xs text-muted-foreground">Header</Label>
                       <div className="p-2 bg-primary/10 rounded-md mt-1">
-                        <p className="font-mono text-xs break-all text-primary">
-                          {token.split(".")[0]}
-                        </p>
+                        <p className="font-mono text-xs break-all text-primary">{token.split(".")[0]}</p>
                       </div>
                     </div>
 
                     <div>
                       <Label className="text-xs text-muted-foreground">Payload</Label>
                       <div className="p-2 bg-secondary/10 rounded-md mt-1">
-                        <p className="font-mono text-xs break-all text-secondary-foreground">
-                          {token.split(".")[1]}
-                        </p>
+                        <p className="font-mono text-xs break-all text-secondary-foreground">{token.split(".")[1]}</p>
                       </div>
                     </div>
 
                     <div>
                       <Label className="text-xs text-muted-foreground">Signature</Label>
                       <div className="p-2 bg-muted rounded-md mt-1">
-                        <p className="font-mono text-xs break-all">
-                          {token.split(".")[2]}
-                        </p>
+                        <p className="font-mono text-xs break-all">{token.split(".")[2]}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               ) : (
-                <p className="text-muted-foreground text-center py-8">
-                  Generated token will appear here
-                </p>
+                <p className="text-muted-foreground text-center py-8">Generated token will appear here</p>
               )}
             </CardContent>
           </Card>

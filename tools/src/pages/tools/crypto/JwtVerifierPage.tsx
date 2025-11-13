@@ -1,17 +1,11 @@
+import { CheckCircle, ShieldAlert, ShieldCheck, XCircle } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ShieldCheck, ShieldAlert, CheckCircle, XCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function JwtVerifierPage() {
   const [jwt, setJwt] = useState("");
@@ -61,9 +55,7 @@ export default function JwtVerifierPage() {
       // Get algorithm
       const algorithm = decodedHeader.alg;
       if (!algorithm || !algorithm.startsWith("HS")) {
-        throw new Error(
-          `Algorithm ${algorithm} is not supported. Only HMAC (HS256, HS384, HS512) are supported.`
-        );
+        throw new Error(`Algorithm ${algorithm} is not supported. Only HMAC (HS256, HS384, HS512) are supported.`);
       }
 
       // Map algorithm to hash function
@@ -71,10 +63,10 @@ export default function JwtVerifierPage() {
         algorithm === "HS256"
           ? "SHA-256"
           : algorithm === "HS384"
-          ? "SHA-384"
-          : algorithm === "HS512"
-          ? "SHA-512"
-          : null;
+            ? "SHA-384"
+            : algorithm === "HS512"
+              ? "SHA-512"
+              : null;
 
       if (!hashAlgorithm) {
         throw new Error(`Unsupported algorithm: ${algorithm}`);
@@ -86,13 +78,9 @@ export default function JwtVerifierPage() {
       const messageData = encoder.encode(message);
       const keyData = encoder.encode(secret);
 
-      const cryptoKey = await crypto.subtle.importKey(
-        "raw",
-        keyData,
-        { name: "HMAC", hash: hashAlgorithm },
-        false,
-        ["sign"]
-      );
+      const cryptoKey = await crypto.subtle.importKey("raw", keyData, { name: "HMAC", hash: hashAlgorithm }, false, [
+        "sign",
+      ]);
 
       const signatureData = await crypto.subtle.sign("HMAC", cryptoKey, messageData);
       const calculatedSignature = base64UrlEncode(signatureData);
@@ -139,9 +127,7 @@ export default function JwtVerifierPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JWT Verifier</h1>
-        <p className="text-muted-foreground">
-          Verify JWT signatures and decode token contents
-        </p>
+        <p className="text-muted-foreground">Verify JWT signatures and decode token contents</p>
       </div>
 
       <Card className="mb-6">
@@ -150,9 +136,7 @@ export default function JwtVerifierPage() {
             <ShieldCheck className="h-5 w-5" />
             JWT Token & Secret
           </CardTitle>
-          <CardDescription>
-            Enter your JWT token and secret key to verify
-          </CardDescription>
+          <CardDescription>Enter your JWT token and secret key to verify</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -223,9 +207,7 @@ export default function JwtVerifierPage() {
                 <div>
                   <div
                     className={`text-xl font-bold ${
-                      isValid
-                        ? "text-green-700 dark:text-green-300"
-                        : "text-red-700 dark:text-red-300"
+                      isValid ? "text-green-700 dark:text-green-300" : "text-red-700 dark:text-red-300"
                     }`}
                   >
                     {isValid ? "Signature Valid" : "Signature Invalid"}
@@ -240,15 +222,10 @@ export default function JwtVerifierPage() {
 
               {expirationStatus && (
                 <div className="mt-3 pt-3 border-t">
-                  <Badge
-                    variant={expirationStatus.expired ? "destructive" : "default"}
-                    className="mb-1"
-                  >
+                  <Badge variant={expirationStatus.expired ? "destructive" : "default"} className="mb-1">
                     {expirationStatus.expired ? "EXPIRED" : "ACTIVE"}
                   </Badge>
-                  <div className="text-sm text-muted-foreground">
-                    {expirationStatus.message}
-                  </div>
+                  <div className="text-sm text-muted-foreground">{expirationStatus.message}</div>
                 </div>
               )}
             </div>
@@ -264,11 +241,7 @@ export default function JwtVerifierPage() {
               <CardDescription>JWT header claims</CardDescription>
             </CardHeader>
             <CardContent>
-              <Textarea
-                value={header}
-                readOnly
-                className="font-mono text-xs min-h-[200px] bg-muted"
-              />
+              <Textarea value={header} readOnly className="font-mono text-xs min-h-[200px] bg-muted" />
             </CardContent>
           </Card>
 
@@ -278,11 +251,7 @@ export default function JwtVerifierPage() {
               <CardDescription>JWT payload claims</CardDescription>
             </CardHeader>
             <CardContent>
-              <Textarea
-                value={payload}
-                readOnly
-                className="font-mono text-xs min-h-[200px] bg-muted"
-              />
+              <Textarea value={payload} readOnly className="font-mono text-xs min-h-[200px] bg-muted" />
             </CardContent>
           </Card>
         </div>
@@ -294,8 +263,8 @@ export default function JwtVerifierPage() {
         </CardHeader>
         <CardContent className="space-y-3 text-sm text-muted-foreground">
           <p>
-            <strong>JWT (JSON Web Token)</strong> verification ensures that a token
-            hasn't been tampered with and was created with the correct secret key.
+            <strong>JWT (JSON Web Token)</strong> verification ensures that a token hasn't been tampered with and was
+            created with the correct secret key.
           </p>
           <div>
             <strong>Supported Algorithms:</strong>
@@ -316,9 +285,8 @@ export default function JwtVerifierPage() {
             </ul>
           </div>
           <div className="p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-md">
-            <strong className="text-blue-800 dark:text-blue-300">Security Note:</strong>{" "}
-            All verification is done locally in your browser. Your tokens and secrets
-            never leave your device.
+            <strong className="text-blue-800 dark:text-blue-300">Security Note:</strong> All verification is done
+            locally in your browser. Your tokens and secrets never leave your device.
           </div>
         </CardContent>
       </Card>

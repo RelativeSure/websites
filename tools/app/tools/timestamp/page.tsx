@@ -1,17 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Clock, ArrowRightLeft } from "lucide-react";
+import { ArrowRightLeft, Clock } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function TimestampConverter() {
   const [timestamp, setTimestamp] = useState("");
@@ -65,9 +59,7 @@ export default function TimestampConverter() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Timestamp Converter</h1>
-        <p className="text-muted-foreground">
-          Convert between Unix timestamps and human-readable dates
-        </p>
+        <p className="text-muted-foreground">Convert between Unix timestamps and human-readable dates</p>
       </div>
 
       {error && (
@@ -84,15 +76,11 @@ export default function TimestampConverter() {
           <div className="grid gap-4 md:grid-cols-2">
             <div>
               <Label>Unix Timestamp</Label>
-              <div className="font-mono text-2xl font-bold">
-                {Math.floor(currentTime / 1000)}
-              </div>
+              <div className="font-mono text-2xl font-bold">{Math.floor(currentTime / 1000)}</div>
             </div>
             <div>
               <Label>Date & Time</Label>
-              <div className="text-2xl font-bold">
-                {new Date(currentTime).toLocaleString()}
-              </div>
+              <div className="text-2xl font-bold">{new Date(currentTime).toLocaleString()}</div>
             </div>
           </div>
           <Button onClick={useCurrentTime} variant="outline" className="w-full">
@@ -134,11 +122,7 @@ export default function TimestampConverter() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label>Date & Time</Label>
-              <Input
-                type="datetime-local"
-                value={dateTime}
-                onChange={(e) => setDateTime(e.target.value)}
-              />
+              <Input type="datetime-local" value={dateTime} onChange={(e) => setDateTime(e.target.value)} />
             </div>
             <Button onClick={dateToTimestamp} className="w-full">
               <ArrowRightLeft className="mr-2 w-4 h-4" />

@@ -1,23 +1,11 @@
+import { Check, Copy, ExternalLink, Eye } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Eye, Copy, Check, ExternalLink } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function OpenGraphPreviewPage() {
   const [title, setTitle] = useState("Your Page Title");
@@ -75,9 +63,7 @@ export default function OpenGraphPreviewPage() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Open Graph Preview</h1>
-        <p className="text-muted-foreground">
-          Preview how your page will appear when shared on social media
-        </p>
+        <p className="text-muted-foreground">Preview how your page will appear when shared on social media</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -85,9 +71,7 @@ export default function OpenGraphPreviewPage() {
           <Card>
             <CardHeader>
               <CardTitle>Meta Information</CardTitle>
-              <CardDescription>
-                Enter your page details
-              </CardDescription>
+              <CardDescription>Enter your page details</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -99,9 +83,7 @@ export default function OpenGraphPreviewPage() {
                   placeholder="Your page title"
                   maxLength={60}
                 />
-                <div className="text-xs text-muted-foreground">
-                  {title.length}/60 characters (optimal: 40-60)
-                </div>
+                <div className="text-xs text-muted-foreground">{title.length}/60 characters (optimal: 40-60)</div>
               </div>
 
               <div className="space-y-2">
@@ -127,9 +109,7 @@ export default function OpenGraphPreviewPage() {
                   onChange={(e) => setImageUrl(e.target.value)}
                   placeholder="https://example.com/image.jpg"
                 />
-                <div className="text-xs text-muted-foreground">
-                  Recommended: 1200×630px (1.91:1 ratio)
-                </div>
+                <div className="text-xs text-muted-foreground">Recommended: 1200×630px (1.91:1 ratio)</div>
               </div>
 
               <div className="space-y-2">
@@ -176,9 +156,7 @@ export default function OpenGraphPreviewPage() {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="summary">Summary</SelectItem>
-                      <SelectItem value="summary_large_image">
-                        Summary Large Image
-                      </SelectItem>
+                      <SelectItem value="summary_large_image">Summary Large Image</SelectItem>
                       <SelectItem value="app">App</SelectItem>
                       <SelectItem value="player">Player</SelectItem>
                     </SelectContent>
@@ -197,9 +175,7 @@ export default function OpenGraphPreviewPage() {
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle>Meta Tags</CardTitle>
-                  <CardDescription>
-                    Copy these tags to your HTML &lt;head&gt;
-                  </CardDescription>
+                  <CardDescription>Copy these tags to your HTML &lt;head&gt;</CardDescription>
                 </div>
                 <Button variant="ghost" size="sm" onClick={handleCopy}>
                   {copied ? (
@@ -217,11 +193,7 @@ export default function OpenGraphPreviewPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <Textarea
-                value={generateMetaTags()}
-                readOnly
-                className="font-mono text-xs min-h-[300px] bg-muted"
-              />
+              <Textarea value={generateMetaTags()} readOnly className="font-mono text-xs min-h-[300px] bg-muted" />
             </CardContent>
           </Card>
         </div>
@@ -233,9 +205,7 @@ export default function OpenGraphPreviewPage() {
                 <Eye className="h-5 w-5" />
                 Facebook Preview
               </CardTitle>
-              <CardDescription>
-                How your link will appear on Facebook
-              </CardDescription>
+              <CardDescription>How your link will appear on Facebook</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="border rounded-lg overflow-hidden bg-white">
@@ -246,17 +216,14 @@ export default function OpenGraphPreviewPage() {
                       alt="Preview"
                       className="absolute inset-0 w-full h-full object-cover"
                       onError={(e) => {
-                        e.currentTarget.src =
-                          "https://via.placeholder.com/1200x630/cccccc/666666?text=Image+Not+Found";
+                        e.currentTarget.src = "https://via.placeholder.com/1200x630/cccccc/666666?text=Image+Not+Found";
                       }}
                     />
                   </div>
                 )}
                 <div className="p-3 border-t">
                   <div className="text-xs text-gray-500 uppercase mb-1">{url}</div>
-                  <div className="font-semibold text-gray-900 mb-1 line-clamp-2">
-                    {title}
-                  </div>
+                  <div className="font-semibold text-gray-900 mb-1 line-clamp-2">{title}</div>
                   <div className="text-sm text-gray-600 line-clamp-2">{description}</div>
                 </div>
               </div>
@@ -269,9 +236,7 @@ export default function OpenGraphPreviewPage() {
                 <Eye className="h-5 w-5" />
                 Twitter Preview
               </CardTitle>
-              <CardDescription>
-                How your link will appear on Twitter/X
-              </CardDescription>
+              <CardDescription>How your link will appear on Twitter/X</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="border rounded-2xl overflow-hidden bg-white">
@@ -282,8 +247,7 @@ export default function OpenGraphPreviewPage() {
                       alt="Preview"
                       className="absolute inset-0 w-full h-full object-cover"
                       onError={(e) => {
-                        e.currentTarget.src =
-                          "https://via.placeholder.com/1200x630/cccccc/666666?text=Image+Not+Found";
+                        e.currentTarget.src = "https://via.placeholder.com/1200x630/cccccc/666666?text=Image+Not+Found";
                       }}
                     />
                   </div>
@@ -296,28 +260,19 @@ export default function OpenGraphPreviewPage() {
                         alt="Preview"
                         className="w-24 h-24 object-cover rounded"
                         onError={(e) => {
-                          e.currentTarget.src =
-                            "https://via.placeholder.com/150/cccccc/666666?text=No+Image";
+                          e.currentTarget.src = "https://via.placeholder.com/150/cccccc/666666?text=No+Image";
                         }}
                       />
                       <div className="flex-1 min-w-0">
-                        <div className="font-semibold text-gray-900 mb-1 line-clamp-1">
-                          {title}
-                        </div>
-                        <div className="text-sm text-gray-600 line-clamp-2">
-                          {description}
-                        </div>
+                        <div className="font-semibold text-gray-900 mb-1 line-clamp-1">{title}</div>
+                        <div className="text-sm text-gray-600 line-clamp-2">{description}</div>
                       </div>
                     </div>
                   )}
                   {twitterCard === "summary_large_image" && (
                     <div>
-                      <div className="font-semibold text-gray-900 mb-1 line-clamp-2">
-                        {title}
-                      </div>
-                      <div className="text-sm text-gray-600 line-clamp-2 mb-2">
-                        {description}
-                      </div>
+                      <div className="font-semibold text-gray-900 mb-1 line-clamp-2">{title}</div>
+                      <div className="text-sm text-gray-600 line-clamp-2 mb-2">{description}</div>
                     </div>
                   )}
                   <div className="text-xs text-gray-500 flex items-center gap-1">
@@ -335,9 +290,7 @@ export default function OpenGraphPreviewPage() {
                 <Eye className="h-5 w-5" />
                 LinkedIn Preview
               </CardTitle>
-              <CardDescription>
-                How your link will appear on LinkedIn
-              </CardDescription>
+              <CardDescription>How your link will appear on LinkedIn</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="border rounded overflow-hidden bg-white">
@@ -348,16 +301,13 @@ export default function OpenGraphPreviewPage() {
                       alt="Preview"
                       className="absolute inset-0 w-full h-full object-cover"
                       onError={(e) => {
-                        e.currentTarget.src =
-                          "https://via.placeholder.com/1200x627/cccccc/666666?text=Image+Not+Found";
+                        e.currentTarget.src = "https://via.placeholder.com/1200x627/cccccc/666666?text=Image+Not+Found";
                       }}
                     />
                   </div>
                 )}
                 <div className="p-3 border-t bg-gray-50">
-                  <div className="font-semibold text-gray-900 mb-1 line-clamp-2">
-                    {title}
-                  </div>
+                  <div className="font-semibold text-gray-900 mb-1 line-clamp-2">{title}</div>
                   <div className="text-xs text-gray-500 truncate">{url}</div>
                 </div>
               </div>
@@ -372,9 +322,8 @@ export default function OpenGraphPreviewPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            Open Graph protocol enables any web page to become a rich object in a social
-            graph. It's used by Facebook, LinkedIn, and other platforms to display
-            link previews.
+            Open Graph protocol enables any web page to become a rich object in a social graph. It's used by Facebook,
+            LinkedIn, and other platforms to display link previews.
           </p>
           <div>
             <strong>Best practices:</strong>

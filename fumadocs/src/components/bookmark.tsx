@@ -1,4 +1,4 @@
-import { Card } from 'fumadocs-ui/components/card';
+import { Card } from "fumadocs-ui/components/card";
 
 interface BookmarkProps {
   url: string;
@@ -7,7 +7,7 @@ interface BookmarkProps {
 }
 
 export function Bookmark({ url, title, description }: BookmarkProps) {
-  const isExternal = url.startsWith('http://') || url.startsWith('https://');
+  const isExternal = url.startsWith("http://") || url.startsWith("https://");
 
   return (
     <div className="mb-4">

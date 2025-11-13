@@ -2,15 +2,12 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   darkMode: ["class"],
-  content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./index.html",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}", "./index.html"],
   theme: {
     extend: {
       fontFamily: {
-        mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', 'monospace'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ["JetBrains Mono", "Fira Code", "Consolas", "Monaco", "monospace"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

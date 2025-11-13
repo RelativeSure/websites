@@ -1,14 +1,14 @@
 @layer base, starlight, theme, components, utilities;
 
-@import '@astrojs/starlight-tailwind';
-@import 'tailwindcss/theme.css' layer(theme);
-@import 'tailwindcss/utilities.css' layer(utilities);
+@import "@astrojs/starlight-tailwind";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 /* Default fallback (no theme set) - use light mode */
 :root {
   /* font */
-  --font-family-sans: 'Fira Mono', monospace;
-  --font-family-mono: 'Fira Code', monospace;
+  --font-family-sans: "Fira Mono", monospace;
+  --font-family-mono: "Fira Code", monospace;
 
   /* Light theme colors as default fallback */
   --sl-color-accent-low: #d1e5f0;
@@ -26,7 +26,7 @@
 }
 
 /* Dark mode colors */
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   /* Dark theme colors - much darker backgrounds */
   --sl-color-accent-low: #1e3a5f;
   --sl-color-accent: #5fb3f3;
@@ -43,7 +43,7 @@
 }
 
 /* Light mode colors */
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --sl-color-accent-low: #d1e5f0;
   --sl-color-accent: #0071ab;
   --sl-color-accent-high: #0e3650;
@@ -59,7 +59,7 @@
 }
 
 /* Blue Ocean Theme */
-:root[data-theme='blue'] {
+:root[data-theme="blue"] {
   --sl-color-accent-low: #dbeafe;
   --sl-color-accent: #1d4ed8;
   --sl-color-accent-high: #1e3a8a;
@@ -75,7 +75,7 @@
 }
 
 /* Forest Green Theme */
-:root[data-theme='forest'] {
+:root[data-theme="forest"] {
   --sl-color-accent-low: #dcfce7;
   --sl-color-accent: #16a34a;
   --sl-color-accent-high: #14532d;
@@ -91,7 +91,7 @@
 }
 
 /* Sunset Orange Theme */
-:root[data-theme='sunset'] {
+:root[data-theme="sunset"] {
   --sl-color-accent-low: #fed7aa;
   --sl-color-accent: #ea580c;
   --sl-color-accent-high: #9a3412;
@@ -107,7 +107,7 @@
 }
 
 /* Purple Night Theme */
-:root[data-theme='purple'] {
+:root[data-theme="purple"] {
   --sl-color-accent-low: #e9d5ff;
   --sl-color-accent: #7c3aed;
   --sl-color-accent-high: #3730a3;

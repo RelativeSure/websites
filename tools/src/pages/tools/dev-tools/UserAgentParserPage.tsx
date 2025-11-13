@@ -1,13 +1,7 @@
-import { useState, useEffect } from "react";
-import { Textarea } from "@/components/ui/textarea";
+import { useEffect, useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function UserAgentParser() {
   const [userAgent, setUserAgent] = useState("");
@@ -107,9 +101,7 @@ export default function UserAgentParser() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">User Agent Parser</h1>
-        <p className="text-muted-foreground">
-          Parse and analyze browser user agent strings
-        </p>
+        <p className="text-muted-foreground">Parse and analyze browser user agent strings</p>
       </div>
 
       <Card className="mb-6">

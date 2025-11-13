@@ -1,6 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
-import StringEscapePage from '../../../pages/tools/encoders/StringEscapePage'
+import { createFileRoute } from "@tanstack/react-router";
+import StringEscapePage from "../../../pages/tools/encoders/StringEscapePage";
 
-export const Route = createFileRoute('/_tools/encoders/string-escape')({
+export const Route = createFileRoute("/_tools/encoders/string-escape")({
   component: StringEscapePage,
-})
+});

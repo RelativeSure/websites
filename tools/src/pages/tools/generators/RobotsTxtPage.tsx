@@ -1,16 +1,10 @@
+import { Bot, Check, Copy, Download, ExternalLink, Plus, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Bot, Copy, Check, Download, Plus, X, ExternalLink } from "lucide-react";
 
 interface Rule {
   userAgent: string;
@@ -19,9 +13,7 @@ interface Rule {
 }
 
 export default function RobotsTxtPage() {
-  const [rules, setRules] = useState<Rule[]>([
-    { userAgent: "*", allow: [], disallow: [] },
-  ]);
+  const [rules, setRules] = useState<Rule[]>([{ userAgent: "*", allow: [], disallow: [] }]);
   const [sitemap, setSitemap] = useState("");
   const [crawlDelay, setCrawlDelay] = useState("");
   const [host, setHost] = useState("");
@@ -91,9 +83,7 @@ export default function RobotsTxtPage() {
   const loadTemplate = (template: string) => {
     switch (template) {
       case "basic":
-        setRules([
-          { userAgent: "*", allow: [], disallow: ["/admin/", "/private/"] },
-        ]);
+        setRules([{ userAgent: "*", allow: [], disallow: ["/admin/", "/private/"] }]);
         break;
       case "allow-all":
         setRules([{ userAgent: "*", allow: [], disallow: [] }]);
@@ -176,9 +166,7 @@ export default function RobotsTxtPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">robots.txt Generator</h1>
-        <p className="text-muted-foreground">
-          Generate robots.txt file to control crawler access to your website
-        </p>
+        <p className="text-muted-foreground">Generate robots.txt file to control crawler access to your website</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -190,9 +178,7 @@ export default function RobotsTxtPage() {
                   <Bot className="h-5 w-5" />
                   Rules Configuration
                 </CardTitle>
-                <CardDescription>
-                  Define rules for different user agents
-                </CardDescription>
+                <CardDescription>Define rules for different user agents</CardDescription>
               </div>
               <Button onClick={addRule} size="sm">
                 <Plus className="h-4 w-4 mr-1" />
@@ -206,11 +192,7 @@ export default function RobotsTxtPage() {
                 <div className="flex items-center justify-between">
                   <Label>Rule {index + 1}</Label>
                   {rules.length > 1 && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => removeRule(index)}
-                    >
+                    <Button variant="ghost" size="sm" onClick={() => removeRule(index)}>
                       <X className="h-4 w-4" />
                     </Button>
                   )}
@@ -233,9 +215,7 @@ export default function RobotsTxtPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor={`disallow-${index}`}>
-                    Disallow (one path per line)
-                  </Label>
+                  <Label htmlFor={`disallow-${index}`}>Disallow (one path per line)</Label>
                   <Textarea
                     id={`disallow-${index}`}
                     value={rule.disallow.join("\n")}
@@ -247,9 +227,7 @@ export default function RobotsTxtPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor={`allow-${index}`}>
-                    Allow (one path per line)
-                  </Label>
+                  <Label htmlFor={`allow-${index}`}>Allow (one path per line)</Label>
                   <Textarea
                     id={`allow-${index}`}
                     value={rule.allow.join("\n")}
@@ -267,9 +245,7 @@ export default function RobotsTxtPage() {
         <Card>
           <CardHeader>
             <CardTitle>Global Settings</CardTitle>
-            <CardDescription>
-              Optional configuration
-            </CardDescription>
+            <CardDescription>Optional configuration</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -282,9 +258,7 @@ export default function RobotsTxtPage() {
                 className="font-mono text-sm"
                 rows={2}
               />
-              <div className="text-xs text-muted-foreground">
-                One URL per line
-              </div>
+              <div className="text-xs text-muted-foreground">One URL per line</div>
             </div>
 
             <div className="space-y-2">
@@ -296,9 +270,7 @@ export default function RobotsTxtPage() {
                 onChange={(e) => setCrawlDelay(e.target.value)}
                 placeholder="10"
               />
-              <div className="text-xs text-muted-foreground">
-                Not supported by all crawlers
-              </div>
+              <div className="text-xs text-muted-foreground">Not supported by all crawlers</div>
             </div>
 
             <div className="space-y-2">
@@ -309,9 +281,7 @@ export default function RobotsTxtPage() {
                 onChange={(e) => setHost(e.target.value)}
                 placeholder="https://www.example.com"
               />
-              <div className="text-xs text-muted-foreground">
-                Yandex specific
-              </div>
+              <div className="text-xs text-muted-foreground">Yandex specific</div>
             </div>
           </CardContent>
         </Card>
@@ -320,9 +290,7 @@ export default function RobotsTxtPage() {
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>Templates</CardTitle>
-          <CardDescription>
-            Quick start with common configurations
-          </CardDescription>
+          <CardDescription>Quick start with common configurations</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
@@ -358,9 +326,7 @@ export default function RobotsTxtPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>Generated robots.txt</CardTitle>
-                <CardDescription>
-                  Place this file at the root of your website
-                </CardDescription>
+                <CardDescription>Place this file at the root of your website</CardDescription>
               </div>
               <div className="flex gap-2">
                 <Button variant="ghost" size="sm" onClick={handleCopy}>
@@ -384,11 +350,7 @@ export default function RobotsTxtPage() {
             </div>
           </CardHeader>
           <CardContent>
-            <Textarea
-              value={output}
-              readOnly
-              className="font-mono text-sm min-h-[300px] bg-muted"
-            />
+            <Textarea value={output} readOnly className="font-mono text-sm min-h-[300px] bg-muted" />
           </CardContent>
         </Card>
       )}
@@ -399,9 +361,8 @@ export default function RobotsTxtPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-3">
           <p>
-            The robots.txt file tells search engine crawlers which URLs they can
-            access on your site. It must be placed at the root of your website
-            (e.g., https://example.com/robots.txt).
+            The robots.txt file tells search engine crawlers which URLs they can access on your site. It must be placed
+            at the root of your website (e.g., https://example.com/robots.txt).
           </p>
           <div>
             <strong>Common directives:</strong>
@@ -424,8 +385,8 @@ export default function RobotsTxtPage() {
             </ul>
           </div>
           <p>
-            <strong>Important:</strong> robots.txt is not a security mechanism.
-            Malicious bots may ignore it. Use proper authentication for sensitive content.
+            <strong>Important:</strong> robots.txt is not a security mechanism. Malicious bots may ignore it. Use proper
+            authentication for sensitive content.
           </p>
           <div className="flex items-center gap-2 pt-2">
             <ExternalLink className="h-4 w-4" />

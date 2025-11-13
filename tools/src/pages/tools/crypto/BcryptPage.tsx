@@ -1,24 +1,12 @@
+import bcrypt from "bcryptjs";
+import { Check, Copy, Lock, Shield } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Copy, Check, Shield, Lock } from "lucide-react";
-import bcrypt from "bcryptjs";
 
 export default function BcryptPage() {
   const [password, setPassword] = useState("");
@@ -81,9 +69,7 @@ export default function BcryptPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Bcrypt Hash Generator</h1>
-        <p className="text-muted-foreground">
-          Generate and verify bcrypt password hashes
-        </p>
+        <p className="text-muted-foreground">Generate and verify bcrypt password hashes</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -93,9 +79,7 @@ export default function BcryptPage() {
               <Lock className="h-5 w-5" />
               Generate Hash
             </CardTitle>
-            <CardDescription>
-              Create a bcrypt hash from a password
-            </CardDescription>
+            <CardDescription>Create a bcrypt hash from a password</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -122,16 +106,10 @@ export default function BcryptPage() {
                   <SelectItem value="14">14 rounds (Very Strong)</SelectItem>
                 </SelectContent>
               </Select>
-              <p className="text-xs text-muted-foreground">
-                {getRoundsInfo(rounds)}
-              </p>
+              <p className="text-xs text-muted-foreground">{getRoundsInfo(rounds)}</p>
             </div>
 
-            <Button
-              onClick={generateHash}
-              disabled={!password || generating}
-              className="w-full"
-            >
+            <Button onClick={generateHash} disabled={!password || generating} className="w-full">
               <Shield className="mr-2 h-4 w-4" />
               {generating ? "Generating..." : "Generate Hash"}
             </Button>
@@ -154,15 +132,8 @@ export default function BcryptPage() {
                     )}
                   </Button>
                 </div>
-                <Textarea
-                  value={hash}
-                  readOnly
-                  className="font-mono text-xs"
-                  rows={3}
-                />
-                <div className="text-xs text-muted-foreground">
-                  Length: {hash.length} characters
-                </div>
+                <Textarea value={hash} readOnly className="font-mono text-xs" rows={3} />
+                <div className="text-xs text-muted-foreground">Length: {hash.length} characters</div>
               </div>
             )}
           </CardContent>
@@ -174,9 +145,7 @@ export default function BcryptPage() {
               <Shield className="h-5 w-5" />
               Verify Hash
             </CardTitle>
-            <CardDescription>
-              Compare a password against a hash
-            </CardDescription>
+            <CardDescription>Compare a password against a hash</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
@@ -202,11 +171,7 @@ export default function BcryptPage() {
               />
             </div>
 
-            <Button
-              onClick={comparePasswords}
-              disabled={!comparePassword || !compareHash}
-              className="w-full"
-            >
+            <Button onClick={comparePasswords} disabled={!comparePassword || !compareHash} className="w-full">
               <Shield className="mr-2 h-4 w-4" />
               Verify Password
             </Button>
@@ -221,17 +186,13 @@ export default function BcryptPage() {
               >
                 <div
                   className={`font-semibold ${
-                    compareResult
-                      ? "text-green-700 dark:text-green-300"
-                      : "text-red-700 dark:text-red-300"
+                    compareResult ? "text-green-700 dark:text-green-300" : "text-red-700 dark:text-red-300"
                   }`}
                 >
                   {compareResult ? "✓ Password Matches" : "✗ Password Does Not Match"}
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">
-                  {compareResult
-                    ? "The password is correct for this hash"
-                    : "The password does not match this hash"}
+                  {compareResult ? "The password is correct for this hash" : "The password does not match this hash"}
                 </div>
               </div>
             )}
@@ -245,12 +206,12 @@ export default function BcryptPage() {
         </CardHeader>
         <CardContent className="space-y-3 text-sm text-muted-foreground">
           <p>
-            <strong>Bcrypt</strong> is a password hashing function designed to be
-            computationally expensive, making it resistant to brute-force attacks.
+            <strong>Bcrypt</strong> is a password hashing function designed to be computationally expensive, making it
+            resistant to brute-force attacks.
           </p>
           <div>
-            <strong>Salt Rounds:</strong> The number of rounds determines how slow
-            the hashing is. More rounds = more secure but slower.
+            <strong>Salt Rounds:</strong> The number of rounds determines how slow the hashing is. More rounds = more
+            secure but slower.
             <ul className="list-disc list-inside mt-2 space-y-1">
               <li>8 rounds: ~40ms (minimum recommended)</li>
               <li>10 rounds: ~150ms (default, recommended)</li>
@@ -259,13 +220,12 @@ export default function BcryptPage() {
             </ul>
           </div>
           <div className="p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-md">
-            <strong className="text-blue-800 dark:text-blue-300">Security Note:</strong>{" "}
-            All hashing is done locally in your browser. Your passwords never leave
-            your device.
+            <strong className="text-blue-800 dark:text-blue-300">Security Note:</strong> All hashing is done locally in
+            your browser. Your passwords never leave your device.
           </div>
           <p>
-            <strong>Hash Format:</strong> Bcrypt hashes include the algorithm
-            version, cost factor (rounds), salt, and hash all in one string.
+            <strong>Hash Format:</strong> Bcrypt hashes include the algorithm version, cost factor (rounds), salt, and
+            hash all in one string.
           </p>
         </CardContent>
       </Card>

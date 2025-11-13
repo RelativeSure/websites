@@ -1,16 +1,10 @@
+import { Check, Copy, FileText, Upload } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check, Upload, FileText } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function DataUriPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -61,11 +55,7 @@ export default function DataUriPage() {
       <div className="mt-4">
         <Label>Preview</Label>
         <div className="mt-2 p-4 bg-muted rounded-md flex items-center justify-center">
-          <img
-            src={dataUri}
-            alt="Preview"
-            className="max-w-full max-h-[300px] object-contain"
-          />
+          <img src={dataUri} alt="Preview" className="max-w-full max-h-[300px] object-contain" />
         </div>
       </div>
     );
@@ -75,9 +65,7 @@ export default function DataUriPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Data URI Generator</h1>
-        <p className="text-muted-foreground">
-          Convert files and text to Data URIs for embedding in HTML/CSS
-        </p>
+        <p className="text-muted-foreground">Convert files and text to Data URIs for embedding in HTML/CSS</p>
       </div>
 
       <Tabs defaultValue="file" className="mb-6">
@@ -90,9 +78,7 @@ export default function DataUriPage() {
           <Card>
             <CardHeader>
               <CardTitle>Upload File</CardTitle>
-              <CardDescription>
-                Select a file to convert to a Data URI (images work best)
-              </CardDescription>
+              <CardDescription>Select a file to convert to a Data URI (images work best)</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -106,12 +92,7 @@ export default function DataUriPage() {
                     <Upload className="mr-2 h-4 w-4" />
                     {file ? file.name : "Select File"}
                   </Button>
-                  <input
-                    id="file-upload"
-                    type="file"
-                    onChange={handleFileChange}
-                    className="hidden"
-                  />
+                  <input id="file-upload" type="file" onChange={handleFileChange} className="hidden" />
                 </div>
                 {file && (
                   <div className="text-sm text-muted-foreground space-y-1">
@@ -128,11 +109,7 @@ export default function DataUriPage() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <Label>Data URI</Label>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleCopy(dataUri, setCopied)}
-                    >
+                    <Button variant="ghost" size="sm" onClick={() => handleCopy(dataUri, setCopied)}>
                       {copied ? (
                         <>
                           <Check className="h-4 w-4 mr-1" />
@@ -146,11 +123,7 @@ export default function DataUriPage() {
                       )}
                     </Button>
                   </div>
-                  <Textarea
-                    value={dataUri}
-                    readOnly
-                    className="font-mono text-xs min-h-[200px]"
-                  />
+                  <Textarea value={dataUri} readOnly className="font-mono text-xs min-h-[200px]" />
                 </div>
               )}
 
@@ -181,9 +154,7 @@ export default function DataUriPage() {
           <Card>
             <CardHeader>
               <CardTitle>Text to Data URI</CardTitle>
-              <CardDescription>
-                Convert plain text to a Data URI
-              </CardDescription>
+              <CardDescription>Convert plain text to a Data URI</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -222,14 +193,8 @@ export default function DataUriPage() {
                       Copy
                     </Button>
                   </div>
-                  <Textarea
-                    value={textDataUri}
-                    readOnly
-                    className="font-mono text-xs min-h-[150px]"
-                  />
-                  <div className="text-sm text-muted-foreground">
-                    Size: {formatSize(textDataUri.length)}
-                  </div>
+                  <Textarea value={textDataUri} readOnly className="font-mono text-xs min-h-[150px]" />
+                  <div className="text-sm text-muted-foreground">Size: {formatSize(textDataUri.length)}</div>
                 </div>
               )}
 
@@ -255,15 +220,15 @@ export default function DataUriPage() {
         </CardHeader>
         <CardContent className="space-y-2 text-sm text-muted-foreground">
           <p>
-            Data URIs allow you to embed small files directly in your HTML or CSS,
-            eliminating the need for separate HTTP requests.
+            Data URIs allow you to embed small files directly in your HTML or CSS, eliminating the need for separate
+            HTTP requests.
           </p>
           <div className="p-3 bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800 rounded-md">
-            <strong className="text-yellow-800 dark:text-yellow-300">Note:</strong> Data URIs increase file size by ~33% due to Base64 encoding. Best for small files (&lt;10KB).
+            <strong className="text-yellow-800 dark:text-yellow-300">Note:</strong> Data URIs increase file size by ~33%
+            due to Base64 encoding. Best for small files (&lt;10KB).
           </div>
           <div>
-            <strong>Format:</strong>{" "}
-            <code className="text-xs">data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</code>
+            <strong>Format:</strong> <code className="text-xs">data:[&lt;mediatype&gt;][;base64],&lt;data&gt;</code>
           </div>
         </CardContent>
       </Card>

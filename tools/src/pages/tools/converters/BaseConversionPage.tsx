@@ -1,16 +1,10 @@
+import { ArrowLeftRight, Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { ArrowLeftRight, Copy, Check } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 type BaseType = "text" | "base64" | "base64url" | "base32" | "hex" | "binary";
 
@@ -195,9 +189,7 @@ export default function BaseConversionPage() {
       const result = fromBytes(bytes, toBase);
       setOutput(result);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Conversion failed. Please check your input."
-      );
+      setError(err instanceof Error ? err.message : "Conversion failed. Please check your input.");
       setOutput("");
     }
   };
@@ -258,13 +250,7 @@ export default function BaseConversionPage() {
               </Select>
             </div>
 
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={handleSwap}
-              className="mb-0"
-              title="Swap bases"
-            >
+            <Button variant="outline" size="icon" onClick={handleSwap} className="mb-0" title="Swap bases">
               <ArrowLeftRight className="h-4 w-4" />
             </Button>
 
@@ -307,12 +293,7 @@ export default function BaseConversionPage() {
             <div className="flex items-center justify-between">
               <Label htmlFor="output">Output</Label>
               {output && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={handleCopy}
-                  className="h-8"
-                >
+                <Button variant="ghost" size="sm" onClick={handleCopy} className="h-8">
                   {copied ? (
                     <>
                       <Check className="h-4 w-4 mr-1" />
@@ -346,27 +327,19 @@ export default function BaseConversionPage() {
         <CardContent className="space-y-3">
           <div>
             <p className="text-sm font-medium">Text to Base64:</p>
-            <p className="text-sm text-muted-foreground font-mono">
-              "Hello World" → "SGVsbG8gV29ybGQ="
-            </p>
+            <p className="text-sm text-muted-foreground font-mono">"Hello World" → "SGVsbG8gV29ybGQ="</p>
           </div>
           <div>
             <p className="text-sm font-medium">Base64 to Hex (binary data preserved):</p>
-            <p className="text-sm text-muted-foreground font-mono">
-              "/w==" (0xFF byte) → "ff"
-            </p>
+            <p className="text-sm text-muted-foreground font-mono">"/w==" (0xFF byte) → "ff"</p>
           </div>
           <div>
             <p className="text-sm font-medium">Base64 to Base32:</p>
-            <p className="text-sm text-muted-foreground font-mono">
-              "SGVsbG8gV29ybGQ=" → "JBSWY3DPEBLW64TMMQQQ===="
-            </p>
+            <p className="text-sm text-muted-foreground font-mono">"SGVsbG8gV29ybGQ=" → "JBSWY3DPEBLW64TMMQQQ===="</p>
           </div>
           <div>
             <p className="text-sm font-medium">Text to Hex:</p>
-            <p className="text-sm text-muted-foreground font-mono">
-              "Hello" → "48656c6c6f"
-            </p>
+            <p className="text-sm text-muted-foreground font-mono">"Hello" → "48656c6c6f"</p>
           </div>
         </CardContent>
       </Card>

@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
 import { Clock } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function TimestampConverter() {
   const [currentTime, setCurrentTime] = useState(Date.now());
@@ -69,15 +63,11 @@ export default function TimestampConverter() {
               <div className="grid gap-4 md:grid-cols-2 mt-2">
                 <div>
                   <Label className="text-xs">Unix Timestamp</Label>
-                  <div className="font-mono text-xl font-bold text-primary">
-                    {Math.floor(currentTime / 1000)}
-                  </div>
+                  <div className="font-mono text-xl font-bold text-primary">{Math.floor(currentTime / 1000)}</div>
                 </div>
                 <div>
                   <Label className="text-xs">Date & Time</Label>
-                  <div className="text-lg font-bold">
-                    {new Date(currentTime).toLocaleString()}
-                  </div>
+                  <div className="text-lg font-bold">{new Date(currentTime).toLocaleString()}</div>
                 </div>
               </div>
               <Button onClick={useCurrentTime} variant="outline" size="sm" className="w-full mt-3">

@@ -1,17 +1,11 @@
+import { Check, Copy, Globe, Tag } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check, Globe, Tag } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function MetaTagGeneratorPage() {
   const [title, setTitle] = useState("");
@@ -84,9 +78,7 @@ export default function MetaTagGeneratorPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Meta Tag Generator</h1>
-        <p className="text-muted-foreground">
-          Generate SEO and social media meta tags
-        </p>
+        <p className="text-muted-foreground">Generate SEO and social media meta tags</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -97,9 +89,7 @@ export default function MetaTagGeneratorPage() {
                 <Tag className="h-5 w-5" />
                 Basic Information
               </CardTitle>
-              <CardDescription>
-                Essential meta tags for your website
-              </CardDescription>
+              <CardDescription>Essential meta tags for your website</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -111,9 +101,7 @@ export default function MetaTagGeneratorPage() {
                   placeholder="Your Page Title"
                   maxLength={60}
                 />
-                <p className="text-xs text-muted-foreground">
-                  {title.length}/60 characters (optimal: 50-60)
-                </p>
+                <p className="text-xs text-muted-foreground">{title.length}/60 characters (optimal: 50-60)</p>
               </div>
 
               <div className="space-y-2">
@@ -126,9 +114,7 @@ export default function MetaTagGeneratorPage() {
                   rows={3}
                   maxLength={160}
                 />
-                <p className="text-xs text-muted-foreground">
-                  {description.length}/160 characters (optimal: 150-160)
-                </p>
+                <p className="text-xs text-muted-foreground">{description.length}/160 characters (optimal: 150-160)</p>
               </div>
 
               <div className="space-y-2">
@@ -159,9 +145,7 @@ export default function MetaTagGeneratorPage() {
                 <Globe className="h-5 w-5" />
                 Social Media
               </CardTitle>
-              <CardDescription>
-                Open Graph and Twitter Card tags
-              </CardDescription>
+              <CardDescription>Open Graph and Twitter Card tags</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
@@ -184,9 +168,7 @@ export default function MetaTagGeneratorPage() {
                   placeholder="https://example.com/image.jpg"
                   type="url"
                 />
-                <p className="text-xs text-muted-foreground">
-                  Recommended: 1200x630px for best display
-                </p>
+                <p className="text-xs text-muted-foreground">Recommended: 1200x630px for best display</p>
               </div>
 
               <div className="space-y-2">
@@ -231,9 +213,7 @@ export default function MetaTagGeneratorPage() {
                   )}
                 </Button>
               </div>
-              <CardDescription>
-                Copy and paste into your HTML &lt;head&gt;
-              </CardDescription>
+              <CardDescription>Copy and paste into your HTML &lt;head&gt;</CardDescription>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="all">
@@ -245,35 +225,19 @@ export default function MetaTagGeneratorPage() {
                 </TabsList>
 
                 <TabsContent value="all" className="mt-4">
-                  <Textarea
-                    value={allTags}
-                    readOnly
-                    className="min-h-[500px] font-mono text-xs"
-                  />
+                  <Textarea value={allTags} readOnly className="min-h-[500px] font-mono text-xs" />
                 </TabsContent>
 
                 <TabsContent value="basic" className="mt-4">
-                  <Textarea
-                    value={generateBasicTags()}
-                    readOnly
-                    className="min-h-[500px] font-mono text-xs"
-                  />
+                  <Textarea value={generateBasicTags()} readOnly className="min-h-[500px] font-mono text-xs" />
                 </TabsContent>
 
                 <TabsContent value="og" className="mt-4">
-                  <Textarea
-                    value={generateOpenGraphTags()}
-                    readOnly
-                    className="min-h-[500px] font-mono text-xs"
-                  />
+                  <Textarea value={generateOpenGraphTags()} readOnly className="min-h-[500px] font-mono text-xs" />
                 </TabsContent>
 
                 <TabsContent value="twitter" className="mt-4">
-                  <Textarea
-                    value={generateTwitterTags()}
-                    readOnly
-                    className="min-h-[500px] font-mono text-xs"
-                  />
+                  <Textarea value={generateTwitterTags()} readOnly className="min-h-[500px] font-mono text-xs" />
                 </TabsContent>
               </Tabs>
             </CardContent>
@@ -304,11 +268,21 @@ export default function MetaTagGeneratorPage() {
           <CardTitle>Best Practices</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>• <strong>Title:</strong> 50-60 characters, include primary keyword</p>
-          <p>• <strong>Description:</strong> 150-160 characters, compelling and unique</p>
-          <p>• <strong>Image:</strong> 1200x630px (1.91:1 ratio) for optimal display on all platforms</p>
-          <p>• <strong>Open Graph:</strong> Used by Facebook, LinkedIn, and other social platforms</p>
-          <p>• <strong>Twitter Cards:</strong> Special meta tags for Twitter sharing</p>
+          <p>
+            • <strong>Title:</strong> 50-60 characters, include primary keyword
+          </p>
+          <p>
+            • <strong>Description:</strong> 150-160 characters, compelling and unique
+          </p>
+          <p>
+            • <strong>Image:</strong> 1200x630px (1.91:1 ratio) for optimal display on all platforms
+          </p>
+          <p>
+            • <strong>Open Graph:</strong> Used by Facebook, LinkedIn, and other social platforms
+          </p>
+          <p>
+            • <strong>Twitter Cards:</strong> Special meta tags for Twitter sharing
+          </p>
           <p>• Test your tags using Facebook's Sharing Debugger and Twitter Card Validator</p>
         </CardContent>
       </Card>

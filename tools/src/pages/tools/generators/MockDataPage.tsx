@@ -1,24 +1,93 @@
+import { Check, Copy, RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check, RefreshCw } from "lucide-react";
 
-const firstNames = ["James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda", "William", "Elizabeth", "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica", "Thomas", "Sarah", "Charles", "Karen"];
-const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin"];
+const firstNames = [
+  "James",
+  "Mary",
+  "John",
+  "Patricia",
+  "Robert",
+  "Jennifer",
+  "Michael",
+  "Linda",
+  "William",
+  "Elizabeth",
+  "David",
+  "Barbara",
+  "Richard",
+  "Susan",
+  "Joseph",
+  "Jessica",
+  "Thomas",
+  "Sarah",
+  "Charles",
+  "Karen",
+];
+const lastNames = [
+  "Smith",
+  "Johnson",
+  "Williams",
+  "Brown",
+  "Jones",
+  "Garcia",
+  "Miller",
+  "Davis",
+  "Rodriguez",
+  "Martinez",
+  "Hernandez",
+  "Lopez",
+  "Gonzalez",
+  "Wilson",
+  "Anderson",
+  "Thomas",
+  "Taylor",
+  "Moore",
+  "Jackson",
+  "Martin",
+];
 const domains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "example.com", "test.com", "mail.com"];
-const streets = ["Main St", "Oak Ave", "Maple Dr", "Pine Rd", "Cedar Ln", "Elm St", "Park Ave", "Washington Blvd", "Lake Dr", "Hill St"];
-const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose"];
+const streets = [
+  "Main St",
+  "Oak Ave",
+  "Maple Dr",
+  "Pine Rd",
+  "Cedar Ln",
+  "Elm St",
+  "Park Ave",
+  "Washington Blvd",
+  "Lake Dr",
+  "Hill St",
+];
+const cities = [
+  "New York",
+  "Los Angeles",
+  "Chicago",
+  "Houston",
+  "Phoenix",
+  "Philadelphia",
+  "San Antonio",
+  "San Diego",
+  "Dallas",
+  "San Jose",
+];
 const states = ["NY", "CA", "IL", "TX", "AZ", "PA", "FL", "OH", "MI", "GA"];
-const companies = ["Tech Corp", "Data Systems", "Cloud Solutions", "Digital Services", "Innovation Labs", "Software Inc", "Web Dynamics", "Cyber Group", "Info Systems", "Smart Tech"];
+const companies = [
+  "Tech Corp",
+  "Data Systems",
+  "Cloud Solutions",
+  "Digital Services",
+  "Innovation Labs",
+  "Software Inc",
+  "Web Dynamics",
+  "Cyber Group",
+  "Info Systems",
+  "Smart Tech",
+];
 
 const random = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)];
 const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
@@ -64,7 +133,7 @@ export default function MockDataPage() {
   const generateCSV = () => {
     const users = Array.from({ length: count }, generateUser);
     const headers = ["ID", "First Name", "Last Name", "Email", "Phone", "City", "State", "Company"];
-    const rows = users.map(u => [
+    const rows = users.map((u) => [
       u.id,
       u.firstName,
       u.lastName,
@@ -72,13 +141,10 @@ export default function MockDataPage() {
       u.phone,
       u.address.city,
       u.address.state,
-      u.company
+      u.company,
     ]);
 
-    const csv = [
-      headers.join(","),
-      ...rows.map(row => row.join(","))
-    ].join("\n");
+    const csv = [headers.join(","), ...rows.map((row) => row.join(","))].join("\n");
 
     setOutput(csv);
   };
@@ -137,9 +203,7 @@ export default function MockDataPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Mock Data Generator</h1>
-        <p className="text-muted-foreground">
-          Generate realistic fake data for testing and development
-        </p>
+        <p className="text-muted-foreground">Generate realistic fake data for testing and development</p>
       </div>
 
       <Card className="mb-6">
@@ -215,11 +279,7 @@ export default function MockDataPage() {
             </div>
           </CardHeader>
           <CardContent>
-            <Textarea
-              value={output}
-              readOnly
-              className="font-mono min-h-[400px] text-xs"
-            />
+            <Textarea value={output} readOnly className="font-mono min-h-[400px] text-xs" />
           </CardContent>
         </Card>
       )}
@@ -230,8 +290,8 @@ export default function MockDataPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground">
           <p>
-            All generated data is completely fictional and randomly generated.
-            Credit card numbers are for testing only and will not work for actual transactions.
+            All generated data is completely fictional and randomly generated. Credit card numbers are for testing only
+            and will not work for actual transactions.
           </p>
         </CardContent>
       </Card>

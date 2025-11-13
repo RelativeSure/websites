@@ -1,16 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { FileText } from "lucide-react";
-import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function TextDiff() {
   const [text1, setText1] = useState("");
@@ -20,9 +14,7 @@ export default function TextDiff() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Text Diff Checker</h1>
-        <p className="text-muted-foreground">
-          Compare two text blocks and see the differences
-        </p>
+        <p className="text-muted-foreground">Compare two text blocks and see the differences</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

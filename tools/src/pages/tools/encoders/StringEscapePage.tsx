@@ -1,21 +1,9 @@
+import { Check, Code2, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Copy, Check, Code2 } from "lucide-react";
 
 export default function StringEscapePage() {
   const [input, setInput] = useState("");
@@ -27,21 +15,24 @@ export default function StringEscapePage() {
   const escapeString = (str: string, lang: string): string => {
     switch (lang) {
       case "javascript":
-        return str.replace(/\\/g, "\\\\")
+        return str
+          .replace(/\\/g, "\\\\")
           .replace(/"/g, '\\"')
           .replace(/'/g, "\\'")
           .replace(/\n/g, "\\n")
           .replace(/\r/g, "\\r")
           .replace(/\t/g, "\\t");
       case "python":
-        return str.replace(/\\/g, "\\\\")
+        return str
+          .replace(/\\/g, "\\\\")
           .replace(/"/g, '\\"')
           .replace(/'/g, "\\'")
           .replace(/\n/g, "\\n")
           .replace(/\r/g, "\\r")
           .replace(/\t/g, "\\t");
       case "java":
-        return str.replace(/\\/g, "\\\\")
+        return str
+          .replace(/\\/g, "\\\\")
           .replace(/"/g, '\\"')
           .replace(/\n/g, "\\n")
           .replace(/\r/g, "\\r")
@@ -49,7 +40,8 @@ export default function StringEscapePage() {
       case "json":
         return JSON.stringify(str).slice(1, -1);
       case "html":
-        return str.replace(/&/g, "&amp;")
+        return str
+          .replace(/&/g, "&amp;")
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;")
           .replace(/"/g, "&quot;")
@@ -67,7 +59,8 @@ export default function StringEscapePage() {
         case "javascript":
         case "python":
         case "java":
-          return str.replace(/\\n/g, "\n")
+          return str
+            .replace(/\\n/g, "\n")
             .replace(/\\r/g, "\r")
             .replace(/\\t/g, "\t")
             .replace(/\\"/g, '"')
@@ -76,7 +69,8 @@ export default function StringEscapePage() {
         case "json":
           return JSON.parse(`"${str}"`);
         case "html":
-          return str.replace(/&quot;/g, '"')
+          return str
+            .replace(/&quot;/g, '"')
             .replace(/&#039;/g, "'")
             .replace(/&gt;/g, ">")
             .replace(/&lt;/g, "<")
@@ -114,7 +108,7 @@ export default function StringEscapePage() {
     python: 'msg = "Hello\\nWorld"',
     java: 'String msg = "Hello\\nWorld";',
     json: '{"message": "Hello\\nWorld"}',
-    html: '&lt;div&gt;Hello&lt;/div&gt;',
+    html: "&lt;div&gt;Hello&lt;/div&gt;",
     sql: "SELECT * WHERE name = ''John''",
   };
 
@@ -122,9 +116,7 @@ export default function StringEscapePage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">String Escape/Unescape</h1>
-        <p className="text-muted-foreground">
-          Escape and unescape strings for different programming languages
-        </p>
+        <p className="text-muted-foreground">Escape and unescape strings for different programming languages</p>
       </div>
 
       <Card className="mb-6">
@@ -174,9 +166,7 @@ export default function StringEscapePage() {
         <Card>
           <CardHeader>
             <CardTitle>Input</CardTitle>
-            <CardDescription>
-              Enter string to {mode}
-            </CardDescription>
+            <CardDescription>Enter string to {mode}</CardDescription>
           </CardHeader>
           <CardContent>
             <Textarea
@@ -201,9 +191,7 @@ export default function StringEscapePage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>Output</CardTitle>
-                <CardDescription>
-                  {mode === "escape" ? "Escaped" : "Unescaped"} result
-                </CardDescription>
+                <CardDescription>{mode === "escape" ? "Escaped" : "Unescaped"} result</CardDescription>
               </div>
               {output && (
                 <Button variant="ghost" size="sm" onClick={handleCopy}>

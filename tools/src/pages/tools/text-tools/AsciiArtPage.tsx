@@ -1,55 +1,49 @@
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check } from "lucide-react";
 
 const asciiFont: Record<string, string[]> = {
-  'A': ['  ###  ', ' ## ## ', '##   ##', '#######', '##   ##'],
-  'B': ['###### ', '##   ##', '###### ', '##   ##', '###### '],
-  'C': [' ##### ', '##   ##', '##     ', '##   ##', ' ##### '],
-  'D': ['###### ', '##   ##', '##   ##', '##   ##', '###### '],
-  'E': ['#######', '##     ', '##### ', '##     ', '#######'],
-  'F': ['#######', '##     ', '##### ', '##     ', '##     '],
-  'G': [' ##### ', '##     ', '##  ###', '##   ##', ' ##### '],
-  'H': ['##   ##', '##   ##', '#######', '##   ##', '##   ##'],
-  'I': ['#######', '   ##  ', '   ##  ', '   ##  ', '#######'],
-  'J': ['#######', '    ## ', '    ## ', '##  ## ', ' ####  '],
-  'K': ['##   ##', '##  ## ', '#####  ', '##  ## ', '##   ##'],
-  'L': ['##     ', '##     ', '##     ', '##     ', '#######'],
-  'M': ['##   ##', '### ###', '## # ##', '##   ##', '##   ##'],
-  'N': ['##   ##', '###  ##', '## # ##', '##  ###', '##   ##'],
-  'O': [' ##### ', '##   ##', '##   ##', '##   ##', ' ##### '],
-  'P': ['###### ', '##   ##', '###### ', '##     ', '##     '],
-  'Q': [' ##### ', '##   ##', '##   ##', '## # ##', ' ### ##'],
-  'R': ['###### ', '##   ##', '###### ', '##  ## ', '##   ##'],
-  'S': [' ##### ', '##     ', ' ##### ', '     ##', ' ##### '],
-  'T': ['#######', '   ##  ', '   ##  ', '   ##  ', '   ##  '],
-  'U': ['##   ##', '##   ##', '##   ##', '##   ##', ' ##### '],
-  'V': ['##   ##', '##   ##', '##   ##', ' ## ## ', '  ###  '],
-  'W': ['##   ##', '##   ##', '## # ##', '### ###', '##   ##'],
-  'X': ['##   ##', ' ## ## ', '  ###  ', ' ## ## ', '##   ##'],
-  'Y': ['##   ##', ' ## ## ', '  ###  ', '   ##  ', '   ##  '],
-  'Z': ['#######', '    ## ', '  ###  ', ' ##    ', '#######'],
-  ' ': ['       ', '       ', '       ', '       ', '       '],
-  '0': [' ##### ', '##   ##', '##   ##', '##   ##', ' ##### '],
-  '1': ['   ##  ', '  ###  ', '   ##  ', '   ##  ', ' ##### '],
-  '2': [' ##### ', '     ##', ' ##### ', '##     ', '#######'],
-  '3': [' ##### ', '     ##', '  #### ', '     ##', ' ##### '],
-  '4': ['##   ##', '##   ##', '#######', '     ##', '     ##'],
-  '5': ['#######', '##     ', '###### ', '     ##', '###### '],
-  '6': [' ##### ', '##     ', '###### ', '##   ##', ' ##### '],
-  '7': ['#######', '     ##', '    ## ', '   ##  ', '  ##   '],
-  '8': [' ##### ', '##   ##', ' ##### ', '##   ##', ' ##### '],
-  '9': [' ##### ', '##   ##', ' ######', '     ##', ' ##### '],
+  A: ["  ###  ", " ## ## ", "##   ##", "#######", "##   ##"],
+  B: ["###### ", "##   ##", "###### ", "##   ##", "###### "],
+  C: [" ##### ", "##   ##", "##     ", "##   ##", " ##### "],
+  D: ["###### ", "##   ##", "##   ##", "##   ##", "###### "],
+  E: ["#######", "##     ", "##### ", "##     ", "#######"],
+  F: ["#######", "##     ", "##### ", "##     ", "##     "],
+  G: [" ##### ", "##     ", "##  ###", "##   ##", " ##### "],
+  H: ["##   ##", "##   ##", "#######", "##   ##", "##   ##"],
+  I: ["#######", "   ##  ", "   ##  ", "   ##  ", "#######"],
+  J: ["#######", "    ## ", "    ## ", "##  ## ", " ####  "],
+  K: ["##   ##", "##  ## ", "#####  ", "##  ## ", "##   ##"],
+  L: ["##     ", "##     ", "##     ", "##     ", "#######"],
+  M: ["##   ##", "### ###", "## # ##", "##   ##", "##   ##"],
+  N: ["##   ##", "###  ##", "## # ##", "##  ###", "##   ##"],
+  O: [" ##### ", "##   ##", "##   ##", "##   ##", " ##### "],
+  P: ["###### ", "##   ##", "###### ", "##     ", "##     "],
+  Q: [" ##### ", "##   ##", "##   ##", "## # ##", " ### ##"],
+  R: ["###### ", "##   ##", "###### ", "##  ## ", "##   ##"],
+  S: [" ##### ", "##     ", " ##### ", "     ##", " ##### "],
+  T: ["#######", "   ##  ", "   ##  ", "   ##  ", "   ##  "],
+  U: ["##   ##", "##   ##", "##   ##", "##   ##", " ##### "],
+  V: ["##   ##", "##   ##", "##   ##", " ## ## ", "  ###  "],
+  W: ["##   ##", "##   ##", "## # ##", "### ###", "##   ##"],
+  X: ["##   ##", " ## ## ", "  ###  ", " ## ## ", "##   ##"],
+  Y: ["##   ##", " ## ## ", "  ###  ", "   ##  ", "   ##  "],
+  Z: ["#######", "    ## ", "  ###  ", " ##    ", "#######"],
+  " ": ["       ", "       ", "       ", "       ", "       "],
+  "0": [" ##### ", "##   ##", "##   ##", "##   ##", " ##### "],
+  "1": ["   ##  ", "  ###  ", "   ##  ", "   ##  ", " ##### "],
+  "2": [" ##### ", "     ##", " ##### ", "##     ", "#######"],
+  "3": [" ##### ", "     ##", "  #### ", "     ##", " ##### "],
+  "4": ["##   ##", "##   ##", "#######", "     ##", "     ##"],
+  "5": ["#######", "##     ", "###### ", "     ##", "###### "],
+  "6": [" ##### ", "##     ", "###### ", "##   ##", " ##### "],
+  "7": ["#######", "     ##", "    ## ", "   ##  ", "  ##   "],
+  "8": [" ##### ", "##   ##", " ##### ", "##   ##", " ##### "],
+  "9": [" ##### ", "##   ##", " ######", "     ##", " ##### "],
 };
 
 export default function AsciiArtPage() {
@@ -59,16 +53,16 @@ export default function AsciiArtPage() {
 
   const generateAscii = () => {
     const upperText = text.toUpperCase();
-    const lines = ['', '', '', '', ''];
+    const lines = ["", "", "", "", ""];
 
     for (const char of upperText) {
-      const charArt = asciiFont[char] || asciiFont[' '];
+      const charArt = asciiFont[char] || asciiFont[" "];
       for (let i = 0; i < 5; i++) {
-        lines[i] += charArt[i] + ' ';
+        lines[i] += charArt[i] + " ";
       }
     }
 
-    setAsciiArt(lines.join('\n'));
+    setAsciiArt(lines.join("\n"));
   };
 
   const handleCopy = async () => {
@@ -90,7 +84,7 @@ export default function AsciiArtPage() {
    (__)\\       )\\/\\
        ||----w |
        ||     ||
-`.trim()
+`.trim(),
     },
     {
       name: "Computer",
@@ -104,7 +98,7 @@ export default function AsciiArtPage() {
 |___________________|
   _[_______]_______
  |_________________|
-`.trim()
+`.trim(),
     },
     {
       name: "Heart",
@@ -120,7 +114,7 @@ export default function AsciiArtPage() {
      ♥   ♥
       ♥ ♥
        ♥
-`.trim()
+`.trim(),
     },
   ];
 
@@ -128,9 +122,7 @@ export default function AsciiArtPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">ASCII Art Generator</h1>
-        <p className="text-muted-foreground">
-          Convert text to ASCII art
-        </p>
+        <p className="text-muted-foreground">Convert text to ASCII art</p>
       </div>
 
       <Card className="mb-6">
@@ -148,9 +140,7 @@ export default function AsciiArtPage() {
               placeholder="Enter text..."
               maxLength={20}
             />
-            <p className="text-xs text-muted-foreground">
-              Max 20 characters (letters, numbers, spaces)
-            </p>
+            <p className="text-xs text-muted-foreground">Max 20 characters (letters, numbers, spaces)</p>
           </div>
 
           <Button onClick={generateAscii} className="w-full">
@@ -180,9 +170,7 @@ export default function AsciiArtPage() {
             </div>
           </CardHeader>
           <CardContent>
-            <pre className="p-4 bg-muted rounded-md text-xs overflow-x-auto">
-              {asciiArt}
-            </pre>
+            <pre className="p-4 bg-muted rounded-md text-xs overflow-x-auto">{asciiArt}</pre>
           </CardContent>
         </Card>
       )}
@@ -196,9 +184,7 @@ export default function AsciiArtPage() {
           {templates.map((template, i) => (
             <div key={i} className="space-y-2">
               <div className="font-semibold text-sm">{template.name}</div>
-              <pre className="p-4 bg-muted rounded-md text-xs overflow-x-auto">
-                {template.art}
-              </pre>
+              <pre className="p-4 bg-muted rounded-md text-xs overflow-x-auto">{template.art}</pre>
             </div>
           ))}
         </CardContent>

@@ -1,14 +1,8 @@
-import { useState } from "react";
 import { ArrowDown, ArrowUp } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function UrlEncodeTool() {
   const [plainText, setPlainText] = useState("");
@@ -45,9 +39,7 @@ export default function UrlEncodeTool() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">URL Encoder/Decoder</h1>
-        <p className="text-muted-foreground">
-          Encode or decode URL parameters and query strings
-        </p>
+        <p className="text-muted-foreground">Encode or decode URL parameters and query strings</p>
       </div>
 
       {error && (

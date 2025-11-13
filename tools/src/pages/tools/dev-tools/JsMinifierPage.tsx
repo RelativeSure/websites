@@ -1,16 +1,10 @@
+import { AlertCircle, Check, Code2, Copy, Download } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Code2, Copy, Check, Download, AlertCircle } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function JsMinifierPage() {
   const [input, setInput] = useState("");
@@ -119,10 +113,7 @@ export default function JsMinifierPage() {
     URL.revokeObjectURL(url);
   };
 
-  const savingsPercent =
-    originalSize > 0
-      ? ((originalSize - minifiedSize) / originalSize * 100).toFixed(1)
-      : 0;
+  const savingsPercent = originalSize > 0 ? (((originalSize - minifiedSize) / originalSize) * 100).toFixed(1) : 0;
 
   const exampleCode = `// Example JavaScript function
 function calculateSum(numbers) {
@@ -147,9 +138,7 @@ export default calculateSum;`;
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JavaScript Minifier</h1>
-        <p className="text-muted-foreground">
-          Minify JavaScript code to reduce file size
-        </p>
+        <p className="text-muted-foreground">Minify JavaScript code to reduce file size</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
@@ -159,9 +148,7 @@ export default calculateSum;`;
               <Code2 className="h-5 w-5" />
               JavaScript Input
             </CardTitle>
-            <CardDescription>
-              Paste your JavaScript code to minify
-            </CardDescription>
+            <CardDescription>Paste your JavaScript code to minify</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -171,9 +158,7 @@ export default calculateSum;`;
               className="font-mono text-sm min-h-[300px]"
             />
             {originalSize > 0 && (
-              <div className="text-sm text-muted-foreground">
-                Original size: {(originalSize / 1024).toFixed(2)} KB
-              </div>
+              <div className="text-sm text-muted-foreground">Original size: {(originalSize / 1024).toFixed(2)} KB</div>
             )}
           </CardContent>
         </Card>
@@ -181,23 +166,16 @@ export default calculateSum;`;
         <Card>
           <CardHeader>
             <CardTitle>Options</CardTitle>
-            <CardDescription>
-              Minification settings
-            </CardDescription>
+            <CardDescription>Minification settings</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex items-start space-x-2">
               <Checkbox
                 id="removeComments"
                 checked={options.removeComments}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, removeComments: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, removeComments: checked as boolean })}
               />
-              <Label
-                htmlFor="removeComments"
-                className="text-sm font-normal cursor-pointer"
-              >
+              <Label htmlFor="removeComments" className="text-sm font-normal cursor-pointer">
                 Remove comments
               </Label>
             </div>
@@ -206,14 +184,9 @@ export default calculateSum;`;
               <Checkbox
                 id="removeWhitespace"
                 checked={options.removeWhitespace}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, removeWhitespace: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, removeWhitespace: checked as boolean })}
               />
-              <Label
-                htmlFor="removeWhitespace"
-                className="text-sm font-normal cursor-pointer"
-              >
+              <Label htmlFor="removeWhitespace" className="text-sm font-normal cursor-pointer">
                 Remove whitespace
               </Label>
             </div>
@@ -222,14 +195,9 @@ export default calculateSum;`;
               <Checkbox
                 id="removeNewlines"
                 checked={options.removeNewlines}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, removeNewlines: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, removeNewlines: checked as boolean })}
               />
-              <Label
-                htmlFor="removeNewlines"
-                className="text-sm font-normal cursor-pointer"
-              >
+              <Label htmlFor="removeNewlines" className="text-sm font-normal cursor-pointer">
                 Remove newlines
               </Label>
             </div>
@@ -238,14 +206,9 @@ export default calculateSum;`;
               <Checkbox
                 id="preserveStrings"
                 checked={options.preserveStrings}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, preserveStrings: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, preserveStrings: checked as boolean })}
               />
-              <Label
-                htmlFor="preserveStrings"
-                className="text-sm font-normal cursor-pointer"
-              >
+              <Label htmlFor="preserveStrings" className="text-sm font-normal cursor-pointer">
                 Preserve strings
               </Label>
             </div>
@@ -258,10 +221,7 @@ export default calculateSum;`;
           <Code2 className="h-4 w-4 mr-2" />
           Minify JavaScript
         </Button>
-        <Button
-          variant="outline"
-          onClick={() => setInput(exampleCode)}
-        >
+        <Button variant="outline" onClick={() => setInput(exampleCode)}>
           Load Example
         </Button>
       </div>
@@ -281,9 +241,7 @@ export default calculateSum;`;
                 <CardTitle>Minified Size</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-primary">
-                  {(minifiedSize / 1024).toFixed(2)} KB
-                </div>
+                <div className="text-3xl font-bold text-primary">{(minifiedSize / 1024).toFixed(2)} KB</div>
               </CardContent>
             </Card>
 
@@ -292,9 +250,7 @@ export default calculateSum;`;
                 <CardTitle>Savings</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-green-600">
-                  {savingsPercent}%
-                </div>
+                <div className="text-3xl font-bold text-green-600">{savingsPercent}%</div>
               </CardContent>
             </Card>
 
@@ -339,11 +295,7 @@ export default calculateSum;`;
               </div>
             </CardHeader>
             <CardContent>
-              <Textarea
-                value={output}
-                readOnly
-                className="font-mono text-xs min-h-[200px] bg-muted"
-              />
+              <Textarea value={output} readOnly className="font-mono text-xs min-h-[200px] bg-muted" />
             </CardContent>
           </Card>
         </>
@@ -355,17 +307,15 @@ export default calculateSum;`;
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            JavaScript minification reduces file size by removing unnecessary
-            characters (whitespace, comments, newlines) without changing functionality.
+            JavaScript minification reduces file size by removing unnecessary characters (whitespace, comments,
+            newlines) without changing functionality.
           </p>
           <p>
-            <strong>Note:</strong> This is a basic minifier. For production use,
-            consider professional tools like:
+            <strong>Note:</strong> This is a basic minifier. For production use, consider professional tools like:
           </p>
           <ul className="list-disc list-inside ml-4 space-y-1">
             <li>
-              <strong>Terser</strong> - Industry-standard JS minifier with advanced
-              optimizations
+              <strong>Terser</strong> - Industry-standard JS minifier with advanced optimizations
             </li>
             <li>
               <strong>UglifyJS</strong> - Popular minification tool with name mangling
@@ -378,9 +328,8 @@ export default calculateSum;`;
             </li>
           </ul>
           <p>
-            <strong>Advanced optimizations</strong> like variable name mangling,
-            dead code elimination, and tree shaking require AST parsing and are
-            beyond the scope of this basic tool.
+            <strong>Advanced optimizations</strong> like variable name mangling, dead code elimination, and tree shaking
+            require AST parsing and are beyond the scope of this basic tool.
           </p>
         </CardContent>
       </Card>

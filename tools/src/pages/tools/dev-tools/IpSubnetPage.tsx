@@ -1,15 +1,9 @@
+import { Calculator, Network } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Calculator, Network } from "lucide-react";
+import { Label } from "@/components/ui/label";
 
 interface SubnetInfo {
   ipAddress: string;
@@ -52,9 +46,7 @@ export default function IpSubnetPage() {
 
   const cidrToMask = (cidr: number): string => {
     const mask = "1".repeat(cidr) + "0".repeat(32 - cidr);
-    return [0, 8, 16, 24]
-      .map((i) => parseInt(mask.slice(i, i + 8), 2))
-      .join(".");
+    return [0, 8, 16, 24].map((i) => parseInt(mask.slice(i, i + 8), 2)).join(".");
   };
 
   const getWildcardMask = (mask: string): string => {
@@ -133,7 +125,7 @@ export default function IpSubnetPage() {
       const broadcastAddress = getBroadcastAddress(networkAddress, wildcardMask);
       const firstHost = cidr === 32 ? networkAddress : incrementIp(networkAddress);
       const lastHost = cidr === 32 ? broadcastAddress : decrementIp(broadcastAddress);
-      const totalHosts = Math.pow(2, 32 - cidr);
+      const totalHosts = 2 ** (32 - cidr);
       const usableHosts = cidr === 32 ? 1 : cidr === 31 ? 2 : totalHosts - 2;
 
       setResult({
@@ -178,17 +170,13 @@ export default function IpSubnetPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">IP Subnet Calculator</h1>
-        <p className="text-muted-foreground">
-          Calculate network addresses, subnet masks, and host ranges
-        </p>
+        <p className="text-muted-foreground">Calculate network addresses, subnet masks, and host ranges</p>
       </div>
 
       <Card className="mb-6">
         <CardHeader>
           <CardTitle>IP Address & CIDR</CardTitle>
-          <CardDescription>
-            Enter an IPv4 address and CIDR notation
-          </CardDescription>
+          <CardDescription>Enter an IPv4 address and CIDR notation</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -237,7 +225,9 @@ export default function IpSubnetPage() {
               <CardContent className="space-y-3">
                 <div>
                   <div className="text-sm text-muted-foreground">IP Address</div>
-                  <div className="font-mono text-lg">{result.ipAddress}/{result.cidr}</div>
+                  <div className="font-mono text-lg">
+                    {result.ipAddress}/{result.cidr}
+                  </div>
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">IP Class</div>
@@ -286,15 +276,11 @@ export default function IpSubnetPage() {
             <CardContent>
               <div className="grid grid-cols-2 gap-6 text-center">
                 <div>
-                  <div className="text-3xl font-bold text-primary">
-                    {result.totalHosts.toLocaleString()}
-                  </div>
+                  <div className="text-3xl font-bold text-primary">{result.totalHosts.toLocaleString()}</div>
                   <div className="text-sm text-muted-foreground">Total Addresses</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-primary">
-                    {result.usableHosts.toLocaleString()}
-                  </div>
+                  <div className="text-3xl font-bold text-primary">{result.usableHosts.toLocaleString()}</div>
                   <div className="text-sm text-muted-foreground">Usable Hosts</div>
                 </div>
               </div>

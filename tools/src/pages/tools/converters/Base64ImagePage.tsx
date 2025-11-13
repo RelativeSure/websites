@@ -1,16 +1,10 @@
-import { useState, useRef } from "react";
+import { Check, Copy, Download, Upload, X } from "lucide-react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Upload, Download, Copy, Check, X } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function Base64ImagePage() {
   const [base64Input, setBase64Input] = useState("");
@@ -142,16 +136,14 @@ export default function Base64ImagePage() {
     const k = 1024;
     const sizes = ["Bytes", "KB", "MB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + " " + sizes[i];
+    return Math.round((bytes / k ** i) * 100) / 100 + " " + sizes[i];
   };
 
   return (
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Base64 Image Viewer</h1>
-        <p className="text-muted-foreground">
-          Decode base64 to images or encode images to base64
-        </p>
+        <p className="text-muted-foreground">Decode base64 to images or encode images to base64</p>
       </div>
 
       {error && (
@@ -172,9 +164,7 @@ export default function Base64ImagePage() {
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle>Base64 Input</CardTitle>
-                  <CardDescription>
-                    Paste base64 string or data URI
-                  </CardDescription>
+                  <CardDescription>Paste base64 string or data URI</CardDescription>
                 </div>
                 {base64Input && (
                   <Button variant="ghost" size="sm" onClick={clearDecoder}>
@@ -211,12 +201,7 @@ export default function Base64ImagePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-center p-4 bg-muted rounded-md">
-                    <img
-                      ref={imgRef}
-                      src={imagePreview}
-                      alt="Decoded"
-                      className="max-w-full h-auto max-h-96 rounded"
-                    />
+                    <img ref={imgRef} src={imagePreview} alt="Decoded" className="max-w-full h-auto max-h-96 rounded" />
                   </div>
                 </CardContent>
               </Card>
@@ -252,23 +237,12 @@ export default function Base64ImagePage() {
           <Card className="mb-6">
             <CardHeader>
               <CardTitle>Upload Image</CardTitle>
-              <CardDescription>
-                Select an image to encode as base64
-              </CardDescription>
+              <CardDescription>Select an image to encode as base64</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex gap-2">
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                />
-                <Button
-                  onClick={() => fileInputRef.current?.click()}
-                  className="w-full"
-                >
+                <input ref={fileInputRef} type="file" accept="image/*" onChange={handleFileUpload} className="hidden" />
+                <Button onClick={() => fileInputRef.current?.click()} className="w-full">
                   <Upload className="mr-2 h-4 w-4" />
                   Select Image
                 </Button>
@@ -281,11 +255,7 @@ export default function Base64ImagePage() {
 
               {encodedOutput && (
                 <div className="flex items-center justify-center p-4 bg-muted rounded-md">
-                  <img
-                    src={encodedOutput}
-                    alt="Preview"
-                    className="max-w-full h-auto max-h-64 rounded"
-                  />
+                  <img src={encodedOutput} alt="Preview" className="max-w-full h-auto max-h-64 rounded" />
                 </div>
               )}
             </CardContent>
@@ -327,11 +297,7 @@ export default function Base64ImagePage() {
                 <CardHeader>
                   <div className="flex items-center justify-between">
                     <CardTitle>Base64 Output</CardTitle>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => handleCopy(encodedOutput)}
-                    >
+                    <Button variant="ghost" size="sm" onClick={() => handleCopy(encodedOutput)}>
                       {copied ? (
                         <>
                           <Check className="h-4 w-4 mr-1" />
@@ -347,11 +313,7 @@ export default function Base64ImagePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <Textarea
-                    value={encodedOutput}
-                    readOnly
-                    className="font-mono min-h-[200px] text-xs"
-                  />
+                  <Textarea value={encodedOutput} readOnly className="font-mono min-h-[200px] text-xs" />
                 </CardContent>
               </Card>
             </>

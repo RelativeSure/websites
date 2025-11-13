@@ -1,16 +1,10 @@
+import { Check, Copy, Download, FileImage, Upload } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { FileImage, Copy, Check, Download, Upload } from "lucide-react";
 
 export default function SvgOptimizerPage() {
   const [inputSvg, setInputSvg] = useState("");
@@ -106,7 +100,8 @@ export default function SvgOptimizerPage() {
     if (options.convertColors) {
       // Convert rgb to hex
       svg = svg.replace(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/g, (match, r, g, b) => {
-        const hex = "#" +
+        const hex =
+          "#" +
           parseInt(r).toString(16).padStart(2, "0") +
           parseInt(g).toString(16).padStart(2, "0") +
           parseInt(b).toString(16).padStart(2, "0");
@@ -188,9 +183,7 @@ export default function SvgOptimizerPage() {
     URL.revokeObjectURL(url);
   };
 
-  const savingsPercent = originalSize > 0
-    ? ((originalSize - optimizedSize) / originalSize * 100).toFixed(1)
-    : 0;
+  const savingsPercent = originalSize > 0 ? (((originalSize - optimizedSize) / originalSize) * 100).toFixed(1) : 0;
 
   const exampleSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
   <!-- This is a comment -->
@@ -213,9 +206,7 @@ export default function SvgOptimizerPage() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">SVG Optimizer</h1>
-        <p className="text-muted-foreground">
-          Optimize and minify SVG files to reduce file size
-        </p>
+        <p className="text-muted-foreground">Optimize and minify SVG files to reduce file size</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -225,9 +216,7 @@ export default function SvgOptimizerPage() {
               <FileImage className="h-5 w-5" />
               Input SVG
             </CardTitle>
-            <CardDescription>
-              Paste your SVG code or upload a file
-            </CardDescription>
+            <CardDescription>Paste your SVG code or upload a file</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2">
@@ -235,19 +224,10 @@ export default function SvgOptimizerPage() {
                 <label>
                   <Upload className="h-4 w-4 mr-1" />
                   Upload SVG
-                  <input
-                    type="file"
-                    accept=".svg,image/svg+xml"
-                    onChange={handleFileUpload}
-                    className="hidden"
-                  />
+                  <input type="file" accept=".svg,image/svg+xml" onChange={handleFileUpload} className="hidden" />
                 </label>
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setInputSvg(exampleSvg)}
-              >
+              <Button variant="outline" size="sm" onClick={() => setInputSvg(exampleSvg)}>
                 Load Example
               </Button>
             </div>
@@ -258,9 +238,7 @@ export default function SvgOptimizerPage() {
               className="font-mono text-xs min-h-[300px]"
             />
             {originalSize > 0 && (
-              <div className="text-sm text-muted-foreground">
-                Original size: {(originalSize / 1024).toFixed(2)} KB
-              </div>
+              <div className="text-sm text-muted-foreground">Original size: {(originalSize / 1024).toFixed(2)} KB</div>
             )}
           </CardContent>
         </Card>
@@ -268,9 +246,7 @@ export default function SvgOptimizerPage() {
         <Card>
           <CardHeader>
             <CardTitle>Optimization Options</CardTitle>
-            <CardDescription>
-              Select optimizations to apply
-            </CardDescription>
+            <CardDescription>Select optimizations to apply</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
             {Object.entries(options).map(([key, value]) => (
@@ -278,15 +254,13 @@ export default function SvgOptimizerPage() {
                 <Checkbox
                   id={key}
                   checked={value}
-                  onCheckedChange={(checked) =>
-                    setOptions({ ...options, [key]: checked as boolean })
-                  }
+                  onCheckedChange={(checked) => setOptions({ ...options, [key]: checked as boolean })}
                 />
-                <Label
-                  htmlFor={key}
-                  className="text-sm font-normal leading-tight cursor-pointer"
-                >
-                  {key.replace(/([A-Z])/g, " $1").trim().replace(/^./, (str) => str.toUpperCase())}
+                <Label htmlFor={key} className="text-sm font-normal leading-tight cursor-pointer">
+                  {key
+                    .replace(/([A-Z])/g, " $1")
+                    .trim()
+                    .replace(/^./, (str) => str.toUpperCase())}
                 </Label>
               </div>
             ))}
@@ -309,9 +283,7 @@ export default function SvgOptimizerPage() {
                 <CardTitle>Optimized Size</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-primary">
-                  {(optimizedSize / 1024).toFixed(2)} KB
-                </div>
+                <div className="text-3xl font-bold text-primary">{(optimizedSize / 1024).toFixed(2)} KB</div>
               </CardContent>
             </Card>
 
@@ -320,9 +292,7 @@ export default function SvgOptimizerPage() {
                 <CardTitle>Savings</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold text-green-600">
-                  {savingsPercent}%
-                </div>
+                <div className="text-3xl font-bold text-green-600">{savingsPercent}%</div>
               </CardContent>
             </Card>
 
@@ -367,11 +337,7 @@ export default function SvgOptimizerPage() {
               </div>
             </CardHeader>
             <CardContent>
-              <Textarea
-                value={outputSvg}
-                readOnly
-                className="font-mono text-xs min-h-[300px] bg-muted"
-              />
+              <Textarea value={outputSvg} readOnly className="font-mono text-xs min-h-[300px] bg-muted" />
             </CardContent>
           </Card>
         </>
@@ -383,17 +349,16 @@ export default function SvgOptimizerPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            SVG optimization removes unnecessary data from SVG files without
-            affecting the visual output, resulting in smaller file sizes.
+            SVG optimization removes unnecessary data from SVG files without affecting the visual output, resulting in
+            smaller file sizes.
           </p>
           <p>
-            <strong>Common optimizations include:</strong> Removing metadata and
-            comments, cleaning up numeric values, converting colors to shorter forms,
-            optimizing path data, and removing unused elements.
+            <strong>Common optimizations include:</strong> Removing metadata and comments, cleaning up numeric values,
+            converting colors to shorter forms, optimizing path data, and removing unused elements.
           </p>
           <p>
-            <strong>Note:</strong> This is a basic optimizer. For production use,
-            consider tools like SVGO for more advanced optimization.
+            <strong>Note:</strong> This is a basic optimizer. For production use, consider tools like SVGO for more
+            advanced optimization.
           </p>
         </CardContent>
       </Card>

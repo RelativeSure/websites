@@ -1,15 +1,9 @@
+import { ArrowLeftRight, Scale } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Scale, ArrowLeftRight } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function LevenshteinPage() {
   const [string1, setString1] = useState("");
@@ -39,9 +33,9 @@ export default function LevenshteinPage() {
           dp[i][j] = dp[i - 1][j - 1];
         } else {
           dp[i][j] = Math.min(
-            dp[i - 1][j] + 1,     // deletion
-            dp[i][j - 1] + 1,     // insertion
-            dp[i - 1][j - 1] + 1  // substitution
+            dp[i - 1][j] + 1, // deletion
+            dp[i][j - 1] + 1, // insertion
+            dp[i - 1][j - 1] + 1 // substitution
           );
         }
       }
@@ -77,9 +71,7 @@ export default function LevenshteinPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Levenshtein Distance</h1>
-        <p className="text-muted-foreground">
-          Calculate edit distance and string similarity between two strings
-        </p>
+        <p className="text-muted-foreground">Calculate edit distance and string similarity between two strings</p>
       </div>
 
       <Card className="mb-6">
@@ -88,9 +80,7 @@ export default function LevenshteinPage() {
             <Scale className="h-5 w-5" />
             Input Strings
           </CardTitle>
-          <CardDescription>
-            Enter two strings to compare
-          </CardDescription>
+          <CardDescription>Enter two strings to compare</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -103,9 +93,7 @@ export default function LevenshteinPage() {
                 placeholder="Enter first string..."
                 className="min-h-[120px] font-mono text-sm"
               />
-              <div className="text-xs text-muted-foreground">
-                Length: {string1.length}
-              </div>
+              <div className="text-xs text-muted-foreground">Length: {string1.length}</div>
             </div>
 
             <div className="space-y-2">
@@ -117,9 +105,7 @@ export default function LevenshteinPage() {
                 placeholder="Enter second string..."
                 className="min-h-[120px] font-mono text-sm"
               />
-              <div className="text-xs text-muted-foreground">
-                Length: {string2.length}
-              </div>
+              <div className="text-xs text-muted-foreground">Length: {string2.length}</div>
             </div>
           </div>
 
@@ -156,18 +142,12 @@ export default function LevenshteinPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Edit Distance</CardTitle>
-                <CardDescription>
-                  Minimum operations needed to transform one string to another
-                </CardDescription>
+                <CardDescription>Minimum operations needed to transform one string to another</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-center p-6">
-                  <div className="text-6xl font-bold text-primary mb-2">
-                    {distance}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    operations (insertions, deletions, substitutions)
-                  </div>
+                  <div className="text-6xl font-bold text-primary mb-2">{distance}</div>
+                  <div className="text-sm text-muted-foreground">operations (insertions, deletions, substitutions)</div>
                 </div>
               </CardContent>
             </Card>
@@ -175,18 +155,12 @@ export default function LevenshteinPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Similarity</CardTitle>
-                <CardDescription>
-                  How similar the strings are as a percentage
-                </CardDescription>
+                <CardDescription>How similar the strings are as a percentage</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="text-center p-6">
-                  <div className="text-6xl font-bold text-primary mb-2">
-                    {similarity?.toFixed(1)}%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    string similarity
-                  </div>
+                  <div className="text-6xl font-bold text-primary mb-2">{similarity?.toFixed(1)}%</div>
+                  <div className="text-sm text-muted-foreground">string similarity</div>
                 </div>
               </CardContent>
             </Card>
@@ -196,9 +170,7 @@ export default function LevenshteinPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Distance Matrix</CardTitle>
-                <CardDescription>
-                  Dynamic programming table showing edit distances
-                </CardDescription>
+                <CardDescription>Dynamic programming table showing edit distances</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="overflow-x-auto">
@@ -217,9 +189,7 @@ export default function LevenshteinPage() {
                     <tbody>
                       {matrix.map((row, i) => (
                         <tr key={i}>
-                          <td className="border p-2 bg-muted font-mono text-center">
-                            {i === 0 ? "" : string1[i - 1]}
-                          </td>
+                          <td className="border p-2 bg-muted font-mono text-center">{i === 0 ? "" : string1[i - 1]}</td>
                           {row.map((cell, j) => (
                             <td
                               key={j}
@@ -238,8 +208,8 @@ export default function LevenshteinPage() {
                   </table>
                 </div>
                 <div className="text-xs text-muted-foreground mt-4">
-                  The bottom-right cell shows the final edit distance. Each cell
-                  represents the minimum operations needed to transform the substring.
+                  The bottom-right cell shows the final edit distance. Each cell represents the minimum operations
+                  needed to transform the substring.
                 </div>
               </CardContent>
             </Card>
@@ -253,20 +223,20 @@ export default function LevenshteinPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            <strong>Levenshtein distance</strong> (also called edit distance) is a
-            metric for measuring the difference between two strings.
+            <strong>Levenshtein distance</strong> (also called edit distance) is a metric for measuring the difference
+            between two strings.
           </p>
           <p>
-            It counts the minimum number of single-character edits (insertions,
-            deletions, or substitutions) required to change one string into another.
+            It counts the minimum number of single-character edits (insertions, deletions, or substitutions) required to
+            change one string into another.
           </p>
           <p>
-            <strong>Use cases:</strong> Spell checking, DNA sequence analysis, fuzzy
-            string matching, plagiarism detection, and autocorrect systems.
+            <strong>Use cases:</strong> Spell checking, DNA sequence analysis, fuzzy string matching, plagiarism
+            detection, and autocorrect systems.
           </p>
           <p>
-            <strong>Example:</strong> "kitten" → "sitting" requires 3 operations:
-            substitute k→s, substitute e→i, insert g.
+            <strong>Example:</strong> "kitten" → "sitting" requires 3 operations: substitute k→s, substitute e→i, insert
+            g.
           </p>
         </CardContent>
       </Card>

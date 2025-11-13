@@ -1,16 +1,10 @@
+import { Check, Copy, Download, ExternalLink, ShieldAlert } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { ShieldAlert, Copy, Check, Download, ExternalLink } from "lucide-react";
 
 export default function SecurityTxtPage() {
   const [contact, setContact] = useState("");
@@ -96,9 +90,7 @@ export default function SecurityTxtPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Security.txt Generator</h1>
-        <p className="text-muted-foreground">
-          Generate a security.txt file for responsible security disclosure
-        </p>
+        <p className="text-muted-foreground">Generate a security.txt file for responsible security disclosure</p>
       </div>
 
       <Card className="mb-6">
@@ -107,9 +99,7 @@ export default function SecurityTxtPage() {
             <ShieldAlert className="h-5 w-5" />
             Configuration
           </CardTitle>
-          <CardDescription>
-            Fill in your security contact and policy information
-          </CardDescription>
+          <CardDescription>Fill in your security contact and policy information</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -125,8 +115,8 @@ export default function SecurityTxtPage() {
               rows={3}
             />
             <div className="text-xs text-muted-foreground">
-              Required. Email (mailto:) or URL where security issues can be reported.
-              Add multiple contacts on separate lines.
+              Required. Email (mailto:) or URL where security issues can be reported. Add multiple contacts on separate
+              lines.
             </div>
           </div>
 
@@ -142,8 +132,8 @@ export default function SecurityTxtPage() {
               min={getExpiresMin()}
             />
             <div className="text-xs text-muted-foreground">
-              Required. Date when this security.txt file expires (ISO 8601 format).
-              Should be less than a year in the future.
+              Required. Date when this security.txt file expires (ISO 8601 format). Should be less than a year in the
+              future.
             </div>
           </div>
 
@@ -184,9 +174,7 @@ export default function SecurityTxtPage() {
                 onChange={(e) => setPreferredLanguages(e.target.value)}
                 placeholder="en, es, fr"
               />
-              <div className="text-xs text-muted-foreground">
-                Comma-separated language codes (ISO 639-1)
-              </div>
+              <div className="text-xs text-muted-foreground">Comma-separated language codes (ISO 639-1)</div>
             </div>
 
             <div className="space-y-2">
@@ -198,9 +186,7 @@ export default function SecurityTxtPage() {
                 onChange={(e) => setCanonical(e.target.value)}
                 placeholder="https://example.com/.well-known/security.txt"
               />
-              <div className="text-xs text-muted-foreground">
-                Canonical location of this file
-              </div>
+              <div className="text-xs text-muted-foreground">Canonical location of this file</div>
             </div>
           </div>
 
@@ -227,9 +213,7 @@ export default function SecurityTxtPage() {
               onChange={(e) => setHiring(e.target.value)}
               placeholder="https://example.com/jobs"
             />
-            <div className="text-xs text-muted-foreground">
-              Optional. URL to your security jobs page.
-            </div>
+            <div className="text-xs text-muted-foreground">Optional. URL to your security jobs page.</div>
           </div>
 
           <div className="flex gap-2">
@@ -249,9 +233,7 @@ export default function SecurityTxtPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>Generated security.txt</CardTitle>
-                <CardDescription>
-                  Place this file at /.well-known/security.txt
-                </CardDescription>
+                <CardDescription>Place this file at /.well-known/security.txt</CardDescription>
               </div>
               <div className="flex gap-2">
                 <Button variant="ghost" size="sm" onClick={handleCopy}>
@@ -275,11 +257,7 @@ export default function SecurityTxtPage() {
             </div>
           </CardHeader>
           <CardContent>
-            <Textarea
-              value={output}
-              readOnly
-              className="font-mono text-sm min-h-[200px] bg-muted"
-            />
+            <Textarea value={output} readOnly className="font-mono text-sm min-h-[200px] bg-muted" />
           </CardContent>
         </Card>
       )}
@@ -290,9 +268,8 @@ export default function SecurityTxtPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-3">
           <p>
-            <strong>security.txt</strong> is a proposed standard (RFC 9116) that
-            allows websites to define security policies and contact information for
-            security researchers.
+            <strong>security.txt</strong> is a proposed standard (RFC 9116) that allows websites to define security
+            policies and contact information for security researchers.
           </p>
           <div>
             <strong>Where to place the file:</strong>
@@ -304,17 +281,17 @@ export default function SecurityTxtPage() {
                 (Recommended)
               </li>
               <li>
-                <code className="text-xs bg-muted px-1 py-0.5 rounded">
-                  https://example.com/security.txt
-                </code>{" "}
-                (Also valid)
+                <code className="text-xs bg-muted px-1 py-0.5 rounded">https://example.com/security.txt</code> (Also
+                valid)
               </li>
             </ul>
           </div>
           <div>
             <strong>Additional steps:</strong>
             <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-              <li>Set Content-Type to <code>text/plain</code></li>
+              <li>
+                Set Content-Type to <code>text/plain</code>
+              </li>
               <li>Consider signing the file with PGP for authenticity</li>
               <li>Keep the file updated before expiration date</li>
               <li>Make sure contact methods are actively monitored</li>

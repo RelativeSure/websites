@@ -1,14 +1,8 @@
+import { AlertCircle, CheckCircle, Info, Package } from "lucide-react";
 import { useState } from "react";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Package, AlertCircle, CheckCircle, Info } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 interface PackageInfo {
   name: string;
@@ -102,37 +96,35 @@ export default function PackageJsonAnalyzerPage() {
       start: "node index.js",
       test: "jest",
       build: "tsc",
-      dev: "nodemon index.js"
+      dev: "nodemon index.js",
     },
     keywords: ["awesome", "app", "example"],
     author: "John Doe <john@example.com>",
     license: "MIT",
     dependencies: {
-      "express": "^4.18.2",
-      "dotenv": "^16.0.3"
+      express: "^4.18.2",
+      dotenv: "^16.0.3",
     },
     devDependencies: {
-      "jest": "^29.5.0",
-      "typescript": "^5.0.4",
-      "nodemon": "^2.0.22"
+      jest: "^29.5.0",
+      typescript: "^5.0.4",
+      nodemon: "^2.0.22",
     },
     engines: {
-      "node": ">=18.0.0",
-      "npm": ">=9.0.0"
+      node: ">=18.0.0",
+      npm: ">=9.0.0",
     },
     repository: {
       type: "git",
-      url: "https://github.com/user/repo.git"
-    }
+      url: "https://github.com/user/repo.git",
+    },
   };
 
   return (
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Package.json Analyzer</h1>
-        <p className="text-muted-foreground">
-          Analyze and validate your Node.js package.json file
-        </p>
+        <p className="text-muted-foreground">Analyze and validate your Node.js package.json file</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -142,9 +134,7 @@ export default function PackageJsonAnalyzerPage() {
               <Package className="h-5 w-5" />
               Input
             </CardTitle>
-            <CardDescription>
-              Paste your package.json content
-            </CardDescription>
+            <CardDescription>Paste your package.json content</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <Textarea
@@ -257,9 +247,7 @@ export default function PackageJsonAnalyzerPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle>Dependencies</CardTitle>
-                    <CardDescription>
-                      {Object.keys(packageInfo.dependencies).length} packages
-                    </CardDescription>
+                    <CardDescription>{Object.keys(packageInfo.dependencies).length} packages</CardDescription>
                   </CardHeader>
                   <CardContent>
                     {Object.keys(packageInfo.dependencies).length > 0 ? (
@@ -280,9 +268,7 @@ export default function PackageJsonAnalyzerPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle>Dev Dependencies</CardTitle>
-                    <CardDescription>
-                      {Object.keys(packageInfo.devDependencies).length} packages
-                    </CardDescription>
+                    <CardDescription>{Object.keys(packageInfo.devDependencies).length} packages</CardDescription>
                   </CardHeader>
                   <CardContent>
                     {Object.keys(packageInfo.devDependencies).length > 0 ? (
@@ -305,9 +291,7 @@ export default function PackageJsonAnalyzerPage() {
                 <Card>
                   <CardHeader>
                     <CardTitle>Scripts</CardTitle>
-                    <CardDescription>
-                      {Object.keys(packageInfo.scripts).length} script(s)
-                    </CardDescription>
+                    <CardDescription>{Object.keys(packageInfo.scripts).length} script(s)</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-2">
@@ -350,23 +334,35 @@ export default function PackageJsonAnalyzerPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            The package.json file is the heart of any Node.js project. It contains metadata
-            about the project, dependencies, scripts, and configuration.
+            The package.json file is the heart of any Node.js project. It contains metadata about the project,
+            dependencies, scripts, and configuration.
           </p>
           <div>
             <strong>Required fields:</strong>
             <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-              <li><strong>name:</strong> Package name (lowercase, no spaces)</li>
-              <li><strong>version:</strong> Semantic version (x.y.z)</li>
+              <li>
+                <strong>name:</strong> Package name (lowercase, no spaces)
+              </li>
+              <li>
+                <strong>version:</strong> Semantic version (x.y.z)
+              </li>
             </ul>
           </div>
           <div>
             <strong>Recommended fields:</strong>
             <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-              <li><strong>description:</strong> Brief package description</li>
-              <li><strong>license:</strong> License type (MIT, ISC, etc.)</li>
-              <li><strong>repository:</strong> Git repository URL</li>
-              <li><strong>keywords:</strong> Searchable keywords for npm</li>
+              <li>
+                <strong>description:</strong> Brief package description
+              </li>
+              <li>
+                <strong>license:</strong> License type (MIT, ISC, etc.)
+              </li>
+              <li>
+                <strong>repository:</strong> Git repository URL
+              </li>
+              <li>
+                <strong>keywords:</strong> Searchable keywords for npm
+              </li>
             </ul>
           </div>
         </CardContent>

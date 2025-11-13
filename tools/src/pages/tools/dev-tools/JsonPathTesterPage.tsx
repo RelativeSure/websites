@@ -1,16 +1,10 @@
+import { Check, Copy, Search } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Copy, Check, Search } from "lucide-react";
 
 export default function JsonPathTesterPage() {
   const [jsonInput, setJsonInput] = useState("");
@@ -29,7 +23,7 @@ export default function JsonPathTesterPage() {
     const parts = path.split(/\.|\[/);
     let current = obj;
 
-    for (let part of parts) {
+    for (const part of parts) {
       if (!part) continue;
 
       // Handle array index [0]
@@ -123,9 +117,7 @@ export default function JsonPathTesterPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JSON Path Tester</h1>
-        <p className="text-muted-foreground">
-          Test JSONPath expressions on your JSON data
-        </p>
+        <p className="text-muted-foreground">Test JSONPath expressions on your JSON data</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
@@ -141,12 +133,7 @@ export default function JsonPathTesterPage() {
               placeholder="Paste JSON here..."
               className="min-h-[400px] font-mono text-sm"
             />
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setJsonInput(exampleJson)}
-              className="w-full"
-            >
+            <Button variant="outline" size="sm" onClick={() => setJsonInput(exampleJson)} className="w-full">
               Load Example JSON
             </Button>
           </CardContent>
@@ -189,9 +176,7 @@ export default function JsonPathTesterPage() {
             <Search className="h-5 w-5" />
             JSONPath Expression
           </CardTitle>
-          <CardDescription>
-            Enter a JSONPath expression to query your data
-          </CardDescription>
+          <CardDescription>Enter a JSONPath expression to query your data</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">

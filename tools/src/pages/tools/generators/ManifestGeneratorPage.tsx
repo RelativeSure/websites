@@ -1,11 +1,11 @@
+import { Check, Copy, Download, FileJson } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { FileJson, Copy, Check, Download } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ManifestGeneratorPage() {
   const [name, setName] = useState("My App");
@@ -18,19 +18,23 @@ export default function ManifestGeneratorPage() {
   const [copied, setCopied] = useState(false);
 
   const generateManifest = () => {
-    return JSON.stringify({
-      name,
-      short_name: shortName,
-      description,
-      start_url: startUrl,
-      display,
-      theme_color: themeColor,
-      background_color: backgroundColor,
-      icons: [
-        { src: "/icon-192.png", type: "image/png", sizes: "192x192" },
-        { src: "/icon-512.png", type: "image/png", sizes: "512x512" }
-      ]
-    }, null, 2);
+    return JSON.stringify(
+      {
+        name,
+        short_name: shortName,
+        description,
+        start_url: startUrl,
+        display,
+        theme_color: themeColor,
+        background_color: backgroundColor,
+        icons: [
+          { src: "/icon-192.png", type: "image/png", sizes: "192x192" },
+          { src: "/icon-512.png", type: "image/png", sizes: "512x512" },
+        ],
+      },
+      null,
+      2
+    );
   };
 
   const handleCopy = async () => {
@@ -58,7 +62,9 @@ export default function ManifestGeneratorPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
-          <CardHeader><CardTitle>Configuration</CardTitle></CardHeader>
+          <CardHeader>
+            <CardTitle>Configuration</CardTitle>
+          </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label>Name</Label>
@@ -79,7 +85,9 @@ export default function ManifestGeneratorPage() {
             <div className="space-y-2">
               <Label>Display Mode</Label>
               <Select value={display} onValueChange={setDisplay}>
-                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="standalone">Standalone</SelectItem>
                   <SelectItem value="fullscreen">Fullscreen</SelectItem>
@@ -107,10 +115,21 @@ export default function ManifestGeneratorPage() {
               <CardTitle>Generated Manifest</CardTitle>
               <div className="flex gap-2">
                 <Button variant="ghost" size="sm" onClick={handleCopy}>
-                  {copied ? <><Check className="h-4 w-4 mr-1" />Copied</> : <><Copy className="h-4 w-4 mr-1" />Copy</>}
+                  {copied ? (
+                    <>
+                      <Check className="h-4 w-4 mr-1" />
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="h-4 w-4 mr-1" />
+                      Copy
+                    </>
+                  )}
                 </Button>
                 <Button variant="ghost" size="sm" onClick={handleDownload}>
-                  <Download className="h-4 w-4 mr-1" />Download
+                  <Download className="h-4 w-4 mr-1" />
+                  Download
                 </Button>
               </div>
             </div>

@@ -1,13 +1,7 @@
-import { useState, useMemo } from "react";
+import { BarChart3, Clock, FileText, TrendingUp } from "lucide-react";
+import { useMemo, useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { BarChart3, FileText, Clock, TrendingUp } from "lucide-react";
 
 interface Stats {
   characters: number;
@@ -82,17 +76,14 @@ export default function TextStatisticsPage() {
     const lines = text.split("\n").length;
 
     // Character types
-    const punctuation = (text.match(/[.,!?;:'"(){}\[\]<>\/\\|@#$%^&*+=_~`-]/g) || []).length;
+    const punctuation = (text.match(/[.,!?;:'"(){}[\]<>/\\|@#$%^&*+=_~`-]/g) || []).length;
     const digits = (text.match(/\d/g) || []).length;
     const uppercase = (text.match(/[A-Z]/g) || []).length;
     const lowercase = (text.match(/[a-z]/g) || []).length;
 
     // Word analysis
     const wordLengths = wordMatches.map((w) => w.length);
-    const averageWordLength =
-      wordLengths.length > 0
-        ? wordLengths.reduce((a, b) => a + b, 0) / wordLengths.length
-        : 0;
+    const averageWordLength = wordLengths.length > 0 ? wordLengths.reduce((a, b) => a + b, 0) / wordLengths.length : 0;
 
     const averageSentenceLength = sentences > 0 ? words / sentences : 0;
 
@@ -123,10 +114,7 @@ export default function TextStatisticsPage() {
     const avgSyllablesPerWord = averageWordLength / 2.5; // rough approximation
     const readabilityScore = Math.max(
       0,
-      Math.min(
-        100,
-        206.835 - 1.015 * averageSentenceLength - 84.6 * avgSyllablesPerWord
-      )
+      Math.min(100, 206.835 - 1.015 * averageSentenceLength - 84.6 * avgSyllablesPerWord)
     );
 
     return {
@@ -194,9 +182,7 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
               <FileText className="h-5 w-5" />
               Text Input
             </CardTitle>
-            <CardDescription>
-              Enter or paste your text to analyze
-            </CardDescription>
+            <CardDescription>Enter or paste your text to analyze</CardDescription>
           </CardHeader>
           <CardContent>
             <Textarea
@@ -207,10 +193,7 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
             />
             {!text && (
               <div className="mt-4">
-                <button
-                  onClick={() => setText(exampleText)}
-                  className="text-sm text-primary hover:underline"
-                >
+                <button onClick={() => setText(exampleText)} className="text-sm text-primary hover:underline">
                   Load example text
                 </button>
               </div>
@@ -230,9 +213,7 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Characters (no spaces):</span>
-                <span className="font-semibold">
-                  {stats.charactersNoSpaces.toLocaleString()}
-                </span>
+                <span className="font-semibold">{stats.charactersNoSpaces.toLocaleString()}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-muted-foreground">Words:</span>
@@ -269,9 +250,7 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
                 <span className="text-muted-foreground">Speaking:</span>
                 <span className="font-semibold">{formatTime(stats.speakingTime)}</span>
               </div>
-              <div className="text-xs text-muted-foreground mt-2">
-                Based on 200 wpm reading, 130 wpm speaking
-              </div>
+              <div className="text-xs text-muted-foreground mt-2">Based on 200 wpm reading, 130 wpm speaking</div>
             </CardContent>
           </Card>
         </div>
@@ -320,21 +299,15 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Avg word length:</span>
-              <span className="font-semibold">
-                {stats.averageWordLength.toFixed(1)} chars
-              </span>
+              <span className="font-semibold">{stats.averageWordLength.toFixed(1)} chars</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Avg sentence length:</span>
-              <span className="font-semibold">
-                {stats.averageSentenceLength.toFixed(1)} words
-              </span>
+              <span className="font-semibold">{stats.averageSentenceLength.toFixed(1)} words</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Longest word:</span>
-              <span className="font-semibold text-xs truncate max-w-[150px]">
-                {stats.longestWord || "N/A"}
-              </span>
+              <span className="font-semibold text-xs truncate max-w-[150px]">{stats.longestWord || "N/A"}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Shortest word:</span>
@@ -353,12 +326,8 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
           <CardContent className="space-y-3 text-sm">
             <div>
               <div className="text-muted-foreground mb-2">Flesch Reading Ease:</div>
-              <div className="text-3xl font-bold text-primary mb-1">
-                {stats.readabilityScore.toFixed(0)}
-              </div>
-              <div className="text-xs text-muted-foreground">
-                {getReadabilityLevel(stats.readabilityScore)}
-              </div>
+              <div className="text-3xl font-bold text-primary mb-1">{stats.readabilityScore.toFixed(0)}</div>
+              <div className="text-xs text-muted-foreground">{getReadabilityLevel(stats.readabilityScore)}</div>
             </div>
             <div className="w-full bg-muted rounded-full h-2 mt-4">
               <div
@@ -374,17 +343,12 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
         <Card>
           <CardHeader>
             <CardTitle>Top 10 Most Frequent Words</CardTitle>
-            <CardDescription>
-              Words sorted by frequency of occurrence
-            </CardDescription>
+            <CardDescription>Words sorted by frequency of occurrence</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {stats.wordFrequency.map(({ word, count }, index) => (
-                <div
-                  key={index}
-                  className="border rounded p-3 text-center bg-muted/50"
-                >
+                <div key={index} className="border rounded p-3 text-center bg-muted/50">
                   <div className="text-sm font-semibold mb-1">{word}</div>
                   <div className="text-2xl font-bold text-primary">{count}</div>
                   <div className="text-xs text-muted-foreground">occurrences</div>
@@ -401,17 +365,16 @@ Whether you're crafting a novel, composing an email, or jotting down notes, the 
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            This tool provides comprehensive text analysis including character counts,
-            word statistics, readability metrics, and more.
+            This tool provides comprehensive text analysis including character counts, word statistics, readability
+            metrics, and more.
           </p>
           <p>
-            <strong>Readability Score:</strong> Based on the Flesch Reading Ease formula,
-            which considers average sentence length and word complexity. Higher scores
-            indicate easier readability.
+            <strong>Readability Score:</strong> Based on the Flesch Reading Ease formula, which considers average
+            sentence length and word complexity. Higher scores indicate easier readability.
           </p>
           <p>
-            <strong>Use cases:</strong> Content writing, SEO optimization, academic
-            writing, speech preparation, and document analysis.
+            <strong>Use cases:</strong> Content writing, SEO optimization, academic writing, speech preparation, and
+            document analysis.
           </p>
         </CardContent>
       </Card>

@@ -1,16 +1,10 @@
+import { CheckCircle, XCircle } from "lucide-react";
 import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle, XCircle } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function ValidatorPage() {
   const [email, setEmail] = useState("");
@@ -27,14 +21,15 @@ export default function ValidatorPage() {
   const validateIPv4 = (ip: string): boolean => {
     const parts = ip.split(".");
     if (parts.length !== 4) return false;
-    return parts.every(part => {
+    return parts.every((part) => {
       const num = parseInt(part, 10);
       return num >= 0 && num <= 255 && part === num.toString();
     });
   };
 
   const validateIPv6 = (ip: string): boolean => {
-    const re = /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$/;
+    const re =
+      /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:))$/;
     return re.test(ip);
   };
 
@@ -73,7 +68,9 @@ export default function ValidatorPage() {
   };
 
   const ValidationResult = ({ isValid, text }: { isValid: boolean; text: string }) => (
-    <div className={`flex items-center gap-2 p-3 rounded-md ${isValid ? "bg-green-500/10 text-green-600" : "bg-red-500/10 text-red-600"}`}>
+    <div
+      className={`flex items-center gap-2 p-3 rounded-md ${isValid ? "bg-green-500/10 text-green-600" : "bg-red-500/10 text-red-600"}`}
+    >
       {isValid ? <CheckCircle className="h-5 w-5" /> : <XCircle className="h-5 w-5" />}
       <span className="font-medium">{text}</span>
     </div>
@@ -83,9 +80,7 @@ export default function ValidatorPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Validators</h1>
-        <p className="text-muted-foreground">
-          Validate emails, IP addresses, domains, and more
-        </p>
+        <p className="text-muted-foreground">Validate emails, IP addresses, domains, and more</p>
       </div>
 
       <Tabs defaultValue="email" className="w-full">
@@ -248,8 +243,8 @@ export default function ValidatorPage() {
               )}
 
               <div className="p-4 bg-muted rounded-md text-sm text-muted-foreground">
-                <strong>Note:</strong> This validates the format and checksum only.
-                Does not verify if the card is active or has funds.
+                <strong>Note:</strong> This validates the format and checksum only. Does not verify if the card is
+                active or has funds.
               </div>
             </CardContent>
           </Card>

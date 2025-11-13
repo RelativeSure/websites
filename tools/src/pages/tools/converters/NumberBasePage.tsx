@@ -1,8 +1,7 @@
+import { ArrowRight, Check, ChevronDown, Copy } from "lucide-react";
 import { useState } from "react";
-import { Copy, Check, ArrowRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,13 +9,8 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 type BaseType = "2" | "8" | "10" | "16" | "32" | "36" | "64";
 
@@ -130,7 +124,7 @@ export default function NumberBaseConverter() {
     }
 
     if (!validateInput(value, fromBase)) {
-      const baseInfo = BASE_OPTIONS.find(b => b.value === fromBase);
+      const baseInfo = BASE_OPTIONS.find((b) => b.value === fromBase);
       setError(`Invalid ${baseInfo?.label} number (use only ${baseInfo?.chars})`);
       setOutput("");
       return;
@@ -162,7 +156,7 @@ export default function NumberBaseConverter() {
   };
 
   const getBaseInfo = (base: BaseType) => {
-    return BASE_OPTIONS.find(b => b.value === base);
+    return BASE_OPTIONS.find((b) => b.value === base);
   };
 
   return (
@@ -197,10 +191,13 @@ export default function NumberBaseConverter() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
-                  <DropdownMenuRadioGroup value={fromBase} onValueChange={(value) => {
-                    setFromBase(value as BaseType);
-                    convert(input);
-                  }}>
+                  <DropdownMenuRadioGroup
+                    value={fromBase}
+                    onValueChange={(value) => {
+                      setFromBase(value as BaseType);
+                      convert(input);
+                    }}
+                  >
                     {BASE_OPTIONS.map((option) => (
                       <DropdownMenuRadioItem key={option.value} value={option.value}>
                         {option.label}
@@ -209,19 +206,11 @@ export default function NumberBaseConverter() {
                   </DropdownMenuRadioGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <p className="text-xs text-muted-foreground">
-                Uses: {getBaseInfo(fromBase)?.chars}
-              </p>
+              <p className="text-xs text-muted-foreground">Uses: {getBaseInfo(fromBase)?.chars}</p>
             </div>
 
             <div className="flex items-center justify-center pt-8">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={swap}
-                className="hover:bg-primary/10"
-                title="Swap bases"
-              >
+              <Button variant="ghost" size="icon" onClick={swap} className="hover:bg-primary/10" title="Swap bases">
                 <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
@@ -236,10 +225,13 @@ export default function NumberBaseConverter() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
-                  <DropdownMenuRadioGroup value={toBase} onValueChange={(value) => {
-                    setToBase(value as BaseType);
-                    convert(input);
-                  }}>
+                  <DropdownMenuRadioGroup
+                    value={toBase}
+                    onValueChange={(value) => {
+                      setToBase(value as BaseType);
+                      convert(input);
+                    }}
+                  >
                     {BASE_OPTIONS.map((option) => (
                       <DropdownMenuRadioItem key={option.value} value={option.value}>
                         {option.label}
@@ -248,9 +240,7 @@ export default function NumberBaseConverter() {
                   </DropdownMenuRadioGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
-              <p className="text-xs text-muted-foreground">
-                Uses: {getBaseInfo(toBase)?.chars}
-              </p>
+              <p className="text-xs text-muted-foreground">Uses: {getBaseInfo(toBase)?.chars}</p>
             </div>
           </div>
 
@@ -275,17 +265,8 @@ export default function NumberBaseConverter() {
                 placeholder="Converted number will appear here"
                 className="font-mono text-lg flex-1"
               />
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={copyToClipboard}
-                disabled={!output}
-              >
-                {copied ? (
-                  <Check className="w-4 h-4" />
-                ) : (
-                  <Copy className="w-4 h-4" />
-                )}
+              <Button size="icon" variant="outline" onClick={copyToClipboard} disabled={!output}>
+                {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
           </div>

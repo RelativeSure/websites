@@ -1,16 +1,10 @@
-import { useState } from "react";
 import { Download } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function QrCodeGenerator() {
   const [text, setText] = useState("");
@@ -44,9 +38,7 @@ export default function QrCodeGenerator() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">QR Code Generator</h1>
-        <p className="text-muted-foreground">
-          Generate QR codes from text or URLs
-        </p>
+        <p className="text-muted-foreground">Generate QR codes from text or URLs</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">

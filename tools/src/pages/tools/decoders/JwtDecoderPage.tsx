@@ -1,16 +1,10 @@
+import { AlertCircle, Check, Copy } from "lucide-react";
 import { useState } from "react";
-import { Copy, Check, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function JwtDecoder() {
   const [jwt, setJwt] = useState("");
@@ -67,9 +61,7 @@ export default function JwtDecoder() {
     <div className="container mx-auto p-6 max-w-7xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">JWT Decoder</h1>
-        <p className="text-muted-foreground">
-          Decode and inspect JSON Web Tokens (JWT)
-        </p>
+        <p className="text-muted-foreground">Decode and inspect JSON Web Tokens (JWT)</p>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -100,12 +92,7 @@ export default function JwtDecoder() {
             {signature && (
               <div className="space-y-2">
                 <Label htmlFor="signature">Signature</Label>
-                <Input
-                  id="signature"
-                  value={signature}
-                  readOnly
-                  className="font-mono text-xs"
-                />
+                <Input id="signature" value={signature} readOnly className="font-mono text-xs" />
                 <p className="text-xs text-muted-foreground">
                   ⚠️ Signature verification not performed (client-side only)
                 </p>
@@ -120,16 +107,8 @@ export default function JwtDecoder() {
               <CardTitle className="flex items-center justify-between">
                 Header
                 {header && (
-                  <Button
-                    size="icon"
-                    variant="ghost"
-                    onClick={() => copyToClipboard(header, "header")}
-                  >
-                    {copied === "header" ? (
-                      <Check className="w-4 h-4" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
+                  <Button size="icon" variant="ghost" onClick={() => copyToClipboard(header, "header")}>
+                    {copied === "header" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                   </Button>
                 )}
               </CardTitle>
@@ -149,16 +128,8 @@ export default function JwtDecoder() {
               <CardTitle className="flex items-center justify-between">
                 Payload
                 {payload && (
-                  <Button
-                    size="icon"
-                    variant="ghost"
-                    onClick={() => copyToClipboard(payload, "payload")}
-                  >
-                    {copied === "payload" ? (
-                      <Check className="w-4 h-4" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
+                  <Button size="icon" variant="ghost" onClick={() => copyToClipboard(payload, "payload")}>
+                    {copied === "payload" ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                   </Button>
                 )}
               </CardTitle>

@@ -1,22 +1,10 @@
-import { useState, useEffect } from "react";
+import { Clock, Globe, Plus, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Globe, Clock, Plus, X } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface TimezoneResult {
   timezone: string;
@@ -34,7 +22,7 @@ export default function TimezoneConverterPage() {
 
   // Common timezones grouped by region
   const timezones = {
-    "Popular": [
+    Popular: [
       "UTC",
       "America/New_York",
       "America/Los_Angeles",
@@ -44,7 +32,7 @@ export default function TimezoneConverterPage() {
       "Asia/Shanghai",
       "Australia/Sydney",
     ],
-    "Americas": [
+    Americas: [
       "America/New_York",
       "America/Chicago",
       "America/Denver",
@@ -54,7 +42,7 @@ export default function TimezoneConverterPage() {
       "America/Sao_Paulo",
       "America/Buenos_Aires",
     ],
-    "Europe": [
+    Europe: [
       "Europe/London",
       "Europe/Paris",
       "Europe/Berlin",
@@ -64,7 +52,7 @@ export default function TimezoneConverterPage() {
       "Europe/Stockholm",
       "Europe/Moscow",
     ],
-    "Asia": [
+    Asia: [
       "Asia/Tokyo",
       "Asia/Shanghai",
       "Asia/Hong_Kong",
@@ -74,19 +62,13 @@ export default function TimezoneConverterPage() {
       "Asia/Bangkok",
       "Asia/Seoul",
     ],
-    "Pacific": [
-      "Australia/Sydney",
-      "Australia/Melbourne",
-      "Pacific/Auckland",
-      "Pacific/Fiji",
-      "Pacific/Honolulu",
-    ],
+    Pacific: ["Australia/Sydney", "Australia/Melbourne", "Pacific/Auckland", "Pacific/Fiji", "Pacific/Honolulu"],
   };
 
   useEffect(() => {
     // Set current time on mount
     const now = new Date();
-    setSourceDate(now.toISOString().split('T')[0]);
+    setSourceDate(now.toISOString().split("T")[0]);
     setSourceTime(now.toTimeString().slice(0, 5));
   }, []);
 
@@ -158,7 +140,9 @@ export default function TimezoneConverterPage() {
   };
 
   const addTimezone = () => {
-    const availableTz = Object.values(timezones).flat().find((tz) => !targetTimezones.includes(tz));
+    const availableTz = Object.values(timezones)
+      .flat()
+      .find((tz) => !targetTimezones.includes(tz));
     if (availableTz) {
       setTargetTimezones([...targetTimezones, availableTz]);
     }
@@ -170,7 +154,7 @@ export default function TimezoneConverterPage() {
 
   const setToNow = () => {
     const now = new Date();
-    setSourceDate(now.toISOString().split('T')[0]);
+    setSourceDate(now.toISOString().split("T")[0]);
     setSourceTime(now.toTimeString().slice(0, 5));
   };
 
@@ -178,9 +162,7 @@ export default function TimezoneConverterPage() {
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Timezone Converter</h1>
-        <p className="text-muted-foreground">
-          Convert times between different timezones
-        </p>
+        <p className="text-muted-foreground">Convert times between different timezones</p>
       </div>
 
       <Card className="mb-6">
@@ -189,30 +171,18 @@ export default function TimezoneConverterPage() {
             <Globe className="h-5 w-5" />
             Source Time & Timezone
           </CardTitle>
-          <CardDescription>
-            Enter the time and timezone you want to convert from
-          </CardDescription>
+          <CardDescription>Enter the time and timezone you want to convert from</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <Label htmlFor="source-date">Date</Label>
-              <Input
-                id="source-date"
-                type="date"
-                value={sourceDate}
-                onChange={(e) => setSourceDate(e.target.value)}
-              />
+              <Input id="source-date" type="date" value={sourceDate} onChange={(e) => setSourceDate(e.target.value)} />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="source-time">Time</Label>
-              <Input
-                id="source-time"
-                type="time"
-                value={sourceTime}
-                onChange={(e) => setSourceTime(e.target.value)}
-              />
+              <Input id="source-time" type="time" value={sourceTime} onChange={(e) => setSourceTime(e.target.value)} />
             </div>
 
             <div className="space-y-2">
@@ -256,32 +226,19 @@ export default function TimezoneConverterPage() {
         </CardHeader>
         <CardContent>
           {results.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
-              Enter a time and date to see conversions
-            </div>
+            <div className="text-center py-8 text-muted-foreground">Enter a time and date to see conversions</div>
           ) : (
             <div className="space-y-3">
               {results.map((result, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between p-4 border rounded-md bg-muted/30"
-                >
+                <div key={index} className="flex items-center justify-between p-4 border rounded-md bg-muted/30">
                   <div className="flex-1">
-                    <div className="font-semibold text-lg">
-                      {result.timezone.replace(/_/g, " ")}
-                    </div>
-                    <div className="text-2xl font-mono font-bold mt-1">
-                      {result.time}
-                    </div>
+                    <div className="font-semibold text-lg">{result.timezone.replace(/_/g, " ")}</div>
+                    <div className="text-2xl font-mono font-bold mt-1">{result.time}</div>
                     <div className="text-sm text-muted-foreground mt-1">
                       {result.date} • {result.offset}
                     </div>
                   </div>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => removeTimezone(index)}
-                  >
+                  <Button variant="ghost" size="icon" onClick={() => removeTimezone(index)}>
                     <X className="h-4 w-4" />
                   </Button>
                 </div>
@@ -296,18 +253,10 @@ export default function TimezoneConverterPage() {
           <CardTitle>About Timezones</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>
-            • Time conversions account for Daylight Saving Time (DST) where applicable
-          </p>
-          <p>
-            • UTC (Coordinated Universal Time) is the primary time standard by which the world regulates clocks
-          </p>
-          <p>
-            • Timezone offsets are shown in the format GMT+XX or GMT-XX
-          </p>
-          <p>
-            • Add multiple target timezones to compare times across different regions
-          </p>
+          <p>• Time conversions account for Daylight Saving Time (DST) where applicable</p>
+          <p>• UTC (Coordinated Universal Time) is the primary time standard by which the world regulates clocks</p>
+          <p>• Timezone offsets are shown in the format GMT+XX or GMT-XX</p>
+          <p>• Add multiple target timezones to compare times across different regions</p>
         </CardContent>
       </Card>
     </div>

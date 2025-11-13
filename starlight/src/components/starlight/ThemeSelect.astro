@@ -1,19 +1,19 @@
 ---
 // Enhanced translation system compatible with Starlight's i18n
 const t = (key: string) => {
-	// Default translations - could be extended to use Starlight's i18n system
-	const translations = {
-		'themeSelect.accessibleLabel': 'Select theme',
-		'themeSelect.light': 'Light',
-		'themeSelect.dark': 'Dark',
-		'themeSelect.auto': 'Auto',
-		'themeSelect.blue': 'Blue Ocean',
-		'themeSelect.forest': 'Forest Green',
-		'themeSelect.sunset': 'Sunset Orange',
-		'themeSelect.purple': 'Purple Night',
-		'themeSelect.label': 'Theme:'
-	};
-	return translations[key as keyof typeof translations] || key;
+  // Default translations - could be extended to use Starlight's i18n system
+  const translations = {
+    "themeSelect.accessibleLabel": "Select theme",
+    "themeSelect.light": "Light",
+    "themeSelect.dark": "Dark",
+    "themeSelect.auto": "Auto",
+    "themeSelect.blue": "Blue Ocean",
+    "themeSelect.forest": "Forest Green",
+    "themeSelect.sunset": "Sunset Orange",
+    "themeSelect.purple": "Purple Night",
+    "themeSelect.label": "Theme:",
+  };
+  return translations[key as keyof typeof translations] || key;
 };
 ---
 

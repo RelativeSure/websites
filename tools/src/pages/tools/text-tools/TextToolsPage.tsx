@@ -1,16 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function TextToolsPage() {
   const [text, setText] = useState("");
@@ -21,7 +15,7 @@ export default function TextToolsPage() {
   const charCount = text.length;
   const charCountNoSpaces = text.replace(/\s/g, "").length;
   const lineCount = text ? text.split("\n").length : 0;
-  const paragraphCount = text.trim() ? text.split(/\n\n+/).filter(p => p.trim()).length : 0;
+  const paragraphCount = text.trim() ? text.split(/\n\n+/).filter((p) => p.trim()).length : 0;
 
   const sortLines = (order: "asc" | "desc") => {
     const lines = text.split("\n");
@@ -37,7 +31,7 @@ export default function TextToolsPage() {
   };
 
   const removeEmptyLines = () => {
-    const lines = text.split("\n").filter(line => line.trim() !== "");
+    const lines = text.split("\n").filter((line) => line.trim() !== "");
     setText(lines.join("\n"));
   };
 
@@ -72,9 +66,7 @@ export default function TextToolsPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Text Tools</h1>
-        <p className="text-muted-foreground">
-          Advanced text manipulation and analysis tools
-        </p>
+        <p className="text-muted-foreground">Advanced text manipulation and analysis tools</p>
       </div>
 
       <Tabs defaultValue="counter" className="w-full">

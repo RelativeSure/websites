@@ -1,17 +1,11 @@
+import { Check, Copy, Download, ExternalLink, Server } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Server, Copy, Check, Download, ExternalLink } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function HtaccessGeneratorPage() {
   const [options, setOptions] = useState({
@@ -99,7 +93,8 @@ export default function HtaccessGeneratorPage() {
     if (options.enableGzip) {
       htaccess += "# Enable Gzip Compression\n";
       htaccess += "<IfModule mod_deflate.c>\n";
-      htaccess += "  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json\n";
+      htaccess +=
+        "  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json\n";
       htaccess += "</IfModule>\n\n";
     }
 
@@ -108,14 +103,14 @@ export default function HtaccessGeneratorPage() {
       htaccess += "# Browser Caching\n";
       htaccess += "<IfModule mod_expires.c>\n";
       htaccess += "  ExpiresActive On\n";
-      htaccess += "  ExpiresByType image/jpg \"access plus 1 year\"\n";
-      htaccess += "  ExpiresByType image/jpeg \"access plus 1 year\"\n";
-      htaccess += "  ExpiresByType image/gif \"access plus 1 year\"\n";
-      htaccess += "  ExpiresByType image/png \"access plus 1 year\"\n";
-      htaccess += "  ExpiresByType image/svg+xml \"access plus 1 year\"\n";
-      htaccess += "  ExpiresByType text/css \"access plus 1 month\"\n";
-      htaccess += "  ExpiresByType application/javascript \"access plus 1 month\"\n";
-      htaccess += "  ExpiresByType text/html \"access plus 0 seconds\"\n";
+      htaccess += '  ExpiresByType image/jpg "access plus 1 year"\n';
+      htaccess += '  ExpiresByType image/jpeg "access plus 1 year"\n';
+      htaccess += '  ExpiresByType image/gif "access plus 1 year"\n';
+      htaccess += '  ExpiresByType image/png "access plus 1 year"\n';
+      htaccess += '  ExpiresByType image/svg+xml "access plus 1 year"\n';
+      htaccess += '  ExpiresByType text/css "access plus 1 month"\n';
+      htaccess += '  ExpiresByType application/javascript "access plus 1 month"\n';
+      htaccess += '  ExpiresByType text/html "access plus 0 seconds"\n';
       htaccess += "</IfModule>\n\n";
     }
 
@@ -212,9 +207,7 @@ export default function HtaccessGeneratorPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">.htaccess Generator</h1>
-        <p className="text-muted-foreground">
-          Generate Apache .htaccess configuration files with common settings
-        </p>
+        <p className="text-muted-foreground">Generate Apache .htaccess configuration files with common settings</p>
       </div>
 
       <Card className="mb-6">
@@ -222,9 +215,7 @@ export default function HtaccessGeneratorPage() {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle>Templates</CardTitle>
-              <CardDescription>
-                Quick start with common configurations
-              </CardDescription>
+              <CardDescription>Quick start with common configurations</CardDescription>
             </div>
           </div>
         </CardHeader>
@@ -259,9 +250,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="forceHttps"
                 checked={options.forceHttps}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, forceHttps: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, forceHttps: checked as boolean })}
               />
               <Label htmlFor="forceHttps" className="cursor-pointer leading-tight">
                 Force HTTPS (redirect HTTP to HTTPS)
@@ -272,9 +261,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="forceWww"
                 checked={options.forceWww}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, forceWww: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, forceWww: checked as boolean })}
               />
               <Label htmlFor="forceWww" className="cursor-pointer leading-tight">
                 Force WWW prefix
@@ -285,9 +272,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="removeWww"
                 checked={options.removeWww}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, removeWww: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, removeWww: checked as boolean })}
               />
               <Label htmlFor="removeWww" className="cursor-pointer leading-tight">
                 Remove WWW prefix
@@ -298,9 +283,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="disableDirectoryBrowsing"
                 checked={options.disableDirectoryBrowsing}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, disableDirectoryBrowsing: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, disableDirectoryBrowsing: checked as boolean })}
               />
               <Label htmlFor="disableDirectoryBrowsing" className="cursor-pointer leading-tight">
                 Disable directory browsing
@@ -318,9 +301,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="enableGzip"
                 checked={options.enableGzip}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, enableGzip: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, enableGzip: checked as boolean })}
               />
               <Label htmlFor="enableGzip" className="cursor-pointer leading-tight">
                 Enable Gzip compression
@@ -331,9 +312,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="enableCaching"
                 checked={options.enableCaching}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, enableCaching: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, enableCaching: checked as boolean })}
               />
               <Label htmlFor="enableCaching" className="cursor-pointer leading-tight">
                 Enable browser caching
@@ -344,9 +323,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="preventHotlinking"
                 checked={options.preventHotlinking}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, preventHotlinking: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, preventHotlinking: checked as boolean })}
               />
               <Label htmlFor="preventHotlinking" className="cursor-pointer leading-tight">
                 Prevent image hotlinking
@@ -378,9 +355,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="customRedirect"
                 checked={options.customRedirect}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, customRedirect: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, customRedirect: checked as boolean })}
               />
               <Label htmlFor="customRedirect" className="cursor-pointer">
                 Custom 301 Redirect
@@ -414,9 +389,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="blockIps"
                 checked={options.blockIps}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, blockIps: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, blockIps: checked as boolean })}
               />
               <Label htmlFor="blockIps" className="cursor-pointer">
                 Block IP Addresses
@@ -441,9 +414,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="customErrorPages"
                 checked={options.customErrorPages}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, customErrorPages: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, customErrorPages: checked as boolean })}
               />
               <Label htmlFor="customErrorPages" className="cursor-pointer">
                 Custom Error Pages
@@ -477,9 +448,7 @@ export default function HtaccessGeneratorPage() {
               <Checkbox
                 id="protectFiles"
                 checked={options.protectFiles}
-                onCheckedChange={(checked) =>
-                  setOptions({ ...options, protectFiles: checked as boolean })
-                }
+                onCheckedChange={(checked) => setOptions({ ...options, protectFiles: checked as boolean })}
               />
               <Label htmlFor="protectFiles" className="cursor-pointer">
                 Protect Sensitive Files
@@ -516,9 +485,7 @@ export default function HtaccessGeneratorPage() {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>Generated .htaccess</CardTitle>
-                <CardDescription>
-                  Place this file in the root directory of your website
-                </CardDescription>
+                <CardDescription>Place this file in the root directory of your website</CardDescription>
               </div>
               <div className="flex gap-2">
                 <Button variant="ghost" size="sm" onClick={handleCopy}>
@@ -542,11 +509,7 @@ export default function HtaccessGeneratorPage() {
             </div>
           </CardHeader>
           <CardContent>
-            <Textarea
-              value={output}
-              readOnly
-              className="font-mono text-xs min-h-[400px] bg-muted"
-            />
+            <Textarea value={output} readOnly className="font-mono text-xs min-h-[400px] bg-muted" />
           </CardContent>
         </Card>
       )}
@@ -557,17 +520,16 @@ export default function HtaccessGeneratorPage() {
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
           <p>
-            .htaccess is a configuration file for Apache web servers that allows you to
-            control how your website behaves without modifying server configuration files.
+            .htaccess is a configuration file for Apache web servers that allows you to control how your website behaves
+            without modifying server configuration files.
           </p>
           <p>
-            <strong>Important:</strong> Always backup your existing .htaccess file before
-            making changes. Incorrect configuration can break your website.
+            <strong>Important:</strong> Always backup your existing .htaccess file before making changes. Incorrect
+            configuration can break your website.
           </p>
           <p>
-            <strong>Testing:</strong> After uploading, test all functionality to ensure
-            nothing is broken. Some hosting providers may have restrictions on certain
-            directives.
+            <strong>Testing:</strong> After uploading, test all functionality to ensure nothing is broken. Some hosting
+            providers may have restrictions on certain directives.
           </p>
           <div className="flex items-center gap-2 pt-2">
             <ExternalLink className="h-4 w-4" />

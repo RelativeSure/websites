@@ -1,14 +1,8 @@
+import { Calculator, History, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Calculator, History, Trash2 } from "lucide-react";
 
 interface HistoryItem {
   expression: string;
@@ -89,22 +83,13 @@ export default function ExpressionEvaluatorPage() {
     { symbol: "()", name: "Parentheses", example: "(2 + 3) * 4 = 20" },
   ];
 
-  const examples = [
-    "2 + 2",
-    "10 * (5 + 3)",
-    "100 / 4 - 10",
-    "(15 + 5) * 2 / 4",
-    "50 % 7",
-    "3.14 * 2.5",
-  ];
+  const examples = ["2 + 2", "10 * (5 + 3)", "100 / 4 - 10", "(15 + 5) * 2 / 4", "50 % 7", "3.14 * 2.5"];
 
   return (
     <div className="container mx-auto p-6 max-w-5xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Expression Evaluator</h1>
-        <p className="text-muted-foreground">
-          Calculate mathematical expressions safely
-        </p>
+        <p className="text-muted-foreground">Calculate mathematical expressions safely</p>
       </div>
 
       <Card className="mb-6">
@@ -113,9 +98,7 @@ export default function ExpressionEvaluatorPage() {
             <Calculator className="h-5 w-5" />
             Calculator
           </CardTitle>
-          <CardDescription>
-            Enter a mathematical expression to evaluate
-          </CardDescription>
+          <CardDescription>Enter a mathematical expression to evaluate</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -142,9 +125,7 @@ export default function ExpressionEvaluatorPage() {
           {result && (
             <div className="p-6 bg-primary/10 border-2 border-primary rounded-md text-center">
               <div className="text-sm text-muted-foreground mb-2">Result</div>
-              <div className="text-5xl font-bold font-mono text-primary">
-                {result}
-              </div>
+              <div className="text-5xl font-bold font-mono text-primary">{result}</div>
             </div>
           )}
         </CardContent>
@@ -161,9 +142,7 @@ export default function ExpressionEvaluatorPage() {
                 <div key={i} className="flex items-center justify-between p-3 bg-muted/30 rounded-md">
                   <div>
                     <div className="font-semibold">{op.name}</div>
-                    <div className="text-sm text-muted-foreground font-mono">
-                      {op.example}
-                    </div>
+                    <div className="text-sm text-muted-foreground font-mono">{op.example}</div>
                   </div>
                   <div className="text-2xl font-bold font-mono">{op.symbol}</div>
                 </div>
@@ -231,24 +210,14 @@ export default function ExpressionEvaluatorPage() {
           <CardTitle>Notes</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground space-y-2">
-          <p>
-            • Supports basic arithmetic: addition (+), subtraction (-), multiplication (*), division (/)
-          </p>
-          <p>
-            • Modulo operator (%) returns the remainder of division
-          </p>
-          <p>
-            • Use parentheses () to group operations and control order of evaluation
-          </p>
-          <p>
-            • Follows standard order of operations (PEMDAS/BODMAS)
-          </p>
-          <p>
-            • Decimal numbers are supported (e.g., 3.14, 2.5)
-          </p>
+          <p>• Supports basic arithmetic: addition (+), subtraction (-), multiplication (*), division (/)</p>
+          <p>• Modulo operator (%) returns the remainder of division</p>
+          <p>• Use parentheses () to group operations and control order of evaluation</p>
+          <p>• Follows standard order of operations (PEMDAS/BODMAS)</p>
+          <p>• Decimal numbers are supported (e.g., 3.14, 2.5)</p>
           <div className="p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-md">
-            <strong className="text-blue-800 dark:text-blue-300">Security:</strong>{" "}
-            All calculations are performed safely in your browser. Only basic math operators are allowed.
+            <strong className="text-blue-800 dark:text-blue-300">Security:</strong> All calculations are performed
+            safely in your browser. Only basic math operators are allowed.
           </div>
         </CardContent>
       </Card>

@@ -1,18 +1,18 @@
 import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 export default function CronParser() {
   const [cron, setCron] = useState("*/5 * * * *");
   const [description, setDescription] = useState("");
-  const [parts, setParts] = useState<{ minute: string; hour: string; day: string; month: string; weekday: string } | null>(null);
+  const [parts, setParts] = useState<{
+    minute: string;
+    hour: string;
+    day: string;
+    month: string;
+    weekday: string;
+  } | null>(null);
 
   const parseCron = (cronExpr: string) => {
     setCron(cronExpr);
@@ -57,7 +57,7 @@ export default function CronParser() {
     if (weekday !== "*") {
       const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       if (weekday.includes(",")) {
-        const dayNums = weekday.split(",").map(d => days[parseInt(d)] || d);
+        const dayNums = weekday.split(",").map((d) => days[parseInt(d)] || d);
         desc.push(`on ${dayNums.join(", ")}`);
       } else {
         desc.push(`on ${days[parseInt(weekday)] || weekday}`);
@@ -82,9 +82,7 @@ export default function CronParser() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Cron Expression Parser</h1>
-        <p className="text-muted-foreground">
-          Parse and understand cron expressions
-        </p>
+        <p className="text-muted-foreground">Parse and understand cron expressions</p>
       </div>
 
       <Card className="mb-6">

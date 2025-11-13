@@ -1,6 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
-import XmlJsonPage from '../../../pages/tools/converters/XmlJsonPage'
+import { createFileRoute } from "@tanstack/react-router";
+import XmlJsonPage from "../../../pages/tools/converters/XmlJsonPage";
 
-export const Route = createFileRoute('/_tools/converters/xml-json')({
+export const Route = createFileRoute("/_tools/converters/xml-json")({
   component: XmlJsonPage,
-})
+});

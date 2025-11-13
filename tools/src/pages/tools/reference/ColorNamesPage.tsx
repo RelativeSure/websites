@@ -1,13 +1,7 @@
-import { useState } from "react";
 import { Search } from "lucide-react";
+import { useState } from "react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const colors = [
   // Reds
@@ -124,9 +118,7 @@ export default function ColorNamesPage() {
     <div className="container mx-auto p-6 max-w-6xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Color Names Reference</h1>
-        <p className="text-muted-foreground">
-          HTML/CSS named colors with hex and RGB values
-        </p>
+        <p className="text-muted-foreground">HTML/CSS named colors with hex and RGB values</p>
       </div>
 
       <Card className="mb-6">
@@ -179,9 +171,7 @@ export default function ColorNamesPage() {
                         </td>
                         <td className="p-2 font-semibold">{item.name}</td>
                         <td className="p-2 font-mono text-sm">{item.hex}</td>
-                        <td className="p-2 font-mono text-xs text-muted-foreground">
-                          {item.rgb}
-                        </td>
+                        <td className="p-2 font-mono text-xs text-muted-foreground">{item.rgb}</td>
                         <td className="p-2">
                           <div className="flex gap-1">
                             <button
