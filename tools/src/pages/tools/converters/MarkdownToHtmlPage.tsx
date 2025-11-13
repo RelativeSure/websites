@@ -13,9 +13,9 @@ export default function MarkdownToHtmlPage() {
   const [html, setHtml] = useState("");
   const [copied, setCopied] = useState(false);
 
-  const convertToHtml = () => {
+  const convertToHtml = async () => {
     try {
-      const converted = marked(markdown);
+      const converted = await marked(markdown);
       setHtml(converted);
     } catch (err) {
       console.error("Conversion failed:", err);

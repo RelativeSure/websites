@@ -20,7 +20,7 @@ export default {
 
       // Serve index.html for routes without file extensions
       if (!hasFileExtension) {
-        return env.ASSETS.fetch(new URL("/index.html", url));
+        return env.ASSETS.fetch(new Request(new URL("/index.html", url), request));
       }
     }
 

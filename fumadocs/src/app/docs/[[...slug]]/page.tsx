@@ -10,6 +10,11 @@ import { notFound } from "next/navigation";
 import { getPageImage, source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 
+interface PageProps<T = string> {
+  params: Promise<{ slug?: string[] }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
 export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   const params = await props.params;
   const page = source.getPage(params.slug);

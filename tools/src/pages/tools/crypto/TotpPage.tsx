@@ -46,10 +46,10 @@ export default function TotpPage() {
       }
 
       // Import the secret key
-      const key = await crypto.subtle.importKey("raw", secret, { name: "HMAC", hash: "SHA-1" }, false, ["sign"]);
+      const key = await crypto.subtle.importKey("raw", secret as BufferSource, { name: "HMAC", hash: "SHA-1" }, false, ["sign"]);
 
       // Generate HMAC
-      const signature = await crypto.subtle.sign("HMAC", key, counterBytes);
+      const signature = await crypto.subtle.sign("HMAC", key, counterBytes as BufferSource);
       const hmac = new Uint8Array(signature);
 
       // Dynamic truncation

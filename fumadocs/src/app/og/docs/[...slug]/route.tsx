@@ -5,6 +5,10 @@ import { getPageImage, source } from "@/lib/source";
 
 export const revalidate = false;
 
+interface RouteContext<T = string> {
+  params: Promise<{ slug: string[] }>;
+}
+
 export async function GET(
   _req: Request,
   { params }: RouteContext<"/og/docs/[...slug]">,
