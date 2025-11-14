@@ -62,6 +62,69 @@ export default function UnifiedConverterPage() {
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
 
+  // Define which formats can convert to which
+  const getCompatibleFormats = (from: FormatType): FormatType[] => {
+    const baseEncodings: FormatType[] = ["base64", "base32", "hex", "binary", "octal", "decimal"];
+    const dataFormats: FormatType[] = ["json", "yaml", "xml", "csv"];
+
+    switch (from) {
+      case "json":
+        return ["yaml", "xml", "csv", "text"];
+      case "yaml":
+        return ["json", "xml", "csv", "text"];
+      case "xml":
+        return ["json", "yaml", "csv", "text"];
+      case "csv":
+        return ["json", "yaml", "xml", "text"];
+      case "markdown":
+        return ["html", "text"];
+      case "html":
+        return ["text"];
+      case "text":
+        return [
+          "json",
+          "yaml",
+          "xml",
+          "csv",
+          "markdown",
+          "html",
+          "base64",
+          "base32",
+          "hex",
+          "binary",
+          "octal",
+          "decimal",
+          "url",
+          "html-entities",
+        ];
+      case "base64":
+      case "base32":
+      case "hex":
+      case "binary":
+      case "octal":
+      case "decimal":
+        return ["text", ...baseEncodings.filter((b) => b !== from)];
+      case "url":
+      case "html-entities":
+        return ["text"];
+      default:
+        return [];
+    }
+  };
+
+  // Get available formats for the current selection
+  const availableToFormats = getCompatibleFormats(fromFormat);
+
+  // Auto-adjust toFormat if it becomes incompatible
+  const handleFromFormatChange = (newFrom: FormatType) => {
+    setFromFormat(newFrom);
+    const compatible = getCompatibleFormats(newFrom);
+    if (!compatible.includes(toFormat)) {
+      // Set to first compatible format
+      setToFormat(compatible[0] || "text");
+    }
+  };
+
   // Base Conversion Utilities
   const base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 
@@ -214,6 +277,18 @@ export default function UnifiedConverterPage() {
     const parsed = yaml.load(yamlStr);
     const jsonStr = JSON.stringify(parsed);
     return jsonToCsv(jsonStr);
+  };
+
+  // XML to CSV
+  const xmlToCsv = (xmlStr: string): string => {
+    const jsonStr = xmlToJson(xmlStr);
+    return jsonToCsv(jsonStr);
+  };
+
+  // CSV to XML
+  const csvToXml = (csvStr: string): string => {
+    const jsonStr = csvToJson(csvStr);
+    return jsonToXml(jsonStr);
   };
 
   // CSV Parser
@@ -429,10 +504,25 @@ export default function UnifiedConverterPage() {
         result = csvToYaml(input);
       } else if (fromFormat === "yaml" && toFormat === "csv") {
         result = yamlToCsv(input);
+      } else if (fromFormat === "xml" && toFormat === "csv") {
+        result = xmlToCsv(input);
+      } else if (fromFormat === "csv" && toFormat === "xml") {
+        result = csvToXml(input);
       } else if (fromFormat === "markdown" && toFormat === "html") {
         result = await marked(input);
       } else if (fromFormat === "html" && toFormat === "text") {
         result = htmlToText(input);
+      } else if (fromFormat === "json" && toFormat === "text") {
+        const parsed = JSON.parse(input);
+        result = JSON.stringify(parsed, null, 2);
+      } else if (fromFormat === "yaml" && toFormat === "text") {
+        result = input;
+      } else if (fromFormat === "xml" && toFormat === "text") {
+        result = input;
+      } else if (fromFormat === "csv" && toFormat === "text") {
+        result = input;
+      } else if (fromFormat === "markdown" && toFormat === "text") {
+        result = input;
       }
       // Base64 conversions
       else if (fromFormat === "text" && toFormat === "base64") {
@@ -568,7 +658,7 @@ export default function UnifiedConverterPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
             <div className="space-y-2">
               <Label htmlFor="from-format">From</Label>
-              <Select value={fromFormat} onValueChange={(value) => setFromFormat(value as FormatType)}>
+              <Select value={fromFormat} onValueChange={(value) => handleFromFormatChange(value as FormatType)}>
                 <SelectTrigger id="from-format">
                   <SelectValue />
                 </SelectTrigger>
@@ -614,7 +704,7 @@ export default function UnifiedConverterPage() {
                 <SelectContent>
                   <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Data Formats</div>
                   {formats
-                    .filter((f) => f.category === "data")
+                    .filter((f) => f.category === "data" && availableToFormats.includes(f.value))
                     .map((format) => (
                       <SelectItem key={format.value} value={format.value}>
                         {format.label}
@@ -622,7 +712,7 @@ export default function UnifiedConverterPage() {
                     ))}
                   <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">Base Encodings</div>
                   {formats
-                    .filter((f) => f.category === "base")
+                    .filter((f) => f.category === "base" && availableToFormats.includes(f.value))
                     .map((format) => (
                       <SelectItem key={format.value} value={format.value}>
                         {format.label}
@@ -630,7 +720,7 @@ export default function UnifiedConverterPage() {
                     ))}
                   <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">String Encodings</div>
                   {formats
-                    .filter((f) => f.category === "encoding")
+                    .filter((f) => f.category === "encoding" && availableToFormats.includes(f.value))
                     .map((format) => (
                       <SelectItem key={format.value} value={format.value}>
                         {format.label}
@@ -708,45 +798,59 @@ export default function UnifiedConverterPage() {
 
       <Card className="mt-6">
         <CardHeader>
-          <CardTitle>Supported Conversions</CardTitle>
+          <CardTitle>Available Conversions from {formats.find((f) => f.value === fromFormat)?.label}</CardTitle>
+          <CardDescription>
+            Select a format above to see compatible conversion targets. The "To" dropdown shows only valid conversions.
+          </CardDescription>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-          <div>
-            <h4 className="font-semibold mb-2">Data Formats:</h4>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>• JSON ↔ YAML</li>
-              <li>• JSON ↔ XML</li>
-              <li>• JSON ↔ CSV</li>
-              <li>• XML ↔ YAML</li>
-              <li>• CSV ↔ YAML</li>
-              <li>• Markdown → HTML</li>
-              <li>• HTML → Text</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Base Encodings:</h4>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>• Text ↔ Base64</li>
-              <li>• Text ↔ Base32</li>
-              <li>• Text ↔ Hexadecimal</li>
-              <li>• Text ↔ Binary</li>
-              <li>• Text ↔ Octal</li>
-              <li>• Text ↔ Decimal</li>
-              <li>• Base to Base (via text)</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">String Encodings:</h4>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>• Text ↔ URL Encoded</li>
-              <li>• Text ↔ HTML Entities</li>
-            </ul>
-            <h4 className="font-semibold mb-2 mt-4">Tips:</h4>
-            <ul className="space-y-1 text-muted-foreground">
-              <li>• CSV requires headers in first row</li>
-              <li>• JSON to CSV needs array of objects</li>
-              <li>• Base conversions support chaining</li>
-            </ul>
+        <CardContent>
+          <div className="space-y-4">
+            <div>
+              <h4 className="font-semibold mb-2 text-sm">Can convert to:</h4>
+              <div className="flex flex-wrap gap-2">
+                {availableToFormats.map((format) => {
+                  const formatInfo = formats.find((f) => f.value === format);
+                  return (
+                    <span
+                      key={format}
+                      className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
+                    >
+                      {formatInfo?.label}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t">
+              <div>
+                <h4 className="font-semibold mb-2 text-sm">All Data Format Conversions:</h4>
+                <ul className="space-y-1 text-muted-foreground text-xs">
+                  <li>• JSON ↔ YAML, XML, CSV</li>
+                  <li>• YAML ↔ JSON, XML, CSV</li>
+                  <li>• XML ↔ JSON, YAML, CSV</li>
+                  <li>• CSV ↔ JSON, YAML, XML</li>
+                  <li>• Markdown → HTML</li>
+                  <li>• HTML → Text</li>
+                  <li>• Any data format → Text</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2 text-sm">All Encoding Conversions:</h4>
+                <ul className="space-y-1 text-muted-foreground text-xs">
+                  <li>• Text ↔ Base64, Base32, Hex, Binary, Octal, Decimal</li>
+                  <li>• Text ↔ URL Encoded, HTML Entities</li>
+                  <li>• Any base encoding ↔ Any other base encoding</li>
+                  <li>• Example: Hex ↔ Base64, Binary ↔ Base32, etc.</li>
+                </ul>
+                <h4 className="font-semibold mb-2 mt-3 text-sm">Tips:</h4>
+                <ul className="space-y-1 text-muted-foreground text-xs">
+                  <li>• CSV requires headers in first row</li>
+                  <li>• JSON to CSV needs array of objects</li>
+                  <li>• Base encodings convert via text intermediary</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
