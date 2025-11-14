@@ -8,22 +8,50 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
-type FormatType = "json" | "yaml" | "xml" | "csv" | "base64" | "markdown" | "html" | "text";
+type FormatType =
+  | "json"
+  | "yaml"
+  | "xml"
+  | "csv"
+  | "base64"
+  | "base32"
+  | "hex"
+  | "binary"
+  | "octal"
+  | "decimal"
+  | "markdown"
+  | "html"
+  | "text"
+  | "url"
+  | "html-entities";
 
 interface ConversionFormat {
   value: FormatType;
   label: string;
+  category: "data" | "base" | "encoding";
 }
 
 const formats: ConversionFormat[] = [
-  { value: "json", label: "JSON" },
-  { value: "yaml", label: "YAML" },
-  { value: "xml", label: "XML" },
-  { value: "csv", label: "CSV" },
-  { value: "base64", label: "Base64" },
-  { value: "markdown", label: "Markdown" },
-  { value: "html", label: "HTML" },
-  { value: "text", label: "Plain Text" },
+  // Data Formats
+  { value: "json", label: "JSON", category: "data" },
+  { value: "yaml", label: "YAML", category: "data" },
+  { value: "xml", label: "XML", category: "data" },
+  { value: "csv", label: "CSV", category: "data" },
+  { value: "markdown", label: "Markdown", category: "data" },
+  { value: "html", label: "HTML", category: "data" },
+  { value: "text", label: "Plain Text", category: "data" },
+
+  // Base Encodings
+  { value: "base64", label: "Base64", category: "base" },
+  { value: "base32", label: "Base32", category: "base" },
+  { value: "hex", label: "Hexadecimal", category: "base" },
+  { value: "binary", label: "Binary", category: "base" },
+  { value: "octal", label: "Octal", category: "base" },
+  { value: "decimal", label: "Decimal", category: "base" },
+
+  // Encodings
+  { value: "url", label: "URL Encoded", category: "encoding" },
+  { value: "html-entities", label: "HTML Entities", category: "encoding" },
 ];
 
 export default function UnifiedConverterPage() {
@@ -33,6 +61,160 @@ export default function UnifiedConverterPage() {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
+
+  // Base Conversion Utilities
+  const base32Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+
+  const textToBase32 = (text: string): string => {
+    const bytes = new TextEncoder().encode(text);
+    let bits = "";
+    for (const byte of bytes) {
+      bits += byte.toString(2).padStart(8, "0");
+    }
+    let result = "";
+    for (let i = 0; i < bits.length; i += 5) {
+      const chunk = bits.slice(i, i + 5).padEnd(5, "0");
+      result += base32Alphabet[parseInt(chunk, 2)];
+    }
+    const padding = (8 - (result.length % 8)) % 8;
+    return result + "=".repeat(padding);
+  };
+
+  const base32ToText = (encoded: string): string => {
+    const cleaned = encoded.replace(/=+$/, "");
+    let bits = "";
+    for (const char of cleaned) {
+      const index = base32Alphabet.indexOf(char.toUpperCase());
+      if (index === -1) throw new Error("Invalid Base32 character");
+      bits += index.toString(2).padStart(5, "0");
+    }
+    const bytes: number[] = [];
+    for (let i = 0; i + 8 <= bits.length; i += 8) {
+      bytes.push(parseInt(bits.slice(i, i + 8), 2));
+    }
+    return new TextDecoder().decode(new Uint8Array(bytes));
+  };
+
+  const textToHex = (text: string): string => {
+    return Array.from(new TextEncoder().encode(text))
+      .map((byte) => byte.toString(16).padStart(2, "0"))
+      .join("");
+  };
+
+  const hexToText = (hex: string): string => {
+    const cleaned = hex.replace(/\s/g, "");
+    if (cleaned.length % 2 !== 0) throw new Error("Invalid hexadecimal string");
+    const bytes: number[] = [];
+    for (let i = 0; i < cleaned.length; i += 2) {
+      bytes.push(parseInt(cleaned.slice(i, i + 2), 16));
+    }
+    return new TextDecoder().decode(new Uint8Array(bytes));
+  };
+
+  const textToBinary = (text: string): string => {
+    return Array.from(new TextEncoder().encode(text))
+      .map((byte) => byte.toString(2).padStart(8, "0"))
+      .join(" ");
+  };
+
+  const binaryToText = (binary: string): string => {
+    const cleaned = binary.replace(/\s/g, "");
+    if (cleaned.length % 8 !== 0) throw new Error("Invalid binary string");
+    const bytes: number[] = [];
+    for (let i = 0; i < cleaned.length; i += 8) {
+      bytes.push(parseInt(cleaned.slice(i, i + 8), 2));
+    }
+    return new TextDecoder().decode(new Uint8Array(bytes));
+  };
+
+  const textToOctal = (text: string): string => {
+    return Array.from(new TextEncoder().encode(text))
+      .map((byte) => byte.toString(8).padStart(3, "0"))
+      .join(" ");
+  };
+
+  const octalToText = (octal: string): string => {
+    const cleaned = octal.replace(/\s/g, "");
+    const bytes: number[] = [];
+    for (let i = 0; i < cleaned.length; i += 3) {
+      bytes.push(parseInt(cleaned.slice(i, i + 3), 8));
+    }
+    return new TextDecoder().decode(new Uint8Array(bytes));
+  };
+
+  const textToDecimal = (text: string): string => {
+    return Array.from(new TextEncoder().encode(text))
+      .map((byte) => byte.toString(10))
+      .join(" ");
+  };
+
+  const decimalToText = (decimal: string): string => {
+    const bytes = decimal
+      .trim()
+      .split(/\s+/)
+      .map((n) => parseInt(n, 10));
+    return new TextDecoder().decode(new Uint8Array(bytes));
+  };
+
+  // URL Encoding
+  const encodeUrl = (text: string): string => {
+    return encodeURIComponent(text);
+  };
+
+  const decodeUrl = (encoded: string): string => {
+    return decodeURIComponent(encoded);
+  };
+
+  // HTML Entities
+  const encodeHtmlEntities = (text: string): string => {
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  };
+
+  const decodeHtmlEntities = (text: string): string => {
+    const textarea = document.createElement("textarea");
+    textarea.innerHTML = text;
+    return textarea.value;
+  };
+
+  // HTML to Text
+  const htmlToText = (html: string): string => {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
+  };
+
+  // XML to YAML
+  const xmlToYaml = (xmlStr: string): string => {
+    const jsonStr = xmlToJson(xmlStr);
+    const parsed = JSON.parse(jsonStr);
+    return yaml.dump(parsed, { indent: 2 });
+  };
+
+  // YAML to XML
+  const yamlToXml = (yamlStr: string): string => {
+    const parsed = yaml.load(yamlStr);
+    const jsonStr = JSON.stringify(parsed);
+    return jsonToXml(jsonStr);
+  };
+
+  // CSV to YAML
+  const csvToYaml = (csvStr: string): string => {
+    const jsonStr = csvToJson(csvStr);
+    const parsed = JSON.parse(jsonStr);
+    return yaml.dump(parsed, { indent: 2 });
+  };
+
+  // YAML to CSV
+  const yamlToCsv = (yamlStr: string): string => {
+    const parsed = yaml.load(yamlStr);
+    const jsonStr = JSON.stringify(parsed);
+    return jsonToCsv(jsonStr);
+  };
 
   // CSV Parser
   const parseCSV = (csv: string, delimiter: string = ","): string[][] => {
@@ -224,7 +406,7 @@ export default function UnifiedConverterPage() {
 
       let result = "";
 
-      // Handle conversions
+      // Data format conversions
       if (fromFormat === "json" && toFormat === "yaml") {
         const parsed = JSON.parse(input);
         result = yaml.dump(parsed, { indent: 2 });
@@ -235,24 +417,95 @@ export default function UnifiedConverterPage() {
         result = jsonToXml(input);
       } else if (fromFormat === "xml" && toFormat === "json") {
         result = xmlToJson(input);
+      } else if (fromFormat === "xml" && toFormat === "yaml") {
+        result = xmlToYaml(input);
+      } else if (fromFormat === "yaml" && toFormat === "xml") {
+        result = yamlToXml(input);
       } else if (fromFormat === "json" && toFormat === "csv") {
         result = jsonToCsv(input);
       } else if (fromFormat === "csv" && toFormat === "json") {
         result = csvToJson(input);
+      } else if (fromFormat === "csv" && toFormat === "yaml") {
+        result = csvToYaml(input);
+      } else if (fromFormat === "yaml" && toFormat === "csv") {
+        result = yamlToCsv(input);
       } else if (fromFormat === "markdown" && toFormat === "html") {
         result = await marked(input);
-      } else if (fromFormat === "text" && toFormat === "base64") {
+      } else if (fromFormat === "html" && toFormat === "text") {
+        result = htmlToText(input);
+      }
+      // Base64 conversions
+      else if (fromFormat === "text" && toFormat === "base64") {
         result = btoa(input);
       } else if (fromFormat === "base64" && toFormat === "text") {
         result = atob(input);
-      } else if (fromFormat === "json" && toFormat === "text") {
-        const parsed = JSON.parse(input);
-        result = JSON.stringify(parsed, null, 2);
-      } else if (fromFormat === "yaml" && toFormat === "text") {
-        result = input;
-      } else if (fromFormat === "xml" && toFormat === "text") {
-        result = input;
-      } else if (toFormat === "text") {
+      }
+      // Base32 conversions
+      else if (fromFormat === "text" && toFormat === "base32") {
+        result = textToBase32(input);
+      } else if (fromFormat === "base32" && toFormat === "text") {
+        result = base32ToText(input);
+      }
+      // Hexadecimal conversions
+      else if (fromFormat === "text" && toFormat === "hex") {
+        result = textToHex(input);
+      } else if (fromFormat === "hex" && toFormat === "text") {
+        result = hexToText(input);
+      }
+      // Binary conversions
+      else if (fromFormat === "text" && toFormat === "binary") {
+        result = textToBinary(input);
+      } else if (fromFormat === "binary" && toFormat === "text") {
+        result = binaryToText(input);
+      }
+      // Octal conversions
+      else if (fromFormat === "text" && toFormat === "octal") {
+        result = textToOctal(input);
+      } else if (fromFormat === "octal" && toFormat === "text") {
+        result = octalToText(input);
+      }
+      // Decimal conversions
+      else if (fromFormat === "text" && toFormat === "decimal") {
+        result = textToDecimal(input);
+      } else if (fromFormat === "decimal" && toFormat === "text") {
+        result = decimalToText(input);
+      }
+      // URL encoding conversions
+      else if (fromFormat === "text" && toFormat === "url") {
+        result = encodeUrl(input);
+      } else if (fromFormat === "url" && toFormat === "text") {
+        result = decodeUrl(input);
+      }
+      // HTML entities conversions
+      else if (fromFormat === "text" && toFormat === "html-entities") {
+        result = encodeHtmlEntities(input);
+      } else if (fromFormat === "html-entities" && toFormat === "text") {
+        result = decodeHtmlEntities(input);
+      }
+      // Base to base conversions (through text)
+      else if (
+        ["base64", "base32", "hex", "binary", "octal", "decimal"].includes(fromFormat) &&
+        ["base64", "base32", "hex", "binary", "octal", "decimal"].includes(toFormat)
+      ) {
+        // Convert from source base to text first
+        let intermediate = input;
+        if (fromFormat === "base64") intermediate = atob(input);
+        else if (fromFormat === "base32") intermediate = base32ToText(input);
+        else if (fromFormat === "hex") intermediate = hexToText(input);
+        else if (fromFormat === "binary") intermediate = binaryToText(input);
+        else if (fromFormat === "octal") intermediate = octalToText(input);
+        else if (fromFormat === "decimal") intermediate = decimalToText(input);
+
+        // Convert from text to target base
+        if (toFormat === "base64") result = btoa(intermediate);
+        else if (toFormat === "base32") result = textToBase32(intermediate);
+        else if (toFormat === "hex") result = textToHex(intermediate);
+        else if (toFormat === "binary") result = textToBinary(intermediate);
+        else if (toFormat === "octal") result = textToOctal(intermediate);
+        else if (toFormat === "decimal") result = textToDecimal(intermediate);
+      }
+      // Convert to text (for display purposes)
+      else if (toFormat === "text") {
         result = input;
       } else {
         throw new Error(`Conversion from ${fromFormat} to ${toFormat} is not supported yet`);
@@ -320,11 +573,30 @@ export default function UnifiedConverterPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {formats.map((format) => (
-                    <SelectItem key={format.value} value={format.value}>
-                      {format.label}
-                    </SelectItem>
-                  ))}
+                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Data Formats</div>
+                  {formats
+                    .filter((f) => f.category === "data")
+                    .map((format) => (
+                      <SelectItem key={format.value} value={format.value}>
+                        {format.label}
+                      </SelectItem>
+                    ))}
+                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">Base Encodings</div>
+                  {formats
+                    .filter((f) => f.category === "base")
+                    .map((format) => (
+                      <SelectItem key={format.value} value={format.value}>
+                        {format.label}
+                      </SelectItem>
+                    ))}
+                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">String Encodings</div>
+                  {formats
+                    .filter((f) => f.category === "encoding")
+                    .map((format) => (
+                      <SelectItem key={format.value} value={format.value}>
+                        {format.label}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
@@ -340,11 +612,30 @@ export default function UnifiedConverterPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {formats.map((format) => (
-                    <SelectItem key={format.value} value={format.value}>
-                      {format.label}
-                    </SelectItem>
-                  ))}
+                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Data Formats</div>
+                  {formats
+                    .filter((f) => f.category === "data")
+                    .map((format) => (
+                      <SelectItem key={format.value} value={format.value}>
+                        {format.label}
+                      </SelectItem>
+                    ))}
+                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">Base Encodings</div>
+                  {formats
+                    .filter((f) => f.category === "base")
+                    .map((format) => (
+                      <SelectItem key={format.value} value={format.value}>
+                        {format.label}
+                      </SelectItem>
+                    ))}
+                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">String Encodings</div>
+                  {formats
+                    .filter((f) => f.category === "encoding")
+                    .map((format) => (
+                      <SelectItem key={format.value} value={format.value}>
+                        {format.label}
+                      </SelectItem>
+                    ))}
                 </SelectContent>
               </Select>
             </div>
@@ -419,24 +710,42 @@ export default function UnifiedConverterPage() {
         <CardHeader>
           <CardTitle>Supported Conversions</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+        <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
           <div>
-            <h4 className="font-semibold mb-2">Direct Conversions:</h4>
+            <h4 className="font-semibold mb-2">Data Formats:</h4>
             <ul className="space-y-1 text-muted-foreground">
               <li>• JSON ↔ YAML</li>
               <li>• JSON ↔ XML</li>
               <li>• JSON ↔ CSV</li>
+              <li>• XML ↔ YAML</li>
+              <li>• CSV ↔ YAML</li>
               <li>• Markdown → HTML</li>
-              <li>• Text ↔ Base64</li>
+              <li>• HTML → Text</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-2">Tips:</h4>
+            <h4 className="font-semibold mb-2">Base Encodings:</h4>
             <ul className="space-y-1 text-muted-foreground">
-              <li>• CSV to JSON requires headers in first row</li>
-              <li>• JSON to CSV requires array of objects</li>
-              <li>• XML parsing preserves attributes</li>
-              <li>• Base64 encoding/decoding is UTF-8</li>
+              <li>• Text ↔ Base64</li>
+              <li>• Text ↔ Base32</li>
+              <li>• Text ↔ Hexadecimal</li>
+              <li>• Text ↔ Binary</li>
+              <li>• Text ↔ Octal</li>
+              <li>• Text ↔ Decimal</li>
+              <li>• Base to Base (via text)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-2">String Encodings:</h4>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• Text ↔ URL Encoded</li>
+              <li>• Text ↔ HTML Entities</li>
+            </ul>
+            <h4 className="font-semibold mb-2 mt-4">Tips:</h4>
+            <ul className="space-y-1 text-muted-foreground">
+              <li>• CSV requires headers in first row</li>
+              <li>• JSON to CSV needs array of objects</li>
+              <li>• Base conversions support chaining</li>
             </ul>
           </div>
         </CardContent>

@@ -95,24 +95,16 @@ import { Route as ToolsCryptoHashRouteImport } from './routes/_tools/crypto/hash
 import { Route as ToolsCryptoCertificateDecoderRouteImport } from './routes/_tools/crypto/certificate-decoder'
 import { Route as ToolsCryptoBcryptRouteImport } from './routes/_tools/crypto/bcrypt'
 import { Route as ToolsCryptoAesEncryptRouteImport } from './routes/_tools/crypto/aes-encrypt'
-import { Route as ToolsConvertersXmlToYamlRouteImport } from './routes/_tools/converters/xml-to-yaml'
-import { Route as ToolsConvertersXmlJsonRouteImport } from './routes/_tools/converters/xml-json'
 import { Route as ToolsConvertersUnitConverterRouteImport } from './routes/_tools/converters/unit-converter'
 import { Route as ToolsConvertersTimezoneConverterRouteImport } from './routes/_tools/converters/timezone-converter'
 import { Route as ToolsConvertersTimestampRouteImport } from './routes/_tools/converters/timestamp'
 import { Route as ToolsConvertersSqlToJsonRouteImport } from './routes/_tools/converters/sql-to-json'
 import { Route as ToolsConvertersNumberBaseRouteImport } from './routes/_tools/converters/number-base'
-import { Route as ToolsConvertersMarkdownToHtmlRouteImport } from './routes/_tools/converters/markdown-to-html'
-import { Route as ToolsConvertersJsonYamlRouteImport } from './routes/_tools/converters/json-yaml'
 import { Route as ToolsConvertersJsonToTypescriptRouteImport } from './routes/_tools/converters/json-to-typescript'
-import { Route as ToolsConvertersJsonToCsvRouteImport } from './routes/_tools/converters/json-to-csv'
-import { Route as ToolsConvertersCsvToJsonRouteImport } from './routes/_tools/converters/csv-to-json'
-import { Route as ToolsConvertersCsvJsonRouteImport } from './routes/_tools/converters/csv-json'
 import { Route as ToolsConvertersCssUnitRouteImport } from './routes/_tools/converters/css-unit'
 import { Route as ToolsConvertersConverterRouteImport } from './routes/_tools/converters/converter'
 import { Route as ToolsConvertersColorConverterRouteImport } from './routes/_tools/converters/color-converter'
 import { Route as ToolsConvertersBase64ImageRouteImport } from './routes/_tools/converters/base64-image'
-import { Route as ToolsConvertersBaseConversionRouteImport } from './routes/_tools/converters/base-conversion'
 
 const ToolsRoute = ToolsRouteImport.update({
   id: '/_tools',
@@ -597,17 +589,6 @@ const ToolsCryptoAesEncryptRoute = ToolsCryptoAesEncryptRouteImport.update({
   path: '/crypto/aes-encrypt',
   getParentRoute: () => ToolsRoute,
 } as any)
-const ToolsConvertersXmlToYamlRoute =
-  ToolsConvertersXmlToYamlRouteImport.update({
-    id: '/converters/xml-to-yaml',
-    path: '/converters/xml-to-yaml',
-    getParentRoute: () => ToolsRoute,
-  } as any)
-const ToolsConvertersXmlJsonRoute = ToolsConvertersXmlJsonRouteImport.update({
-  id: '/converters/xml-json',
-  path: '/converters/xml-json',
-  getParentRoute: () => ToolsRoute,
-} as any)
 const ToolsConvertersUnitConverterRoute =
   ToolsConvertersUnitConverterRouteImport.update({
     id: '/converters/unit-converter',
@@ -638,40 +619,12 @@ const ToolsConvertersNumberBaseRoute =
     path: '/converters/number-base',
     getParentRoute: () => ToolsRoute,
   } as any)
-const ToolsConvertersMarkdownToHtmlRoute =
-  ToolsConvertersMarkdownToHtmlRouteImport.update({
-    id: '/converters/markdown-to-html',
-    path: '/converters/markdown-to-html',
-    getParentRoute: () => ToolsRoute,
-  } as any)
-const ToolsConvertersJsonYamlRoute = ToolsConvertersJsonYamlRouteImport.update({
-  id: '/converters/json-yaml',
-  path: '/converters/json-yaml',
-  getParentRoute: () => ToolsRoute,
-} as any)
 const ToolsConvertersJsonToTypescriptRoute =
   ToolsConvertersJsonToTypescriptRouteImport.update({
     id: '/converters/json-to-typescript',
     path: '/converters/json-to-typescript',
     getParentRoute: () => ToolsRoute,
   } as any)
-const ToolsConvertersJsonToCsvRoute =
-  ToolsConvertersJsonToCsvRouteImport.update({
-    id: '/converters/json-to-csv',
-    path: '/converters/json-to-csv',
-    getParentRoute: () => ToolsRoute,
-  } as any)
-const ToolsConvertersCsvToJsonRoute =
-  ToolsConvertersCsvToJsonRouteImport.update({
-    id: '/converters/csv-to-json',
-    path: '/converters/csv-to-json',
-    getParentRoute: () => ToolsRoute,
-  } as any)
-const ToolsConvertersCsvJsonRoute = ToolsConvertersCsvJsonRouteImport.update({
-  id: '/converters/csv-json',
-  path: '/converters/csv-json',
-  getParentRoute: () => ToolsRoute,
-} as any)
 const ToolsConvertersCssUnitRoute = ToolsConvertersCssUnitRouteImport.update({
   id: '/converters/css-unit',
   path: '/converters/css-unit',
@@ -695,33 +648,19 @@ const ToolsConvertersBase64ImageRoute =
     path: '/converters/base64-image',
     getParentRoute: () => ToolsRoute,
   } as any)
-const ToolsConvertersBaseConversionRoute =
-  ToolsConvertersBaseConversionRouteImport.update({
-    id: '/converters/base-conversion',
-    path: '/converters/base-conversion',
-    getParentRoute: () => ToolsRoute,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
   '/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
   '/converters/color-converter': typeof ToolsConvertersColorConverterRoute
   '/converters/converter': typeof ToolsConvertersConverterRoute
   '/converters/css-unit': typeof ToolsConvertersCssUnitRoute
-  '/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
-  '/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
-  '/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
   '/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
-  '/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
-  '/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
   '/converters/number-base': typeof ToolsConvertersNumberBaseRoute
   '/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
   '/converters/timestamp': typeof ToolsConvertersTimestampRoute
   '/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
   '/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
-  '/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
-  '/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
   '/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
   '/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
   '/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
@@ -809,24 +748,16 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
   '/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
   '/converters/color-converter': typeof ToolsConvertersColorConverterRoute
   '/converters/converter': typeof ToolsConvertersConverterRoute
   '/converters/css-unit': typeof ToolsConvertersCssUnitRoute
-  '/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
-  '/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
-  '/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
   '/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
-  '/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
-  '/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
   '/converters/number-base': typeof ToolsConvertersNumberBaseRoute
   '/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
   '/converters/timestamp': typeof ToolsConvertersTimestampRoute
   '/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
   '/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
-  '/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
-  '/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
   '/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
   '/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
   '/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
@@ -916,24 +847,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_tools': typeof ToolsRouteWithChildren
-  '/_tools/converters/base-conversion': typeof ToolsConvertersBaseConversionRoute
   '/_tools/converters/base64-image': typeof ToolsConvertersBase64ImageRoute
   '/_tools/converters/color-converter': typeof ToolsConvertersColorConverterRoute
   '/_tools/converters/converter': typeof ToolsConvertersConverterRoute
   '/_tools/converters/css-unit': typeof ToolsConvertersCssUnitRoute
-  '/_tools/converters/csv-json': typeof ToolsConvertersCsvJsonRoute
-  '/_tools/converters/csv-to-json': typeof ToolsConvertersCsvToJsonRoute
-  '/_tools/converters/json-to-csv': typeof ToolsConvertersJsonToCsvRoute
   '/_tools/converters/json-to-typescript': typeof ToolsConvertersJsonToTypescriptRoute
-  '/_tools/converters/json-yaml': typeof ToolsConvertersJsonYamlRoute
-  '/_tools/converters/markdown-to-html': typeof ToolsConvertersMarkdownToHtmlRoute
   '/_tools/converters/number-base': typeof ToolsConvertersNumberBaseRoute
   '/_tools/converters/sql-to-json': typeof ToolsConvertersSqlToJsonRoute
   '/_tools/converters/timestamp': typeof ToolsConvertersTimestampRoute
   '/_tools/converters/timezone-converter': typeof ToolsConvertersTimezoneConverterRoute
   '/_tools/converters/unit-converter': typeof ToolsConvertersUnitConverterRoute
-  '/_tools/converters/xml-json': typeof ToolsConvertersXmlJsonRoute
-  '/_tools/converters/xml-to-yaml': typeof ToolsConvertersXmlToYamlRoute
   '/_tools/crypto/aes-encrypt': typeof ToolsCryptoAesEncryptRoute
   '/_tools/crypto/bcrypt': typeof ToolsCryptoBcryptRoute
   '/_tools/crypto/certificate-decoder': typeof ToolsCryptoCertificateDecoderRoute
@@ -1023,24 +946,16 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/converters/base-conversion'
     | '/converters/base64-image'
     | '/converters/color-converter'
     | '/converters/converter'
     | '/converters/css-unit'
-    | '/converters/csv-json'
-    | '/converters/csv-to-json'
-    | '/converters/json-to-csv'
     | '/converters/json-to-typescript'
-    | '/converters/json-yaml'
-    | '/converters/markdown-to-html'
     | '/converters/number-base'
     | '/converters/sql-to-json'
     | '/converters/timestamp'
     | '/converters/timezone-converter'
     | '/converters/unit-converter'
-    | '/converters/xml-json'
-    | '/converters/xml-to-yaml'
     | '/crypto/aes-encrypt'
     | '/crypto/bcrypt'
     | '/crypto/certificate-decoder'
@@ -1128,24 +1043,16 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/converters/base-conversion'
     | '/converters/base64-image'
     | '/converters/color-converter'
     | '/converters/converter'
     | '/converters/css-unit'
-    | '/converters/csv-json'
-    | '/converters/csv-to-json'
-    | '/converters/json-to-csv'
     | '/converters/json-to-typescript'
-    | '/converters/json-yaml'
-    | '/converters/markdown-to-html'
     | '/converters/number-base'
     | '/converters/sql-to-json'
     | '/converters/timestamp'
     | '/converters/timezone-converter'
     | '/converters/unit-converter'
-    | '/converters/xml-json'
-    | '/converters/xml-to-yaml'
     | '/crypto/aes-encrypt'
     | '/crypto/bcrypt'
     | '/crypto/certificate-decoder'
@@ -1234,24 +1141,16 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_tools'
-    | '/_tools/converters/base-conversion'
     | '/_tools/converters/base64-image'
     | '/_tools/converters/color-converter'
     | '/_tools/converters/converter'
     | '/_tools/converters/css-unit'
-    | '/_tools/converters/csv-json'
-    | '/_tools/converters/csv-to-json'
-    | '/_tools/converters/json-to-csv'
     | '/_tools/converters/json-to-typescript'
-    | '/_tools/converters/json-yaml'
-    | '/_tools/converters/markdown-to-html'
     | '/_tools/converters/number-base'
     | '/_tools/converters/sql-to-json'
     | '/_tools/converters/timestamp'
     | '/_tools/converters/timezone-converter'
     | '/_tools/converters/unit-converter'
-    | '/_tools/converters/xml-json'
-    | '/_tools/converters/xml-to-yaml'
     | '/_tools/crypto/aes-encrypt'
     | '/_tools/crypto/bcrypt'
     | '/_tools/crypto/certificate-decoder'
@@ -1947,20 +1846,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsCryptoAesEncryptRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/_tools/converters/xml-to-yaml': {
-      id: '/_tools/converters/xml-to-yaml'
-      path: '/converters/xml-to-yaml'
-      fullPath: '/converters/xml-to-yaml'
-      preLoaderRoute: typeof ToolsConvertersXmlToYamlRouteImport
-      parentRoute: typeof ToolsRoute
-    }
-    '/_tools/converters/xml-json': {
-      id: '/_tools/converters/xml-json'
-      path: '/converters/xml-json'
-      fullPath: '/converters/xml-json'
-      preLoaderRoute: typeof ToolsConvertersXmlJsonRouteImport
-      parentRoute: typeof ToolsRoute
-    }
     '/_tools/converters/unit-converter': {
       id: '/_tools/converters/unit-converter'
       path: '/converters/unit-converter'
@@ -1996,46 +1881,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsConvertersNumberBaseRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/_tools/converters/markdown-to-html': {
-      id: '/_tools/converters/markdown-to-html'
-      path: '/converters/markdown-to-html'
-      fullPath: '/converters/markdown-to-html'
-      preLoaderRoute: typeof ToolsConvertersMarkdownToHtmlRouteImport
-      parentRoute: typeof ToolsRoute
-    }
-    '/_tools/converters/json-yaml': {
-      id: '/_tools/converters/json-yaml'
-      path: '/converters/json-yaml'
-      fullPath: '/converters/json-yaml'
-      preLoaderRoute: typeof ToolsConvertersJsonYamlRouteImport
-      parentRoute: typeof ToolsRoute
-    }
     '/_tools/converters/json-to-typescript': {
       id: '/_tools/converters/json-to-typescript'
       path: '/converters/json-to-typescript'
       fullPath: '/converters/json-to-typescript'
       preLoaderRoute: typeof ToolsConvertersJsonToTypescriptRouteImport
-      parentRoute: typeof ToolsRoute
-    }
-    '/_tools/converters/json-to-csv': {
-      id: '/_tools/converters/json-to-csv'
-      path: '/converters/json-to-csv'
-      fullPath: '/converters/json-to-csv'
-      preLoaderRoute: typeof ToolsConvertersJsonToCsvRouteImport
-      parentRoute: typeof ToolsRoute
-    }
-    '/_tools/converters/csv-to-json': {
-      id: '/_tools/converters/csv-to-json'
-      path: '/converters/csv-to-json'
-      fullPath: '/converters/csv-to-json'
-      preLoaderRoute: typeof ToolsConvertersCsvToJsonRouteImport
-      parentRoute: typeof ToolsRoute
-    }
-    '/_tools/converters/csv-json': {
-      id: '/_tools/converters/csv-json'
-      path: '/converters/csv-json'
-      fullPath: '/converters/csv-json'
-      preLoaderRoute: typeof ToolsConvertersCsvJsonRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/_tools/converters/css-unit': {
@@ -2066,35 +1916,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsConvertersBase64ImageRouteImport
       parentRoute: typeof ToolsRoute
     }
-    '/_tools/converters/base-conversion': {
-      id: '/_tools/converters/base-conversion'
-      path: '/converters/base-conversion'
-      fullPath: '/converters/base-conversion'
-      preLoaderRoute: typeof ToolsConvertersBaseConversionRouteImport
-      parentRoute: typeof ToolsRoute
-    }
   }
 }
 
 interface ToolsRouteChildren {
-  ToolsConvertersBaseConversionRoute: typeof ToolsConvertersBaseConversionRoute
   ToolsConvertersBase64ImageRoute: typeof ToolsConvertersBase64ImageRoute
   ToolsConvertersColorConverterRoute: typeof ToolsConvertersColorConverterRoute
   ToolsConvertersConverterRoute: typeof ToolsConvertersConverterRoute
   ToolsConvertersCssUnitRoute: typeof ToolsConvertersCssUnitRoute
-  ToolsConvertersCsvJsonRoute: typeof ToolsConvertersCsvJsonRoute
-  ToolsConvertersCsvToJsonRoute: typeof ToolsConvertersCsvToJsonRoute
-  ToolsConvertersJsonToCsvRoute: typeof ToolsConvertersJsonToCsvRoute
   ToolsConvertersJsonToTypescriptRoute: typeof ToolsConvertersJsonToTypescriptRoute
-  ToolsConvertersJsonYamlRoute: typeof ToolsConvertersJsonYamlRoute
-  ToolsConvertersMarkdownToHtmlRoute: typeof ToolsConvertersMarkdownToHtmlRoute
   ToolsConvertersNumberBaseRoute: typeof ToolsConvertersNumberBaseRoute
   ToolsConvertersSqlToJsonRoute: typeof ToolsConvertersSqlToJsonRoute
   ToolsConvertersTimestampRoute: typeof ToolsConvertersTimestampRoute
   ToolsConvertersTimezoneConverterRoute: typeof ToolsConvertersTimezoneConverterRoute
   ToolsConvertersUnitConverterRoute: typeof ToolsConvertersUnitConverterRoute
-  ToolsConvertersXmlJsonRoute: typeof ToolsConvertersXmlJsonRoute
-  ToolsConvertersXmlToYamlRoute: typeof ToolsConvertersXmlToYamlRoute
   ToolsCryptoAesEncryptRoute: typeof ToolsCryptoAesEncryptRoute
   ToolsCryptoBcryptRoute: typeof ToolsCryptoBcryptRoute
   ToolsCryptoCertificateDecoderRoute: typeof ToolsCryptoCertificateDecoderRoute
@@ -2182,24 +2017,16 @@ interface ToolsRouteChildren {
 }
 
 const ToolsRouteChildren: ToolsRouteChildren = {
-  ToolsConvertersBaseConversionRoute: ToolsConvertersBaseConversionRoute,
   ToolsConvertersBase64ImageRoute: ToolsConvertersBase64ImageRoute,
   ToolsConvertersColorConverterRoute: ToolsConvertersColorConverterRoute,
   ToolsConvertersConverterRoute: ToolsConvertersConverterRoute,
   ToolsConvertersCssUnitRoute: ToolsConvertersCssUnitRoute,
-  ToolsConvertersCsvJsonRoute: ToolsConvertersCsvJsonRoute,
-  ToolsConvertersCsvToJsonRoute: ToolsConvertersCsvToJsonRoute,
-  ToolsConvertersJsonToCsvRoute: ToolsConvertersJsonToCsvRoute,
   ToolsConvertersJsonToTypescriptRoute: ToolsConvertersJsonToTypescriptRoute,
-  ToolsConvertersJsonYamlRoute: ToolsConvertersJsonYamlRoute,
-  ToolsConvertersMarkdownToHtmlRoute: ToolsConvertersMarkdownToHtmlRoute,
   ToolsConvertersNumberBaseRoute: ToolsConvertersNumberBaseRoute,
   ToolsConvertersSqlToJsonRoute: ToolsConvertersSqlToJsonRoute,
   ToolsConvertersTimestampRoute: ToolsConvertersTimestampRoute,
   ToolsConvertersTimezoneConverterRoute: ToolsConvertersTimezoneConverterRoute,
   ToolsConvertersUnitConverterRoute: ToolsConvertersUnitConverterRoute,
-  ToolsConvertersXmlJsonRoute: ToolsConvertersXmlJsonRoute,
-  ToolsConvertersXmlToYamlRoute: ToolsConvertersXmlToYamlRoute,
   ToolsCryptoAesEncryptRoute: ToolsCryptoAesEncryptRoute,
   ToolsCryptoBcryptRoute: ToolsCryptoBcryptRoute,
   ToolsCryptoCertificateDecoderRoute: ToolsCryptoCertificateDecoderRoute,
