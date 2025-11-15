@@ -702,30 +702,45 @@ export default function UnifiedConverterPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Data Formats</div>
-                  {formats
-                    .filter((f) => f.category === "data" && availableToFormats.includes(f.value))
-                    .map((format) => (
-                      <SelectItem key={format.value} value={format.value}>
-                        {format.label}
-                      </SelectItem>
-                    ))}
-                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">Base Encodings</div>
-                  {formats
-                    .filter((f) => f.category === "base" && availableToFormats.includes(f.value))
-                    .map((format) => (
-                      <SelectItem key={format.value} value={format.value}>
-                        {format.label}
-                      </SelectItem>
-                    ))}
-                  <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">String Encodings</div>
-                  {formats
-                    .filter((f) => f.category === "encoding" && availableToFormats.includes(f.value))
-                    .map((format) => (
-                      <SelectItem key={format.value} value={format.value}>
-                        {format.label}
-                      </SelectItem>
-                    ))}
+                  {formats.filter((f) => f.category === "data" && availableToFormats.includes(f.value)).length > 0 && (
+                    <>
+                      <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">Data Formats</div>
+                      {formats
+                        .filter((f) => f.category === "data" && availableToFormats.includes(f.value))
+                        .map((format) => (
+                          <SelectItem key={format.value} value={format.value}>
+                            {format.label}
+                          </SelectItem>
+                        ))}
+                    </>
+                  )}
+                  {formats.filter((f) => f.category === "base" && availableToFormats.includes(f.value)).length > 0 && (
+                    <>
+                      <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">Base Encodings</div>
+                      {formats
+                        .filter((f) => f.category === "base" && availableToFormats.includes(f.value))
+                        .map((format) => (
+                          <SelectItem key={format.value} value={format.value}>
+                            {format.label}
+                          </SelectItem>
+                        ))}
+                    </>
+                  )}
+                  {formats.filter((f) => f.category === "encoding" && availableToFormats.includes(f.value)).length >
+                    0 && (
+                    <>
+                      <div className="px-2 py-1.5 text-xs font-semibold text-muted-foreground mt-2">
+                        String Encodings
+                      </div>
+                      {formats
+                        .filter((f) => f.category === "encoding" && availableToFormats.includes(f.value))
+                        .map((format) => (
+                          <SelectItem key={format.value} value={format.value}>
+                            {format.label}
+                          </SelectItem>
+                        ))}
+                    </>
+                  )}
                 </SelectContent>
               </Select>
             </div>
@@ -798,58 +813,37 @@ export default function UnifiedConverterPage() {
 
       <Card className="mt-6">
         <CardHeader>
-          <CardTitle>Available Conversions from {formats.find((f) => f.value === fromFormat)?.label}</CardTitle>
-          <CardDescription>
-            Select a format above to see compatible conversion targets. The "To" dropdown shows only valid conversions.
-          </CardDescription>
+          <CardTitle>Supported Conversions</CardTitle>
+          <CardDescription>The "To" dropdown shows only valid conversions for your selected format</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h4 className="font-semibold mb-2 text-sm">Can convert to:</h4>
-              <div className="flex flex-wrap gap-2">
-                {availableToFormats.map((format) => {
-                  const formatInfo = formats.find((f) => f.value === format);
-                  return (
-                    <span
-                      key={format}
-                      className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20"
-                    >
-                      {formatInfo?.label}
-                    </span>
-                  );
-                })}
-              </div>
+              <h4 className="font-semibold mb-2 text-sm">All Data Format Conversions:</h4>
+              <ul className="space-y-1 text-muted-foreground text-xs">
+                <li>• JSON ↔ YAML, XML, CSV</li>
+                <li>• YAML ↔ JSON, XML, CSV</li>
+                <li>• XML ↔ JSON, YAML, CSV</li>
+                <li>• CSV ↔ JSON, YAML, XML</li>
+                <li>• Markdown → HTML</li>
+                <li>• HTML → Text</li>
+                <li>• Any data format → Text</li>
+              </ul>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t">
-              <div>
-                <h4 className="font-semibold mb-2 text-sm">All Data Format Conversions:</h4>
-                <ul className="space-y-1 text-muted-foreground text-xs">
-                  <li>• JSON ↔ YAML, XML, CSV</li>
-                  <li>• YAML ↔ JSON, XML, CSV</li>
-                  <li>• XML ↔ JSON, YAML, CSV</li>
-                  <li>• CSV ↔ JSON, YAML, XML</li>
-                  <li>• Markdown → HTML</li>
-                  <li>• HTML → Text</li>
-                  <li>• Any data format → Text</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold mb-2 text-sm">All Encoding Conversions:</h4>
-                <ul className="space-y-1 text-muted-foreground text-xs">
-                  <li>• Text ↔ Base64, Base32, Hex, Binary, Octal, Decimal</li>
-                  <li>• Text ↔ URL Encoded, HTML Entities</li>
-                  <li>• Any base encoding ↔ Any other base encoding</li>
-                  <li>• Example: Hex ↔ Base64, Binary ↔ Base32, etc.</li>
-                </ul>
-                <h4 className="font-semibold mb-2 mt-3 text-sm">Tips:</h4>
-                <ul className="space-y-1 text-muted-foreground text-xs">
-                  <li>• CSV requires headers in first row</li>
-                  <li>• JSON to CSV needs array of objects</li>
-                  <li>• Base encodings convert via text intermediary</li>
-                </ul>
-              </div>
+            <div>
+              <h4 className="font-semibold mb-2 text-sm">All Encoding Conversions:</h4>
+              <ul className="space-y-1 text-muted-foreground text-xs">
+                <li>• Text ↔ Base64, Base32, Hex, Binary, Octal, Decimal</li>
+                <li>• Text ↔ URL Encoded, HTML Entities</li>
+                <li>• Any base encoding ↔ Any other base encoding</li>
+                <li>• Example: Hex ↔ Base64, Binary ↔ Base32, etc.</li>
+              </ul>
+              <h4 className="font-semibold mb-2 mt-3 text-sm">Tips:</h4>
+              <ul className="space-y-1 text-muted-foreground text-xs">
+                <li>• CSV requires headers in first row</li>
+                <li>• JSON to CSV needs array of objects</li>
+                <li>• Base encodings convert via text intermediary</li>
+              </ul>
             </div>
           </div>
         </CardContent>
