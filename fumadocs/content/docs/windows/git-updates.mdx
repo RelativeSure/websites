@@ -1,0 +1,169 @@
+---
+title: Git for Windows Updates
+description: How to update Git for Windows using the built-in update command
+---
+
+## Overview
+
+Since Git for Windows 2.16.1(2), Git includes a built-in command to update itself without needing to download and reinstall the entire package manually. This makes keeping Git up-to-date much simpler.
+
+## Using update-git-for-windows
+
+### Basic Usage
+
+To check for and install Git updates, simply run:
+
+```bash
+git update-git-for-windows
+```
+
+This command will:
+1. Check if a newer version of Git for Windows is available
+2. Download the update if one exists
+3. Install the update automatically
+4. Preserve your existing Git configuration
+
+### Check for Updates Only
+
+If you want to check for updates without installing them immediately:
+
+```bash
+git update-git-for-windows --dry-run
+```
+
+This will show you if an update is available without actually downloading or installing it.
+
+### Update to Latest Release
+
+To update to the latest stable release:
+
+```bash
+git update-git-for-windows /SILENT
+```
+
+The `/SILENT` flag will perform the update without showing installation dialogs.
+
+## Requirements
+
+- Git for Windows version 2.16.1(2) or later
+- Administrator privileges may be required depending on your installation location
+- Active internet connection
+
+## Common Use Cases
+
+### Regular Maintenance
+
+Add this to your regular maintenance routine:
+
+```bash
+# Check for updates weekly
+git update-git-for-windows --dry-run
+
+# Update when available
+git update-git-for-windows
+```
+
+### Scripted Updates
+
+For automated environments or scripts:
+
+```bash
+# Silent update in PowerShell
+git update-git-for-windows /SILENT /NORESTART
+```
+
+### CI/CD Pipelines
+
+Keep your CI/CD environment up-to-date:
+
+```yaml
+# Example GitHub Actions step
+- name: Update Git for Windows
+  run: git update-git-for-windows --dry-run
+  shell: bash
+```
+
+## Troubleshooting
+
+### Permission Denied
+
+If you encounter permission issues:
+
+1. Run your terminal (PowerShell or Command Prompt) as Administrator
+2. Try the update command again
+
+```powershell
+# PowerShell as Administrator
+Start-Process powershell -Verb runAs
+git update-git-for-windows
+```
+
+### Update Check Fails
+
+If the update check fails:
+
+- Verify your internet connection
+- Check if your firewall or proxy is blocking the connection
+- Try manually downloading from [git-scm.com](https://git-scm.com/download/win)
+
+### Version Not Supported
+
+If your Git version is older than 2.16.1(2):
+
+1. Manually download the latest Git for Windows installer
+2. Run the installer to upgrade
+3. After upgrade, use `git update-git-for-windows` for future updates
+
+## Alternative Update Methods
+
+### Using winget
+
+If you have Windows Package Manager (winget):
+
+```bash
+winget upgrade Git.Git
+```
+
+### Using Chocolatey
+
+If you installed Git via Chocolatey:
+
+```bash
+choco upgrade git
+```
+
+### Using Scoop
+
+If you installed Git via Scoop:
+
+```bash
+scoop update git
+```
+
+## Best Practices
+
+1. **Regular Updates**: Check for updates monthly or after major Git releases
+2. **Test First**: Use `--dry-run` to see what will be updated
+3. **Backup Configuration**: While Git preserves settings, backup important configurations:
+   - `~/.gitconfig`
+   - `~/.ssh/` directory
+4. **Review Release Notes**: Check the [Git for Windows releases](https://github.com/git-for-windows/git/releases) for breaking changes
+
+## Verification
+
+After updating, verify your Git version:
+
+```bash
+git --version
+```
+
+Expected output:
+```
+git version 2.x.x.windows.x
+```
+
+## Additional Resources
+
+- [Git for Windows Release Notes](https://github.com/git-for-windows/git/releases)
+- [Git for Windows FAQ](https://github.com/git-for-windows/git/wiki/FAQ)
+- [Git Official Documentation](https://git-scm.com/doc)
