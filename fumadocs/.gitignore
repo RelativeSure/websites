@@ -3,7 +3,7 @@
 package-lock.json
 
 # generated content
-.source
+.fumadocs
 
 # test & build
 /coverage
