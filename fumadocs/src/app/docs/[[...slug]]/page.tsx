@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import { getPageImage, source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 
-interface PageProps<T = string> {
+interface PageProps<_T = string> {
   params: Promise<{ slug?: string[] }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }

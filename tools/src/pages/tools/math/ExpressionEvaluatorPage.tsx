@@ -25,15 +25,15 @@ export default function ExpressionEvaluatorPage() {
 
     // Use Function constructor for safer evaluation than eval
     try {
-      const fn = new Function("return " + sanitized);
+      const fn = new Function(`return ${sanitized}`);
       const result = fn();
 
-      if (typeof result !== "number" || !isFinite(result)) {
+      if (typeof result !== "number" || !Number.isFinite(result)) {
         throw new Error("Result is not a valid number");
       }
 
       return result;
-    } catch (err) {
+    } catch (_err) {
       throw new Error("Invalid expression");
     }
   };

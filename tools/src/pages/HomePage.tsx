@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import {
-  ArrowLeftRight,
   ArrowRightLeft,
   Award,
   BarChart3,
@@ -15,8 +14,6 @@ import {
   Code,
   Code2,
   Database,
-  Download,
-  FileCode,
   FileCode2,
   FileImage,
   FileJson,
@@ -68,8 +65,7 @@ import {
   WrapText,
 } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
 const tools = [

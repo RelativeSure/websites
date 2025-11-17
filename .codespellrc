@@ -1,0 +1,15 @@
+[codespell]
+# Codespell configuration for the websites monorepo
+
+# Skip these file patterns
+skip = *-lock.yaml,*.lock,pnpm-lock.yaml,package-lock.json,yarn.lock,*.log,*.min.js,*.min.css,*.map,node_modules,dist,.next,.astro,build,out
+
+# Ignore these words (comma-separated, case-insensitive)
+# Common false positives in web development and tech documentation
+ignore-words-list = crate,nd,sur,teh,whis,devlop,trough,ba,hastable,aks,notin,re,ot,whats,usable,reusable,Re-usable
+
+# Check hidden files
+check-hidden =
+
+# Quiet level (0=default, 1=compact, 2=brief, 3=disabled)
+quiet-level = 0

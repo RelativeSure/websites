@@ -43,7 +43,7 @@ export default function UnitConverterPage() {
 
   const convertLength = (): string => {
     const val = parseFloat(lengthValue);
-    if (isNaN(val)) return "Invalid input";
+    if (Number.isNaN(val)) return "Invalid input";
     const meters = val * lengthUnits[lengthFrom];
     const result = meters / lengthUnits[lengthTo];
     return result.toFixed(6).replace(/\.?0+$/, "");
@@ -51,7 +51,7 @@ export default function UnitConverterPage() {
 
   const convertWeight = (): string => {
     const val = parseFloat(weightValue);
-    if (isNaN(val)) return "Invalid input";
+    if (Number.isNaN(val)) return "Invalid input";
     const kg = val * weightUnits[weightFrom];
     const result = kg / weightUnits[weightTo];
     return result.toFixed(6).replace(/\.?0+$/, "");
@@ -59,7 +59,7 @@ export default function UnitConverterPage() {
 
   const convertTemp = (): string => {
     const val = parseFloat(tempValue);
-    if (isNaN(val)) return "Invalid input";
+    if (Number.isNaN(val)) return "Invalid input";
 
     let celsius: number;
     if (tempFrom === "c") celsius = val;

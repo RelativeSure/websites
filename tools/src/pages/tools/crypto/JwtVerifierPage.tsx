@@ -1,4 +1,4 @@
-import { CheckCircle, ShieldAlert, ShieldCheck, XCircle } from "lucide-react";
+import { CheckCircle, ShieldCheck, XCircle } from "lucide-react";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -112,7 +112,7 @@ export default function JwtVerifierPage() {
             : `Expires on ${new Date(exp).toLocaleString()}`,
         };
       }
-    } catch (err) {
+    } catch (_err) {
       // Ignore
     }
     return null;

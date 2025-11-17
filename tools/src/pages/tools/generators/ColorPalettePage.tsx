@@ -1,4 +1,4 @@
-import { Check, Copy, RefreshCw } from "lucide-react";
+import { Check, RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,9 +18,9 @@ export default function ColorPalettePage() {
     const match = hsl.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
     if (!match) return "#000000";
 
-    const h = parseInt(match[1]) / 360;
-    const s = parseInt(match[2]) / 100;
-    const l = parseInt(match[3]) / 100;
+    const h = parseInt(match[1], 10) / 360;
+    const s = parseInt(match[2], 10) / 100;
+    const l = parseInt(match[3], 10) / 100;
 
     let r, g, b;
 
@@ -45,7 +45,7 @@ export default function ColorPalettePage() {
 
     const toHex = (x: number) => {
       const hex = Math.round(x * 255).toString(16);
-      return hex.length === 1 ? "0" + hex : hex;
+      return hex.length === 1 ? `0${hex}` : hex;
     };
 
     return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
@@ -55,8 +55,8 @@ export default function ColorPalettePage() {
     const match = baseColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
     if (!match) return [];
 
-    const hue = parseInt(match[1]);
-    const sat = parseInt(match[2]);
+    const hue = parseInt(match[1], 10);
+    const sat = parseInt(match[2], 10);
 
     return [
       `hsl(${hue}, ${sat}%, 20%)`,
@@ -71,9 +71,9 @@ export default function ColorPalettePage() {
     const match = baseColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
     if (!match) return [];
 
-    const hue = parseInt(match[1]);
-    const sat = parseInt(match[2]);
-    const light = parseInt(match[3]);
+    const hue = parseInt(match[1], 10);
+    const sat = parseInt(match[2], 10);
+    const light = parseInt(match[3], 10);
 
     return [
       `hsl(${(hue - 30 + 360) % 360}, ${sat}%, ${light}%)`,
@@ -88,9 +88,9 @@ export default function ColorPalettePage() {
     const match = baseColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
     if (!match) return [];
 
-    const hue = parseInt(match[1]);
-    const sat = parseInt(match[2]);
-    const light = parseInt(match[3]);
+    const hue = parseInt(match[1], 10);
+    const sat = parseInt(match[2], 10);
+    const light = parseInt(match[3], 10);
 
     return [
       baseColor,
@@ -105,9 +105,9 @@ export default function ColorPalettePage() {
     const match = baseColor.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
     if (!match) return [];
 
-    const hue = parseInt(match[1]);
-    const sat = parseInt(match[2]);
-    const light = parseInt(match[3]);
+    const hue = parseInt(match[1], 10);
+    const sat = parseInt(match[2], 10);
+    const light = parseInt(match[3], 10);
 
     return [
       baseColor,

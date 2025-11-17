@@ -71,7 +71,7 @@ export default function AesEncryptPage() {
       const base64 = btoa(String.fromCharCode(...combined));
       setOutput(base64);
     } catch (err) {
-      setError("Encryption failed: " + (err instanceof Error ? err.message : "Unknown error"));
+      setError(`Encryption failed: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   };
 
@@ -103,7 +103,7 @@ export default function AesEncryptPage() {
       const decoder = new TextDecoder();
       const plaintext = decoder.decode(decryptedData);
       setOutput(plaintext);
-    } catch (err) {
+    } catch (_err) {
       setError("Decryption failed. Make sure the password is correct and the ciphertext is valid.");
     }
   };

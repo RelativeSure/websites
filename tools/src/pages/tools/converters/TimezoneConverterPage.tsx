@@ -76,7 +76,7 @@ export default function TimezoneConverterPage() {
     if (sourceTime && sourceDate) {
       convertTimezones();
     }
-  }, [sourceTime, sourceDate, sourceTimezone, targetTimezones]);
+  }, [sourceTime, sourceDate, convertTimezones]);
 
   const convertTimezones = () => {
     try {
@@ -132,7 +132,7 @@ export default function TimezoneConverterPage() {
         timeZoneName: "shortOffset",
       });
       const parts = formatter.formatToParts(date);
-      const offset = parts.find((p) => p.type === "timeZoneName")?.value || "";
+      const _offset = parts.find((p) => p.type === "timeZoneName")?.value || "";
       return ""; // Return empty for now, let browser handle it
     } catch {
       return "";

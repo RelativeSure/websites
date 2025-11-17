@@ -2,7 +2,6 @@ import { AlertCircle, ArrowRightLeft, Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 export default function SqlToJsonPage() {
@@ -116,7 +115,7 @@ export default function SqlToJsonPage() {
       const results = parseSqlInsert(sql);
       setJson(JSON.stringify(results, null, 2));
     } catch (err) {
-      setError("Failed to parse SQL: " + (err instanceof Error ? err.message : "Unknown error"));
+      setError(`Failed to parse SQL: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   };
 

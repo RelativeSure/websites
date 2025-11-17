@@ -1,4 +1,4 @@
-import { Check, Download, Image as ImageIcon, Upload } from "lucide-react";
+import { Download, Image as ImageIcon, Upload } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -241,7 +241,7 @@ export default function FaviconGeneratorPage() {
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {Array.from(generatedFavicons.entries()).map(([size, dataUrl]) => {
-                  const favicon = faviconSizes.find((f) => f.size === size);
+                  const _favicon = faviconSizes.find((f) => f.size === size);
                   return (
                     <div key={size} className="border rounded p-3 text-center">
                       <img

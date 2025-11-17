@@ -77,10 +77,10 @@ export default function CertificateDecoderPage() {
         };
 
         setCertInfo(info);
-      } catch (e) {
+      } catch (_e) {
         setError("Failed to decode certificate. Make sure it's in PEM format.");
       }
-    } catch (e) {
+    } catch (_e) {
       setError("An error occurred while parsing the certificate");
     }
   };
@@ -104,7 +104,7 @@ export default function CertificateDecoderPage() {
     return "sha256WithRSAEncryption (detected)";
   };
 
-  const extractDN = (der: string, type: string): Record<string, string> => {
+  const extractDN = (der: string, _type: string): Record<string, string> => {
     // Simplified - real implementation would parse ASN.1 DN
     const dn: Record<string, string> = {};
 
@@ -119,7 +119,7 @@ export default function CertificateDecoderPage() {
     return dn;
   };
 
-  const extractDate = (der: string, type: string): string => {
+  const extractDate = (_der: string, type: string): string => {
     // Simplified date extraction
     const now = new Date();
     if (type === "notBefore") {
@@ -130,7 +130,7 @@ export default function CertificateDecoderPage() {
     return now.toISOString();
   };
 
-  const extractExtensions = (der: string): Record<string, string> => {
+  const extractExtensions = (_der: string): Record<string, string> => {
     return {
       "Basic Constraints": "CA:FALSE",
       "Key Usage": "Digital Signature, Key Encipherment",

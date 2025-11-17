@@ -178,7 +178,7 @@ export default function SecretsGeneratorPage() {
                       <Input
                         type="number"
                         value={secret.length || 32}
-                        onChange={(e) => updateSecret(index, "length", parseInt(e.target.value))}
+                        onChange={(e) => updateSecret(index, "length", parseInt(e.target.value, 10))}
                         min={8}
                         max={128}
                       />

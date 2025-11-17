@@ -1,0 +1,23 @@
+# Gitleaks Ignore File
+# Add false positives here to prevent them from blocking commits
+# Format: You can add file paths or commit hashes
+
+# Example: Ignore specific files
+# test-data.json
+# mock-credentials.ts
+
+# Example: Ignore specific finding by adding the gitleaks fingerprint
+# This fingerprint is shown when gitleaks detects a secret
+
+# Common false positives in web development
+# Placeholder API keys in examples or documentation
+# Test data with fake credentials
+# Public keys or tokens that are meant to be public
+
+# To add an exception:
+# 1. Run: pre-commit run gitleaks --all-files
+# 2. Copy the fingerprint from the output
+# 3. Add it below
+
+# You can also use inline comments in your code:
+# const apiKey = "fake-key-for-testing"; // gitleaks:allow

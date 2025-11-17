@@ -5,7 +5,7 @@ import { getPageImage, source } from "@/lib/source";
 
 export const revalidate = false;
 
-interface RouteContext<T = string> {
+interface RouteContext<_T = string> {
   params: Promise<{ slug: string[] }>;
 }
 

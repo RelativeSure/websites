@@ -24,7 +24,7 @@ export default function ChmodPage() {
 
   useEffect(() => {
     updateFromCheckboxes();
-  }, [permissions]);
+  }, [updateFromCheckboxes]);
 
   const updateFromCheckboxes = () => {
     const ownerValue =

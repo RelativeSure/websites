@@ -88,7 +88,7 @@ export default function BinaryCalculatorPage() {
       } else {
         setResult(decimalResult.toString(2));
       }
-    } catch (err) {
+    } catch (_err) {
       setError("An error occurred during calculation");
     }
   };
@@ -126,8 +126,8 @@ export default function BinaryCalculatorPage() {
   };
 
   const toBinary = (decimal: string): string => {
-    const num = parseInt(decimal);
-    if (isNaN(num)) return "";
+    const num = parseInt(decimal, 10);
+    if (Number.isNaN(num)) return "";
     if (num < 0) return num.toString(2);
     return num.toString(2);
   };

@@ -20,8 +20,8 @@ export default function TimestampConverter() {
   const timestampToDate = () => {
     if (!timestamp) return;
 
-    const ts = parseInt(timestamp);
-    if (isNaN(ts)) return;
+    const ts = parseInt(timestamp, 10);
+    if (Number.isNaN(ts)) return;
 
     // Handle both seconds and milliseconds
     const date = new Date(ts > 10000000000 ? ts : ts * 1000);
@@ -32,7 +32,7 @@ export default function TimestampConverter() {
     if (!datetime) return;
 
     const date = new Date(datetime);
-    if (isNaN(date.getTime())) return;
+    if (Number.isNaN(date.getTime())) return;
 
     setTimestamp(Math.floor(date.getTime() / 1000).toString());
   };

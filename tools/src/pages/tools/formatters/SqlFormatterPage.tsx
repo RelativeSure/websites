@@ -108,12 +108,12 @@ export default function SqlFormatter() {
         line.startsWith("INNER JOIN") ||
         line.startsWith("OUTER JOIN")
       ) {
-        return "  " + line;
+        return `  ${line}`;
       }
       if (line.startsWith("AND") || line.startsWith("OR")) {
-        return "  " + line;
+        return `  ${line}`;
       }
-      return "  " + line;
+      return `  ${line}`;
     });
 
     return indented.join("\n").trim();

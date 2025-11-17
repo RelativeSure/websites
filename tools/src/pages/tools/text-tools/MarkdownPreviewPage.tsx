@@ -41,7 +41,7 @@ export default function MarkdownPreview() {
 
     // Line breaks
     html = html.replace(/\n\n/g, "</p><p>");
-    html = "<p>" + html + "</p>";
+    html = `<p>${html}</p>`;
 
     return html;
   };

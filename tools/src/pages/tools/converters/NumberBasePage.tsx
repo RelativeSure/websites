@@ -58,7 +58,7 @@ export default function NumberBaseConverter() {
       return result;
     } else {
       // Standard bases 2-36
-      return decimal.toString(parseInt(base));
+      return decimal.toString(parseInt(base, 10));
     }
   };
 
@@ -85,8 +85,8 @@ export default function NumberBaseConverter() {
       return result;
     } else {
       // Standard bases 2-36
-      const parsed = parseInt(value, parseInt(base));
-      if (isNaN(parsed)) throw new Error("Invalid number");
+      const parsed = parseInt(value, parseInt(base, 10));
+      if (Number.isNaN(parsed)) throw new Error("Invalid number");
       return parsed;
     }
   };

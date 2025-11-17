@@ -46,7 +46,9 @@ export default function TotpPage() {
       }
 
       // Import the secret key
-      const key = await crypto.subtle.importKey("raw", secret as BufferSource, { name: "HMAC", hash: "SHA-1" }, false, ["sign"]);
+      const key = await crypto.subtle.importKey("raw", secret as BufferSource, { name: "HMAC", hash: "SHA-1" }, false, [
+        "sign",
+      ]);
 
       // Generate HMAC
       const signature = await crypto.subtle.sign("HMAC", key, counterBytes as BufferSource);
@@ -63,20 +65,16 @@ export default function TotpPage() {
       // Generate 6-digit code
       const otp = (code % 1000000).toString().padStart(6, "0");
       return otp;
-    } catch (err) {
+    } catch (_err) {
       throw new Error("Failed to generate TOTP");
     }
   };
 
   const generateTOTP = async (secretKey: string): Promise<string> => {
-    try {
-      const decoded = base32Decode(secretKey);
-      const timeStep = 30; // 30 seconds
-      const counter = Math.floor(Date.now() / 1000 / timeStep);
-      return await generateHOTP(decoded, counter);
-    } catch (err) {
-      throw err;
-    }
+    const decoded = base32Decode(secretKey);
+    const timeStep = 30; // 30 seconds
+    const counter = Math.floor(Date.now() / 1000 / timeStep);
+    return await generateHOTP(decoded, counter);
   };
 
   const handleGenerate = async () => {
@@ -129,14 +127,14 @@ export default function TotpPage() {
           const newToken = await generateTOTP(secret);
           setToken(newToken);
           setError("");
-        } catch (err) {
+        } catch (_err) {
           setError("Invalid secret key");
         }
       }
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [secret]);
+  }, [secret, generateTOTP, token]);
 
   const progressValue = (timeRemaining / 30) * 100;
 

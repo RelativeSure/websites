@@ -63,13 +63,13 @@ export default function JwtGeneratorPage() {
 
       try {
         headerObj = JSON.parse(header);
-      } catch (err) {
+      } catch (_err) {
         throw new Error("Invalid header JSON");
       }
 
       try {
         payloadObj = JSON.parse(payload);
-      } catch (err) {
+      } catch (_err) {
         throw new Error("Invalid payload JSON");
       }
 
@@ -122,7 +122,7 @@ export default function JwtGeneratorPage() {
       const headerObj = JSON.parse(header);
       headerObj.alg = value;
       setHeader(JSON.stringify(headerObj, null, 2));
-    } catch (err) {
+    } catch (_err) {
       // Ignore JSON parse errors
     }
   };

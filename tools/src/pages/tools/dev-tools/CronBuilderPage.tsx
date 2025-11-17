@@ -58,11 +58,11 @@ export default function CronBuilderPage() {
       if (month.includes(",")) {
         const months = month
           .split(",")
-          .map((m) => monthNames[parseInt(m)])
+          .map((m) => monthNames[parseInt(m, 10)])
           .join(", ");
         parts.push(`in ${months}`);
       } else {
-        parts.push(`in ${monthNames[parseInt(month)]}`);
+        parts.push(`in ${monthNames[parseInt(month, 10)]}`);
       }
     }
 
@@ -72,11 +72,11 @@ export default function CronBuilderPage() {
       if (dayOfWeek.includes(",")) {
         const days = dayOfWeek
           .split(",")
-          .map((d) => dayNames[parseInt(d)])
+          .map((d) => dayNames[parseInt(d, 10)])
           .join(", ");
         parts.push(`on ${days}`);
       } else {
-        parts.push(`on ${dayNames[parseInt(dayOfWeek)]}`);
+        parts.push(`on ${dayNames[parseInt(dayOfWeek, 10)]}`);
       }
     }
 

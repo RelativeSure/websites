@@ -25,7 +25,7 @@ export default function BcryptPage() {
     try {
       // Use setTimeout to avoid blocking UI
       setTimeout(async () => {
-        const salt = await bcrypt.genSalt(parseInt(rounds));
+        const salt = await bcrypt.genSalt(parseInt(rounds, 10));
         const hashed = await bcrypt.hash(password, salt);
         setHash(hashed);
         setGenerating(false);
@@ -42,7 +42,7 @@ export default function BcryptPage() {
     try {
       const result = await bcrypt.compare(comparePassword, compareHash);
       setCompareResult(result);
-    } catch (err) {
+    } catch (_err) {
       setCompareResult(false);
     }
   };
@@ -58,7 +58,7 @@ export default function BcryptPage() {
   };
 
   const getRoundsInfo = (rounds: string) => {
-    const r = parseInt(rounds);
+    const r = parseInt(rounds, 10);
     if (r < 8) return "Weak - Not recommended";
     if (r <= 10) return "Standard - Good for most use cases";
     if (r <= 12) return "Strong - Slower but more secure";

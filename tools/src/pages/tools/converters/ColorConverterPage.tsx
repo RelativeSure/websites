@@ -1,5 +1,5 @@
 import { Check, Copy } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -31,7 +31,7 @@ export default function ColorConverter() {
   };
 
   const rgbToHex = (r: number, g: number, b: number): string => {
-    return "#" + [r, g, b].map((x) => x.toString(16).padStart(2, "0")).join("");
+    return `#${[r, g, b].map((x) => x.toString(16).padStart(2, "0")).join("")}`;
   };
 
   const rgbToHsl = (r: number, g: number, b: number): { h: number; s: number; l: number } => {
@@ -181,7 +181,7 @@ export default function ColorConverter() {
                   min="0"
                   max="255"
                   value={color.rgb.r}
-                  onChange={(e) => updateFromRgb(parseInt(e.target.value) || 0, color.rgb.g, color.rgb.b)}
+                  onChange={(e) => updateFromRgb(parseInt(e.target.value, 10) || 0, color.rgb.g, color.rgb.b)}
                   className="font-mono"
                 />
               </div>
@@ -193,7 +193,7 @@ export default function ColorConverter() {
                   min="0"
                   max="255"
                   value={color.rgb.g}
-                  onChange={(e) => updateFromRgb(color.rgb.r, parseInt(e.target.value) || 0, color.rgb.b)}
+                  onChange={(e) => updateFromRgb(color.rgb.r, parseInt(e.target.value, 10) || 0, color.rgb.b)}
                   className="font-mono"
                 />
               </div>
@@ -205,7 +205,7 @@ export default function ColorConverter() {
                   min="0"
                   max="255"
                   value={color.rgb.b}
-                  onChange={(e) => updateFromRgb(color.rgb.r, color.rgb.g, parseInt(e.target.value) || 0)}
+                  onChange={(e) => updateFromRgb(color.rgb.r, color.rgb.g, parseInt(e.target.value, 10) || 0)}
                   className="font-mono"
                 />
               </div>
@@ -242,7 +242,7 @@ export default function ColorConverter() {
                   min="0"
                   max="360"
                   value={color.hsl.h}
-                  onChange={(e) => updateFromHsl(parseInt(e.target.value) || 0, color.hsl.s, color.hsl.l)}
+                  onChange={(e) => updateFromHsl(parseInt(e.target.value, 10) || 0, color.hsl.s, color.hsl.l)}
                   className="font-mono"
                 />
               </div>
@@ -254,7 +254,7 @@ export default function ColorConverter() {
                   min="0"
                   max="100"
                   value={color.hsl.s}
-                  onChange={(e) => updateFromHsl(color.hsl.h, parseInt(e.target.value) || 0, color.hsl.l)}
+                  onChange={(e) => updateFromHsl(color.hsl.h, parseInt(e.target.value, 10) || 0, color.hsl.l)}
                   className="font-mono"
                 />
               </div>
@@ -266,7 +266,7 @@ export default function ColorConverter() {
                   min="0"
                   max="100"
                   value={color.hsl.l}
-                  onChange={(e) => updateFromHsl(color.hsl.h, color.hsl.s, parseInt(e.target.value) || 0)}
+                  onChange={(e) => updateFromHsl(color.hsl.h, color.hsl.s, parseInt(e.target.value, 10) || 0)}
                   className="font-mono"
                 />
               </div>

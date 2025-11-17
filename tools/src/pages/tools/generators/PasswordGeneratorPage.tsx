@@ -86,7 +86,7 @@ export default function PasswordGenerator() {
               min="4"
               max="64"
               value={length}
-              onChange={(e) => setLength(parseInt(e.target.value))}
+              onChange={(e) => setLength(parseInt(e.target.value, 10))}
               className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
             />
             <div className="flex justify-between text-xs text-muted-foreground">
@@ -143,22 +143,18 @@ export default function PasswordGenerator() {
           </Button>
 
           {password && (
-            <>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Generated Password</Label>
-                  {strength.label && (
-                    <span className={`text-sm font-semibold ${strength.color}`}>{strength.label}</span>
-                  )}
-                </div>
-                <div className="flex gap-2">
-                  <Input id="password" value={password} readOnly className="font-mono flex-1 text-lg" />
-                  <Button size="icon" variant="outline" onClick={copyToClipboard}>
-                    {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                  </Button>
-                </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <Label htmlFor="password">Generated Password</Label>
+                {strength.label && <span className={`text-sm font-semibold ${strength.color}`}>{strength.label}</span>}
               </div>
-            </>
+              <div className="flex gap-2">
+                <Input id="password" value={password} readOnly className="font-mono flex-1 text-lg" />
+                <Button size="icon" variant="outline" onClick={copyToClipboard}>
+                  {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                </Button>
+              </div>
+            </div>
           )}
         </CardContent>
       </Card>

@@ -1,20 +1,6 @@
-import {
-  ArrowLeftRight,
-  Binary,
-  Braces,
-  Clock,
-  Code,
-  Code2,
-  FileJson,
-  FileText,
-  Fingerprint,
-  Hash,
-  Link2,
-  Lock,
-} from "lucide-react";
+import { ArrowLeftRight, Binary, Braces, Clock, Code2, FileText, Fingerprint, Hash, Link2 } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const tools = [
   {

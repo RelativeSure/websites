@@ -40,7 +40,7 @@ export default function ImageResizerPage() {
     setWidth(newWidth);
     if (maintainAspect && originalDimensions.width > 0 && newWidth) {
       const aspectRatio = originalDimensions.height / originalDimensions.width;
-      const calculatedHeight = Math.round(parseInt(newWidth) * aspectRatio);
+      const calculatedHeight = Math.round(parseInt(newWidth, 10) * aspectRatio);
       setHeight(calculatedHeight.toString());
     }
   };
@@ -49,7 +49,7 @@ export default function ImageResizerPage() {
     setHeight(newHeight);
     if (maintainAspect && originalDimensions.height > 0 && newHeight) {
       const aspectRatio = originalDimensions.width / originalDimensions.height;
-      const calculatedWidth = Math.round(parseInt(newHeight) * aspectRatio);
+      const calculatedWidth = Math.round(parseInt(newHeight, 10) * aspectRatio);
       setWidth(calculatedWidth.toString());
     }
   };
@@ -60,8 +60,8 @@ export default function ImageResizerPage() {
     const img = new Image();
     img.onload = () => {
       const canvas = document.createElement("canvas");
-      canvas.width = parseInt(width);
-      canvas.height = parseInt(height);
+      canvas.width = parseInt(width, 10);
+      canvas.height = parseInt(height, 10);
 
       const ctx = canvas.getContext("2d");
       if (!ctx) return;

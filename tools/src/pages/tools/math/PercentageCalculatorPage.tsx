@@ -30,7 +30,7 @@ export default function PercentageCalculatorPage() {
   const decreaseResult = parseFloat(baseValue) * (1 - parseFloat(changePercent) / 100);
 
   const formatNumber = (num: number): string => {
-    if (isNaN(num) || !isFinite(num)) return "—";
+    if (Number.isNaN(num) || !Number.isFinite(num)) return "—";
     return num.toFixed(2);
   };
 

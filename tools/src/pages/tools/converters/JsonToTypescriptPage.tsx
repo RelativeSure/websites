@@ -18,7 +18,7 @@ export default function JsonToTypescript() {
     if (Array.isArray(value)) {
       if (value.length === 0) return "any[]";
       const firstType = getType(value[0]);
-      return firstType + "[]";
+      return `${firstType}[]`;
     }
     if (typeof value === "object") return "object";
     return typeof value;

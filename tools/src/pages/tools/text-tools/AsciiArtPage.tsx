@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 
 const asciiFont: Record<string, string[]> = {
   A: ["  ###  ", " ## ## ", "##   ##", "#######", "##   ##"],
@@ -58,7 +57,7 @@ export default function AsciiArtPage() {
     for (const char of upperText) {
       const charArt = asciiFont[char] || asciiFont[" "];
       for (let i = 0; i < 5; i++) {
-        lines[i] += charArt[i] + " ";
+        lines[i] += `${charArt[i]} `;
       }
     }
 

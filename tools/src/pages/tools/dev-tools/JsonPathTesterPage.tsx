@@ -39,8 +39,8 @@ export default function JsonPathTesterPage() {
         }
 
         // Numeric index
-        const numIndex = parseInt(index);
-        if (!isNaN(numIndex)) {
+        const numIndex = parseInt(index, 10);
+        if (!Number.isNaN(numIndex)) {
           current = current[numIndex];
         }
       } else {

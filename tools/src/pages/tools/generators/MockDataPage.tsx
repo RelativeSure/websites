@@ -2,7 +2,6 @@ import { Check, Copy, RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -220,7 +219,7 @@ export default function MockDataPage() {
               min="1"
               max="100"
               value={count}
-              onChange={(e) => setCount(parseInt(e.target.value))}
+              onChange={(e) => setCount(parseInt(e.target.value, 10))}
               className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
             />
             <div className="flex justify-between text-xs text-muted-foreground">

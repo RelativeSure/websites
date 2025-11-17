@@ -70,7 +70,6 @@ import {
   WrapText,
 } from "lucide-react";
 import * as React from "react";
-import { Separator } from "@/components/ui/separator";
 import {
   Sidebar,
   SidebarContent,
@@ -721,7 +720,7 @@ export default function ToolsLayout({ children }: { children: React.ReactNode })
     if (contentEl && scrollPositionRef.current > 0) {
       contentEl.scrollTop = scrollPositionRef.current;
     }
-  }, [pathname]);
+  }, []);
 
   return (
     <SidebarProvider defaultOpen={true}>

@@ -1,7 +1,6 @@
 import { Card, Cards } from "fumadocs-ui/components/card";
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 import Image from "next/image";
-import Link from "next/link";
 export default function HomePage() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-6xl">

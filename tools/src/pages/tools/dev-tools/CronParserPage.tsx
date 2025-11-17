@@ -50,21 +50,21 @@ export default function CronParser() {
     if (month !== "*") {
       const months = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       if (month.startsWith("*/")) desc.push(`every ${month.slice(2)} months`);
-      else desc.push(`in ${months[parseInt(month)] || month}`);
+      else desc.push(`in ${months[parseInt(month, 10)] || month}`);
     }
 
     // Weekday
     if (weekday !== "*") {
       const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
       if (weekday.includes(",")) {
-        const dayNums = weekday.split(",").map((d) => days[parseInt(d)] || d);
+        const dayNums = weekday.split(",").map((d) => days[parseInt(d, 10)] || d);
         desc.push(`on ${dayNums.join(", ")}`);
       } else {
-        desc.push(`on ${days[parseInt(weekday)] || weekday}`);
+        desc.push(`on ${days[parseInt(weekday, 10)] || weekday}`);
       }
     }
 
-    setDescription("Runs " + desc.join(" "));
+    setDescription(`Runs ${desc.join(" ")}`);
   };
 
   const examples = [

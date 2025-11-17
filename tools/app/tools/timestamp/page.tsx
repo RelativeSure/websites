@@ -23,8 +23,8 @@ export default function TimestampConverter() {
   const timestampToDate = () => {
     try {
       setError("");
-      const ts = parseInt(timestamp);
-      if (isNaN(ts)) {
+      const ts = parseInt(timestamp, 10);
+      if (Number.isNaN(ts)) {
         setError("Invalid timestamp");
         return;
       }
@@ -40,7 +40,7 @@ export default function TimestampConverter() {
     try {
       setError("");
       const date = new Date(dateTime);
-      if (isNaN(date.getTime())) {
+      if (Number.isNaN(date.getTime())) {
         setError("Invalid date");
         return;
       }

@@ -88,7 +88,7 @@ export default function UserAgentParser() {
 
   useEffect(() => {
     parseUserAgent(userAgent);
-  }, []);
+  }, [parseUserAgent, userAgent]);
 
   const InfoCard = ({ label, value }: { label: string; value: string }) => (
     <div className="p-4 bg-muted rounded-lg">

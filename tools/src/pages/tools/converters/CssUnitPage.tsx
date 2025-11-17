@@ -45,10 +45,10 @@ export default function CssUnitPage() {
 
   useEffect(() => {
     convertUnits(parseFloat(inputValue), activeUnit);
-  }, [inputValue, activeUnit, baseFontSize, parentFontSize, viewportWidth, viewportHeight]);
+  }, [inputValue, activeUnit, convertUnits]);
 
   const convertUnits = (value: number, from: keyof UnitValues) => {
-    if (isNaN(value)) return;
+    if (Number.isNaN(value)) return;
 
     const base = parseFloat(baseFontSize);
     const parent = parseFloat(parentFontSize);

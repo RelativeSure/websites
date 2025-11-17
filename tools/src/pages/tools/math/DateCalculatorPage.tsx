@@ -55,7 +55,7 @@ export default function DateCalculatorPage() {
     if (!baseDate) return null;
 
     const date = new Date(baseDate);
-    const num = parseInt(amount) || 0;
+    const num = parseInt(amount, 10) || 0;
     const multiplier = operation === "add" ? 1 : -1;
 
     const result = new Date(date);

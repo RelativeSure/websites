@@ -33,7 +33,7 @@ export default function GraphqlFormatterPage() {
         })
         .join("\n");
       setOutput(formatted);
-    } catch (err) {
+    } catch (_err) {
       setOutput("Error formatting GraphQL");
     }
   };

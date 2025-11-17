@@ -2,7 +2,6 @@ import { Check, Copy, Download, Upload, X } from "lucide-react";
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -55,7 +54,7 @@ export default function Base64ImagePage() {
         setImageInfo(null);
       };
       testImg.src = dataUrl;
-    } catch (err) {
+    } catch (_err) {
       setError("Failed to decode base64 data");
       setImagePreview("");
       setImageInfo(null);
@@ -136,7 +135,7 @@ export default function Base64ImagePage() {
     const k = 1024;
     const sizes = ["Bytes", "KB", "MB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round((bytes / k ** i) * 100) / 100 + " " + sizes[i];
+    return `${Math.round((bytes / k ** i) * 100) / 100} ${sizes[i]}`;
   };
 
   return (

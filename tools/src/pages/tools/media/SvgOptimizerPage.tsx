@@ -87,7 +87,7 @@ export default function SvgOptimizerPage() {
 
     // Minify inline styles
     if (options.minifyStyles) {
-      svg = svg.replace(/style="([^"]*)"/g, (match, style) => {
+      svg = svg.replace(/style="([^"]*)"/g, (_match, style) => {
         const minified = style
           .replace(/\s*:\s*/g, ":")
           .replace(/\s*;\s*/g, ";")
@@ -99,12 +99,12 @@ export default function SvgOptimizerPage() {
     // Convert colors to shorter forms
     if (options.convertColors) {
       // Convert rgb to hex
-      svg = svg.replace(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/g, (match, r, g, b) => {
+      svg = svg.replace(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/g, (_match, r, g, b) => {
         const hex =
           "#" +
-          parseInt(r).toString(16).padStart(2, "0") +
-          parseInt(g).toString(16).padStart(2, "0") +
-          parseInt(b).toString(16).padStart(2, "0");
+          parseInt(r, 10).toString(16).padStart(2, "0") +
+          parseInt(g, 10).toString(16).padStart(2, "0") +
+          parseInt(b, 10).toString(16).padStart(2, "0");
         return hex;
       });
 
@@ -125,7 +125,7 @@ export default function SvgOptimizerPage() {
 
     // Optimize path data (basic)
     if (options.convertPathData) {
-      svg = svg.replace(/d="([^"]*)"/g, (match, path) => {
+      svg = svg.replace(/d="([^"]*)"/g, (_match, path) => {
         const optimized = path
           .replace(/\s+/g, " ")
           .replace(/\s*([,])\s*/g, "$1")

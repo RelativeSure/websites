@@ -1,8 +1,6 @@
-import { ArrowRightLeft } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 const morseCode: Record<string, string> = {
@@ -79,7 +77,7 @@ export default function MorseCodePage() {
         .map((char) => morseCode[char] || char)
         .join(" ");
       setMorseInput(morse);
-    } catch (err) {
+    } catch (_err) {
       setError("Failed to convert to Morse code");
     }
   };
@@ -92,7 +90,7 @@ export default function MorseCodePage() {
         .map((code) => reverseMorse[code] || "?")
         .join("");
       setTextInput(text);
-    } catch (err) {
+    } catch (_err) {
       setError("Failed to convert from Morse code");
     }
   };

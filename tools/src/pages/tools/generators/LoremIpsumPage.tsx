@@ -92,7 +92,7 @@ export default function LoremIpsumGenerator() {
       words.push(randomWord());
     }
     const sentence = words.join(" ");
-    return sentence.charAt(0).toUpperCase() + sentence.slice(1) + ".";
+    return `${sentence.charAt(0).toUpperCase() + sentence.slice(1)}.`;
   };
 
   const generateParagraph = () => {
@@ -179,7 +179,7 @@ export default function LoremIpsumGenerator() {
                 min="1"
                 max="100"
                 value={count}
-                onChange={(e) => setCount(parseInt(e.target.value) || 1)}
+                onChange={(e) => setCount(parseInt(e.target.value, 10) || 1)}
                 className="font-mono"
               />
             </div>

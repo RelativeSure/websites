@@ -1,4 +1,4 @@
-import { Calculator, Network } from "lucide-react";
+import { Calculator } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,11 +33,11 @@ export default function IpSubnetPage() {
   const ipToBinary = (ip: string): string => {
     return ip
       .split(".")
-      .map((octet) => parseInt(octet).toString(2).padStart(8, "0"))
+      .map((octet) => parseInt(octet, 10).toString(2).padStart(8, "0"))
       .join(".");
   };
 
-  const binaryToIp = (binary: string): string => {
+  const _binaryToIp = (binary: string): string => {
     return binary
       .split(".")
       .map((octet) => parseInt(octet, 2).toString())
@@ -52,7 +52,7 @@ export default function IpSubnetPage() {
   const getWildcardMask = (mask: string): string => {
     return mask
       .split(".")
-      .map((octet) => (255 - parseInt(octet)).toString())
+      .map((octet) => (255 - parseInt(octet, 10)).toString())
       .join(".");
   };
 
@@ -95,7 +95,7 @@ export default function IpSubnetPage() {
   };
 
   const getIpClass = (ip: string): string => {
-    const firstOctet = parseInt(ip.split(".")[0]);
+    const firstOctet = parseInt(ip.split(".")[0], 10);
     if (firstOctet >= 1 && firstOctet <= 126) return "A";
     if (firstOctet >= 128 && firstOctet <= 191) return "B";
     if (firstOctet >= 192 && firstOctet <= 223) return "C";
@@ -109,13 +109,13 @@ export default function IpSubnetPage() {
       // Validate IP address
       const ipRegex = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
       const ipMatch = ipInput.match(ipRegex);
-      if (!ipMatch || ipMatch.slice(1).some((octet) => parseInt(octet) > 255)) {
+      if (!ipMatch || ipMatch.slice(1).some((octet) => parseInt(octet, 10) > 255)) {
         throw new Error("Invalid IP address");
       }
 
       // Validate CIDR
-      const cidr = parseInt(cidrInput);
-      if (isNaN(cidr) || cidr < 0 || cidr > 32) {
+      const cidr = parseInt(cidrInput, 10);
+      if (Number.isNaN(cidr) || cidr < 0 || cidr > 32) {
         throw new Error("CIDR must be between 0 and 32");
       }
 

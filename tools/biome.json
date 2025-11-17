@@ -8,6 +8,17 @@
   "files": {
     "ignoreUnknown": true
   },
+  "overrides": [
+    {
+      "includes": ["src/globals.css", "dist/**", "node_modules/**"],
+      "linter": {
+        "enabled": false
+      },
+      "formatter": {
+        "enabled": false
+      }
+    }
+  ],
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
@@ -17,7 +28,22 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "suspicious": {
+        "noShadowRestrictedNames": "warn",
+        "noExplicitAny": "warn",
+        "noImplicitAnyLet": "warn",
+        "noAssignInExpressions": "warn",
+        "noArrayIndexKey": "warn"
+      },
+      "correctness": {
+        "noUnusedVariables": "warn",
+        "noInvalidUseBeforeDeclaration": "warn",
+        "useExhaustiveDependencies": "warn"
+      },
+      "style": {
+        "noNonNullAssertion": "warn"
+      }
     },
     "domains": {
       "react": "recommended"

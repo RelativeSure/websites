@@ -56,7 +56,7 @@ export default function TextDiff() {
     }
 
     return result;
-  }, [text1, text2]);
+  }, [text1, text2, computeLCS]);
 
   const computeLCS = (arr1: string[], arr2: string[]): string[] => {
     const m = arr1.length;

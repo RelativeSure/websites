@@ -1,6 +1,6 @@
 import yaml from "js-yaml";
-import { marked } from "marked";
 import { ArrowLeftRight, Check, Copy, Download } from "lucide-react";
+import { marked } from "marked";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -65,7 +65,7 @@ export default function UnifiedConverterPage() {
   // Define which formats can convert to which
   const getCompatibleFormats = (from: FormatType): FormatType[] => {
     const baseEncodings: FormatType[] = ["base64", "base32", "hex", "binary", "octal", "decimal"];
-    const dataFormats: FormatType[] = ["json", "yaml", "xml", "csv"];
+    const _dataFormats: FormatType[] = ["json", "yaml", "xml", "csv"];
 
     switch (from) {
       case "json":

@@ -1,19 +1,15 @@
+import { CheckCircle, XCircle } from "lucide-react";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle, XCircle } from "lucide-react";
 
 export default function UrlParser() {
-  const [url, setUrl] = useState("https://user:pass@subdomain.example.com:8080/path/to/page?name=value&foo=bar%20baz#section");
+  const [url, setUrl] = useState(
+    "https://user:pass@subdomain.example.com:8080/path/to/page?name=value&foo=bar%20baz#section"
+  );
   const [parsed, setParsed] = useState<any>(null);
   const [params, setParams] = useState<[string, string, string][]>([]);
 
@@ -65,7 +61,7 @@ export default function UrlParser() {
         paramArray.push([key, value, decodeURIComponent(value)]);
       });
       setParams(paramArray);
-    } catch (err) {
+    } catch (_err) {
       setParsed({ error: "Invalid URL" });
       setParams([]);
     }
@@ -73,12 +69,12 @@ export default function UrlParser() {
 
   const buildUrl = () => {
     try {
-      let urlStr = protocol + "//" + hostname;
-      if (port) urlStr += ":" + port;
+      let urlStr = `${protocol}//${hostname}`;
+      if (port) urlStr += `:${port}`;
       urlStr += pathname;
-      if (search && !search.startsWith("?")) urlStr += "?" + search;
+      if (search && !search.startsWith("?")) urlStr += `?${search}`;
       else if (search) urlStr += search;
-      if (hash && !hash.startsWith("#")) urlStr += "#" + hash;
+      if (hash && !hash.startsWith("#")) urlStr += `#${hash}`;
       else if (hash) urlStr += hash;
 
       // Validate by parsing
@@ -86,7 +82,7 @@ export default function UrlParser() {
       setBuiltUrl(urlStr);
       setUrl(urlStr);
       parseUrl(urlStr);
-    } catch (err) {
+    } catch (_err) {
       setBuiltUrl("Error: Invalid URL components");
     }
   };
@@ -113,9 +109,7 @@ export default function UrlParser() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">URL Parser & Builder</h1>
-        <p className="text-muted-foreground">
-          Parse, build, and validate URLs
-        </p>
+        <p className="text-muted-foreground">Parse, build, and validate URLs</p>
       </div>
 
       <Tabs defaultValue="parser" className="w-full">
@@ -204,15 +198,11 @@ export default function UrlParser() {
                           <div className="font-mono text-sm font-bold">{key}</div>
                           <div className="space-y-1">
                             <Label className="text-xs text-muted-foreground">Encoded</Label>
-                            <div className="p-2 bg-background rounded font-mono text-xs break-all">
-                              {encoded}
-                            </div>
+                            <div className="p-2 bg-background rounded font-mono text-xs break-all">{encoded}</div>
                           </div>
                           <div className="space-y-1">
                             <Label className="text-xs text-muted-foreground">Decoded</Label>
-                            <div className="p-2 bg-primary/10 rounded font-mono text-xs break-all">
-                              {decoded}
-                            </div>
+                            <div className="p-2 bg-primary/10 rounded font-mono text-xs break-all">{decoded}</div>
                           </div>
                         </div>
                       ))}

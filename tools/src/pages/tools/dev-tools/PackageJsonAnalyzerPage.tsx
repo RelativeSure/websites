@@ -82,7 +82,7 @@ export default function PackageJsonAnalyzerPage() {
         type: pkg.type || "commonjs",
       });
     } catch (err) {
-      setError("Invalid JSON: " + (err instanceof Error ? err.message : "Unknown error"));
+      setError(`Invalid JSON: ${err instanceof Error ? err.message : "Unknown error"}`);
     }
   };
 
