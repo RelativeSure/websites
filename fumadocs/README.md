@@ -34,6 +34,39 @@ A `source.config.ts` config file has been included, you can customise different 
 
 Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
 
+## MCP Server Setup
+
+This project includes a Model Context Protocol (MCP) server configuration that allows AI assistants like Claude to read and search your documentation.
+
+### Quick Setup
+
+Add this to your Claude Desktop config file:
+
+**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+**Linux**: `~/.config/Claude/claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "fumadocs-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/your/fumadocs/content/docs"
+      ]
+    }
+  }
+}
+```
+
+**Note:** Update the path to match your actual documentation directory.
+
+Restart Claude Desktop after adding the configuration. You can then ask Claude to read, search, and analyze your documentation files.
+
+**Package**: [@modelcontextprotocol/server-filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem)
+
 ## Learn More
 
 To learn more about Next.js and Fumadocs, take a look at the following
