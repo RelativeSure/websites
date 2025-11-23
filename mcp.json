@@ -1,4 +1,5 @@
 {
+  "$schema": "https://modelcontextprotocol.io/schema/mcp.json",
   "mcpServers": {
     "fumadocs-filesystem": {
       "command": "npx",
@@ -7,8 +8,9 @@
         "@modelcontextprotocol/server-filesystem",
         "/home/user/websites/fumadocs/content/docs"
       ],
-      "description": "MCP server providing read access to Fumadocs documentation content",
+      "description": "Local MCP server for development - read access to Fumadocs documentation",
       "disabled": false
     }
-  }
+  },
+  "_comment": "For remote deployment, see fumadocs/REMOTE_MCP_DEPLOYMENT.md"
 }
