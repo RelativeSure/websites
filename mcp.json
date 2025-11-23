@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "fumadocs-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/user/websites/fumadocs/content/docs"
+      ],
+      "description": "MCP server providing read access to Fumadocs documentation content",
+      "disabled": false
+    }
+  }
+}
