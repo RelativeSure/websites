@@ -25,7 +25,7 @@ importers:
         version: 4.0.2(@astrojs/starlight@0.37.1(astro@5.16.5(@types/node@25.0.2)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2)))(tailwindcss@4.1.18)
       '@expressive-code/plugin-line-numbers':
         specifier: ^0.41.0
-        version: 0.41.4
+        version: 0.41.5
       '@fontsource/fira-code':
         specifier: ^5.2.6
         version: 5.2.7
@@ -695,14 +695,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@expressive-code/core@0.41.4':
-    resolution: {integrity: sha512-4eDiyq3hI3vJ0KnwIqonh9evy9p8aNixsf5wwnvDWcoPfYU3LGB6Nkb6WDdYS4z52tODCvN5gMRy1DtRopcxXg==}
+  '@expressive-code/core@0.41.5':
+    resolution: {integrity: sha512-II5TEy5eOoXiqPwqtpSqwamUd7lZS3YH3ofxR1ZyQMmygqORZn8/7SzgfF8G0kB7uKCBzFZT6RgKgCuHcJuPpA==}
 
   '@expressive-code/plugin-frames@0.41.4':
     resolution: {integrity: sha512-W9jZW8LsPS8fW5T5CQyXUyyCrMxb7qfl6oxlLZB1rW74qM572Id4CWEXOM/7fFDcd1pW2fUxMoGzJMh0T2Awhg==}
 
-  '@expressive-code/plugin-line-numbers@0.41.4':
-    resolution: {integrity: sha512-h7P0OQBvz4vikkV/XXyMecFsMPHZldm4Sx/AlZVsYFLMFTJ212M40bC1BTWupFw4Rd6mfDGimSNlK4EQuENaHA==}
+  '@expressive-code/plugin-line-numbers@0.41.5':
+    resolution: {integrity: sha512-WjUYYjIyTYyze8SsW2ERZ3zSxl3rW95aPTe9EumoWVggfQbBt3Sp51saUHnuNAJpeJCRS/wjF5JNsEzFhqflig==}
 
   '@expressive-code/plugin-shiki@0.41.4':
     resolution: {integrity: sha512-zOc0tfWISODHnnpfRJyssTvSWVVe+gj08GcFYiR2a6M8fKF1w5CJkpgf7tTvnoUTuVmL1DHRmiQFUnpGjtRGog==}
@@ -4932,7 +4932,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.0':
     optional: true
 
-  '@expressive-code/core@0.41.4':
+  '@expressive-code/core@0.41.5':
     dependencies:
       '@ctrl/tinycolor': 4.2.0
       hast-util-select: 6.0.4
@@ -4946,20 +4946,20 @@ snapshots:
 
   '@expressive-code/plugin-frames@0.41.4':
     dependencies:
-      '@expressive-code/core': 0.41.4
+      '@expressive-code/core': 0.41.5
 
-  '@expressive-code/plugin-line-numbers@0.41.4':
+  '@expressive-code/plugin-line-numbers@0.41.5':
     dependencies:
-      '@expressive-code/core': 0.41.4
+      '@expressive-code/core': 0.41.5
 
   '@expressive-code/plugin-shiki@0.41.4':
     dependencies:
-      '@expressive-code/core': 0.41.4
+      '@expressive-code/core': 0.41.5
       shiki: 3.20.0
 
   '@expressive-code/plugin-text-markers@0.41.4':
     dependencies:
-      '@expressive-code/core': 0.41.4
+      '@expressive-code/core': 0.41.5
 
   '@fontsource/fira-code@5.2.7': {}
 
@@ -6635,7 +6635,7 @@ snapshots:
 
   expressive-code@0.41.4:
     dependencies:
-      '@expressive-code/core': 0.41.4
+      '@expressive-code/core': 0.41.5
       '@expressive-code/plugin-frames': 0.41.4
       '@expressive-code/plugin-shiki': 0.41.4
       '@expressive-code/plugin-text-markers': 0.41.4
