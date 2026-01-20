@@ -49,6 +49,6 @@
     "@biomejs/biome": "2.3.11",
     "@lhci/cli": "0.15.1",
     "depcheck": "1.4.7",
-    "wrangler": "4.59.2"
+    "wrangler": "4.59.3"
   }
 }
