@@ -45,7 +45,7 @@
     "tailwindcss-animated": "^2.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.2",
+    "@biomejs/biome": "2.4.3",
     "@cloudflare/workers-types": "^4.20240701.0",
     "@tailwindcss/postcss": "^4.0.0",
     "@tanstack/router-devtools": "^1.134.12",
