@@ -21,10 +21,10 @@
     "cfdeploy": "wrangler deploy"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.7",
+    "@astrojs/check": "0.9.8",
     "@astrojs/mdx": "4.3.14",
     "@astrojs/react": "^4.2.1",
-    "@astrojs/starlight": "0.38.1",
+    "@astrojs/starlight": "0.38.2",
     "@astrojs/starlight-tailwind": "4.0.2",
     "@expressive-code/plugin-line-numbers": "^0.41.0",
     "@fontsource/fira-code": "^5.2.6",
