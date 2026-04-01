@@ -22,10 +22,6 @@ export default function ChmodPage() {
   const [symbolicValue, setSymbolicValue] = useState("rw-r--r--");
   const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    updateFromCheckboxes();
-  }, [updateFromCheckboxes]);
-
   const updateFromCheckboxes = () => {
     const ownerValue =
       (permissions.owner.read ? 4 : 0) + (permissions.owner.write ? 2 : 0) + (permissions.owner.execute ? 1 : 0);
@@ -42,6 +38,10 @@ export default function ChmodPage() {
     const symbolic = getSymbolic(permissions.owner) + getSymbolic(permissions.group) + getSymbolic(permissions.others);
     setSymbolicValue(symbolic);
   };
+
+  useEffect(() => {
+    updateFromCheckboxes();
+  }, [updateFromCheckboxes]);
 
   const getSymbolic = (perms: { read: boolean; write: boolean; execute: boolean }): string => {
     return (perms.read ? "r" : "-") + (perms.write ? "w" : "-") + (perms.execute ? "x" : "-");

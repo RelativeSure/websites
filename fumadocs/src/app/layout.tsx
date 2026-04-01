@@ -2,13 +2,8 @@ import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { RootProvider } from "fumadocs-ui/provider/next";
 import "./global.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import { baseOptions } from "@/lib/layout.shared";
-
-const inter = Inter({
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -26,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" className="font-sans" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
         <RootProvider>
           <HomeLayout {...baseOptions()}>{children}</HomeLayout>

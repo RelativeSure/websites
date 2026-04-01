@@ -12,6 +12,41 @@ export default function TextDiff() {
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
 
+  const computeLCS = (arr1: string[], arr2: string[]): string[] => {
+    const m = arr1.length;
+    const n = arr2.length;
+    const dp: number[][] = Array(m + 1)
+      .fill(0)
+      .map(() => Array(n + 1).fill(0));
+
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        if (arr1[i - 1] === arr2[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1] + 1;
+        } else {
+          dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
+        }
+      }
+    }
+
+    const lcs: string[] = [];
+    let i = m,
+      j = n;
+    while (i > 0 && j > 0) {
+      if (arr1[i - 1] === arr2[j - 1]) {
+        lcs.unshift(arr1[i - 1]);
+        i--;
+        j--;
+      } else if (dp[i - 1][j] > dp[i][j - 1]) {
+        i--;
+      } else {
+        j--;
+      }
+    }
+
+    return lcs;
+  };
+
   const diff = useMemo(() => {
     if (!text1 && !text2) return [];
 
@@ -57,41 +92,6 @@ export default function TextDiff() {
 
     return result;
   }, [text1, text2, computeLCS]);
-
-  const computeLCS = (arr1: string[], arr2: string[]): string[] => {
-    const m = arr1.length;
-    const n = arr2.length;
-    const dp: number[][] = Array(m + 1)
-      .fill(0)
-      .map(() => Array(n + 1).fill(0));
-
-    for (let i = 1; i <= m; i++) {
-      for (let j = 1; j <= n; j++) {
-        if (arr1[i - 1] === arr2[j - 1]) {
-          dp[i][j] = dp[i - 1][j - 1] + 1;
-        } else {
-          dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
-        }
-      }
-    }
-
-    const lcs: string[] = [];
-    let i = m,
-      j = n;
-    while (i > 0 && j > 0) {
-      if (arr1[i - 1] === arr2[j - 1]) {
-        lcs.unshift(arr1[i - 1]);
-        i--;
-        j--;
-      } else if (dp[i - 1][j] > dp[i][j - 1]) {
-        i--;
-      } else {
-        j--;
-      }
-    }
-
-    return lcs;
-  };
 
   return (
     <div className="container mx-auto p-6 max-w-7xl">

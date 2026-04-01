@@ -43,10 +43,6 @@ export default function CssUnitPage() {
   });
   const [copied, setCopied] = useState<string | null>(null);
 
-  useEffect(() => {
-    convertUnits(parseFloat(inputValue), activeUnit);
-  }, [inputValue, activeUnit, convertUnits]);
-
   const convertUnits = (value: number, from: keyof UnitValues) => {
     if (Number.isNaN(value)) return;
 
@@ -112,6 +108,10 @@ export default function CssUnitPage() {
       vmax: ((px / Math.max(vw, vh)) * 100).toFixed(2),
     });
   };
+
+  useEffect(() => {
+    convertUnits(parseFloat(inputValue), activeUnit);
+  }, [inputValue, activeUnit, convertUnits]);
 
   const handleCopy = async (unit: string, value: string) => {
     try {

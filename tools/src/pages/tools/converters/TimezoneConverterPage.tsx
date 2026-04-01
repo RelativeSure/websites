@@ -72,12 +72,6 @@ export default function TimezoneConverterPage() {
     setSourceTime(now.toTimeString().slice(0, 5));
   }, []);
 
-  useEffect(() => {
-    if (sourceTime && sourceDate) {
-      convertTimezones();
-    }
-  }, [sourceTime, sourceDate, convertTimezones]);
-
   const convertTimezones = () => {
     try {
       // Create date from source timezone
@@ -123,6 +117,12 @@ export default function TimezoneConverterPage() {
       console.error("Conversion failed:", err);
     }
   };
+
+  useEffect(() => {
+    if (sourceTime && sourceDate) {
+      convertTimezones();
+    }
+  }, [sourceTime, sourceDate, convertTimezones]);
 
   const getTimezoneOffset = (tz: string): string => {
     try {
