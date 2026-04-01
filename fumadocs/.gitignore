@@ -4,6 +4,7 @@ package-lock.json
 
 # generated content
 .fumadocs
+.source
 
 # test & build
 /coverage
