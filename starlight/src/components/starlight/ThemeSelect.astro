@@ -1,6 +1,7 @@
 ---
 // Enhanced translation system compatible with Starlight's i18n
-const _t = (key: string) => {
+// biome-ignore lint/correctness/noUnusedVariables: used in Astro template
+const t = (key: string) => {
   // Default translations - could be extended to use Starlight's i18n system
   const translations = {
     "themeSelect.accessibleLabel": "Select theme",
