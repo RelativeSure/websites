@@ -50,7 +50,7 @@ export default function DataUriPage() {
   };
 
   const getImagePreview = () => {
-    if (!file || !file.type.startsWith("image/")) return null;
+    if (!file?.type.startsWith("image/")) return null;
     return (
       <div className="mt-4">
         <Label>Preview</Label>

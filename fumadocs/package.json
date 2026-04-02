@@ -13,6 +13,7 @@
     "check": "biome check && tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
     "fumadocs-core": "16.7.9",
     "fumadocs-mdx": "14.2.11",
     "fumadocs-ui": "16.7.9",
