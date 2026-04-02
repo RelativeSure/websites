@@ -8,6 +8,11 @@
   "files": {
     "ignoreUnknown": true
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "overrides": [
     {
       "includes": ["src/globals.css", "dist/**", "node_modules/**"],

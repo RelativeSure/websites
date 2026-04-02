@@ -54,7 +54,7 @@ export default function JwtVerifierPage() {
 
       // Get algorithm
       const algorithm = decodedHeader.alg;
-      if (!algorithm || !algorithm.startsWith("HS")) {
+      if (!algorithm?.startsWith("HS")) {
         throw new Error(`Algorithm ${algorithm} is not supported. Only HMAC (HS256, HS384, HS512) are supported.`);
       }
 
