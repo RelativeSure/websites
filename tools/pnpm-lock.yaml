@@ -113,7 +113,7 @@ importers:
         version: 1.166.13(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(@tanstack/router-core@1.168.15)(csstype@3.2.3)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       '@tanstack/router-vite-plugin':
         specifier: ^1.134.12
-        version: 1.166.37(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))
+        version: 1.166.38(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))
       '@types/js-yaml':
         specifier: ^4.0.9
         version: 4.0.9
@@ -1728,17 +1728,17 @@ packages:
       csstype:
         optional: true
 
-  '@tanstack/router-generator@1.166.32':
-    resolution: {integrity: sha512-VuusKwEXcgKq+myq1JQfZogY8scTXIIeFls50dJ/UXgCXWp5n14iFreYNlg41wURcak2oA3M+t2TVfD0xUUD6g==}
+  '@tanstack/router-generator@1.166.33':
+    resolution: {integrity: sha512-MXP1WrEaZ13tlO5iJoXC+ZIFHNj5CtcvWuqlAZ3zXY70Musuq+mfUcKWMVdcIstnNqrZl5M2hfqLh5Zf5t4NVw==}
     engines: {node: '>=20.19'}
 
-  '@tanstack/router-plugin@1.167.22':
-    resolution: {integrity: sha512-wYPzIvBK8bcmXVUpZfSgGBXOrfBAdF4odKevz6rejio5rEd947NtKDF5R7eYdwlAOmRqYpLJnJ1QHkc5t8bY4w==}
+  '@tanstack/router-plugin@1.167.23':
+    resolution: {integrity: sha512-dqfCd8gsZThbVQ8bcYMO62/hW5GCkUoPLnnjOd3fCWoEi+Ei5oWa/GnlgHCpG7bdeGr/K8isnYUmI9Ysq5vLrg==}
     engines: {node: '>=20.19'}
     hasBin: true
     peerDependencies:
-      '@rsbuild/core': '>=1.0.2'
-      '@tanstack/react-router': ^1.168.21
+      '@rsbuild/core': '>=1.0.2 || ^2.0.0'
+      '@tanstack/react-router': ^1.168.23
       vite: '>=5.0.0 || >=6.0.0 || >=7.0.0 || >=8.0.0'
       vite-plugin-solid: ^2.11.10 || ^3.0.0-0
       webpack: '>=5.92.0'
@@ -1754,12 +1754,12 @@ packages:
       webpack:
         optional: true
 
-  '@tanstack/router-utils@1.161.6':
-    resolution: {integrity: sha512-nRcYw+w2OEgK6VfjirYvGyPLOK+tZQz1jkYcmH5AjMamQ9PycnlxZF2aEZtPpNoUsaceX2bHptn6Ub5hGXqNvw==}
+  '@tanstack/router-utils@1.161.7':
+    resolution: {integrity: sha512-VkY0u7ax/GD0qU6ZLLnfPC+UMxVzxRbvZp4yV4iUSXjgJZ/siAT5/QlLm9FEDJ9QDoC0VD9W7f00tKKreUI7Ng==}
     engines: {node: '>=20.19'}
 
-  '@tanstack/router-vite-plugin@1.166.37':
-    resolution: {integrity: sha512-D32YhrfB1262QxzRrKMvbF/786AHLu4KIfAZ1UIEwbBUAFnpd/l8vQ4em7HE1G9e7+95zSlq99DyLvAfDxErGw==}
+  '@tanstack/router-vite-plugin@1.166.38':
+    resolution: {integrity: sha512-zGuWxxVI7r+LXYqxI9Kpi8oSz3DfQo4OnzcBGN7IdQMSbqMwg1MuhenYPjU+DAfpdy9shRqvRAxNpeldBLeb2A==}
     engines: {node: '>=20.19'}
 
   '@tanstack/store@0.9.3':
@@ -1844,8 +1844,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.10.20:
-    resolution: {integrity: sha512-1AaXxEPfXT+GvTBJFuy4yXVHWJBXa4OdbIebGN/wX5DlsIkU0+wzGnd2lOzokSk51d5LUmqjgBLRLlypLUqInQ==}
+  baseline-browser-mapping@2.10.21:
+    resolution: {integrity: sha512-Q+rUQ7Uz8AHM7DEaNdwvfFCTq7a43lNTzuS94eiWqwyxfV/wJv+oUivef51T91mmRY4d4A1u9rcSvkeufCVXlA==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1873,8 +1873,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
-  caniuse-lite@1.0.30001788:
-    resolution: {integrity: sha512-6q8HFp+lOQtcf7wBK+uEenxymVWkGKkjFpCvw5W25cmMwEDU45p1xQFBQv8JDlMMry7eNxyBaR+qxgmTUZkIRQ==}
+  caniuse-lite@1.0.30001790:
+    resolution: {integrity: sha512-bOoxfJPyYo+ds6W0YfptaCWbFnJYjh2Y1Eow5lRv+vI2u8ganPZqNm1JwNh0t2ELQCqIWg4B3dWEusgAmsoyOw==}
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -1927,8 +1927,8 @@ packages:
     resolution: {integrity: sha512-DPi0FmjiSU5EvQV0++GFDOJ9ASQUVFh5kD+OzOnYdi7n3Wpm9hWWGfB/O2blfHcMVTL5WkQXSnRiK9makhrcnw==}
     engines: {node: '>=0.3.1'}
 
-  electron-to-chromium@1.5.340:
-    resolution: {integrity: sha512-908qahOGocRMinT2nM3ajCEM99H4iPdv84eagPP3FfZy/1ZGeOy2CZYzjhms81ckOPCXPlW7LkY4XpxD8r1DrA==}
+  electron-to-chromium@1.5.344:
+    resolution: {integrity: sha512-4MxfbmNDm+KPh066EZy+eUnkcDPcZ35wNmOWzFuh/ijvHsve6kbLTLURy88uCNK5FbpN+yk2nQY6BYh1GEt+wg==}
 
   enhanced-resolve@5.20.1:
     resolution: {integrity: sha512-Qohcme7V1inbAfvjItgw0EaxVX5q2rdVEZHRBrEQdRZTssLDGsL8Lwrznl8oQ/6kuTJONLaDcGjkNP247XEhcA==}
@@ -2255,8 +2255,8 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
-  node-releases@2.0.37:
-    resolution: {integrity: sha512-1h5gKZCF+pO/o3Iqt5Jp7wc9rH3eJJ0+nh/CIoiRwjRxde/hAHyLPXYN4V3CqKAbiZPSeJFSWHmJsbkicta0Eg==}
+  node-releases@2.0.38:
+    resolution: {integrity: sha512-3qT/88Y3FbH/Kx4szpQQ4HzUbVrHPKTLVpVocKiLfoYvw9XSGOX2FmD2d6DrXbVYyAQTF2HeF6My8jmzx7/CRw==}
 
   normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
@@ -3898,11 +3898,11 @@ snapshots:
     transitivePeerDependencies:
       - '@tanstack/router-core'
 
-  '@tanstack/router-generator@1.166.32':
+  '@tanstack/router-generator@1.166.33':
     dependencies:
       '@babel/types': 7.29.0
       '@tanstack/router-core': 1.168.15
-      '@tanstack/router-utils': 1.161.6
+      '@tanstack/router-utils': 1.161.7
       '@tanstack/virtual-file-routes': 1.161.7
       magic-string: 0.30.21
       prettier: 3.8.3
@@ -3911,7 +3911,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/router-plugin@1.167.22(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))':
+  '@tanstack/router-plugin@1.167.23(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/plugin-syntax-jsx': 7.28.6(@babel/core@7.29.0)
@@ -3920,8 +3920,8 @@ snapshots:
       '@babel/traverse': 7.29.0
       '@babel/types': 7.29.0
       '@tanstack/router-core': 1.168.15
-      '@tanstack/router-generator': 1.166.32
-      '@tanstack/router-utils': 1.161.6
+      '@tanstack/router-generator': 1.166.33
+      '@tanstack/router-utils': 1.161.7
       '@tanstack/virtual-file-routes': 1.161.7
       chokidar: 3.6.0
       unplugin: 2.3.11
@@ -3932,7 +3932,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/router-utils@1.161.6':
+  '@tanstack/router-utils@1.161.7':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/generator': 7.29.1
@@ -3946,9 +3946,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tanstack/router-vite-plugin@1.166.37(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))':
+  '@tanstack/router-vite-plugin@1.166.38(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))':
     dependencies:
-      '@tanstack/router-plugin': 1.167.22(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))
+      '@tanstack/router-plugin': 1.167.23(@tanstack/react-router@1.168.23(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(vite@8.0.10(@types/node@24.12.2)(esbuild@0.27.7)(jiti@2.6.1)(tsx@4.21.0))
     transitivePeerDependencies:
       - '@rsbuild/core'
       - '@tanstack/react-router'
@@ -4028,7 +4028,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.10.20: {}
+  baseline-browser-mapping@2.10.21: {}
 
   bcryptjs@3.0.3: {}
 
@@ -4046,13 +4046,13 @@ snapshots:
 
   browserslist@4.28.2:
     dependencies:
-      baseline-browser-mapping: 2.10.20
-      caniuse-lite: 1.0.30001788
-      electron-to-chromium: 1.5.340
-      node-releases: 2.0.37
+      baseline-browser-mapping: 2.10.21
+      caniuse-lite: 1.0.30001790
+      electron-to-chromium: 1.5.344
+      node-releases: 2.0.38
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
-  caniuse-lite@1.0.30001788: {}
+  caniuse-lite@1.0.30001790: {}
 
   chokidar@3.6.0:
     dependencies:
@@ -4098,7 +4098,7 @@ snapshots:
 
   diff@8.0.4: {}
 
-  electron-to-chromium@1.5.340: {}
+  electron-to-chromium@1.5.344: {}
 
   enhanced-resolve@5.20.1:
     dependencies:
@@ -4430,7 +4430,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  node-releases@2.0.37: {}
+  node-releases@2.0.38: {}
 
   normalize-path@3.0.0: {}
 
