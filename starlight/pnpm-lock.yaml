@@ -88,8 +88,8 @@ importers:
         specifier: 1.4.7
         version: 1.4.7
       wrangler:
-        specifier: 4.89.0
-        version: 4.89.0
+        specifier: 4.90.0
+        version: 4.90.0
 
 packages:
 
@@ -2940,8 +2940,8 @@ packages:
     resolution: {integrity: sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==}
     engines: {node: '>=4'}
 
-  miniflare@4.20260507.0:
-    resolution: {integrity: sha512-GdEI1wQZgCYot73fkMKKsdRBXcziqDzRnDvcXG5dWBW0Tu8xMN8+zIykrqE3GF0WfYjMDAIdri1ncoYu/aHhYw==}
+  miniflare@4.20260507.1:
+    resolution: {integrity: sha512-PSXBiLExTdZ4UGO/raKCHQauUpYL7F880ZRB7j0+78Rv8h7TsdN2E/iEDK9sK2Y+SPQ5wJSeAa+rDeVKoZZoEw==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -4052,10 +4052,9 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  wrangler@4.89.0:
-    resolution: {integrity: sha512-Vm66tO2QBJoG4GdzcGDVofmI2U651w5AHgSd0bgXPqgrBqNqi1Iq3e23cXHGz8T7grLADrthkh+1J0VixzTSKw==}
+  wrangler@4.90.0:
+    resolution: {integrity: sha512-bmNIykl59TfCUn5xQgU7IWylSsPx3LQaPLMSAq2VQHt89CBrcj9qXQ0eYfjBCWA5XTBVgten391evt7xxtXwcA==}
     engines: {node: '>=22.0.0'}
-    deprecated: Account API tokens are not functioning correctly, please downgrade to v4.88.0
     hasBin: true
     peerDependencies:
       '@cloudflare/workers-types': ^4.20260507.1
@@ -7534,7 +7533,7 @@ snapshots:
 
   mimic-fn@1.2.0: {}
 
-  miniflare@4.20260507.0:
+  miniflare@4.20260507.1:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       sharp: 0.34.5
@@ -8741,13 +8740,13 @@ snapshots:
       '@cloudflare/workerd-linux-arm64': 1.20260507.1
       '@cloudflare/workerd-windows-64': 1.20260507.1
 
-  wrangler@4.89.0:
+  wrangler@4.90.0:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.5.0
       '@cloudflare/unenv-preset': 2.16.1(unenv@2.0.0-rc.24)(workerd@1.20260507.1)
       blake3-wasm: 2.1.5
       esbuild: 0.27.3
-      miniflare: 4.20260507.0
+      miniflare: 4.20260507.1
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.24
       workerd: 1.20260507.1
