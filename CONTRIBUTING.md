@@ -104,7 +104,7 @@ This repository follows [Conventional Commits](https://www.conventionalcommits.o
 
 ### Format
 
-```
+```markdown
 <type>(<scope>): <subject>
 
 [optional body]
@@ -179,7 +179,7 @@ pnpm build
 Each project has these npm scripts:
 
 | Script | Description |
-|--------|-------------|
+| -------- | ------------- |
 | `dev` | Start development server |
 | `build` | Build for production |
 | `lint` | Run Biome linting |

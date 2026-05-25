@@ -81,7 +81,7 @@ See [Cloudflare MCP Documentation](https://developers.cloudflare.com/agents/guid
 ## Cost Comparison
 
 | Platform | Free Tier | Paid Tier | Best For |
-|----------|-----------|-----------|----------|
+| ---------- | ----------- | ----------- | ---------- |
 | **Railway** | $5 credit/month | ~$5/month | Easy deployment |
 | **Render** | Yes (sleeps) | $7/month | Free hobby projects |
 | **Fly.io** | 3 shared VMs | Pay as you go | Generous free tier |
