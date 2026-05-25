@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 BOOKMARK_COMPONENT_IMPORT = "import { Bookmark } from '@/components/bookmark';"
 
+
 class BookmarkParser(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -39,12 +40,14 @@ class BookmarkParser(HTMLParser):
             self.in_h3 = False
         elif tag == "a":
             if self.current_link and self.current_title:
-                self.bookmarks.append({
-                    "url": self.current_link,
-                    "title": self.current_title,
-                    "folder": list(self.current_folder),
-                    "description": "" # Description might be in DD tag, simpler parsing for now
-                })
+                self.bookmarks.append(
+                    {
+                        "url": self.current_link,
+                        "title": self.current_title,
+                        "folder": list(self.current_folder),
+                        "description": "",  # Description might be in DD tag, simpler parsing for now
+                    }
+                )
             self.current_link = None
             self.current_title = None
         elif tag == "dl":
@@ -56,6 +59,7 @@ class BookmarkParser(HTMLParser):
             self.current_folder.append(data.strip())
         elif self.current_link:
             self.current_title = data.strip()
+
 
 def parse_bookmarks_html(file_path: Path) -> List[Dict]:
     """Parses a Netscape Bookmark HTML file."""
@@ -78,7 +82,7 @@ def parse_bookmarks_html(file_path: Path) -> List[Dict]:
         for line in lines:
             line = line.strip()
             # Check for folder start
-            folder_match = re.search(r'<H3.*?>(.*?)</H3>', line, re.IGNORECASE)
+            folder_match = re.search(r"<H3.*?>(.*?)</H3>", line, re.IGNORECASE)
             if folder_match:
                 folder_name = folder_match.group(1)
                 folder_stack.append(folder_name)
@@ -95,12 +99,14 @@ def parse_bookmarks_html(file_path: Path) -> List[Dict]:
             if link_match:
                 url = link_match.group(1)
                 title = link_match.group(2)
-                bookmarks.append({
-                    "url": url,
-                    "title": title,
-                    "folder": list(folder_stack),
-                    "description": ""
-                })
+                bookmarks.append(
+                    {
+                        "url": url,
+                        "title": title,
+                        "folder": list(folder_stack),
+                        "description": "",
+                    }
+                )
                 continue
 
             # Check for description
@@ -113,6 +119,7 @@ def parse_bookmarks_html(file_path: Path) -> List[Dict]:
     except Exception as e:
         logger.error(f"Failed to parse bookmark file: {e}")
         raise
+
 
 def get_existing_urls(mdx_path: Path) -> Set[str]:
     """Extracts existing bookmark URLs from an MDX file."""
@@ -127,6 +134,7 @@ def get_existing_urls(mdx_path: Path) -> Set[str]:
         urls.update(matches)
     return urls
 
+
 def create_mdx_file(mdx_path: Path, title: str):
     """Creates a new MDX file with frontmatter."""
     content = f"""---
@@ -140,11 +148,14 @@ title: {title}
         f.write(content)
     logger.info(f"Created new MDX file: {mdx_path}")
 
+
 def append_bookmark(mdx_path: Path, category: str, bookmark: Dict, dry_run: bool):
     """Appends a bookmark to the MDX file under the correct category."""
 
     if dry_run:
-        logger.info(f"[DRY RUN] Would add '{bookmark['title']}' to '{mdx_path}' under '{category}'")
+        logger.info(
+            f"[DRY RUN] Would add '{bookmark['title']}' to '{mdx_path}' under '{category}'"
+        )
         return
 
     if not mdx_path.exists():
@@ -173,11 +184,13 @@ def append_bookmark(mdx_path: Path, category: str, bookmark: Dict, dry_run: bool
             header_idx = i
             break
 
-    description = bookmark.get("description", "").replace('"', '&quot;')
+    description = bookmark.get("description", "").replace('"', "&quot;")
     if description:
         bookmark_line = f'<Bookmark url="{bookmark["url"]}" title="{bookmark["title"]}" description="{description}" />\n'
     else:
-        bookmark_line = f'<Bookmark url="{bookmark["url"]}" title="{bookmark["title"]}" />\n'
+        bookmark_line = (
+            f'<Bookmark url="{bookmark["url"]}" title="{bookmark["title"]}" />\n'
+        )
 
     if header_idx != -1:
         # Append after the header and its existing items
@@ -200,17 +213,38 @@ def append_bookmark(mdx_path: Path, category: str, bookmark: Dict, dry_run: bool
 
     logger.info(f"Added '{bookmark['title']}' to '{mdx_path}'")
 
+
 def main():
-    parser = argparse.ArgumentParser(description="Import bookmarks from HTML export to Fumadocs.")
-    parser.add_argument("file", nargs="?", default="bookmarks.html", type=Path, help="Path to the bookmarks HTML file. Defaults to 'bookmarks.html'.")
-    parser.add_argument("--target-dir", "-t", default="fumadocs/content/docs/bookmarks", type=Path, help="Target directory for MDX files.")
-    parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing to files.")
+    parser = argparse.ArgumentParser(
+        description="Import bookmarks from HTML export to Fumadocs."
+    )
+    parser.add_argument(
+        "file",
+        nargs="?",
+        default="bookmarks.html",
+        type=Path,
+        help="Path to the bookmarks HTML file. Defaults to 'bookmarks.html'.",
+    )
+    parser.add_argument(
+        "--target-dir",
+        "-t",
+        default="fumadocs/content/docs/bookmarks",
+        type=Path,
+        help="Target directory for MDX files.",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview changes without writing to files.",
+    )
 
     args = parser.parse_args()
 
     if not args.file.exists():
         logger.error(f"Input file not found: {args.file}")
-        logger.info("Please provide a file path or ensure 'bookmarks.html' exists in the current directory.")
+        logger.info(
+            "Please provide a file path or ensure 'bookmarks.html' exists in the current directory."
+        )
         return
 
     if not args.target_dir.exists():
@@ -224,7 +258,7 @@ def main():
     for bm in bookmarks:
         folder_path = bm["folder"]
         if not folder_path:
-            continue # Skip bookmarks in root
+            continue  # Skip bookmarks in root
 
         # Mapping strategy:
         # Top-level folder -> MDX Filename (lowercase)
@@ -249,6 +283,7 @@ def main():
         append_bookmark(mdx_file, category, bm, args.dry_run)
 
     logger.info("Import completed.")
+
 
 if __name__ == "__main__":
     main()

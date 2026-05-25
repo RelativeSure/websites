@@ -4,7 +4,7 @@ A simple monorepo for managing multiple documentation and website projects.
 
 ## Structure
 
-```
+```markdown
 websites/
 ├── starlight/    # Starlight (Astro) based website
 ├── fumadocs/     # Fumadocs (Next.js) based website

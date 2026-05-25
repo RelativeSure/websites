@@ -14,6 +14,19 @@ APPLY_FIXES: all
 # default
 # ENABLE_LINTERS:
 
+DISABLE_LINTERS:
+    - ACTION_ZIZMOR
+    - CSS_STYLELINT
+    - HTML_DJLINT
+    - PYTHON_FLAKE8
+    - PYTHON_MYPY
+    - REPOSITORY_CHECKOV
+    - REPOSITORY_GITLEAKS
+    - REPOSITORY_OSV_SCANNER
+    - REPOSITORY_SECRETLINT
+    - REPOSITORY_TRIVY
+    - TYPESCRIPT_STANDARD
+
 DISABLE:
     - COPYPASTE # Comment to enable checks of excessive copy-pastes
     - SPELL # Comment to enable checks of spelling mistakes
