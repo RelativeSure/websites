@@ -15,7 +15,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "fumadocs-core": "16.9.3",
-    "fumadocs-mdx": "15.0.10",
+    "fumadocs-mdx": "15.0.11",
     "fumadocs-ui": "16.9.3",
     "lucide-react": "^1.0.0",
     "next": "16.2.7",
