@@ -24,7 +24,7 @@
     "@astrojs/check": "0.9.9",
     "@astrojs/mdx": "5.0.6",
     "@astrojs/react": "^5.0.0",
-    "@astrojs/starlight": "0.40.0",
+    "@astrojs/starlight": "0.41.0",
     "@astrojs/starlight-tailwind": "5.0.0",
     "@expressive-code/plugin-line-numbers": "^0.43.0",
     "@fontsource/fira-code": "^5.2.6",
