@@ -28,13 +28,13 @@ importers:
         version: 0.44.0
       '@fontsource/fira-code':
         specifier: ^5.2.6
-        version: 5.2.7
+        version: 5.3.0
       '@fontsource/fira-mono':
         specifier: ^5.1.1
-        version: 5.2.7
+        version: 5.3.0
       '@fontsource/fira-sans':
         specifier: ^5.2.5
-        version: 5.2.7
+        version: 5.3.0
       '@tailwindcss/postcss':
         specifier: ^4.1.3
         version: 4.3.3
@@ -808,14 +808,14 @@ packages:
   '@expressive-code/plugin-text-markers@0.44.0':
     resolution: {integrity: sha512-0/m3A5b+lz2upyNq+wzZ1S69HRoJmyFs5LsR42lVZ9pmGRlBiSBYQpvqlji4DBj1+Riamxc0AvcCr5kuzOQeWA==}
 
-  '@fontsource/fira-code@5.2.7':
-    resolution: {integrity: sha512-tnB9NNund9TwIym8/7DMJe573nlPEQb+fKUV5GL8TBYXjIhDvL0D7mgmNVNQUPhXp+R7RylQeiBdkA4EbOHPGQ==}
+  '@fontsource/fira-code@5.3.0':
+    resolution: {integrity: sha512-EJL968RJRkakubAj/coU8pSUaeTE5UNoRjtzAr6kGiSZ3jWuN8/AKWHwym/PFUaQL1q7IL/H+EXs4358YhrTBQ==}
 
-  '@fontsource/fira-mono@5.2.7':
-    resolution: {integrity: sha512-wYrAn6i3nH6luqQBZxtWUpl4UTUvs9AEbEeZxksPMwIqyjRRaxHTNW3c2VfM50gabS2IS7pT8lVWS2USB4ukYA==}
+  '@fontsource/fira-mono@5.3.0':
+    resolution: {integrity: sha512-FZzRwKhpoXQU1uhEGKUg5AHUUdfiaTXxGCdBBeGHUmcZaqEDEmndSVvpXHkSViH25f/UiWfhcWTib+6A8o4qeQ==}
 
-  '@fontsource/fira-sans@5.2.7':
-    resolution: {integrity: sha512-5DE4AealD/VnbwdzMgnpWfCttMQBbteNiK9DCJE7cVwZEbDTPLUoFDMMvxNQ498nZc5in7Mta9c/s+3Ehh0BAg==}
+  '@fontsource/fira-sans@5.3.0':
+    resolution: {integrity: sha512-z1SKSG7eRhm3srlb7rQ3j77QP4TP7OFxCZ4wUWhCdt+3hOF9K0AyvybpAsz6+JWNcCVV7AqC7dbOT3e67P2r5A==}
 
   '@formatjs/ecma402-abstract@2.3.6':
     resolution: {integrity: sha512-HJnTFeRM2kVFVr5gr5kH1XP6K0JcJtE7Lzvtr3FS/so5f1kpsqqqxy5JF+FRaO6H2qmcMfAUIox7AJteieRtVw==}
@@ -5209,11 +5209,11 @@ snapshots:
     dependencies:
       '@expressive-code/core': 0.44.0
 
-  '@fontsource/fira-code@5.2.7': {}
+  '@fontsource/fira-code@5.3.0': {}
 
-  '@fontsource/fira-mono@5.2.7': {}
+  '@fontsource/fira-mono@5.3.0': {}
 
-  '@fontsource/fira-sans@5.2.7': {}
+  '@fontsource/fira-sans@5.3.0': {}
 
   '@formatjs/ecma402-abstract@2.3.6':
     dependencies:
