@@ -34,8 +34,6 @@ Verify the logical volume was created successfully
 sudo lvdisplay
 ```
 
-````shell showLineNumbers=false
-
 ## Physical
 
 Create physical volumes in LVM
@@ -43,7 +41,7 @@ Create physical volumes in LVM
 ```shell showLineNumbers=false
 # example: sudo pv create /dev/sdb
 sudo pvcreate /dev/<disk>
-````
+```
 
 ## Volume
 
@@ -71,7 +69,7 @@ sudo lvcreate -n dev -L 100G VolumeGroup01
 sudo lvcreate -n disk01 -l 100%FREE VolumeGroup01
 ```
 
-# Mount logical volumes
+## Mount logical volumes
 
 <Steps>
 
