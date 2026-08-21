@@ -34,6 +34,13 @@ DISABLE:
     - COPYPASTE # Comment to enable checks of excessive copy-pastes
     - SPELL # Comment to enable checks of spelling mistakes
 
+# GITHUB_TOKEN is never allowed to push changes to files under
+# .github/workflows/ (GitHub blocks this regardless of granted
+# permissions, to prevent workflow privilege escalation), so exclude it
+# from MegaLinter's fix/lint scope to avoid create-pull-request failures
+ADDITIONAL_EXCLUDED_DIRECTORIES:
+    - .github/workflows
+
 SHOW_ELAPSED_TIME: true
 
 FILEIO_REPORTER: false
