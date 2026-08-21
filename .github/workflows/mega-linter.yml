@@ -51,7 +51,6 @@ jobs:
             issues: write
             pull-requests: write
             security-events: write
-            workflows: write
         steps:
             # Git Checkout
             - name: Checkout Code
