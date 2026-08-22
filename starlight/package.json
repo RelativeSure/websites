@@ -3,9 +3,6 @@
   "type": "module",
   "version": "1.0.0",
   "packageManager": "pnpm@11.22.0",
-  "pnpm": {
-    "minimumReleaseAge": 0
-  },
   "engines": {
     "node": ">=24.0"
   },
