@@ -41,6 +41,11 @@ DISABLE:
 ADDITIONAL_EXCLUDED_DIRECTORIES:
   - .github/workflows
 
+# pnpm writes lockfiles with single-quoted keys; the YAML formatter defaults
+# to double quotes, so without this exclusion every Renovate lockfile update
+# gets "fixed" back and forth, producing pointless diffs and PR conflicts.
+YAML_PRETTIER_FILTER_REGEX_EXCLUDE: "pnpm-lock\\.yaml"
+
 SHOW_ELAPSED_TIME: true
 
 FILEIO_REPORTER: false
