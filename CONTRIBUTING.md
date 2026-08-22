@@ -178,15 +178,15 @@ pnpm build
 
 Each project has these npm scripts:
 
-| Script | Description |
-| -------- | ------------- |
-| `dev` | Start development server |
-| `build` | Build for production |
-| `lint` | Run Biome linting |
-| `format` | Run Biome formatting with auto-fix |
-| `typecheck` | Run TypeScript type checking |
-| `check` | Run lint + typecheck |
-| `prepare` | Install pre-commit hooks |
+| Script      | Description                        |
+|-------------|------------------------------------|
+| `dev`       | Start development server           |
+| `build`     | Build for production               |
+| `lint`      | Run Biome linting                  |
+| `format`    | Run Biome formatting with auto-fix |
+| `typecheck` | Run TypeScript type checking       |
+| `check`     | Run lint + typecheck               |
+| `prepare`   | Install pre-commit hooks           |
 
 ## CI/CD
 
