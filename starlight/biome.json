@@ -10,7 +10,13 @@
   },
   "overrides": [
     {
-      "includes": ["src/tailwind.css", "src/globals.css", "dist/**", "node_modules/**", ".astro/**"],
+      "includes": [
+        "src/tailwind.css",
+        "src/globals.css",
+        "dist/**",
+        "node_modules/**",
+        ".astro/**"
+      ],
       "linter": {
         "enabled": false
       },

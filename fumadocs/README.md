@@ -13,7 +13,7 @@ pnpm dev
 yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+Open <http://localhost:3000> with your browser to see the result.
 
 ## Explore
 
@@ -23,7 +23,7 @@ In the project, you can see:
 - `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
 
 | Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
+|---------------------------|--------------------------------------------------------|
 | `app/(home)`              | The route group for your landing page and other pages. |
 | `app/docs`                | The documentation layout and pages.                    |
 | `app/api/search/route.ts` | The Route Handler for search.                          |

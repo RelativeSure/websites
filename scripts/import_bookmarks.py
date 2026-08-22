@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 import argparse
 import logging
-import os
 import re
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Dict, List, Set
 
 # Configure logging
 logging.basicConfig(
