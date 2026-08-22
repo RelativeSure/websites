@@ -51,7 +51,6 @@ jobs:
             issues: write
             pull-requests: write
             security-events: write
-
         steps:
             # Git Checkout
             - name: Checkout Code
@@ -111,10 +110,10 @@ jobs:
                          !startsWith(github.event.pull_request.user.login, 'renovate'))
                       }}
 
-                  GITHUB_TOKEN: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}
+                  #GITHUB_TOKEN: ${{ secrets.KUBEARCHITECTBOT_TOKEN || secrets.GITHUB_TOKEN }}
                   SARIF_REPORTER: true
                   GITHUB_STATUS_REPORTER: true
-                  GITHUB_COMMENT_REPORTER: false
+                  GITHUB_COMMENT_REPORTER: true
 
                   # Uncomment to use ApiReporter (Grafana)
                   # API_REPORTER: true

@@ -1,4 +1,4 @@
-import yaml from "js-yaml";
+import * as yaml from "js-yaml";
 import { ArrowLeftRight, Check, Copy, Download } from "lucide-react";
 import { marked } from "marked";
 import { useState } from "react";

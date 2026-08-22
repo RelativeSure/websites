@@ -15,23 +15,31 @@ APPLY_FIXES: all
 # ENABLE_LINTERS:
 
 DISABLE_LINTERS:
-    - ACTION_ZIZMOR
-    - CSS_STYLELINT
-    - HTML_DJLINT
-    - PYTHON_FLAKE8
-    - PYTHON_MYPY
-    - REPOSITORY_CHECKOV
-    - REPOSITORY_GRYPE
-    - REPOSITORY_GITLEAKS
-    - REPOSITORY_GIT_DIFF
-    - REPOSITORY_OSV_SCANNER
-    - REPOSITORY_SECRETLINT
-    - REPOSITORY_TRIVY
-    - TYPESCRIPT_STANDARD
+  - ACTION_ZIZMOR
+  - CSS_STYLELINT
+  - HTML_DJLINT
+  - PYTHON_FLAKE8
+  - PYTHON_MYPY
+  - REPOSITORY_BETTERLEAKS
+  - REPOSITORY_CHECKOV
+  - REPOSITORY_GRYPE
+  - REPOSITORY_GITLEAKS
+  - REPOSITORY_GIT_DIFF
+  - REPOSITORY_OSV_SCANNER
+  - REPOSITORY_SECRETLINT
+  - REPOSITORY_TRIVY
+  - TYPESCRIPT_STANDARD
 
 DISABLE:
-    - COPYPASTE # Comment to enable checks of excessive copy-pastes
-    - SPELL # Comment to enable checks of spelling mistakes
+  - COPYPASTE # Comment to enable checks of excessive copy-pastes
+  - SPELL # Comment to enable checks of spelling mistakes
+
+# GITHUB_TOKEN is never allowed to push changes to files under
+# .github/workflows/ (GitHub blocks this regardless of granted
+# permissions, to prevent workflow privilege escalation), so exclude it
+# from MegaLinter's fix/lint scope to avoid create-pull-request failures
+ADDITIONAL_EXCLUDED_DIRECTORIES:
+  - .github/workflows
 
 SHOW_ELAPSED_TIME: true
 
