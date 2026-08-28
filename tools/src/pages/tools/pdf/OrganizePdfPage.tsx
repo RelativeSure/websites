@@ -1,6 +1,6 @@
-import { Download, RotateCcw, RotateCw, Save, Trash2, Undo2, Upload } from "lucide-react";
+import { ArrowDown, ArrowUp, Download, RotateCcw, RotateCw, Save, Trash2, Undo2, Upload } from "lucide-react";
 import { degrees, PDFDocument } from "pdf-lib";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -15,15 +15,18 @@ export default function OrganizePdfPage() {
   const [pages, setPages] = useState<PageState[]>([]);
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
+  const selectionRef = useRef(0);
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
     if (!selected) return;
 
+    const token = ++selectionRef.current;
     setError("");
     try {
       const bytes = await selected.arrayBuffer();
       const pdf = await PDFDocument.load(bytes);
+      if (selectionRef.current !== token) return;
       const loadedPages = pdf.getPages().map((page, index) => ({
         originalIndex: index,
         rotation: page.getRotation().angle,
@@ -33,6 +36,7 @@ export default function OrganizePdfPage() {
       setFile(selected);
       setPages(loadedPages);
     } catch {
+      if (selectionRef.current !== token) return;
       setFile(null);
       setPages([]);
       setError("Could not read this PDF. It may be corrupted or password-protected.");
@@ -47,6 +51,16 @@ export default function OrganizePdfPage() {
 
   const toggleRemoved = (originalIndex: number) => {
     setPages((prev) => prev.map((p) => (p.originalIndex === originalIndex ? { ...p, removed: !p.removed } : p)));
+  };
+
+  const movePage = (index: number, direction: -1 | 1) => {
+    setPages((prev) => {
+      const next = [...prev];
+      const target = index + direction;
+      if (target < 0 || target >= next.length) return prev;
+      [next[index], next[target]] = [next[target], next[index]];
+      return next;
+    });
   };
 
   const handleSave = async () => {
@@ -98,7 +112,7 @@ export default function OrganizePdfPage() {
     <div className="container mx-auto p-6 max-w-4xl">
       <div className="mb-6">
         <h1 className="text-3xl font-bold mb-2">Organize PDF</h1>
-        <p className="text-muted-foreground">Rotate or remove pages from a PDF</p>
+        <p className="text-muted-foreground">Reorder, rotate, or remove pages from a PDF</p>
       </div>
 
       <Card className="mb-6">
@@ -149,11 +163,11 @@ export default function OrganizePdfPage() {
         <Card>
           <CardHeader>
             <CardTitle>Pages</CardTitle>
-            <CardDescription>Rotate or remove individual pages, then save</CardDescription>
+            <CardDescription>Reorder, rotate, or remove individual pages, then save</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {pages.map((p) => (
+              {pages.map((p, index) => (
                 <div
                   key={p.originalIndex}
                   className={`p-3 rounded-md border flex flex-col items-center gap-2 ${
@@ -165,6 +179,26 @@ export default function OrganizePdfPage() {
                     style={{ transform: `rotate(${p.rotation}deg)` }}
                   >
                     {p.originalIndex + 1}
+                  </div>
+                  <div className="flex gap-1">
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      disabled={index === 0}
+                      onClick={() => movePage(index, -1)}
+                      aria-label="Move page earlier"
+                    >
+                      <ArrowUp className="h-4 w-4" />
+                    </Button>
+                    <Button
+                      size="icon"
+                      variant="outline"
+                      disabled={index === pages.length - 1}
+                      onClick={() => movePage(index, 1)}
+                      aria-label="Move page later"
+                    >
+                      <ArrowDown className="h-4 w-4" />
+                    </Button>
                   </div>
                   <div className="flex gap-1">
                     <Button

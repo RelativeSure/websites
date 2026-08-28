@@ -1,6 +1,6 @@
 import { Download, Save, Upload } from "lucide-react";
 import { PDFDocument } from "pdf-lib";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -30,15 +30,18 @@ export default function PdfMetadataPage() {
   const [metadata, setMetadata] = useState<Metadata>(emptyMetadata);
   const [error, setError] = useState("");
   const [saving, setSaving] = useState(false);
+  const selectionRef = useRef(0);
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
     if (!selected) return;
 
+    const token = ++selectionRef.current;
     setError("");
     try {
       const bytes = await selected.arrayBuffer();
       const pdf = await PDFDocument.load(bytes);
+      if (selectionRef.current !== token) return;
 
       setFile(selected);
       setPageCount(pdf.getPageCount());
@@ -51,6 +54,7 @@ export default function PdfMetadataPage() {
         producer: pdf.getProducer() ?? "",
       });
     } catch {
+      if (selectionRef.current !== token) return;
       setFile(null);
       setPageCount(0);
       setMetadata(emptyMetadata);

@@ -1,6 +1,6 @@
 import { Download, Scissors, Upload } from "lucide-react";
 import { PDFDocument } from "pdf-lib";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,10 +15,10 @@ function parsePageRanges(input: string, pageCount: number): number[] {
 
     const rangeMatch = trimmed.match(/^(\d+)\s*-\s*(\d+)$/);
     if (rangeMatch) {
-      const start = Number(rangeMatch[1]);
-      const end = Number(rangeMatch[2]);
+      const start = Math.max(Number(rangeMatch[1]), 1);
+      const end = Math.min(Number(rangeMatch[2]), pageCount);
       for (let page = start; page <= end; page++) {
-        if (page >= 1 && page <= pageCount) indices.add(page - 1);
+        indices.add(page - 1);
       }
       continue;
     }
@@ -44,19 +44,23 @@ export default function SplitPdfPage() {
   const [range, setRange] = useState("");
   const [error, setError] = useState("");
   const [processing, setProcessing] = useState(false);
+  const selectionRef = useRef(0);
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selected = e.target.files?.[0];
     if (!selected) return;
 
+    const token = ++selectionRef.current;
     setError("");
     try {
       const bytes = await selected.arrayBuffer();
       const pdf = await PDFDocument.load(bytes);
+      if (selectionRef.current !== token) return;
       setFile(selected);
       setPageCount(pdf.getPageCount());
       setRange(`1-${pdf.getPageCount()}`);
     } catch {
+      if (selectionRef.current !== token) return;
       setFile(null);
       setPageCount(0);
       setError("Could not read this PDF. It may be corrupted or password-protected.");
