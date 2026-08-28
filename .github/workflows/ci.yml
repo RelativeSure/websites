@@ -12,8 +12,37 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
+    changes:
+        name: Detect changed projects
+        runs-on: ubuntu-latest
+        outputs:
+            fumadocs: ${{ steps.filter.outputs.fumadocs }}
+            starlight: ${{ steps.filter.outputs.starlight }}
+            tools: ${{ steps.filter.outputs.tools }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7
+
+            - name: Filter changed paths
+              uses: dorny/paths-filter@v3
+              id: filter
+              with:
+                  filters: |
+                      shared: &shared
+                          - ".github/workflows/ci.yml"
+                      fumadocs:
+                          - *shared
+                          - "fumadocs/**"
+                      starlight:
+                          - *shared
+                          - "starlight/**"
+                      tools:
+                          - *shared
+                          - "tools/**"
+
     build:
         name: Build (${{ matrix.project }})
+        needs: changes
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
@@ -21,14 +50,17 @@ jobs:
                 project: [fumadocs, starlight, tools]
         steps:
             - name: Checkout repository
+              if: needs.changes.outputs[matrix.project] == 'true'
               uses: actions/checkout@v7
 
             - name: Set up pnpm
+              if: needs.changes.outputs[matrix.project] == 'true'
               uses: pnpm/action-setup@v6
               with:
                   version: "11.24.0"
 
             - name: Set up Node.js
+              if: needs.changes.outputs[matrix.project] == 'true'
               uses: actions/setup-node@v7
               with:
                   node-version: "24"
@@ -36,7 +68,13 @@ jobs:
                   cache-dependency-path: "${{ matrix.project }}/pnpm-lock.yaml"
 
             - name: Install dependencies
+              if: needs.changes.outputs[matrix.project] == 'true'
               run: cd ${{ matrix.project }} && pnpm install --frozen-lockfile
 
             - name: Build
+              if: needs.changes.outputs[matrix.project] == 'true'
               run: cd ${{ matrix.project }} && pnpm run build
+
+            - name: Skipped (no changes)
+              if: needs.changes.outputs[matrix.project] != 'true'
+              run: echo "No changes detected in ${{ matrix.project }}, skipping build."
