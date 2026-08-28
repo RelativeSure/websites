@@ -78,10 +78,13 @@ import { Route as ToolsMediaFaviconGeneratorRouteImport } from './routes/_tools/
 import { Route as ToolsMediaImageCompressorRouteImport } from './routes/_tools/media/image-compressor'
 import { Route as ToolsMediaImageResizerRouteImport } from './routes/_tools/media/image-resizer'
 import { Route as ToolsMediaSvgOptimizerRouteImport } from './routes/_tools/media/svg-optimizer'
+import { Route as ToolsPdfImagesToPdfRouteImport } from './routes/_tools/pdf/images-to-pdf'
 import { Route as ToolsPdfMergeRouteImport } from './routes/_tools/pdf/merge'
 import { Route as ToolsPdfMetadataRouteImport } from './routes/_tools/pdf/metadata'
 import { Route as ToolsPdfOrganizeRouteImport } from './routes/_tools/pdf/organize'
+import { Route as ToolsPdfPageNumbersRouteImport } from './routes/_tools/pdf/page-numbers'
 import { Route as ToolsPdfSplitRouteImport } from './routes/_tools/pdf/split'
+import { Route as ToolsPdfWatermarkRouteImport } from './routes/_tools/pdf/watermark'
 import { Route as ToolsReferenceAsciiTableRouteImport } from './routes/_tools/reference/ascii-table'
 import { Route as ToolsReferenceColorNamesRouteImport } from './routes/_tools/reference/color-names'
 import { Route as ToolsReferenceCssPropertiesRouteImport } from './routes/_tools/reference/css-properties'
@@ -495,6 +498,11 @@ const ToolsMediaSvgOptimizerRoute = ToolsMediaSvgOptimizerRouteImport.update({
   path: '/media/svg-optimizer',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsPdfImagesToPdfRoute = ToolsPdfImagesToPdfRouteImport.update({
+  id: '/pdf/images-to-pdf',
+  path: '/pdf/images-to-pdf',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsPdfMergeRoute = ToolsPdfMergeRouteImport.update({
   id: '/pdf/merge',
   path: '/pdf/merge',
@@ -510,9 +518,19 @@ const ToolsPdfOrganizeRoute = ToolsPdfOrganizeRouteImport.update({
   path: '/pdf/organize',
   getParentRoute: () => ToolsRoute,
 } as any)
+const ToolsPdfPageNumbersRoute = ToolsPdfPageNumbersRouteImport.update({
+  id: '/pdf/page-numbers',
+  path: '/pdf/page-numbers',
+  getParentRoute: () => ToolsRoute,
+} as any)
 const ToolsPdfSplitRoute = ToolsPdfSplitRouteImport.update({
   id: '/pdf/split',
   path: '/pdf/split',
+  getParentRoute: () => ToolsRoute,
+} as any)
+const ToolsPdfWatermarkRoute = ToolsPdfWatermarkRouteImport.update({
+  id: '/pdf/watermark',
+  path: '/pdf/watermark',
   getParentRoute: () => ToolsRoute,
 } as any)
 const ToolsReferenceAsciiTableRoute =
@@ -742,10 +760,13 @@ export interface FileRoutesByFullPath {
   '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
   '/media/image-resizer': typeof ToolsMediaImageResizerRoute
   '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/pdf/images-to-pdf': typeof ToolsPdfImagesToPdfRoute
   '/pdf/merge': typeof ToolsPdfMergeRoute
   '/pdf/metadata': typeof ToolsPdfMetadataRoute
   '/pdf/organize': typeof ToolsPdfOrganizeRoute
+  '/pdf/page-numbers': typeof ToolsPdfPageNumbersRoute
   '/pdf/split': typeof ToolsPdfSplitRoute
+  '/pdf/watermark': typeof ToolsPdfWatermarkRoute
   '/reference/ascii-table': typeof ToolsReferenceAsciiTableRoute
   '/reference/color-names': typeof ToolsReferenceColorNamesRoute
   '/reference/css-properties': typeof ToolsReferenceCssPropertiesRoute
@@ -843,10 +864,13 @@ export interface FileRoutesByTo {
   '/media/image-compressor': typeof ToolsMediaImageCompressorRoute
   '/media/image-resizer': typeof ToolsMediaImageResizerRoute
   '/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/pdf/images-to-pdf': typeof ToolsPdfImagesToPdfRoute
   '/pdf/merge': typeof ToolsPdfMergeRoute
   '/pdf/metadata': typeof ToolsPdfMetadataRoute
   '/pdf/organize': typeof ToolsPdfOrganizeRoute
+  '/pdf/page-numbers': typeof ToolsPdfPageNumbersRoute
   '/pdf/split': typeof ToolsPdfSplitRoute
+  '/pdf/watermark': typeof ToolsPdfWatermarkRoute
   '/reference/ascii-table': typeof ToolsReferenceAsciiTableRoute
   '/reference/color-names': typeof ToolsReferenceColorNamesRoute
   '/reference/css-properties': typeof ToolsReferenceCssPropertiesRoute
@@ -946,10 +970,13 @@ export interface FileRoutesById {
   '/_tools/media/image-compressor': typeof ToolsMediaImageCompressorRoute
   '/_tools/media/image-resizer': typeof ToolsMediaImageResizerRoute
   '/_tools/media/svg-optimizer': typeof ToolsMediaSvgOptimizerRoute
+  '/_tools/pdf/images-to-pdf': typeof ToolsPdfImagesToPdfRoute
   '/_tools/pdf/merge': typeof ToolsPdfMergeRoute
   '/_tools/pdf/metadata': typeof ToolsPdfMetadataRoute
   '/_tools/pdf/organize': typeof ToolsPdfOrganizeRoute
+  '/_tools/pdf/page-numbers': typeof ToolsPdfPageNumbersRoute
   '/_tools/pdf/split': typeof ToolsPdfSplitRoute
+  '/_tools/pdf/watermark': typeof ToolsPdfWatermarkRoute
   '/_tools/reference/ascii-table': typeof ToolsReferenceAsciiTableRoute
   '/_tools/reference/color-names': typeof ToolsReferenceColorNamesRoute
   '/_tools/reference/css-properties': typeof ToolsReferenceCssPropertiesRoute
@@ -1049,10 +1076,13 @@ export interface FileRouteTypes {
     | '/media/image-compressor'
     | '/media/image-resizer'
     | '/media/svg-optimizer'
+    | '/pdf/images-to-pdf'
     | '/pdf/merge'
     | '/pdf/metadata'
     | '/pdf/organize'
+    | '/pdf/page-numbers'
     | '/pdf/split'
+    | '/pdf/watermark'
     | '/reference/ascii-table'
     | '/reference/color-names'
     | '/reference/css-properties'
@@ -1150,10 +1180,13 @@ export interface FileRouteTypes {
     | '/media/image-compressor'
     | '/media/image-resizer'
     | '/media/svg-optimizer'
+    | '/pdf/images-to-pdf'
     | '/pdf/merge'
     | '/pdf/metadata'
     | '/pdf/organize'
+    | '/pdf/page-numbers'
     | '/pdf/split'
+    | '/pdf/watermark'
     | '/reference/ascii-table'
     | '/reference/color-names'
     | '/reference/css-properties'
@@ -1252,10 +1285,13 @@ export interface FileRouteTypes {
     | '/_tools/media/image-compressor'
     | '/_tools/media/image-resizer'
     | '/_tools/media/svg-optimizer'
+    | '/_tools/pdf/images-to-pdf'
     | '/_tools/pdf/merge'
     | '/_tools/pdf/metadata'
     | '/_tools/pdf/organize'
+    | '/_tools/pdf/page-numbers'
     | '/_tools/pdf/split'
+    | '/_tools/pdf/watermark'
     | '/_tools/reference/ascii-table'
     | '/_tools/reference/color-names'
     | '/_tools/reference/css-properties'
@@ -1775,6 +1811,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsMediaSvgOptimizerRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/_tools/pdf/images-to-pdf': {
+      id: '/_tools/pdf/images-to-pdf'
+      path: '/pdf/images-to-pdf'
+      fullPath: '/pdf/images-to-pdf'
+      preLoaderRoute: typeof ToolsPdfImagesToPdfRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/_tools/pdf/merge': {
       id: '/_tools/pdf/merge'
       path: '/pdf/merge'
@@ -1796,11 +1839,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ToolsPdfOrganizeRouteImport
       parentRoute: typeof ToolsRoute
     }
+    '/_tools/pdf/page-numbers': {
+      id: '/_tools/pdf/page-numbers'
+      path: '/pdf/page-numbers'
+      fullPath: '/pdf/page-numbers'
+      preLoaderRoute: typeof ToolsPdfPageNumbersRouteImport
+      parentRoute: typeof ToolsRoute
+    }
     '/_tools/pdf/split': {
       id: '/_tools/pdf/split'
       path: '/pdf/split'
       fullPath: '/pdf/split'
       preLoaderRoute: typeof ToolsPdfSplitRouteImport
+      parentRoute: typeof ToolsRoute
+    }
+    '/_tools/pdf/watermark': {
+      id: '/_tools/pdf/watermark'
+      path: '/pdf/watermark'
+      fullPath: '/pdf/watermark'
+      preLoaderRoute: typeof ToolsPdfWatermarkRouteImport
       parentRoute: typeof ToolsRoute
     }
     '/_tools/reference/ascii-table': {
@@ -2063,10 +2120,13 @@ interface ToolsRouteChildren {
   ToolsMediaImageCompressorRoute: typeof ToolsMediaImageCompressorRoute
   ToolsMediaImageResizerRoute: typeof ToolsMediaImageResizerRoute
   ToolsMediaSvgOptimizerRoute: typeof ToolsMediaSvgOptimizerRoute
+  ToolsPdfImagesToPdfRoute: typeof ToolsPdfImagesToPdfRoute
   ToolsPdfMergeRoute: typeof ToolsPdfMergeRoute
   ToolsPdfMetadataRoute: typeof ToolsPdfMetadataRoute
   ToolsPdfOrganizeRoute: typeof ToolsPdfOrganizeRoute
+  ToolsPdfPageNumbersRoute: typeof ToolsPdfPageNumbersRoute
   ToolsPdfSplitRoute: typeof ToolsPdfSplitRoute
+  ToolsPdfWatermarkRoute: typeof ToolsPdfWatermarkRoute
   ToolsReferenceAsciiTableRoute: typeof ToolsReferenceAsciiTableRoute
   ToolsReferenceColorNamesRoute: typeof ToolsReferenceColorNamesRoute
   ToolsReferenceCssPropertiesRoute: typeof ToolsReferenceCssPropertiesRoute
@@ -2164,10 +2224,13 @@ const ToolsRouteChildren: ToolsRouteChildren = {
   ToolsMediaImageCompressorRoute: ToolsMediaImageCompressorRoute,
   ToolsMediaImageResizerRoute: ToolsMediaImageResizerRoute,
   ToolsMediaSvgOptimizerRoute: ToolsMediaSvgOptimizerRoute,
+  ToolsPdfImagesToPdfRoute: ToolsPdfImagesToPdfRoute,
   ToolsPdfMergeRoute: ToolsPdfMergeRoute,
   ToolsPdfMetadataRoute: ToolsPdfMetadataRoute,
   ToolsPdfOrganizeRoute: ToolsPdfOrganizeRoute,
+  ToolsPdfPageNumbersRoute: ToolsPdfPageNumbersRoute,
   ToolsPdfSplitRoute: ToolsPdfSplitRoute,
+  ToolsPdfWatermarkRoute: ToolsPdfWatermarkRoute,
   ToolsReferenceAsciiTableRoute: ToolsReferenceAsciiTableRoute,
   ToolsReferenceColorNamesRoute: ToolsReferenceColorNamesRoute,
   ToolsReferenceCssPropertiesRoute: ToolsReferenceCssPropertiesRoute,
