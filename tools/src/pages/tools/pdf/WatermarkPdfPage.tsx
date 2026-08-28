@@ -62,12 +62,14 @@ export default function WatermarkPdfPage() {
       const { r, g, b } = hexToRgb(color);
       const size = fontSize[0];
       const textWidth = font.widthOfTextAtSize(text, size);
+      const angleRad = (rotation[0] * Math.PI) / 180;
+      const halfWidth = textWidth / 2;
 
       for (const page of pdf.getPages()) {
         const { width, height } = page.getSize();
         page.drawText(text, {
-          x: width / 2 - textWidth / 2,
-          y: height / 2,
+          x: width / 2 - halfWidth * Math.cos(angleRad),
+          y: height / 2 - halfWidth * Math.sin(angleRad),
           size,
           font,
           color: rgb(r, g, b),

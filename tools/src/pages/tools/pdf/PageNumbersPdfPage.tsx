@@ -12,6 +12,14 @@ type Position = "bottom-center" | "bottom-right" | "top-right";
 const MARGIN = 28;
 const FONT_SIZE = 10;
 
+function toContentPoint(rawWidth: number, rawHeight: number, rotation: number, visualX: number, visualY: number) {
+  const angle = ((rotation % 360) + 360) % 360;
+  if (angle === 90) return { x: rawWidth - visualY, y: visualX };
+  if (angle === 180) return { x: rawWidth - visualX, y: rawHeight - visualY };
+  if (angle === 270) return { x: visualY, y: rawHeight - visualX };
+  return { x: visualX, y: visualY };
+}
+
 export default function PageNumbersPdfPage() {
   const [file, setFile] = useState<File | null>(null);
   const [pageCount, setPageCount] = useState(0);
@@ -45,8 +53,9 @@ export default function PageNumbersPdfPage() {
   const handleApply = async () => {
     if (!file) return;
 
-    const start = Number.parseInt(startNumber, 10);
-    if (!Number.isInteger(start)) {
+    const trimmedStart = startNumber.trim();
+    const start = Number(trimmedStart);
+    if (trimmedStart === "" || !Number.isInteger(start)) {
       setError("Starting number must be a whole number");
       return;
     }
@@ -63,22 +72,27 @@ export default function PageNumbersPdfPage() {
 
       pages.forEach((page, index) => {
         const label = format.replace(/\{n\}/g, String(start + index)).replace(/\{total\}/g, String(total));
-        const { width, height } = page.getSize();
+        const { width: rawWidth, height: rawHeight } = page.getSize();
+        const rotation = page.getRotation().angle;
+        const isSideways = ((rotation % 180) + 180) % 180 === 90;
+        const dispWidth = isSideways ? rawHeight : rawWidth;
+        const dispHeight = isSideways ? rawWidth : rawHeight;
         const textWidth = font.widthOfTextAtSize(label, FONT_SIZE);
 
-        let x: number;
-        let y: number;
+        let visualX: number;
+        let visualY: number;
         if (position === "bottom-center") {
-          x = width / 2 - textWidth / 2;
-          y = MARGIN;
+          visualX = dispWidth / 2 - textWidth / 2;
+          visualY = MARGIN;
         } else if (position === "bottom-right") {
-          x = width - textWidth - MARGIN;
-          y = MARGIN;
+          visualX = dispWidth - textWidth - MARGIN;
+          visualY = MARGIN;
         } else {
-          x = width - textWidth - MARGIN;
-          y = height - MARGIN;
+          visualX = dispWidth - textWidth - MARGIN;
+          visualY = dispHeight - MARGIN;
         }
 
+        const { x, y } = toContentPoint(rawWidth, rawHeight, rotation, visualX, visualY);
         page.drawText(label, { x, y, size: FONT_SIZE, font });
       });
 
