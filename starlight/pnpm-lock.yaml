@@ -18,11 +18,11 @@ importers:
         specifier: ^6.0.0
         version: 6.0.5(@types/node@26.4.0)(@types/react-dom@19.2.5(@types/react@19.2.18))(@types/react@19.2.18)(esbuild@0.28.2)(jiti@2.7.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(supports-color@10.2.2)(yaml@2.9.0)
       '@astrojs/starlight':
-        specifier: 0.41.10
-        version: 0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)
+        specifier: 0.41.11
+        version: 0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)
       '@astrojs/starlight-tailwind':
         specifier: 5.0.0
-        version: 5.0.0(@astrojs/starlight@0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3))(tailwindcss@4.3.3)
+        version: 5.0.0(@astrojs/starlight@0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3))(tailwindcss@4.3.3)
       '@expressive-code/plugin-line-numbers':
         specifier: ^0.44.0
         version: 0.44.2
@@ -70,7 +70,7 @@ importers:
         version: 0.35.4(@types/node@26.4.0)
       starlight-package-managers:
         specifier: ^0.12.0
-        version: 0.12.0(@astrojs/starlight@0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3))
+        version: 0.12.0(@astrojs/starlight@0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3))
       tailwind-merge:
         specifier: ^3.0.0
         version: 3.6.0
@@ -230,8 +230,8 @@ packages:
       '@astrojs/starlight': '>=0.38.0'
       tailwindcss: ^4.0.0
 
-  '@astrojs/starlight@0.41.10':
-    resolution: {integrity: sha512-xE+OO2zzJkHPzc+giuFj+1c0sYw3//goo31PEksguNTd3XpXvV7TaJ0TzQzBUSCxYtBwWjAPkJfqR2W4aMQdhQ==}
+  '@astrojs/starlight@0.41.11':
+    resolution: {integrity: sha512-hM95Mbsl4l60SBwaNQA/HTxpOLGfeB5EfR9qY3kr0SsAVKUspCssjO0RVBsLiPAE6EA5xuORcCoz/Q6DTX+MuQ==}
     peerDependencies:
       '@astrojs/markdown-remark': ^7.2.0
       astro: ^7.0.2
@@ -891,9 +891,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@expressive-code/core@0.44.1':
-    resolution: {integrity: sha512-3dDo9N8D7hYrLNNMMWFovg3+aDUtnQm7c7z0GZc1c0LEFVBc0Q6lKG+tVT28gDadOvsgOANfCn35fgpe97Pmgg==}
 
   '@expressive-code/core@0.44.2':
     resolution: {integrity: sha512-Yw5KonQCD1HoOO2P89y4wifqS9qrJcGVY0LkVMUsVZjhi++bhz4WwQ37inenKFNOEVo50P7cjoVsCdaVnUbq8w==}
@@ -4906,12 +4903,12 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 4.5.4
 
-  '@astrojs/starlight-tailwind@5.0.0(@astrojs/starlight@0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3))(tailwindcss@4.3.3)':
+  '@astrojs/starlight-tailwind@5.0.0(@astrojs/starlight@0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3))(tailwindcss@4.3.3)':
     dependencies:
-      '@astrojs/starlight': 0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)
+      '@astrojs/starlight': 0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)
       tailwindcss: 4.3.3
 
-  '@astrojs/starlight@0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)':
+  '@astrojs/starlight@0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:
       '@astrojs/markdown-satteri': 0.3.8
       '@astrojs/mdx': 7.0.8(@astrojs/markdown-satteri@0.3.8)(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)
@@ -5412,18 +5409,6 @@ snapshots:
   '@esbuild/win32-x64@0.28.2':
     optional: true
 
-  '@expressive-code/core@0.44.1':
-    dependencies:
-      '@ctrl/tinycolor': 4.2.0
-      hast-util-select: 6.0.4
-      hast-util-to-html: 9.0.5
-      hast-util-to-text: 4.0.2
-      hastscript: 9.0.1
-      postcss: 8.5.26
-      postcss-nested: 6.2.0(postcss@8.5.26)
-      unist-util-visit: 5.1.0
-      unist-util-visit-parents: 6.0.2
-
   '@expressive-code/core@0.44.2':
     dependencies:
       '@ctrl/tinycolor': 4.2.0
@@ -5438,7 +5423,7 @@ snapshots:
 
   '@expressive-code/plugin-frames@0.44.1':
     dependencies:
-      '@expressive-code/core': 0.44.1
+      '@expressive-code/core': 0.44.2
 
   '@expressive-code/plugin-line-numbers@0.44.2':
     dependencies:
@@ -5446,12 +5431,12 @@ snapshots:
 
   '@expressive-code/plugin-shiki@0.44.1':
     dependencies:
-      '@expressive-code/core': 0.44.1
+      '@expressive-code/core': 0.44.2
       shiki: 4.4.3
 
   '@expressive-code/plugin-text-markers@0.44.1':
     dependencies:
-      '@expressive-code/core': 0.44.1
+      '@expressive-code/core': 0.44.2
 
   '@fontsource/fira-code@5.3.0': {}
 
@@ -6143,7 +6128,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 24.13.3
+      '@types/node': 26.4.0
 
   '@types/unist@2.0.11': {}
 
@@ -7109,7 +7094,7 @@ snapshots:
 
   expressive-code@0.44.1:
     dependencies:
-      '@expressive-code/core': 0.44.1
+      '@expressive-code/core': 0.44.2
       '@expressive-code/plugin-frames': 0.44.1
       '@expressive-code/plugin-shiki': 0.44.1
       '@expressive-code/plugin-text-markers': 0.44.1
@@ -9185,9 +9170,9 @@ snapshots:
 
   sprintf-js@1.0.3: {}
 
-  starlight-package-managers@0.12.0(@astrojs/starlight@0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)):
+  starlight-package-managers@0.12.0(@astrojs/starlight@0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
-      '@astrojs/starlight': 0.41.10(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)
+      '@astrojs/starlight': 0.41.11(astro@7.2.10(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(jiti@2.7.0)(yaml@2.9.0))(supports-color@10.2.2)(typescript@6.0.3)
 
   statuses@2.0.2: {}
 
