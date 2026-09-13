@@ -63,5 +63,5 @@
     "vite": "^8.0.0",
     "wrangler": "^4.0.0"
   },
-  "packageManager": "pnpm@11.27.0"
+  "packageManager": "pnpm@12.4.1"
 }
