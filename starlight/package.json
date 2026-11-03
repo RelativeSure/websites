@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
-    "@lhci/cli": "0.15.1",
+    "@lhci/cli": "0.16.0",
     "depcheck": "1.4.7",
-    "wrangler": "4.156.1"
+    "wrangler": "4.156.2"
   }
 }
