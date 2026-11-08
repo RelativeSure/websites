@@ -9,7 +9,7 @@ A visual portfolio for showcasing creative work, built with [EmDash](https://git
 ## What's Included
 
 - Project grid with hover effects
-- Tag-based filtering on the work page
+- Tag-based filtering on the work pages
 - Individual project pages with galleries
 - About and contact pages
 - RSS feed for new projects
