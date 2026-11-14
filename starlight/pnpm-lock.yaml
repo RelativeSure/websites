@@ -228,7 +228,7 @@ importers:
         version: 0.35.5(@types/node@26.6.6)
       starlight-package-managers:
         specifier: ^0.13.0
-        version: 0.13.0(@astrojs/starlight@0.43.1(astro@7.4.12(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3))
+        version: 0.13.1(@astrojs/starlight@0.43.1(astro@7.4.12(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3))
       tailwind-merge:
         specifier: ^3.0.0
         version: 3.7.0
@@ -3726,8 +3726,8 @@ packages:
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
 
-  starlight-package-managers@0.13.0:
-    resolution: {integrity: sha512-Jcvx7oLA2hWlNMsYI42Ny5vZ0lZov18M/0+aiXmY59Wo+GmhTjJPRpGEbIN0yJsGLoJPFTegcMArjNVU0SvROQ==}
+  starlight-package-managers@0.13.1:
+    resolution: {integrity: sha512-lD3hp+RBetHDWtOLa/rgG2cyLY4qV0GAWMl59hn++HkagcnFIkWT0oHsws2pMwBZHCO+iJ86jWRtSD4kfU6N3g==}
     peerDependencies:
       '@astrojs/starlight': '>=0.32.0'
 
@@ -8064,7 +8064,7 @@ snapshots:
 
   sprintf-js@1.0.3: {}
 
-  starlight-package-managers@0.13.0(@astrojs/starlight@0.43.1(astro@7.4.12(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3)):
+  starlight-package-managers@0.13.1(@astrojs/starlight@0.43.1(astro@7.4.12(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3)):
     dependencies:
       '@astrojs/starlight': 0.43.1(astro@7.4.12(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.1))(supports-color@10.2.2)(typescript@6.0.3)
 
